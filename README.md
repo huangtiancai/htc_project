@@ -1,5 +1,5 @@
 # project
-SPA site for displaying owner project built with angular，模板仿慕课
+SPA site for displaying owner project built with angular
 
 [Online Site](https://project.totiancai.com/)
 
