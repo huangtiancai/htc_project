@@ -2,6 +2,7 @@
     "name": "project",
     "version": "1.1.0",
     "license": "MIT",
+    "homepage":"https://huangtiancai.github.io/project",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
