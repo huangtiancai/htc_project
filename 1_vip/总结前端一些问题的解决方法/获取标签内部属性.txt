@@ -1,0 +1,4 @@
+
+只可以先通过document.getElementById(""),等之类的获取的方法，再可以通过.属性获取并设置标签内的属性
+
+也可以用jQuery的.attr("src",""),来设置或获取

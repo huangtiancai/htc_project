@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title>Banner 太平洋时尚网 --krry</title>
+  <style type="text/css">
+    *{margin:0;padding:0}
+	ul li{list-style:none;}
+	.box{width:738px;margin:50px auto;position:relative;height:430px;overflow:hidden;}
+	.box #slid ul li{display:none;position:absolute;top:0;left:0;}
+	.ear .ee{background:url("images/arrow.png");width:70px;height:70px;position:absolute;top:50%;margin-top:-35px;cursor:pointer;}
+	.ear #prev{background-position:0 0;}
+	.ear #next{background-position:0 70px;right:0;}
+	.ear #prev:hover{background-position:-70px 0;}
+	.ear #next:hover{background-position:-70px -70px;}
+	.box #tab{border-radius:10px;position:absolute;bottom:12px;margin-left:-55px;left:50%;background:rgba(255,255,255,.5);}
+	.box #tab a{width:12px;height:12px;background:#fff;border-radius:50%;display:block;float:left;margin:5px;}
+  </style>
+ </head>
+ <body>
+	<div class="box">
+		<div id="slid">
+			<ul>
+				<li style="display:block;">
+					<a href="#">
+						<img src="images/st1.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st2.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st3.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st4.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st5.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="ear">
+			<div class="ee" id="prev"></div>
+			<div class="ee" id="next"></div>
+		</div>
+		<div id="tab">
+			<a href="javascript:void(0);" style="background:red;"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+		</div>
+	</div>
+	<script>
+		var box = document.getElementsByClassName("box");
+		var slid = document.getElementById("slid");
+		var tab = document.getElementById("tab");
+		var big = slid.getElementsByTagName("li");
+		var tabA = tab.getElementsByTagName("a");
+		var pre = document.getElementById("prev");
+		var nex = document.getElementById("next");
+		var timer = null; //定时器
+		var last = 0; //记录当前图片的index
+		for(var i = 0;i < tabA.length;i++){
+			tabA[i].index = i;
+			tabA[i].onmouseover = function(){
+				if(last != this.index){
+					big[this.index].style.display = "block";
+					big[last].style.display = "none";
+					tabA[this.index].style.background = "red";
+					tabA[last].style.background = "#fff";
+					last = this.index;
+				}
+			}
+		}
+
+		function prev(){
+			if(last > 0){
+				last -= 1;
+				big[last+1].style.display = "none";	
+				tabA[last+1].style.background = "#fff";
+			}
+			else if(last == 0){
+				last = 4;
+				big[0].style.display = "none";
+				tabA[0].style.background = "#fff";
+			}
+			big[last].style.display = "block";
+			tabA[last].style.background = "red";
+		}
+
+		function next(){
+			if(last < 4){
+				last += 1;
+				big[last-1].style.display = "none";
+				tabA[last-1].style.background = "#fff";
+			}
+			else if(last == 4){
+				last = 0;
+				big[4].style.display = "none";
+				tabA[4].style.background = "#fff";
+			}
+			tabA[last].style.background = "red";
+			big[last].style.display = "block";
+		}
+
+		//当鼠标点击左耳朵
+		pre.onclick = function(){
+			prev();
+		}
+		//当鼠标点击右耳朵
+		nex.onclick = function(){
+			next();
+		}
+
+		function autoplay(){
+			timer = setInterval(function(){
+				next();
+			},2000);
+		}
+		box[0].onmouseover = function(){
+			clearInterval(timer);
+		}
+		box[0].onmouseout = function(){
+			autoplay();
+		}
+		autoplay();
+	</script>
+  </body>
+</html>

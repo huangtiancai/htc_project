@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            position:absolute;
+        }
+        div{
+            width:100px;
+            height:100px;
+            background: #000;
+            position:absolute;
+            top:300px;
+        }
+    </style>
+</head>
+<body>
+<img src="2.jpg" id="img" alt="">
+<div id="box"></div>
+<script>
+    var oImg = document.getElementById('img');
+    var oBox = document.getElementById('box');
+    Darg(oImg);
+    Darg(oBox);
+    function Darg(obj){
+
+        obj.onmousedown = function (e) {
+            var e = e||window.event;
+            var l = e.clientX - obj.offsetLeft;
+            var t = e.clientY - obj.offsetTop;
+
+            document.onmousemove = function(e){
+                var e = e || window.event;
+                obj.style.left = e.clientX -l + 'px';
+                obj.style.top = e.clientY -t + 'px';
+            }
+            document.onmouseup = function () {
+				//清除鼠标移动和鼠标抬起事件
+                document.onmousemove = document.onmouseup = null;
+            }
+			//对图片拖拽，必须阻止浏览器的默认拖拽图片行为
+            return false;
+        }
+
+
+    }
+
+</script>
+</body>
+</html>

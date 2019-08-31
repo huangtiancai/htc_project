@@ -1,0 +1,147 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>bootstrap项目 --krry</title>
+	<style type="text/css">
+	  *{margin:0;padding:0;}
+	  body{font-family:"微软雅黑";background:#EEEEEE;}
+	  a{color:#333;}
+	  .word{text-indent:2em;line-height:24px;color:#666;}
+	  #console{font-size:16px;}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script>
+	   $(function(){
+	       $(".changeSize").click(function(){
+			   var fsize = $(this).data("size");
+		      $(".word").css("font-size",fsize);
+		   });
+	   });
+	   </script>
+	
+  </head>
+  <body>
+<!--采用12栅布局 
+    布局+响应式+（@meida）+流式布局
+	container
+	  row 
+	    col-lg(>1200)/md(>=992)/xs/sm
+--> <div id="console" style="padding:50px;">
+     
+
+	</div>
+	<div id="box" style="display:none;">
+	孩子们：请听我说！
+    此刻，
+    你的好多细胞在分裂，
+    有丝，减数，哪管白天和黑夜。
+    染色体，细胞核时隐时现，
+    生物膜系统组装又拆分，变幻莫测；
+    核糖体在mRNA上穿梭忙碌，
+    几千种酶各司其职，将活化能狠狠打折。
+
+    来啦！
+    神经，体液，免疫，维稳的三巨头，
+    任务紧急：维稳压倒一切！
+    反射弧和各中枢率领众激素 ，
+    吭哧，吭哧，，，，，，正在调节。
+
+    你吃过：
+    数以吨记的鱼肉和五谷，
+    而你的肉体，拧干后，
+    仅残存十多公斤的有机物。
+
+    你同化的物质和能量，散落何处？
+    那些年，我们一起追过的碳，氢，氧，氮，硫，
+    有没有飞向无边的天空，
+    呵，面对这些变态的试题
+  
+    你为何如此傲娇？
+    难道神经递质全释放？
+    难道分级调节正反馈了？
+    难道甲状腺激素肾上腺素分泌失调?
+    难道是青春期荷尔蒙带来了烦恼？
+
+    你消耗了过多的ATP，
+    你面红耳赤，血浆渗透压偏高
+    你呼吸急促，脑干兴奋
+    线粒体满负荷，二氧化碳太多了！
+
+    你长时间地伏案劳作，
+    你的身体，
+    多像单侧光照射过的麦苗！
+
+    苦逼的日子将要结束，
+    HAPPY时光即将到来！
+    高三这一年，你成长为高考高手
+    你收获了友谊，还有那朦朦胧胧的爱
+    你收获了我的祝福
+    也收获了我唠叨
+
+孩子们：策马扬鞭，启程飞奔吧，祝福你们！
+
+    感谢大家耐心聆听！
+    辛勤付出，必有收获！
+    祝各位高考取得好成绩！
+	</div>
+	<script>
+	  window.onload = function(){
+	     //获取目标元素信息
+		 var boxDom = document.getElementById("box");
+		 //以换行进行分割
+		 var htmlArr = boxDom.innerHTML.trim().split("\n"); //每一行存进数组
+		 //1：javascript中数据的截取或者单个字符的获取
+		 //2：动画函数setTimeout setInterval
+
+		 var consoleDom = document.getElementById("console");
+		 var str = "";
+		 var index = 0;  //每一行的索引
+		 var cindex = 0; //数组htmlArr的下标
+
+		 function updata(){
+			 if(cindex >= htmlArr.length) return;
+			  str = htmlArr[cindex];
+			  if(index >= str.length){  //当每一行打印完毕，换行
+			     index = 0;  //每一行索引清零
+				 cindex++;   //数组下标++
+				 consoleDom.innerHTML += "<BR>"; //换行
+			  }else{
+		        consoleDom.innerHTML += "<span style='color:"+randomColor()+"'>"+str.charAt(index)+"</span>";
+			    index++;
+			  }
+		        setTimeout(updata,50);  //只执行一次
+		 }
+		updata();
+
+		//产生随机颜色
+		function randomColor(){
+		   var r = Math.floor(Math.random()*256);
+		   var g = Math.floor(Math.random()*256);
+		   var b = Math.floor(Math.random()*256);
+		   return "rgb("+r+","+g+","+b+")";
+		}
+		  
+	/*	 function updata(){
+		    setInterval(function(){ //每隔一段时间执行一次
+			  str = htmlArr[cindex];
+			  if(index >= str.length){  //当每一行打印完毕，换行
+			     index = 0;  //每一行索引清零
+				 cindex++;   //数组下标++
+				 consoleDom.innerHTML += "<BR>"; //换行
+			  }else{
+		        consoleDom.innerHTML += str.charAt(index);
+			    index++;
+			  }
+		   },50);
+		 }
+		 if(cindex < htmlArr.length){
+		    updata();
+		 }
+		 
+		 */
+
+	  };
+	</script>
+  </body>
+</html>

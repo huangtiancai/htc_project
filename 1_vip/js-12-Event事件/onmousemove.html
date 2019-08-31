@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			#box{
+				width:100px;
+				height:100px;
+				background:black;
+				position:absolute;
+			}
+		</style>
+
+		<script type="text/javascript">
+
+			/*
+				e.clientX/Y 鼠标到浏览器窗口的距离 鼠标相对于浏览器窗口左上角的偏移（其值不会受滚动条影响，相对于滚动条当前的位置的浏览窗口的Y值）
+
+				e.pageX/Y  鼠标到整个文档顶部的距离 鼠标相对于页面左上角的偏移 (其值会受滚动条的影响，相当于整个文档，整个页面的Y的值)
+			    IE9之下并不支持这个属性
+
+				注意clientY和pageY的区别，pageY在页面无滚动条或滚动条下拉0的情况下值等同于clientY
+			*/
+			window.onload = function(){
+				/*
+					onmousemove ：当鼠标在一个元素上面移动的时候触发事件
+					触发不px为间隔，而是以时间为间隔，移动越慢，执行越多，
+				*/
+				var i = 0;
+				document.onclick = function(e){
+					var e = e || window.event;
+					alert(e.clientY);
+					alert(e.pageY);
+				}
+				var oBox = document.getElementById("box");
+				document.onmousemove = function(e){
+					
+					//document.title = i++;
+
+					var e = e || window.event;
+					var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					oBox.style.left = e.pageX+'px';
+					oBox.style.top = e.pageY +'px';
+				}
+			}
+		</script>
+
+	</head>
+	<body style="height:1500px;">
+		<div id="box"></div>
+	</body>
+</html>

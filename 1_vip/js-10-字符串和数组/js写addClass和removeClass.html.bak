@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			#box{width:200px;height:200px;margin:80px auto;background:orange;border-radius:50%;}
+			#btn1{width:100px;height:30px;margin-left:-113px;position:relative;left:50%;cursor:pointer;}
+			#btn2{width:100px;height:30px;margin-left:15px;position:relative;left:50%;cursor:pointer;}
+			.quote{animation:play 2s ease-in-out infinite alternate;}
+			#box.fen{background:pink;}
+
+			@keyframes play{
+				100%{transform:scale(1.8);opacity:.3;}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<input type="button" id="btn1" value="点击添加动画"/>
+		<input type="button" id="btn2" value="点击添加粉色"/>
+		<script>
+			var btn1 = document.getElementById("btn1");
+			var btn2 = document.getElementById("btn2");
+			var box = document.getElementById("box");
+			var close1 = true; //做一把锁
+			var close2 = true; //做一把锁
+			btn1.onclick = function(){
+				if(close1){
+					addClass(box,"quote");
+					btn1.value = "点击删除动画";
+					close1 = false;
+				}else{
+					removeClass(box,"quote");
+					btn1.value = "点击添加动画";
+					close1 = true;
+				}
+			}
+
+			btn2.onclick = function(){
+				if(close2){
+					addClass(box,"fen");
+					btn2.value = "点击删除粉色";
+					close2 = false;
+				}else{
+					removeClass(box,"fen");
+					btn2.value = "点击添加粉色";
+					close2 = true;
+				}
+			}
+
+			function addClass(obj,cla){
+				if(obj.getAttribute("class") == null || obj.getAttribute("class").length == 0){
+					obj.className += cla;
+				}else{
+					var info = obj.getAttribute("class");
+					if(info.charAt(info.length-1) == " "){ //判断最后一个字符是不是空白
+						obj.className += cla;
+					}else{
+						obj.className += " "+cla;
+					}
+				}
+			}
+			function removeClass(obj,cla){
+				var count = "";  //记录剩下的样式
+				var info = obj.getAttribute("class");//获取当前的样式
+				var cas = info.split(" "); //以空格分割字符串，保证截取到每个样式
+				for(var i = 0;i < cas.length;i++){
+					if(cas[i] != cla){
+						if(i == cas.length-1){ //如果是最后元素
+							count += cas[i];  //把剩余的样式拼接到字符串count
+						}else{
+							count += cas[i]+" ";  //把剩余的样式拼接到字符串count
+						}
+					}
+				}
+				obj.className = count;
+			}
+		</script>
+	</body>
+</html>

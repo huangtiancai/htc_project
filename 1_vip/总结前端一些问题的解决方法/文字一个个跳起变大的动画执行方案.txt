@@ -1,0 +1,36 @@
+
+先把每个文字用span标签包起来
+
+
+@keyframes playd{
+		50%{transform:scale(1.3) translateY(-30px);}
+		100%{transform:scale(1) translateY(0);}
+	}
+.footD{animation:playd 0.5s;}
+
+定义定时器1，
+
+执行定时器，每隔6秒执行，定时器里面再定义一个能关闭的定时器ckck，来添加文字跳起变大的动画样式
+
+为了能按时移除这个样式，必须在添加完所有文字的动画样式后再移除样式，为此，移除样式和关闭ckck的定时器必须与定时器1以相同的时间执行，第一次执行必须必定时器1慢3400毫秒（添加完动画的时间左右）。
+所以，在移除样式的定时器外面加一个只执行一次的定时器setTimeout，设定时间3400毫秒左右即可
+
+var iw = -1;
+var ckck = null;
+var span = $(".foot span");
+//欢迎语的动画
+setInterval(function(){
+	ckck = setInterval(function(){
+	span.eq(++iw).addClass("footD");
+	},300);
+},6000);
+
+setTimeout(function(){
+	setInterval(function(){
+	clearInterval(ckck);
+	iw = -1;
+	for(var j = 0;j < span.length;j++){
+		span.eq(j).removeClass("footD");
+	}
+	},6000);
+},3400);

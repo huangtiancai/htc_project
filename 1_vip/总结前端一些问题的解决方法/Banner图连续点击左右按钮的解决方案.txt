@@ -1,0 +1,15 @@
+
+设置时间差  两次执行事件的时间差必须大于500毫秒
+$(".right").click(function(){
+	if(new Date() - nowTime > 500){
+		nowTime = new Date();
+		.....
+	}
+});
+
+$(".left").click(function(){
+	if(new Date() - nowTime > 500){
+		nowTime = new Date();
+		.....
+	}
+});

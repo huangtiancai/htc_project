@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>js纯手写无缝滚动 --krry</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			ul li{list-style:none;}
+			#container{height:105px;margin:100px auto;width:660px;position:relative;overflow:hidden;}
+			#box{height:105px;position:absolute;left:0;}
+			#container #box li{float:left;}
+			.ear{position:absolute;top:50%;margin-top:-25px;width:25px;height:50px;background:rgba(130, 123, 123, 0.6);color:#fff;cursor:pointer;font-size:28px;text-align:center;line-height:50px;}
+			#left{border-radius:0px 20px 20px 0px;}
+			#right{right:0;border-radius:20px 0 0 20px;}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="box">
+				<ul id="ul">
+					<li><a href="#"><img src="images/1.jpg"/></a></li>
+					<li><a href="#"><img src="images/2.jpg"/></a></li>
+					<li><a href="#"><img src="images/3.jpg"/></a></li>
+					<li><a href="#"><img src="images/4.jpg"/></a></li>
+				</ul>
+			</div>
+			<div>
+				<div id="left" class="ear">&lt;</div>
+				<div id="right" class="ear">&gt;</div>
+			</div>
+		</div>
+		<script>
+			window.onload = function(){
+				var box = document.getElementById("box");
+				var ul = document.getElementById("ul");
+				var li = ul.getElementsByTagName("li");
+				var left = document.getElementById("left");
+				var right = document.getElementById("right");
+				//设置2倍图片，滚动时要用
+				ul.innerHTML += ul.innerHTML;
+				//设置box的宽度
+				box.style.width = li.length*li[0].offsetWidth+"px";
+				var time = null;
+				//offsetLeft 距定位的父级元素左边的距离
+				//offsetWidth 获取元素的宽度
+
+				var speed = -4; //设置一开始向左移动
+				function play(){
+					time = setInterval(function(){
+						//当移动完一波的时候，重新开始，因为包裹图片的宽度是两倍的
+						if(box.offsetLeft < -box.offsetWidth/2){
+							box.style.left = 0;
+						}
+						if(box.offsetLeft>0){
+							box.style.left = -box.offsetWidth/2 + "px";
+						}
+						box.style.left = box.offsetLeft + speed + "px";
+					},30);
+				}
+				play();
+
+				box.onmouseover = function(){
+					clearInterval(time);
+				}
+				box.onmouseout = function(){
+					play();
+				}
+
+				left.onclick = function(){
+					speed = -4;
+				}
+				right.onclick = function(){
+					speed = 4;
+				}
+			}
+		</script>
+	</body>
+</html>

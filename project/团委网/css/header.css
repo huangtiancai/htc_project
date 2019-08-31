@@ -1,0 +1,14 @@
+/*header start*/
+.header{min-width: 1200px;height:152px;background:rgba(105, 25, 23, 1);}
+.header .h_con{width:1160px;margin:0 auto;height:100%;border:1px solid transparent;}
+.header .h_con .h_con_a{float:right;margin-top:8px;color:#fff;font-size:12px;}
+.header .h_con .h_con_logo{margin-top:24px;margin-bottom:12px;}
+.header .h_con .h_con_nav{z-index:2;width:1160px;height:60px;position:relative;margin:0 auto;border-radius:10px 10px 0 0;}
+.header .h_con .h_con_nav li{float:left;width:116px;height:60px;position:relative;z-index:2;}
+.header .h_con .h_con_nav li:first-child a{border-radius:10px 0 0 0;}
+.header .h_con .h_con_nav li:last-child a{border-radius:0 10px 0 0;}
+.header .h_con .h_con_nav li a{display:block;color:#fff;font-size:16px;height:60px;text-align:center;line-height:60px;}
+.header .h_con .h_con_nav li a:hover{background:#961414;}
+.header .h_con .h_con_nav .nav_list{width:116px;background:rgba(105, 25, 23, 1);;display:none;}
+.header .h_con .h_con_nav .nav_list a{font-size:14px;height:40px;line-height:40px;}
+/*end header*/

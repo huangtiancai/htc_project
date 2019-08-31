@@ -1,0 +1,371 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<meta name="keywords" content="krry注册界面">
+	<meta name="description" content="注册">
+	<title>krry注册界面 --Krry</title>
+	<link rel="stylesheet" type="text/css" href="css/bgstretcher.css" />
+	<style type="text/css">
+	  *{margin:0;padding:0;}
+	  body{width:100%;height:100%;}
+
+	  /*head start*/
+	  .head{width:100%;height:65px;text-align:center;line-height:65px;background:rgba(0, 0, 0, 0.29);
+	        text-shadow:4px 4px 4px #FF9C47;color:#fff;font-size:32px;
+			font-family:"微软雅黑";font-weight:bold;position:relative;}
+	  .head img{position:absolute;top:7px;left:7px;}
+	  /*head end*/
+
+	  /*load start*/
+	  .load{width:634px;height:516px;margin:0px auto;border-radius:20px;top:0;
+	        position:relative;}
+	  .pure{width:630px;height:460px;background:#fff;opacity:0.4;margin:30px auto;
+	        border-radius:15px;}
+	  .load .wel{position:absolute;top:40px;width:475px;}
+	  .load h1{-webkit-text-fill-color:transparent;float:right;
+	           background:-webkit-gradient(linear,left top,left bottom,from(#FD0051),to(#A22C93));font-size:38px;-webkit-background-clip:text;}
+	  .load input{height:35px;width:300px;float:left;border-radius:5px;border:0;outline:none;
+	              font-size:18px;text-indent:10px;font-weight:700;}
+	  .load #pass{letter-spacing:2px;} /*增加或减少字符间的空白(字符间距)*/
+	  .load span{float:left;line-height:35px;font-size:18px;font-family:"微软雅黑";
+	             margin-left:76px;}
+	  .load .load_mes{width:630px;height:36px;position:absolute;top:115px;}
+	  .load .load_pass{width:630px;height:36px;position:absolute;top:190px;}
+	  .load_pass2{position:absolute;top:190px;display:none;width:630px;}  /*显示密码*/
+	  .pass_img{width:34px;top:190px;left:428px;height:32px;position:absolute;
+	            background:url("img/02.jpg") 0 5px no-repeat;cursor:pointer;}
+	  .load .load_again{width:630px;height:36px;position:absolute;top:265px;}
+	  .load .btn{width:486px;height:45px;position:absolute;top:355px;}
+	  .load button{width:90px;height:45px;position:relative;left:145px;margin-left:53px;
+	               float:left;border-radius:10px;cursor:pointer;border:0;outline:none;
+				   font-size:22px;font-family:"楷体";}
+	  .load .btn #supper{background:#529fed;color:#fff;transition:1s;}
+	  .load .btn #supper:hover{background:#f9741c;color:#000;transition:1s;
+	                      transform:rotate(360deg);}
+	  .load .btn #repeat{background:##f3f3f3;color:#000;transition:1s;}
+	  .load .btn #repeat:hover{background:#fc0101;color:#fff;transition:1s;
+	                transform:rotate(360deg);}
+	  /*load end*/
+
+
+	  /*引用样式*/
+	  .quote{font-family:"微软雅黑";font-size:14px;line-height:33px;color:#fa5b5b;}
+	  .quotePass{font-family:"微软雅黑";font-size:14px;line-height:33px;color:#ff9933;}
+	  .divEorr{background:url("img/sprite.png") -58px -97px no-repeat;width:24px;height:22px;
+	           float:left;margin-top:5px;}
+	  .divCorr{background:url("img/sprite.png") -22px -97px no-repeat;width:24px;height:22px;
+	           float:left;margin-top:5px;}
+	</style>
+
+	<!--javascript 入口-->
+	<!--导入jquery包-->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/bgstretcher.js"></script>
+	<script type="text/javascript">
+	   $(function(){
+	      var $p = $("<p></p>");
+		  var $divEorr = $("<div></div>");
+		  var $divCorr = $("<div></div>");
+		  var $loadMes = $(".load_mes");
+		  var $mes = $("#mes"); //邮箱域
+		  var $email = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;/*邮箱正则表达式，（要用斜杠包含  $匹配字符串的结尾，在多行检索中，匹配一行的结尾）
+			^是匹配的字符开头,
+			\w匹配的是字母,数字,下划线,
+			[-+.] 表示捕获的字符可以是 -(减号) +(加号) .(半角句号)*/
+		  var count = false;  //定义bool值判断是否输入邮箱正确，正确则触发密码域的提示信息
+
+		  function clearmail(){
+		      $divEorr.remove();  //删除$divEorr盒子
+			  $divCorr.remove();  //删除$divEorr盒子
+			  $p.remove();    //删除$p标签
+			  $p.empty($loadMes);//删除$loadMes盒子里面的$p里的内容
+		  }
+
+		  function EorrEmpty(){  //邮箱空的方法
+		     clearmail();
+	 		 $p.append("请先设置您的邮箱");
+			 $p.addClass("quote");
+			 $divEorr.addClass("divEorr");
+			 $loadMes.append($divEorr);
+			 $loadMes.append($p);
+		  }
+
+		  function EorrStyle(){  //邮箱格式不正确的方法
+		     clearmail();
+			 $p.append("请输入正确的邮箱格式");
+		     $p.addClass("quote");
+			 $divEorr.addClass("divEorr");
+			 $loadMes.append($divEorr);
+			 $loadMes.append($p);
+		  }
+
+		  function Eorrmass(){   //封装提示信息的方法
+		     if(!$email.test($mes.val()) && $mes.val()!=""){//如果不符合邮箱的正则表达式
+				 EorrStyle();
+				 count = false;
+			 }
+			 else if($mes.val()==""){  //如果文本框为空
+			     EorrEmpty();
+				 count = false;
+			 }
+			 else{    //正确的时候
+				 clearmail();
+				 $divCorr.addClass("divCorr");
+				 $loadMes.append($divCorr);
+				 count = true;  //输入邮箱正确，触发密码域的提示信息功能
+			 }
+		  }
+		  $mes.blur(function(){  //邮箱域失焦的时候
+		      Eorrmass();
+		  });
+		  var $pF = $("<p></p>");
+		  var $pFCorr = $("<p></p>");
+		  var $pS = $("<p></p>");
+		  var $pasF = $("#passFir");   //密码域
+		  var $pasS = $("#passSec");      //重输密码域
+		  var $pasF2 = $("#passFir2");   //文本域
+		  var $divPas2 = $(".load_pass2"); //文本域所在的盒子
+		  var $loadPas = $(".load_pass");  //密码域所在的盒子
+		  var $loadAga = $(".load_again");  //重输密码域所在的盒子
+		  var $img = $(".pass_img");   //眼睛图标
+		  var $divPasE = $("<div></div>");
+		  var $divPasC = $("<div></div>");
+		  var $divRepE = $("<div></div>");
+		  var $divRepC = $("<div></div>");
+		  var $passwords = null;
+		  var $Repasswords = null;
+		  var passwords = false;//判断密码格式是否正确，正确则触发重输密码域的提示信息
+		  var repasswords = false;//判断重输密码是否正确，正确则触发注册按钮的地址
+
+		  var $showPass = null;  //临时储存的密码，用于控制密码显示
+		  var img = true;  //做一把锁，控制显示密码，默认true
+		  $img.click(function(){
+			  if(img){
+				 $(this).css("background","url('img/02.jpg') 0px -51px no-repeat");
+			     $showPass = $pasF.val();  //获取密码域的信息
+			     $pasF2.val($showPass);  //赋值到文本域
+		         $divPas2.show();  //文本域所在的盒子显示
+			     $loadPas.hide();   //密码域隐藏
+				 img = false;  //执行完后，设置false，则下一次点击执行的是else语句
+			  }
+			  else{
+				 $(this).css("background","url('img/02.jpg') 0 5px no-repeat");
+			     $showPass = $pasF2.val(); //获取文本域的信息 
+			     $pasF.val($showPass);  //赋值到密码域 
+		         $loadPas.show();   //密码域所在的盒子显示
+			     $divPas2.hide();  //文本域所在的盒子隐藏
+				 img = true; //执行完后，设置true，则下一次点击执行的是if语句
+			  }
+			  remindmas();
+		  });
+
+		  function clearPass(){  //密码域或和文本域提示信息的清除
+		      $divPasE.remove();
+			  $divPasC.remove(); 
+			  $pF.remove();
+			  $pF.empty($loadPas);
+			  $pF.empty($divPas2);
+			  $pFCorr.remove();  
+			  $pFCorr.empty($loadPas);
+			  $pFCorr.empty($divPas2);
+		  }
+
+		  function remindmas(){  //密码域的提示信息
+			 if(img){  //如果点击了隐藏密码，即img=true,则获取的是密码域的内容来判断
+		         $passwords = $pasF.val(); //获取密码域的内容
+			 }else{   //如果点击了显示密码，即img=false,则获取的是文本域的内容来判断
+			     $passwords = $pasF2.val(); //获取文本域的内容
+			 }
+			 if($passwords == ""){
+				 clearPass();
+			     $pF.append("请先输入密码");
+				 $pF.addClass("quote");
+				 $divPasE.addClass("divEorr");
+				 if(!img){
+				    $divPas2.append($divPasE);
+				    $divPas2.append($pF);
+			     }else{
+				    $loadPas.append($divPasE);
+				    $loadPas.append($pF);
+			     }
+				 passwords = false;
+			 }
+		     else if($passwords.length < 6){
+				 clearPass();
+			     $pF.append("密码长度必须大于6");
+				 $pF.addClass("quote");
+				 $divPasE.addClass("divEorr");
+				 if(!img){
+				    $divPas2.append($divPasE);
+				    $divPas2.append($pF);
+			     }else{
+				    $loadPas.append($divPasE);
+				    $loadPas.append($pF);
+			     }
+				 passwords = false;
+			 }
+			 else if($passwords.length == 20){
+				 clearPass();
+			     $pFCorr.append("密码长度已经达到20");
+				 $pFCorr.addClass("quotePass");
+				 $divPasC.addClass("divCorr");
+				 if(!img){
+				    $divPas2.append($divPasC);
+				    $divPas2.append($pFCorr);
+			     }else{
+			  	    $loadPas.append($divPasC);
+				    $loadPas.append($pFCorr);
+			     }
+				 passwords = true;  //输入密码正确，触发重输密码域的提示信息功能
+			 }
+			 else{
+				 clearPass();
+				 $divPasC.addClass("divCorr");
+				 if(!img){
+				    $divPas2.append($divPasC);
+			     }else{
+			 	    $loadPas.append($divPasC);
+			     }
+				 passwords = true;  //输入密码正确，触发重输密码域的提示信息功能
+			 }
+		  }
+
+   //判断当用户一开始先聚焦密码域或重输密码域的时候，也就是还没输入邮箱时，提示必要的信息
+   //这里不用设置当已经输入邮箱(不一定格式正确)的时候，提示的信息，因为上面已经设置了当失焦的//时候就会提示某些必要信息(聚焦密码域或重输密码域也属于邮箱域的失焦)
+		  $pasF.focus(function(){
+		      if(!count && $mes.val()==""){
+				 EorrEmpty();
+			  } 
+		  });
+		  $pasS.focus(function(){
+		      if(!count && $mes.val()==""){
+				 EorrEmpty();
+			  }
+		  });
+
+		  $pasF.blur(function(){ //密码域失焦的时候
+			  if(count){   //当邮箱域输入正确后才会显示密码域的提示信息
+			    remindmas();
+			  }
+		  });
+		  $pasF2.blur(function(){ //文本域失焦的时候
+			  if(count){   //当邮箱域输入正确后才会显示文本域的提示信息
+			    remindmas();
+			  }
+		  });
+
+		  function clearRePass(){  //重输密码域的清除
+		      $divRepE.remove();
+			  $divRepC.remove(); 
+			  $pS.remove();  
+			  $pS.empty($loadAga);
+		  }
+
+		  function remainRemas(){
+		      $Repasswords = $pasS.val(); //获取重输密码域的内容
+			  if($Repasswords.length == ""){
+			     clearRePass();
+			     $pS.append("请再次输入密码");
+			     $pS.addClass("quote");
+			     $divRepE.addClass("divEorr");
+	     	     $loadAga.append($divRepE);
+			     $loadAga.append($pS);
+				 repasswords = false;
+			 }
+			 else if($Repasswords == $passwords){
+	     	     clearRePass();
+			     $divRepC.addClass("divCorr");
+			     $loadAga.append($divRepC);
+				 repasswords = true;  //重输密码正确，则触发注册按钮的地址
+			 }
+			 else{
+		         clearRePass();
+			     $pS.append("两次输入密码不匹配");
+			     $pS.addClass("quote");
+			     $divRepE.addClass("divEorr");
+			     $loadAga.append($divRepE);
+			     $loadAga.append($pS);
+				 repasswords = false;
+			 }
+		 }
+
+		  $pasS.blur(function(){
+		     if(count && passwords){//当邮箱域和密码域输入正确后才会显示重输密码域的提示信息
+				 remainRemas();
+			 }
+		  });
+
+		  var $supper = $("#supper");
+		  var $repeat = $("#repeat");
+
+		  $supper.click(function(){
+		      if(count && passwords && repasswords){  //只有当三个表单输入正确才注册成功
+			     alert("注册成功！恭喜你成为krry的会员！！");
+			  }
+			  else{
+			     alert("注册失败！请正确输入注册信息！");
+			  }
+		  });
+
+		  $repeat.click(function(){  //重置按钮
+		      $mes.val("");
+			  $pasF.val("");
+			  $pasF2.val("");
+			  $pasS.val("");
+			  clearmail();
+			  clearPass();
+			  clearRePass();
+		  });
+
+ 		  $("#rol").bgStretcher({
+			images: ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg","img/8.jpg"], 
+			
+			slideShowSpeed: 1000, //切换时的时间
+			nextSlideDelay: 4000,  //图片停留的时间
+			transitionEffect: 'fade',
+			sequenceMode: 'random', //随机切换图片(normal：表示按顺序切换)
+		});
+	   });
+	</script>
+  </head>
+  <body>
+  <div id="rol">
+  <!--head start-->
+    <div class="head">krry注册界面  WELCOME！
+	  <img src="img/42.png" width="110" height="58" alt="我的logo"/>
+	</div>
+  <!--head end-->
+
+  <!--load start-->
+	<div class="load">
+	  <div class="pure"></div>
+	  <div class="wel">
+	     <h1>欢迎注册Krry账号</h1>
+	  </div>
+	  <div class="load_mes">
+	     <span>登录账号：</span>
+	     <input type="text" id="mes" placeholder="请设置邮箱账号..."/>
+	  </div>
+	  <div class="load_pass">
+	     <span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
+		 <input type="password" name="passwords" id="passFir" placeholder="请输入6-20位密码" maxlength="20"/>
+	  </div>
+	  <div class="load_pass2">
+	     <span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
+		 <input type="text" name="passwords" id="passFir2" placeholder="请输入6-20位密码" maxlength="20"/>
+	  </div>
+	  <div class="pass_img"></div>
+	  <div class="load_again">
+	     <span>确认密码：</span>
+		 <input type="password" name="passwords" id="passSec" placeholder="再次输入密码" maxlength="20"/>
+	  </div>
+	  <div class="btn">
+	     <button type="button" id="supper">注册</button>
+		 <button type="button" id="repeat">重置</button>
+	  </div>
+	</div>
+  <!--load end-->
+  </div>
+  </body>
+</html>

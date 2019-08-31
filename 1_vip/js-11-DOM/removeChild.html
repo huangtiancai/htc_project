@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			#box{
+				width:100px;
+				height:100px;
+				background:pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script>
+			var box = document.getElementById("box");
+			box.parentNode.removeChild(box);
+			// removeChild 自己不能删除自己，身体发肤，受之父母,智能通过parentNode来删除自己
+
+			var pp = document.createElement("p");
+			pp.ClassName = "pp";
+			pp.style.cssText = "width:100px;height:100px;background:red;";
+			document.body.appendChild(pp); //添加这个标签到body中
+		</script>
+	</body>
+</html>

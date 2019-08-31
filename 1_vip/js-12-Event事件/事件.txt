@@ -1,0 +1,71 @@
+obj.onfocus 获取焦点事件 
+obj.onblur 失去焦点事件 
+
+onmousemove ：当鼠标在一个元素上面移动的时候触发事件触发不以px为间隔，而是以时间为间隔，移动越慢，执行次数越多，
+
+mouseover和mouseenter的区别：
+不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。
+只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件。
+
+mouseout和mouseleave的区别：
+不论鼠标指针离开被选元素还是任何子元素，都会触发 mouseout 事件。
+只有在鼠标指针离开被选元素时，才会触发 mouseleave 事件。
+
+onkeydown ：当键盘按键按下的时触发 
+onkeyup : 当键盘抬起下触发
+
+event: 
+	黑匣子-当一个事件发生的时候，存储着和事件相关的一些信息对象
+        当一个事件发生的时候，和当前这个对象发生的这个事件有关的一些详细的信息都会临时保存到一个【指定的地方】event对象，供我们需要的时候调用 
+
+	事件对象必须在一个事件调用的函数里面使用才有内容
+	事件函数：事件调用的函数，一个函数是不是事件函数
+	，不在定义的决定，而是在于这个调用的时候 
+
+							
+
+	兼容性问题：
+	IE / chromewindow.event是一个内置的全局对象
+	FF 事件函数的第一个参数
+
+	ie8以下 / chrome /ie9以上 能兼容 window.event
+
+	火狐 / chrome / ie9以上 能兼容 事件函数的第一个参数e
+
+	e.clientX/clientY 距离浏览的窗口的距离 x/y
+	*/
+				
+	//alert( event );
+	// e语义化
+	function a(e){
+		//事件的兼容性写法
+		var e = e || window.event; //获取这个黑匣子的对象
+		//alert( e )
+					
+		alert( e.clientX )
+	}
+
+
+//阻止按键默认行为
+            document.onkeydown = function () {
+                return false;
+            }
+            //右键菜单事件
+            document.oncontextmenu = function(e){
+                var e = e || event;
+                oBox.style.display = "block";
+                oBox.style.left = e.clientX+'px';
+                oBox.style.top = e.clientY+'px';
+
+
+                //alert(1);
+                return false; //阻止默认右键菜单行为 
+            }
+
+/*鼠标滚轮事件
+        * IE chrome支持 obj.onmousewheel
+        *   e.wheelDelta 鼠标滚轮往下值为-120 鼠标滚轮往上值为120
+
+        * FF(火狐)支持 obj.addEventListener("DOMMouseScroll",fn,false)
+        *    e.detail 鼠标滚轮往下值为3  鼠标滚轮往上值为-3
+        * */

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				var oTxt = document.getElementById("txt");
+				var oBtn = document.getElementById("btn");
+				
+				/*
+					obj.onfocus 获取焦点事件 
+					obj.onblur 失去焦点事件 
+				*/
+				
+
+				//obj.select();  获取指定元素的内容
+				//obj.focus();  获取指定元素的焦点
+				//obj.blur(); 失去指定元素焦点
+				oTxt.onfocus = function(){
+					if( this.value == '请输入用户名' ){
+						this.value = '';
+					}
+				}
+
+				oTxt.onblur = function(){
+					if( this.value =="" ){
+						this.value = "krry";
+					}
+				}
+
+				oBtn.onclick = function(){
+					//oTxt.select();
+					//oTxt.focus();
+				}
+			}
+		</script>
+
+	</head>
+	<body>
+		<input type="text" id="txt" value="请输入用户名"/>
+		<input type="button" id="btn" value="按钮">
+	</body>
+</html>

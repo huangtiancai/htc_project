@@ -1,0 +1,20 @@
+定义：
+	/正则/;
+
+测试字符串是否符合正则：
+
+方法一：
+matches：
+用String串对象提供的matches(String reg)匹配整个字符串，只有一出不符合就匹配结束，匹配结果返回boolean类型的false,匹配成功返回true
+str.matchs(reg);
+
+方法二：
+将正则表达式封装成一个对象：Pattern
+Pattern pattern =Pattern.compile(reg);
+将正则对象和要操作的字符串关联
+Matcher matcher = pattern.matcher(string);
+关联后调用matches方法
+matcher.matches();  符合返回true，否则false
+
+
+邮箱正则：很好很强大：\\w+@[a-zA-Z0-9]+(\\.[a-zA-Z]+){1,3}

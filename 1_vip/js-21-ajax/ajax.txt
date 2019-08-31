@@ -1,0 +1,2 @@
+ajax		Asynchronous Javascript And XML 
+Òì²½µÄjavascriptºÍXML

@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<style type="text/css">
+	   .tab{border-collapse:collapse;}/*collapse表示把双线去掉*/
+	   .tab tr td{line-height:40px;border:1px solid #EBEBEB;text-align:center;font-size:14px;}
+	   .tab thead tr td{background:#EAEAEA;font-weight:bold;}
+	   .tab tbody tr td:hover{background:#6C0;color:#fff;}
+	   .mes{position:absolute;top:0;left:610px;border-left:1px solid #000;width:730px;font-size:16px;line-height:24px;}
+	</style>
+  </head>
+  <body>
+    <h1>HTML标签 - 表单元素<br/>(checked="checked"代表默认选中状态)</h1>
+
+	<p>label标签为 input 元素定义标注（标记）；</p>
+	<p>label 元素不会向用户呈现任何特殊效果。<br/>不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会<br/>触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和<br/>标签相关的表单控件上label标签的 for 属性应当与相关元素的 id 属性相同。</p>
+
+    <form action="#" method="get">
+
+	<h2>文本域和密码域</h2>
+	<!--autofocus="autofocus"一打开此网页自动选中此框
+		autocomplete="off" 不记录之前写进去的数据(不会自动补全)
+	-->
+	   用户名：<input type="text" placeholder="请输入用户名..."  autocomplete="off" name="username"/><br /><br />
+	   密&nbsp;&nbsp;码：<input type="password" autofocus="autofocus" /><br/><br/>
+	   用户名：<input type="text" value="请输入用户名..." onfocus="if(this.value=='请输入用户名...')this.value='';" onblur="if(this.value=='')this.value='请输入用户名...';"/><br /><br />
+	   <!--兼容所有浏览器的提示功能
+		value="请输入用户名..." onfocus="if(this.value=='请输入用户名...')this.value='';" onblur="if(this.value=='')this.value='请输入用户名...';"
+		-->
+
+	<h2>单选框</h2>
+
+	  性别：<input type="radio" name="sex" id="man"/><label for="man">男<label>
+	  <input type="radio" name="sex" id="woman" checked="checked"/><label for="women">女<label>
+	  <input type="radio" name="sex" id="bm"/><label for="bm">保密<label><br/><br/>
+
+	<h2>复选框</h2>
+
+	  兴趣爱好：<input type="checkbox" id="sf"/><label for="sf">书法</label>
+	  <input type="checkbox" id="ac"/><label for="ac">足球</label>
+	  <input type="checkbox" id="lq" checked="checked" /><label for="lq">艺术</label>
+	  <input type="checkbox" id="ab"/><label for="ab">篮球</label>
+	  <input type="checkbox" id="cs"/><label for="cs">射击</label><br/><br/>
+
+	  出生年月：<select/>
+	                  <option value="0" selected="selected">---请选择---</option>
+					  <option value="1">1996</option>
+					  <option value="2">1997</option>
+					  <option value="3">1998</option>
+					  <option value="4">1999</option>
+			   </select><br/><br/>
+	  出生年月：  <select size="4"/>
+	                  <option value="0">---请选择---</option>
+					  <option value="1" selected="selected">1996</option>
+					  <option value="2">1997</option>
+					  <option value="3">1998</option>
+					  <option value="4">1999</option>
+			   </select><br/><br/>
+
+	    用户类型：<input type="hidden" value="new"/><br/><br/>
+
+		浏览文件：<input type="file" /><br/><br/>
+
+		个人简介：<textarea cols="50" rows="5"></textarea><br/><br/>
+
+		<input type="button" value="普通的按钮"/>
+		<input type="reset" value="重置" />
+		<input type="submit" value="提交"/>
+				
+	</form>
+
+  <div>
+	<h2>表格</h2>
+	<p>表格由table标签来定义。每个表格均有若干行（由 tr 标签定义），<br/>每行被分割为若干单元格（由 td 标签定义）。字母 td 指表格数据（table data），<br/>即数据单元格的内容。数据单元格可以包含文本、图片、列表、段落、表单、水平线、表格等等</p>
+	<table class="tab" border="1" width="600" height="300">
+	  <thead>
+	   <tr>
+	      <td>学号</td>
+		  <td>性别</td>
+		  <td>姓名</td>
+		  <td>系别</td>
+		  <td>专业</td>
+	   </tr>
+	   </thead>
+	   <tbody>
+	   <tr>
+	      <td>201511621109</td>
+		  <td>男</td>
+		  <td>郭舒其</td>
+		  <td>计算机系</td>
+		  <td rowspan="2">计算机科学与技术</td><!--跨行-->
+	   </tr>
+	   <tr>
+	      <td>201511621109</td>
+		  <td>男</td>
+		  <td colspan="2">xiaoyue,计算机系</td><!--跨列-->
+	   </tr>
+	   <tr>
+	      <td>201511621109</td>
+		  <td>男</td>
+		  <td>krry</td>
+		  <td>计算机系</td>
+		  <td>计科</td>
+	   </tr>
+	   <tr>
+	      <td>201511621109</td>
+		  <td>男</td>
+		  <td>筱月</td>
+		  <td>计算机系</td>
+		  <td>jike</td>
+	   </tr>
+	   </tbody>
+	</table>
+  </div>
+  <div class="mes">
+	<h2>这是源代码哦~~</h2>
+	<pre>
+	&lt;h1&gt;HTML标签 - 表单元素&lt;br/&gt;(checked="checked"代表默认选中状态)&lt;/h1&gt;
+
+	&lt;p&gt;label标签为 input 元素定义标注（标记）；&lt;/p&gt;
+	&lt;p&gt;label 元素不会向用户呈现任何特殊效果。
+	&lt;br/&gt;不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。
+	&lt;br/&gt;就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上
+	label标签&lt;br/&gt;的 for 属性应当与相关元素的 id 属性相同。&lt;/p&gt;
+
+    &lt;form action="#" method="get"&gt;
+
+	&lt;h2&gt;文本域和密码域&lt;/h2&gt;
+	&lt;!--autofocus="autofocus"一打开此网页自动选中此框
+		autocomplete="off" 不记录之前写进去的数据(不会自动补全)
+	--&gt;
+	   用户名：&lt;input type="text" placeholder="请输入用户名..." 
+	   autocomplete="off" name="username"/&gt;&lt;br /&gt;&lt;br /&gt;
+	   密&nbsp;&nbsp;码：&lt;input type="password" autofocus="autofocus" /&gt;&lt;br/&gt;&lt;br/&gt;
+	   用户名：&lt;input type="text" value="请输入用户名..." 
+	   onfocus="if(this.value=='请输入用户名...')this.value='';" 
+	   onblur="if(this.value=='')this.value='请输入用户名...';"/&gt;&lt;br /&gt;&lt;br /&gt;
+	   &lt;!--兼容所有浏览器的提示功能
+		value="请输入用户名..." 
+		onfocus="if(this.value=='请输入用户名...')this.value='';" 
+		onblur="if(this.value=='')this.value='请输入用户名...';"
+		--&gt;
+
+	&lt;h2&gt;单选框&lt;/h2&gt;
+
+	  性别：&lt;input type="radio" name="sex" id="man"/&gt;&lt;label for="man"&gt;男&lt;label&gt;
+	  &lt;input type="radio" name="sex" id="woman" checked="checked"
+	  /&gt;&lt;label for="women"&gt;女&lt;label&gt;
+	  &lt;input type="radio" name="sex" id="bm"/&gt;&lt;label for="bm"&gt;保密&lt;label&gt;&lt;br/&gt;&lt;br/&gt;
+
+	&lt;h2&gt;复选框&lt;/h2&gt;
+
+	  兴趣爱好：&lt;input type="checkbox" id="sf"/&gt;&lt;label for="sf"&gt;书法&lt;/label&gt;
+	  &lt;input type="checkbox" id="ac"/&gt;&lt;label for="ac"&gt;足球&lt;/label&gt;
+	  &lt;input type="checkbox" id="lq" checked="checked" /&gt;&lt;label for="lq"&gt;艺术&lt;/label&gt;
+	  &lt;input type="checkbox" id="ab"/&gt;&lt;label for="ab"&gt;篮球&lt;/label&gt;
+	  &lt;input type="checkbox" id="cs"/&gt;&lt;label for="cs"&gt;射击&lt;/label&gt;&lt;br/&gt;&lt;br/&gt;
+
+	  出生年月：&lt;select/&gt;
+	                  &lt;option value="0" selected="selected"&gt;---请选择---&lt;/option&gt;
+					  &lt;option value="1"&gt;1996&lt;/option&gt;
+					  &lt;option value="2"&gt;1997&lt;/option&gt;
+					  &lt;option value="3"&gt;1998&lt;/option&gt;
+					  &lt;option value="4"&gt;1999&lt;/option&gt;
+			   &lt;/select&gt;&lt;br/&gt;&lt;br/&gt;
+	  出生年月：  &lt;select size="4"/&gt;
+	                  &lt;option value="0"&gt;---请选择---&lt;/option&gt;
+					  &lt;option value="1" selected="selected"&gt;
+					  1996&lt;/option&gt;
+					  &lt;option value="2"&gt;1997&lt;/option&gt;
+					  &lt;option value="3"&gt;1998&lt;/option&gt;
+					  &lt;option value="4"&gt;1999&lt;/option&gt;
+			   &lt;/select&gt;&lt;br/&gt;&lt;br/&gt;
+
+	    用户类型：&lt;input type="hidden" value="new"/&gt;&lt;br/&gt;&lt;br/&gt;
+
+		浏览文件：&lt;input type="file" /&gt;&lt;br/&gt;&lt;br/&gt;
+
+		个人简介：&lt;textarea cols="50" rows="5"&gt;&lt;/textarea&gt;&lt;br/&gt;&lt;br/&gt;
+
+		&lt;input type="button" value="普通的按钮"/&gt;
+		&lt;input type="reset" value="重置" /&gt;
+		&lt;input type="submit" value="提交"/&gt;
+				
+	&lt;/form&gt;
+
+  &lt;div&gt;
+	&lt;h2&gt;表格&lt;/h2&gt;
+	&lt;p&gt;表格由table标签来定义。每个表格均有若干行（由 tr 标签定义）
+	，&lt;br/&gt;每行被分割为若干单元格（由 td 标签定义）。字母 td 指表格数据（table data），
+	&lt;br/&gt;即数据单元格的内容。数据单元格可以包含文本、图片、列表、段落、表单、
+	水平线、表格等等&lt;/p&gt;
+	&lt;table class="tab" border="1" width="600" height="300"&gt;
+	  &lt;thead&gt;
+	   &lt;tr&gt;
+	      &lt;td&gt;学号&lt;/td&gt;
+		  &lt;td&gt;性别&lt;/td&gt;
+		  &lt;td&gt;姓名&lt;/td&gt;
+		  &lt;td&gt;系别&lt;/td&gt;
+		  &lt;td&gt;专业&lt;/td&gt;
+	   &lt;/tr&gt;
+	   &lt;/thead&gt;
+	   &lt;tbody&gt;
+	   &lt;tr&gt;
+	      &lt;td&gt;201511621109&lt;/td&gt;
+		  &lt;td&gt;男&lt;/td&gt;
+		  &lt;td&gt;郭舒其&lt;/td&gt;
+		  &lt;td&gt;计算机系&lt;/td&gt;
+		  &lt;td rowspan="2"&gt;计算机科学与技术&lt;/td&gt;&lt;!--跨行--&gt;
+	   &lt;/tr&gt;
+	   &lt;tr&gt;
+	      &lt;td&gt;201511621109&lt;/td&gt;
+		  &lt;td&gt;男&lt;/td&gt;
+		  &lt;td colspan="2"&gt;xiaoyue,计算机系&lt;/td&gt;&lt;!--跨列--&gt;
+	   &lt;/tr&gt;
+	   &lt;tr&gt;
+	      &lt;td&gt;201511621109&lt;/td&gt;
+		  &lt;td&gt;男&lt;/td&gt;
+		  &lt;td&gt;krry&lt;/td&gt;
+		  &lt;td&gt;计算机系&lt;/td&gt;
+		  &lt;td&gt;计科&lt;/td&gt;
+	   &lt;/tr&gt;
+	   &lt;tr&gt;
+	      &lt;td&gt;201511621109&lt;/td&gt;
+		  &lt;td&gt;男&lt;/td&gt;
+		  &lt;td&gt;筱月&lt;/td&gt;
+		  &lt;td&gt;计算机系&lt;/td&gt;
+		  &lt;td&gt;jike&lt;/td&gt;
+	   &lt;/tr&gt;
+	   &lt;/tbody&gt;
+	&lt;/table&gt;
+  &lt;/div&gt;
+	</pre>
+  </div>
+  </body>
+</html>

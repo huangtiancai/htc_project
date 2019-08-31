@@ -1,0 +1,21 @@
+继承Thread类 ：
+1)  定义子类继承Thread类。 
+2)  子类中重写Thread类中的run方法。 
+3)  创建Thread子类对象，即创建了线程对象。
+4)  调用线程对象start方法：启动线程，调用run方法。
+//通过继承Thread类
+MyThread mt = new MyThread();
+mt.start();
+
+实现Runnable接口：
+1）定义子类，实现Runnable接口。
+2）子类中重写Runnable接口中的run方法。
+3）通过Thread类含参构造器创建线程对象。
+4）将Runnable接口的子类对象作为实际参数传递给Thread类的构造方法中。
+5）调用Thread类的start方法：开启线程，调用Runnable子类接口的run方法。
+
+//通过实现Runnable接口
+MyRunnable runnable = new MyRunnable();
+//使用Thread的带参数的构造器进行传递
+Thread th = new Thread(runnable);
+th.start();

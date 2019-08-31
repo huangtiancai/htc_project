@@ -1,0 +1,2 @@
+background-size:100% 100%; 图片完整地铺满整个屏幕（图片可能会拉伸）
+background-size:cover; 图片充满整个屏幕（图片不会拉伸，但可能会缺少一部分）

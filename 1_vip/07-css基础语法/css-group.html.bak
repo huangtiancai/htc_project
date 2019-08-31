@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8国际编码-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--当前页面的三要素-->
+		<title>css样式 - 选择器的分组 --krry</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+
+			/*h标签选择器分组*/
+			h1,h2,h3,h4,h5,h6{color:#ff9933;}
+
+		
+		</style>
+
+	</head>
+<body>
+
+	<h2>css样式 - 选择器的分组</h2><br /><br />
+	
+	<h1>我是krry，是不是觉得我特别帅 ！</h1>
+	<h2>我是潭州软件学院arry的学院！！！</h2>
+	<h3>所以我就是最帅的！</h3>
+	<h4>要低调啊 ！</h4>
+	<h5>不行，还是高调点</h5>
+	<h6>这么帅的人，竟然还没女朋友，真是不公平啊！！！...</h6>
+
+	<div>帅就帅，不解释 ！</div>
+	
+
+</body>
+</html>

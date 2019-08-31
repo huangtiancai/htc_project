@@ -1,0 +1,23 @@
+
+根据换算：
+1024字节 = 1K；
+1024K = 1M；
+1024M = 1G；
+
+Java代码转换：
+File file = new File("d:/孩子们：请听我说！.txt");//用一个正斜杠，或者两个反斜杠
+long size = file.length();//获取文件的字节数
+float fsize = size;
+String fileSizeString;
+if (fsize < 1024) {
+	fileSizeString = String.format("%.2f", fsize) + "B"; //2f表示保留两位小数
+} else if (fsize < 1048576) {
+	fileSizeString = String.format("%.2f", fsize/1024) + "KB";
+} else if (fsize < 1073741824) {
+	fileSizeString = String.format("%.2f", fsize/1024/1024) + "MB";
+} else if (fsize < 1024 * 1024 * 1024) {
+	fileSizeString = String.format("%.2f", fsize/1024/1024/1024) + "GB";
+} else {
+	fileSizeString = "0B";
+}
+System.out.println("file的文件的大小是"+fileSizeString);

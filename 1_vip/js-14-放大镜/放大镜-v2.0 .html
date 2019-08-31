@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>放大镜</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			body{font-family:"微软雅黑";}
+			.box{width:1300px;height:520px;margin:50px auto;border:1px solid #000;position:relative;}
+			.box .left{width:400px;float:left;overflow:hidden;margin:20px 20px;position:relative;}
+			.box .left .b_img{position:relative;width:400px;height:400px;}
+			.box .left .b_img .g_img{position:absolute;}
+			.box .left .b_img .g_img img{display:block;}
+			.box .left .b_img .g_block{background:url("images/cover.png");position:absolute;top:0;cursor:move;display:none;}
+			.box .left .g_dir a{height:54px;width:16px;background:rgb(158, 158, 158);display:block;color:#fff;position:absolute;bottom:0px;text-decoration:none;line-height:54px;text-align:center;font-size:14px;z-index:0;}
+			.box .left .g_dir .r_left{left:0;}
+			.box .left .g_dir .r_right{right:0;}
+			.box .left .g_listImg{width:785px;height:54px;margin-top:20px;}
+			.box .left .g_listImg ul li{list-style:none;float:left;width:50px;height:50px;position:relative;margin:0 12px;cursor:pointer;border:2px solid transparent;} /*一开始用透明边框填充*/
+			.box .left .g_listImg ul li:first-child{margin-left:17px}
+			.box .left .g_listImg ul li img{position:absolute;}
+			.box .left .g_listImg ul li.on{border:2px solid red;transition:.6s;}
+			.box .gra_img{display:none;width:400px;height:400px;position:absolute;top:20px;left:440px;overflow:hidden;}
+			.box .pas{line-height:25px;height:400px;margin:20px 20px;float:right;width:820px;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="left">
+				<div class="b_img">
+					<div class="g_img">
+						<img  alt=""/>
+						<div class="g_block"></div>
+					</div>
+				</div>
+				<div class="g_dir">
+					<a href="#" class="r_left">&lt;</a>
+					<a href="#" class="r_right">&gt;</a>
+				</div>
+				<div class="g_listImg">
+					<ul>
+						<li class="on"><img src="images/1.jpg"/></li>
+						<li><img src="images/2.jpg"/></li>
+						<li><img src="images/3.jpg"/></li>
+						<li><img src="images/4.jpg"/></li>
+						<li><img src="images/5.jpg"/></li>
+						<li><img src="images/6.jpg"/></li>
+						<li><img src="images/7.jpg"/></li>
+						<li><img src="images/8.jpg"/></li>
+						<li><img src="images/9.jpg"/></li>
+						<li><img src="images/10.jpg"/></li>
+					</ul>
+				</div>
+			</div>
+			<div class="gra_img"></div>
+			<div class="pas">
+				<h2>小小</h2>她们与生俱来的贵族气质，比较受年轻男性喜爱。这种类型让你一看就头晕眼花，这样的女生生活中不大可能出现，只有这样的图片中才会存在，或者梦中，天堂上。她甚至没有一点缺陷，千娇百媚完美无缺。多一分则肥少一分则瘦，笑如牡丹临风哭则海棠带露。她们与生俱来的贵族气质，比较受年轻男性喜爱。这种类型让你一看就头晕眼花，这样的女生生活中不大可能出现，只有这样的图片中才会存在，或者梦中，天堂上。她甚至没有一点缺陷，千娇百媚完美无缺。多一分则肥少一分则瘦，笑如牡丹临风哭则海棠带露。她们与生俱来的贵族气质，比较受年轻男性喜爱。这种类型让你一看就头晕眼花，这样的女生生活中不大可能出现，只有这样的图片中才会存在，或者梦中，天堂上。她甚至没有一点缺陷，千娇百媚完美无缺。多一分则肥少一分则瘦，笑如牡丹临风哭则海棠带露。她们与生俱来的贵族气质，比较受年轻男性喜爱。这种类型让你一看就头晕眼花，这样的女生生活中不大可能出现，只有这样的图片中才会存在，或者梦中，天堂上。她甚至没有一点缺陷，千娇百媚完美无缺。多一分则肥少一分则瘦，笑如牡丹临风哭则海棠带露。
+			</div>
+		</div>
+		<script src="js/jquery-1.12.2.min.js"></script>
+		<script>
+			$(function(){
+				var index = 0;
+				var src = "images/1.jpg";
+				var imgArr = [];//用来存放图片宽高比属性
+				$(".g_listImg ul li").hover(function(){
+					index = $(this).index();
+					$(this).addClass("on").siblings().removeClass("on");
+					//获取小图片的src属性
+					src = $(this).find("img").attr("src");
+					change(src);
+				});
+
+				init();
+				change(src);
+				//给第一张照片设置位置和宽度高度
+				function change(src){
+					//给放大的图片设置src属性
+					$(".gra_img").css("background","url("+src+")");
+					//给预览图设置src
+					$(".g_img img").attr({
+						src:src,
+						width:imgArr[index].width*400,
+						height:imgArr[index].height*400
+					});
+					//给预览图设置位置
+					$(".g_img").css({
+						top:(400-imgArr[index].height*400)/2,
+						left:(400-imgArr[index].width*400)/2
+					});
+				}
+
+				//初始化小图片
+				function init(){
+					$(".g_listImg ul li img").each(function(i){
+						var sWidth = $(this).width();
+						var sHeight = $(this).height();
+						if(sWidth >= sHeight){
+							$(this).css({ //使得图片按比例缩小
+								width:50,
+								height:sHeight*50/sWidth,
+								top:(50-sHeight*50/sWidth)/2 //确保图片居中
+							});
+							//存放小图片的宽高的比例和真实的宽高
+							imgArr[i] = {width:1,height:sHeight/sWidth,widW:sWidth,heightH:sHeight};
+						}else{
+							$(this).css({  //使得图片按比例缩小
+								height:50,
+								width:sWidth*50/sHeight,
+								left:(50-sWidth*50/sHeight)/2  //确保图片居中
+							});
+							imgArr[i] = {width:sWidth/sHeight,height:1,widW:sWidth,heightH:sHeight};
+						}
+					});
+				}
+
+				//点击换一批小图片
+				var close = true;
+				$(".g_dir a").click(function(){
+					var In = $(this).index();
+					if(In && close){ //如果为1，代表是右按钮
+						$(".g_listImg").animate({
+							marginLeft:"-390"
+						},500);
+						close = false;
+					}
+					if(!In && !close){
+						$(".g_listImg").animate({
+							marginLeft:"0"
+						},500);
+						close = true;
+					}
+				});
+
+				$(".g_img").mousemove(function(e){
+					//更改层的大小
+					var a = $(".gra_img").width()*$(this).width()/imgArr[index].widW;
+					$(".g_block").css({
+						width:a,
+						height:a
+					});
+					$(".g_block").show();//层显示
+					$(".gra_img").show();//放大显示
+					var e = e||window.event;
+					var x = e.pageX;
+					var y = e.pageY;
+					var mx = x - $(this).offset().left - $(".g_block").width()/2;
+					var my = y - $(this).offset().top - $(".g_block").height()/2;
+					var maxX = $(this).width() - $(".g_block").width();
+					var maxY = $(this).height() - $(".g_block").height();
+					if(mx>maxX) mx = maxX;
+					if(my>maxY) my = maxY;
+					if(mx<0) mx = 0;
+					if(my<0) my = 0;
+
+					$(".g_block").css({
+						left:mx,
+						top:my
+					});
+
+					//放大
+					//计算移动比例
+					var bitX = mx/$(this).width();
+					var bitY = my/$(this).height();
+					//大图片原尺寸*比例 = 大图片走过的距离
+					var imgWidth = imgArr[index].widW*bitX;
+					var imgHeight = imgArr[index].heightH*bitY;
+					$(".gra_img").css("background-position",-imgWidth+"px "+(-imgHeight)+"px");
+				}).mouseout(function(){
+					$(".g_block").hide();//层隐藏
+					$(".gra_img").hide();//放大隐藏
+				});
+			});
+		</script>
+	</body>
+</html>

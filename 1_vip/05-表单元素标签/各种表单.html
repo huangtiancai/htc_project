@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+   <div>
+   <form action="/example/html5/demo_form.asp" method="get">
+     E-mail: <input type="email" name="User_email"/>
+	 <input type="submit" value="提交">
+	 url:<input type="url" list="url_list" name="地址"/>
+	 <datalist id="url_list">    <!--option 元素永远都要设置 value 属性。-->
+	   <option label="百度" value="http://baidu.com"/>
+	   <option label="Google" value="http://www.google.com"/>
+	   <option label="微软" value="http://www.microsoft.com"/>
+	 </datalist>
+	 <input type="submit" value="提交">
+	 
+	 number:<input type="number" name="数字"/>
+	 <input type="submit" value="提交">
+	 range:<input type="range" name="滑动条"/>
+	 <input type="submit" value="提交">
+	 data:<input type="date" name="日期"/>
+	 <input type="submit" value="提交">
+	 <input type="file" name="文件"/>
+	 <input type="submit" value="提交">
+	 Points: <input type="number" name="points" min="0" max="10" step="3" />
+	 <input type="submit" value="提交">
+	</form>
+   </div>
+ </body>
+</html>

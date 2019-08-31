@@ -1,0 +1,5 @@
+:last-child
+:first-child
+:nth-child(1) 按照第几个孩子给它设置样式
+:nth-child(even)  按照偶数
+:nth-child(odd)   按照奇数

@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+		</style>
+	</head>
+	<body>
+		<script>
+			var str = "abcdefg";
+			//alert(str.length); //读取字符串的长度
+			//str.length = 5; //属性length只能读，不能写入数据
+			//alert(str[1]);//读取字符串
+			//str[1] = "a";//只能读，不能写入数据
+			//alert(str.charAt(5));//查找字符串下标的字符
+			//alert(str.charCodeAt(0));  //返回该字符的ASCLL码值
+
+			//charCodeAt  字符转成ASCLL码值 
+			//fromCharCode  ASCLL码值转成字符
+			/*
+			var html = "";
+			for(var i = 0;i<50000;i++){
+				html += String.fromCharCode(i); //0到50000的ascll码转换成字符
+			}
+			document.write(html);  */
+
+			/*  信息加密
+			var str = "我爱krry";
+			str = jm();
+			function jm(){
+				var newStr = '';
+				for (var i=0;i<str.length;i++ )
+				{
+					newStr +=  String.fromCharCode( str.charCodeAt(i)+1+1000 );
+				}
+				return newStr;
+			}	
+			document.write( str );  */
+
+			//返回某个字符的位置
+			/*
+			var kr = "krry";
+			alert(kr.indexOf("r"));  
+			alert(kr.indexOf("r",2)); //从第3位开始从左往右找
+			alert(kr.indexOf("j"));  //找不到，返回-1 
+			*/
+
+			//把某个字符在这个字符串中全部找出来
+			/*
+			var br = "yueyuekrry";
+			var i = 0;
+			do{
+				var a = br.indexOf("y",i);
+				if(a != -1){
+					alert(a);
+				}
+				i++;
+			}while(i != 0);  */
+
+			/*
+			var jk = "krry";
+			alert(jk.lastIndexOf("y"));
+			alert(jk.lastIndexOf("y",1)); //表示从第一位往左边找
+			alert(jk.lastIndexOf("y",3));  */
+
+			/*
+			var stt = "ABCD";
+			alert(stt.toLowerCase());  //转换成小写
+			alert(stt.toUpperCase());  //转换成大写
+			*/
+
+			//分割字符串，得到的是数组
+			var kk = "fjre";
+			alert(kk.split("r"));
+			alert(kk.split("")); //把每一个字符都分割开
+		</script>
+	</body>
+</html>

@@ -1,0 +1,1149 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="css/回到顶部.css"/>
+  <title>京东项目实战 --krry</title>
+  <style type="text/css">
+    *{margin:0;padding:0}
+	body{font-family:"微软雅黑";font-size:12px;}
+	a{text-decoration:none;}
+	ul li{list-style:none;}
+	.title{font-size:20px;font-weight:400;color:#333;line-height:40px;}
+	.clear{clear:both;}
+
+	/*搜索*/
+	.top{width:1227px;border:1px solid transparent;margin:0 auto;}/*transparent透明边框*/
+	.logo{width:270px;height:60px;margin-top:45px;float:left;}
+	.logo a{width:270px;height:60px;background:url("img/logo.png");display:block;}
+	.so{width:538px;border:2px solid #B61D1D;margin:50px auto;position:relative;}
+	#input{width:456px;height:32px;border:0;outline:none;text-indent:5px;font-size:14px;color:rgb(51, 51, 51);font-family:"microsoft yahei";}
+	.so_mes{background:#fff;width:518px;height:20px;position:absolute;top:93px;left:403px;}
+	.so_mes a{margin-left:9px}
+	.so_mes a:hover{color:red;}
+	.so_mes a:first-child{margin-left:0;}
+	.so_mes .a_first{color:red;}
+	#sub{width:82px;height:32px;border:0;font-size:16px;color:#fff;background:#B61D1D;display:block;text-align:center;line-height:32px;position:absolute;right:0;top:0;}
+
+	/*顶部导航条*/
+	.con_top{width:100%;height:46px;border-bottom:2px solid #B1191A;}
+	.con_top .c_t{width:1212px;height:46px;margin:0 auto;}
+	.con_top .c_t ul li{width:88px;height:44px;float:left;}
+	.con_top .c_t ul li a{font-size:16px;color:#333;display:block;text-align:center;line-height:44px;}
+	.con_top .c_t ul li a:hover{color:#ff0000;}
+	.con_top .c_t .c_t_l{width:210px;height:46px;background:#B1191A;float:left;}
+	.con_top .c_t .c_t_l a{width:210px;height:46px;display:block;line-height:46px;font-size:16px;color:#fff;text-indent:10px;}
+
+	/*内容部分*/
+	.content{width:1212px;overflow:hidden;margin:0 auto;position:relative;}
+
+	/*左边导航条*/
+	.content .con_l{width:210px;height:466px;background:#c81623;float:left;}
+	.content .con_l ul li{height:31px;margin-left:1px;}
+	.content .con_l ul li:hover{background:#fff;}
+	.content .con_l ul li:hover a{color:red;}
+	.content .con_l ul li a{font-size:14px;color:#fff;text-indent:10px;margin-top:6px;display:inline-block;transition:all .3s ease;}
+	.content .con_l ul li .gt{float:right;color:#fff;font-size:14px;font-family:"consolas";    margin-right:12px;margin-top:7px;}
+
+	/*中间banner图*/
+	.content .con_ce{width:730px;height:466px;position:absolute;left:220px;top:12px;overflow:hidden;}
+	.content .con_ce .banwrap ul{width:5840px;}
+	.content .con_ce .banwrap ul li{float:left;}
+	.content .con_ce .ce_rr{position:absolute;bottom:30px;left:50%;margin-left:-63px;}
+	.content .con_ce .ce_rr ul li{border-radius:50px;background:#3e3e3e;text-align:center;color:#fff;width:18px;height:18px;line-height:18px;display:inline-block;cursor:pointer;}
+	.content .con_ce .ce_rr .on{background:#b61b1f;}
+	.content .con_ce .c_k{width:28px;height:62px;background:rgba(0,0,0,.2);color:#fff;position:absolute;text-align:center;font-size:22px;font-weight:400;font-family:"simsun";line-height:62px;display:none;}
+	.content .con_ce .ce_l{top:50%;margin-top:-31px;}
+	.content .con_ce .ce_r{top:50%;right:0;margin-top:-31px;}
+
+	/*京东快报*/
+	.content .con_r{width:250px;height:375px;border-top:1px solid #dadada;float:right;margin-top:12px;border-right:1px solid #dadada;border-left:1px solid #dadada;}
+	.content .con_r .c_r{width:240px;height:31px;border-bottom:1px solid #dadada;color:#666;font-size:16px;line-height:31px;padding-left:12px;}
+	.content .con_r .c_r a{float:right;font:12px/150% Arial,Verdana,"\5b8b\4f53";color:#666;margin-top:7px;margin-right:16px;}
+	.content .con_r .c_r a:hover{color:red;}
+	.content .con_r .c_r a span{font-family:"consolas";}
+	.content .con_r .c_t{width:250px;height:121px;}
+	.content .con_r .c_t ul li{margin-top:6px;margin-left:12px;}
+	.content .con_r .c_t ul li a{font:12px/150% Arial,Verdana,"\5b8b\4f53";color:#666;}
+	.content .con_r .c_t ul li a:hover{color:red;}
+	.content .con_r .c_c ul li{width:62px;height:70px;float:left;}
+	.content .con_r .c_c .top{border-bottom:1px solid #dadada;border-top:1px solid #dadada;width:60px;}
+	.content .con_r .c_c .bot{border-bottom:1px solid #dadada;}
+	.content .con_r .c_c .cen{border-bottom:1px solid #dadada;}
+	.content .con_r .c_c .c{border-left:1px solid #dadada;border-right:1px solid #dadada;}
+	.content .con_r .c_c .l{border-left:1px solid #dadada;}
+	.content .con_r .c_c ul li a{width:62px;height:70px;float:left;}
+	.content .con_r .c_c ul li a b{width:25px;height:25px;display:-webkit-inline-box;margin-top:13px;margin-left:17px;}
+	.content .con_r .c_c ul li a span{text-align:center;display:block;color:#666;font:12px/150% Arial,Verdana,"\5b8b\4f53";margin-top:3px;}
+	.content .con_r .c_c ul li a:hover span{color:red;}
+	.content .con_r img{margin-top:5px;}
+
+	/*商品明细分类*/
+	.sdetails .sitems{width:1001px;height:465px;border-bottom:1px solid red;border-right:1px solid red;position:absolute;background:#fff;left:210px;display:none;}
+	.content .con_l .selected{background:#fff;}
+	.content .con_l ul li .selectedFont{color:red;}
+	.sdetails .sitems dl{float:left;}
+	.sdetails .sitems dl dt{float:left;width:54px;padding-top:27px;font-weight:700;padding-left:30px;}
+	.sdetails .sitems dd{float:left;width:620px;padding-top:27px;padding-left:24px;}
+	.sdetails .sitems dd a{color:#3e4146;font-size:14px;margin-left:7px;}
+	.sdetails .sitems dd a:after{content:"|";padding-left:8px;}
+	.sdetails .sitems dd a:hover{color:red;}
+	.sdetails .sitems .fr{position:absolute;right:25px;top:20px;width:170px;}
+	.sdetails .sitems .fr img{vertical-align:middle;margin-top:1px;margin-right:-2px;}
+	.sdetails .sitems .fr .a_final{margin-top:10px;}
+
+	/*商品展示区*/
+	.show{width:1212px;margin:10px auto;}
+	.show .clock{float:left;height:151px;width:210px;background:url("img/home.jpg") no-repeat;}
+	.show .clo{height:150px;}
+	.show .clo ul li{width:249px;height:151px;background:#000;float:right;margin-left:1px;}
+	.show img{transition:all 1s linear;}
+	.show img:hover{transform:scale(1.2);transition:all 1s linear;}
+	
+	/*猜你喜欢*/
+	.like{width:1212px;margin:30px auto;}
+	.bg{width:252px;display:inline-block;background:url("img/bg.png")0px -94px no-repeat;height:25px;margin-bottom:-4px;}
+	.like .l_ul{border:1px solid #e0e0e0;width:1211px;height:240px;}
+	.like .l_ul ul li{width:201px;height:240px;background:#fff;float:left;}
+	.like .l_ul .one{border-right:1px solid #e0e0e0;}
+	.like .l_ul .peam{padding:5px 36px;}
+	.like .l_ul ul li a{color:#3e4146;font-size:12px;line-height:23px;transition:.3s;}
+	.like .l_ul ul li a:hover{color:#6c0;transition:.3s;}
+	.like .l_ul .img_a{padding-left:33px;padding-top:13px;display:block;}
+	.like .l_ul .img_a img{transition:all 1s linear;}
+	.like .l_ul .img_a img:hover{transform:scale(1.2);transition:all 1s linear;}
+	.like .l_ul .price{color:#B51D1A;font-size:16px;padding-left:36px;font-weight:bold;}
+
+	/*京东、品质生活*/
+	.life{width:1212px;margin:30px auto;}
+	.life .content{width:1212px;height:406px;border:1px solid #e0e0e0;}
+	.life .content .c_roll{width:403px;height:248px;border-right:1px solid #e0e0e0;float:left;}
+	.life .content .btom{width:1037px;height:161px;border-top:1px solid #e0e0e0;position:absolute;bottom:-3px;}
+	.life .content .btom a{float:left;height:158px;position:relative;border-right:1px solid #e0e0e0;}
+	.c_roll .a_new{display:block;}
+	.c_roll .sup_tit{position:absolute;top:109px;left:45px;}
+	.spp_tit{position:absolute;top:50px;left:10px;}
+	a .tit{font-size:16px;font-weight:700;color:#333;}
+	a .mi{margin-bottom:12px;}
+	.c_roll a .new{font-size:15px;text-align:center;border-bottom:1px dashed #e0e0e0;line-height:41px;margin:0 auto;width:363px;height:41px;}
+	a .desc{line-height:1.2;color:#333;margin-bottom:5px;}
+	a .red{color:red;}
+	.c_logo{height:406px;width:173px;float:right;}
+	.c_logo .c_l{width:85px;height:382px;margin-top:12px;border-right:1px dashed #e0e0e0;float:left;}
+	.c_logo .c_r{width:86px;height:382px;margin-top:12px;float:left;}
+	.c_logo ul{margin-top:-11px}
+	.c_logo ul li{width:74px;height:57px;border-bottom:1px dashed #e0e0e0;}
+	.c_logo .c_l li{float:right;}
+	.c_logo .c_l li a{margin-left:-3px;}
+	.c_logo .c_r li{float:left;}
+	.c_logo .c_r li a{margin-left:9px;}
+	.c_logo ul li:last-child{border-bottom:none;}
+
+	/*广告*/
+	.guang{width:1212px;height:125px;margin:10px auto;}
+	.guang img{float:left;}
+
+	/*服装鞋包*/
+	.beau{width:1212px;margin-top:30px;margin:auto;}
+	.beau .tab{width:1212px;height:50px;float:right;}
+	.beau .tab .mcc{width:459px;height:40px;border:1px solid #c81623;border-bottom:1px solid transparent;float:right;}
+	.beau .tab .mcc li{width:70px;height:36px;float:left;border-top:3px solid transparent;border-right:1px solid transparent;border-left:1px solid transparent;background:#fff;position:relative;}
+	.beau .tab .mcc .big_tab{width:99px;}
+	.beau .louone{border-bottom:1px solid #c81623;}
+	.beau .louone ul.mcc{border:solid 1px #e0e0e0;border-bottom:0;height:39px;margin-top:10px;}
+	.beau .louone ul{border-bottom:none;}
+
+	.beau .louone .mcc li.selectedTab{border-top:3px solid #c81623;border-right:1px solid #c81623;border-left:1px solid #c81623;height:37px;} /*应用样式*/
+	.beau .louone .mcc li a.selectedA{color:#c81623;}
+	.beau .louone .mcc.selectedFirst{border-left:1px solid #c81623;}
+	.beau .louone .mcc.selectedLast{border-right:1px solid #c81623;}
+
+	.beau .louone .mcc li:first-child{border-left:none;}
+	.beau .louone .mcc li:last-child{border-right:none;}
+
+	.beau .louone .mcc li .shu{width:1px;height:17px;background:#ccc;position:absolute;top:8px;left:-2px;}
+
+	.beau .tab .mcc li a{line-height:34px;height:37px;text-align:center;display:block;color:#3e4146;font-size:14px;transition:all .3s linear;}
+	.beau .b_con{width:1212px;height:684px;}
+	.beau .b_con .b_r{height:634px;width:329px;border-left:1px solid #e0e0e0;float:left;position:relative;}
+	.beau .b_con .b_r .bot_a{display:block;border-right:1px solid #e0e0e0;margin-top:-2px;height:157px;border-bottom:1px solid #e0e0e0;}
+	.beau .b_con .b_r .repeat{width:330px;height:187px;background:#fff;opacity:0.5;position:absolute;bottom:156px;}
+	.beau .b_con .b_r .info{width:330px;height:236px;position:absolute;bottom:158px;border-bottom:1px solid #e0e0e0;}
+	.beau .b_con .b_r .info .themes{width:330px;height:52px;background:rgba(250, 251, 255, 0.7);padding-left:25px;}
+	.beau .b_con .b_r .info .themes a{float:left;}
+	.beau .b_con .b_r .info .themes .icon{width:26px;float:left;height:26px;overflow:hidden;line-height:26px;margin-right:5px;}
+	.beau .b_con .b_r .info .themes .i1{background:url("img/new.png");}
+	.beau .b_con .b_r .info .themes .i2{background:url("img/new.png")0 -26px;}
+	.beau .b_con .b_r .info .themes li{padding:10px 0;float:left;margin-right:20px;width:140px;}
+	.beau .b_con .b_r .info .themes span{float:left;height:26px;overflow:hidden;line-height:26px;font-size:14px;}
+	.beau .b_con .b_r .info .themes a:hover{color:red;}
+	.beau .b_con .b_r .info .mes{width:330px;height:50px;margin-top:8px;}
+	.beau .b_con .b_r .info .mes li{float:left;padding-left:25px;width:135px;}
+	.beau .b_con .b_r .info .mes li a{color:#3e4146;font-size:14px;line-height:23px;}
+	.beau .b_con .b_r .info .mes a:hover{color:red;}
+	.beau .b_con .b_r .info .infos li{float:left;padding-left:26px;width:128px;margin-top:5px;}
+	.beau .b_con .b_r .info .infos .li_r{padding-left:29px;}
+	.beau .b_con .b_r .info .infos li a{margin-right:10px;white-space:nowrap;color:#757272;line-height:27px;}
+	.beau .b_con .b_r .info .infos li a:hover{color:red;}
+	.beau .b_con .b_r .info .infos li .style-red{color:red;}
+	.beau .b_con .b_l{width:881px;height:633px;float:right;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;}
+	.beau .b_con .b_l .tabcnt{width:881px;height:631px;float:right;}
+	.beau .b_con .b_l .tabcnt li{display:none;}
+	.beau .b_con .b_l .tabcnt li .b_t_d{height:237px;width:219px;border-right:1px solid #e0e0e0;float:left;border-bottom:1px solid #e0e0e0;}
+	.beau .b_con .b_l .tabcnt li .b_short{width:219px;height:157px;border-right:1px solid #e0e0e0;float:left;}
+	.beau .b_con .b_l .tabcnt li .r_l{border-right:none;}
+	.beau .b_con .b_l .tabcnt li .b_t_d .img_b{margin-top:20px;margin-left:39px;display:-webkit-inline-box;}
+	.beau .b_con .b_l .tabcnt li .b_t_d .ppea{height:50px;width:200px;} 
+	.beau .b_con .b_l .tabcnt li .b_t_d .ppea a{color:#666;display:-webkit-inline-box;margin-top:12px;margin-left:15px;}
+	.beau .b_con .b_l .tabcnt li .b_t_d .ppea a:hover{color:red;}
+	.beau .b_con .b_l .tabcnt li .b_t_d .price{font-family:"Verdana";font-size:16px;color:#E4393C;padding-left:15px;}
+	
+	/*小广告*/
+	.sma{width:1212px;height:66px;margin:auto;margin-top:20px;}
+	.sma ul li{float:left;width:120px;height:40px;border-right:1px dotted #e0e0e0;}
+	.sma ul li img{margin-left:11px;}
+	.sma ul li:last-child{border-right:none;}
+
+	/*天天低价*/
+	.lowprice{width:1212px;height:325px;margin-top:40px;margin:auto;}
+	.l_wrap{width:903px;height:283px;border:1px solid #e0e0e0;float:left;}
+	.lowprice .l_wrap ul li{width:220px;height:141px;float:left;border-right:1px solid #e0e0e0;overflow:hidden;}
+	.lowprice .l_wrap ul li a:hover{color:red;}
+	.lowprice .l_wrap ul .none{border-right:none;}
+	.lowprice .l_wrap ul li img{margin-top:20px;margin-left:10px;transition:0.7s;}
+	.lowprice .l_wrap ul li img:hover{transform:translate(-20px,0);transition:0.7s;}
+	/*若用调用动画move，则有ease-in-out先快后慢 both最后一次动画停下来 alternate动画可以收回去*/
+	@keyframes move{
+		from{margin-left:10px;}
+		to{margin-left:-10px;}
+	}
+	.lowprice .l_wrap .bott{border-bottom:1px solid #e0e0e0;}
+	.lowprice .l_wrap .fore1{width:240px;height:282px;}
+	.lowprice .l_wrap .Fa{display:-webkit-inline-box;margin-left:27px;}
+	.lowprice .l_wrap .p_txt{margin-top:18px;margin-left:31px;width:170px;}
+	.lowprice .l_wrap .p_mes{color:#666;line-height:18px;}
+	.lowprice .l_wrap .p_s{width:96px;float:right;margin-right:7px;margin-top:18px;}
+	.lowprice .l_wrap .p_price{color:#e12228;font-size:16px;font-weight:700;margin-top:6px;}
+	.lowprice .sun{width:307px;height:325px;float:left;margin-top:-40px;}
+	.lowprice .sun .t_c{height:283px;width:309px;border:1px solid #e0e0e0;border-left:none;}
+	.lowprice .sun .t_c .c_img{margin-top:20px;margin-left:22px;}
+
+	/*底部服务*/
+	.footer{width:1349px;margin-top:25px;overflow:hidden;}
+	.footer .f_img{width:1349px;height:100px;margin:0 auto;background:whitesmoke;}
+	.footer .f_img ul li{float:left;margin-left:93px;margin-top:25px;}
+	.footer .f_txt{width:1212px;margin:16px auto}
+	.footer .f_txt .t_all{margin-left:15px;float:left;width:186px;}
+	.footer .f_txt .t_themes{font-size:16px;color:#666;line-height:40px;}
+	.footer .f_txt ul li{margin-top:4px;}
+	.footer .f_txt .t_6{background:url("img/ch.png") -4px -135px no-repeat;margin-left:0;height:164px;width:207px;}
+	.footer .f_txt .t_6 .t_6_wrap{margin-left:19px;}
+	.footer .f_txt ul li a,.footer .f_txt .t_6 p,a{color:#666;}
+	.footer .f_txt a:hover{color:red;}
+	.footer .f_txt .t_6_c{line-height:20px;}
+	.footer .f_txt .t_6 a{float:right;}
+
+	/*关于我们*/
+	.footbot{width:1210px;margin:35px auto;border-top:1px solid #e0e0e0;text-align:center;padding:20px 0 0;}
+	.footbot .about a{margin:0 10px;}
+	.footbot .muti{color:#666;margin:10px 0;}
+	.footbot .muti span{line-height:22px;}
+	.footbot img{vertical-align:middle;}
+	.footbot .muti a:hover{color:red;}
+	.footbot .f_imgt a{margin:0 7px;}
+  </style>
+ </head>
+ <body>
+   <!--搜索-->
+   <div class="top">
+	   <div class="logo"><a href="#"></a></div>
+	   <div class="so">
+		 <input type="text" id="input" placeholder="小米"/>
+		 <a href="#" id="sub">搜索</a>
+	   </div>
+	   <div class="so_mes">
+			<a class="a_first" href="javascript:void(0);">超值预售</a>
+			<a href="javascript:void(0);">领免息券</a>
+			<a href="javascript:void(0);">樱桃19.9</a>
+			<a href="javascript:void(0);">小米Max</a>
+			<a href="javascript:void(0);">狂购618</a>
+			<a href="javascript:void(0);">乐扣乐扣</a>
+			<a href="javascript:void(0);">抱枕</a>
+			<a href="javascript:void(0);">免费试用</a>
+			<a href="javascript:void(0);">儿童套装</a>
+	   </div>
+   </div>
+
+   <!--顶部导航条-->
+   <div class="con_top">
+      <div class="c_t">
+	     <div class="c_t_l"><a href="#">全部商品分类</a></div>
+		 <ul>
+			<li><a href="javascript:void(0);">服装城</a></li>
+			<li><a href="javascript:void(0);">美妆馆</a></li>
+			<li><a href="javascript:void(0);">超市</a></li>
+			<li><a href="javascript:void(0);">全球购</a></li>
+			<li><a href="javascript:void(0);">闪购</a></li>
+			<li><a href="javascript:void(0);">团购</a></li>
+			<li><a href="javascript:void(0);">拍卖</a></li>
+			<li><a href="javascript:void(0);">金融</a></li>
+		 </ul>
+	  </div>
+   </div>
+
+   <!--内容部分-->
+   <div class="content">
+      <!--左边导航条-->
+      <div class="con_l">
+	    <ul>
+		  <li><a href="javascript:void(0);" target="_blank">家用电器</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">手机、数码、京东通信</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">电脑、办公</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">家居、家具、家装、厨具</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">男装、女装、童装、内衣</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">个护化妆、清洁用品、宠物</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">鞋靴、箱包、珠宝、奢侈品</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">运动户外、钟表</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">汽车、汽车用品</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">母婴、玩具乐器</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">食品、酒类、生鲜、特产</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">医药保健</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">图书、音像、电子书</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">彩票、旅行、充值、票务</a><span class="gt">&gt;</span></li>
+		  <li><a href="javascript:void(0);" target="_blank">理财、众筹、白条、保险</a><span class="gt">&gt;</span></li>
+		</ul>
+	  </div>
+	  <!--中间banner图-->
+	  <div class="con_ce">
+	     <div class="banwrap">
+		    <ul>
+			   <li><a href="javascript:void(0);" target="_blank"><img src="img/1.jpg"/></a></li>
+			   <li><a href="javascript:void(0);" target="_blank"><img src="img/2.jpg"/></a></li>
+			   <li><a href="javascript:void(0);" target="_blank"><img src="img/3.jpg"/></a></li>
+			   <li><a href="javascript:void(0);" target="_blank"><img src="img/4.jpg"/></a></li>
+			   <li><a href="javascript:void(0);" target="_blank"><img src="img/5.jpg"/></a></li>
+			   <li><a href="javascript:void(0);" target="_blank"><img src="img/6.jpg"/></a></li>
+			</ul>
+		 </div>
+		 <div class="ce_rr">
+			 <ul>
+				<li class="ce_ra on">1</li>
+				<li class="ce_ra">2</li>
+				<li class="ce_ra">3</li>
+				<li class="ce_ra">4</li>
+				<li class="ce_ra">5</li>
+				<li class="ce_ra">6</li>
+			 </ul>
+		 </div>
+		 <a class="ce_l c_k" href="javascript:void(0);">&lt;</a>
+		 <a class="ce_r c_k" href="javascript:void(0);">&gt;</a>
+	  </div>
+	  <!--京东快报-->
+	  <div class="con_r">
+	    <div class="c_r">京东快报<a href="#">更多&nbsp;<span>&gt;</span></a></div>
+		<div class="c_t">
+		  <ul>
+		     <li><a href="javascript:void(0);" target="_blank"><strong>[特惠]</strong>华南周年庆 1元爆品限量抢</a></li>
+			 <li><a href="javascript:void(0);" target="_blank"><strong>[公告]</strong>华东浦东大件运营中心正式运营</a></li>
+			 <li><a href="javascript:void(0);" target="_blank"><strong>[特惠]</strong>杀向618 大牌鞋靴低至39元</a></li>
+			 <li><a href="javascript:void(0);" target="_blank"><strong>[公告]</strong>京东618品质狂欢节火爆来袭</a></li>
+			 <li><a href="javascript:void(0);" target="_blank"><strong>[特惠]</strong>10亿全品类券最高可享335元！</a></li>
+		  </ul>
+		</div>
+		<div class="c_c">
+		  <ul>
+		    <li class="top"><a href="javascript:void(0);" target="_blank"><b class="b_1" style="background:url('img/1.png');"></b><span>话费</span></a></li>
+			<li class="top c" style="width:62px;"><a href="javascript:void(0);" target="_blank"><b class="b_2" style="background:url('img/1.png') 0px -25px;"></b><span>机票</span></a></li>
+			<li class="top"><a href="javascript:void(0);" target="_blank"><b class="b_3" style="background:url('img/1.png') 0px -50px;"></b><span>电影票</span></a></li>
+			<li class="top l"><a href="javascript:void(0);" target="_blank"><b class="b_4" style="background:url('img/1.png') 0px -75px;"></b><span>游戏</span></a></li>
+			<li class="cen"><a href="javascript:void(0);" target="_blank"><b class="b_5" style="background:url('img/1.png') 0px -100px;"></b><span>彩票</span></a></li>
+			<li class="cen c"><a href="javascript:void(0);" target="_blank"><b class="b_6" style="background:url('img/1.png') 0px -125px;"></b><span>团购</span></a></li>
+			<li class="cen"><a href="javascript:void(0);" target="_blank"><b class="b_7" style="background:url('img/1.png') 0px -150px;"></b><span>酒店</span></a></li>
+			<li class="cen l" style="width:61px;"><a href="javascript:void(0);" target="_blank"><b class="b_8" style="background:url('img/1.png') 0px -170px;"></b><span>火车票</span></a></li>
+			<li class="bot"><a href="javascript:void(0);" target="_blank"><b class="b_9" style="background:url('img/1.png') 0px -250px;"></b><span>众筹</span></a></li>
+			<li class="bot c"><a href="javascript:void(0);" target="_blank"><b class="b_10" style="background:url('img/1.png') 0px -200px;"></b><span>理财</span></a></li>
+			<li class="bot"><a href="javascript:void(0);" target="_blank"><b class="b_11" style="background:url('img/1.png') 0px -275px;"></b><span>礼品卡</span></a></li>
+			<li class="bot l" style="width:61px;"><a href="javascript:void(0);" target="_blank"><b class="b_12" style="background:url('img/1.png') 0px -225px;"></b><span>白条</span></a></li>
+		  </ul>
+		</div>
+		<a href="#"><img src="img/12.jpg"/></a>
+	  </div>
+	  <!--商品明细分类-->
+	  <div class="sdetails">
+		  <div class="sitems c1">
+			 <dl>
+				<dt>手机通信</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>手机通讯</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>手机通讯</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>手机通讯</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>手机通讯</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>手机通讯</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>手机通讯</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+			 <div class="fr">
+				<a href="javascript:void(0);"><img src="img/bg1.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg2.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg3.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg4.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg5.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg6.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg7.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg8.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img class="a_final" src="img/bg9.jpg"/></a>
+				<a href="javascript:void(0);"><img src="img/bg10.jpg"/></a>
+			 </div>
+		  </div>
+		  <div class="sitems c2">
+			<dl>
+				<dt>京东通信</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>京东通信</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>京东通信</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>京东通信</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>京东通信</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>京东通信</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+
+			 <dl>
+				<dt>京东通信</dt>
+					<dd>
+						<a href="javascript:void(0);">平板电视</a>
+						<a href="javascript:void(0);">空调</a>
+						<a href="javascript:void(0);">冰箱</a>
+						<a href="javascript:void(0);">洗衣机</a>
+						<a href="javascript:void(0);">家庭影院</a>
+						<a href="javascript:void(0);">DVD迷你音响</a>
+						<a href="javascript:void(0);">烟机/灶具热水器</a>
+						<a href="javascript:void(0);">消毒柜</a>
+						<a href="javascript:void(0);">洗碗机</a>
+						<a href="javascript:void(0);">冷柜/冰吧</a>
+						<a href="javascript:void(0);">酒柜家电配件</a>
+					</dd>
+			 </dl>
+			 <div class="fr">
+				<a href="javascript:void(0);"><img src="img/bg1.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg2.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg3.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg4.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg5.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg6.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg7.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img src="img/bg8.jpg" width="83" height="35"/></a>
+				<a href="javascript:void(0);"><img class="a_final" src="img/bg9.jpg"/></a>
+				<a href="javascript:void(0);"><img src="img/bg10.jpg"/></a>
+			 </div>
+		  </div>
+		  <div class="sitems c3">导航条3</div>
+		  <div class="sitems c4">导航条4</div>
+		  <div class="sitems c5">导航条5</div>
+		  <div class="sitems c6">导航条6</div>
+		  <div class="sitems c7">导航条7</div>
+		  <div class="sitems c8">导航条8</div>
+		  <div class="sitems c9">导航条9</div>
+		  <div class="sitems c10">导航条10</div>
+		  <div class="sitems c11">导航条11</div>
+		  <div class="sitems c12">导航条12</div>
+		  <div class="sitems c13">导航条13</div>
+		  <div class="sitems c14">导航条14</div>
+		  <div class="sitems c15">导航条15</div>
+	  </div>
+   </div>
+   <!--商品展示区-->
+   <div class="show">
+		<a class="clock" href="javascript:void(0);"></a>
+		<div class="clo">
+			<ul>
+				<li><img src="img/q.jpg" width="249" height="151"/></li>
+				<li><img src="img/w.jpg" width="249" height="151"/></li>
+				<li><img src="img/e.jpg" width="249" height="151"/></li>
+				<li><img src="img/r.jpg" width="249" height="151"/></li>
+			</ul>
+		</div>
+   </div>
+   <!--猜你喜欢-->
+   <div class="like">
+		<span class="title">猜你喜欢</span>
+		<span class="bg"></span>
+		<div class="l_ul">
+			<ul>
+				<li class="one">
+					<a href="javascript:void(0);" class="img_a"><img src="img/41.jpg"/></a>
+					<p class="peam">
+						<a href="javascript:void(0);">蒙牛 纯牛奶 PURE MILK 250ml*16盒</a>
+					</p>
+					<p class="price">¥54.00</p>
+				</li>
+				<li class="one">
+					<a href="javascript:void(0);" class="img_a"><img src="img/42.jpg"/></a>
+					<p class="peam">
+						<a href="javascript:void(0);">麦斯威尔特浓速溶咖啡30条（390克/盒）</a>
+					</p>
+					<p class="price">¥39.80</p>
+				</li>
+				<li class="one">
+					<a href="javascript:void(0);" class="img_a"><img src="img/43.jpg"/></a>
+					<p class="peam">
+						<a href="javascript:void(0);">Nestle雀巢咖啡伴侣（植脂末）400g</a>
+					</p>
+					<p class="price">¥29.00</p>
+				</li>
+				<li class="one">
+					<a href="javascript:void(0);" class="img_a"><img src="img/44.jpg"/></a>
+					<p class="peam">
+						<a href="javascript:void(0);">辉山（huishan）甄致纯牛奶250ml*12礼盒装</a>
+					</p>
+					<p class="price">¥35.90</p>
+				</li>
+				<li class="one">
+					<a href="javascript:void(0);" class="img_a"><img src="img/45.jpg"/></a>
+					<p class="peam">
+						<a href="javascript:void(0);">金龙鱼 粳米 珍珠米 优质东北大米 5kg</a>
+					</p>
+					<p class="price">¥48.00</p>
+				</li>
+				<li>
+					<a href="javascript:void(0);" class="img_a"><img src="img/46.jpg"/></a>
+					<p class="peam">
+						<a href="javascript:void(0);">苏菲超熟睡超薄随心翻410mm 15P绮幻梦境装</a>
+					</p>
+					<p class="price">¥29.80</p>
+				</li>
+			</ul>
+		</div>
+   </div>
+   <!--京东 品质生活-->
+   <div class="life">
+		<h2 class="title">京东 · 品质生活</h2>
+		<div class="content">
+			<div class="c_roll">
+				<a href="javascript:void(0);" class="a_new">
+					<p class="tit new">新发现</p>
+					<div class="sup_tit">
+						<p class="tit mi">尚新品</p>
+						<p class="desc">vivo Xplay5</p>
+						<p class="desc red">6期免息 送定制礼包</p>
+					</div>
+					<img src="img/51.jpg"/>
+				</a>
+			</div>
+			<div class="c_roll" style="width:228px;">
+				<a href="javascript:void(0);" class="a_new">
+					<p class="tit new" style="width:188px;">好物100</p>
+					<div class="sup_tit" style="left:420px;">
+						<p class="tit mi">品质学院</p>
+						<p class="desc">明星导师 羽泉</p>
+						<p class="desc red">红包发放中</p>
+					</div>
+					<img src="img/57.jpg"/>
+				</a>
+			</div>
+			<div class="c_roll">
+				<a href="javascript:void(0);" class="a_new">
+					<p class="tit new">品牌街</p>
+					<img src="img/58.jpg"/>
+				</a>
+			</div>
+			<div class="btom">
+				<a href="javascript:void(0);">
+					<div class="spp_tit">
+						<p class="tit mi">新趋势</p>
+						<p class="desc">LG G5</p>
+						<p class="desc red">购机送千元礼包</p>
+					</div>
+					<img src="img/52.jpg"/>
+				</a>
+				<a href="javascript:void(0);">
+					<div class="spp_tit">
+						<p class="tit mi">新先购</p>
+						<p class="desc">创维智能电视</p>
+						<p class="desc red">21核金属机身</p>
+					</div>
+					<img src="img/53.jpg"/>
+				</a>
+				<a href="javascript:void(0);">
+					<div class="spp_tit">
+						<p class="tit mi">发现好物</p>
+						<p class="desc">平板二合一笔记本</p>
+						<p class="desc red">ThinkPad X1</p>
+					</div>
+					<img src="img/54.jpg"/>
+				</a>
+				<a href="javascript:void(0);">
+					<div class="spp_tit">
+						<p class="tit mi">国际大牌</p>
+						<p class="desc">JACK&JONES</p>
+						<p class="desc red">全场低至5折</p>
+					</div>
+					<img src="img/55.jpg"/>
+				</a>
+				<a href="javascript:void(0);">
+					<div class="spp_tit">
+						<p class="tit mi">科技大牌</p>
+						<p class="desc">科技3C</p>
+						<p class="desc red">品牌盛典疯抢中</p>
+					</div>
+					<img src="img/56.jpg"/>
+				</a>
+			</div>
+			<div class="c_logo">
+				<div class="c_l">
+					<ul>
+						<li><a href="javascript:void(0);"><img src="img/z.jpg"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/x.jpg"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/c.jpg"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/v.jpg"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/b.jpg"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/n.jpg"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/m.jpg"/></a></li>
+					</ul>
+				</div>
+				<div class="c_r">
+					<ul>
+						<li><a href="javascript:void(0);"><img src="img/zz.jpg"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/xx.jpg"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/cc.jpg"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/vv.jpg"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/bb.jpg"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/nn.png"/></a></li>
+						<li><a href="javascript:void(0);"><img src="img/mm.png"/></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+   </div>
+   <!--广告-->
+   <div class="guang">
+		<a href="javascript:void(0);"><img src="img/lun1.jpg"/></a>
+		<a href="javascript:void(0);"><img src="img/lun.jpg"/></a>
+		<a href="javascript:void(0);"><img src="img/lun2.jpg"/></a>
+   </div>
+   <!--服装鞋包-->
+   <div class="beau">
+		<div class="tab louone">
+			<span class="title">服装鞋包</span>
+			<ul class="mcc selectedFirst">
+				<li class="selectedTab"><a class="selectedA" href="javascript:void(0);">大牌</a></li>
+				<li><a href="javascript:void(0);">男装</a><div class="shu" style="display:none;"></div></li>
+				<li><a href="javascript:void(0);">女装</a><div class="shu"></div></li>
+				<li><a href="javascript:void(0);">鞋靴</a><div class="shu"></div></li>
+				<li><a href="javascript:void(0);">箱包</a><div class="shu"></div></li>
+				<li class="big_tab"><a href="javascript:void(0);">内衣配饰</a><div class="shu"></div></li>
+			</ul>
+		</div>
+		<div class="tabcnt"></div>
+		<div class="b_con">
+			<div class="b_r">
+				<a href="javascript:void(0);"><img src="img/gb.jpg"/></a>
+				<div class="repeat"></div>
+				<div class="info">
+					<ul class="themes">
+						<li><a href="javascript:void(0);"><i class="i1 icon"></i><span>新品抢鲜</span></a></li>
+						<li><a href="javascript:void(0);"><i class="i2 icon"></i><span>品牌馆</span></a></li>
+					</ul>
+					<ul class="mes">
+						<li><a href="javascript:void(0);">LOL&nbsp;若风来京东了&gt;</a></li>
+						<li><a href="javascript:void(0);">什么值得听&gt;</a></li>
+						<li><a href="javascript:void(0);">13万蝙蝠侠大曝光&gt;</a></li>
+						<li class="sp"><a href="javascript:void(0);">单反低至1699！&gt;</a></li>
+					</ul>
+					<ul class="infos">
+						<li>
+							<a href="#">游戏本</a>
+							<a href="#">超极本</a>
+							<a href="#" class="style-red">显示器</a>
+							<a href="#">组装电脑</a>
+							<a href="#" class="style-red">机械键盘</a>
+							<a href="#">移动硬盘</a>
+							<a href="#" class="style-red">微型投影仪</a>
+							<a href="#">学生文具</a>
+						</li>
+						<li class="li_r">
+							<a href="#">99元三件</a>
+							<a href="#">儿童手表</a>
+							<a href="#">平板二合一</a>
+							<a href="#" class="style-red">相机在此</a>
+							<a href="#" class="style-red">智能路由</a>
+							<a href="#">免单戳我</a>
+							<a href="#">游戏机</a>
+							<a href="#">618攻略</a>
+						</li>
+					</ul>
+				</div>
+				<a href="javascript:void(0);" class="bot_a"><img src="img/022.jpg"/></a>
+			</div>
+			<div class="b_l">
+				<ul class="tabcnt">
+					<li style="display:block;">
+						<div class="b_t_d">
+							<a href="javascript:void(0);" class="img_b"><img src="img/21.jpg"/></a>
+							<p class="ppea">
+								<a href="javascript:void(0);">茵曼纯棉白色文艺范绣花短袖t恤</a>
+							</p>
+							<p class="price">¥54.00</p>
+						</div>
+						<div class="b_t_d">
+							<a href="javascript:void(0);" class="img_b"><img src="img/22.jpg"/></a>
+							<p class="ppea">
+								<a href="javascript:void(0);">茵曼拼接七分袖T恤撞色绣花女</a>
+							</p>
+							<p class="price">¥159.00</p>
+						</div>
+						<div class="b_t_d">
+							<a href="javascript:void(0);" class="img_b"><img src="img/23.jpg"/></a>
+							<p class="ppea">
+								<a href="javascript:void(0);">茵曼圆领沙滩裙抽绳系带短袖中腰宽松长裙</a>
+							</p>
+							<p class="price">¥159.00</p>
+						</div>
+						<div class="b_t_d  r_l">
+							<a href="javascript:void(0);" class="img_b"><img src="img/24.jpg"/></a>
+							<p class="ppea">
+								<a href="javascript:void(0);">茵曼文艺休闲印花T恤女短袖</a>
+							</p>
+							<p class="price">¥129.00</p>
+						</div>
+						<div class="b_t_d">
+							<a href="javascript:void(0);" class="img_b"><img src="img/25.jpg"/></a>
+							<p class="ppea">
+								<a href="javascript:void(0);">茵曼文艺范纯棉刺绣白色短袖纯色T恤</a>
+							</p>
+							<p class="price">¥99.00</p>
+						</div>
+						<div class="b_t_d">
+							<a href="javascript:void(0);" class="img_b"><img src="img/26.jpg"/></a>
+							<p class="ppea">
+								<a href="javascript:void(0);">茵曼简约棉质圆领无袖连衣裙夏长裙</a>
+							</p>
+							<p class="price">¥159.00</p>
+						</div>
+						<div class="b_t_d">
+							<a href="javascript:void(0);" class="img_b"><img src="img/27.jpg"/></a>
+							<p class="ppea">
+								<a href="javascript:void(0);">茵曼绣花短袖T恤女修身收腰一字领上衣</a>
+							</p>
+							<p class="price">¥109.00</p>
+						</div>
+						<div class="b_t_d r_l">
+							<a href="javascript:void(0);" class="img_b"><img src="img/28.jpg"/></a>
+							<p class="ppea">
+								<a href="javascript:void(0);">茵曼短袖宽松白色 印花百搭棉上衣女装</a>
+							</p>
+							<p class="price">¥99.00</p>
+						</div>
+						<div class="b_short"><a href="javascript:void(0);"><img src="img/31.jpg"/></a></div>
+						<div class="b_short"><a href="javascript:void(0);"><img src="img/34.jpg"/></a></div>
+						<div class="b_short"><a href="javascript:void(0);"><img src="img/33.jpg"/></a></div>
+						<div class="b_short r_l"><a href="javascript:void(0);"><img src="img/32.jpg"/></a></div>
+					</li>
+					<li>选项卡222222</li>
+					<li>选项卡23</li>
+					<li>选项卡2345</li>
+					<li>选项卡646</li>
+					<li>选项卡6876</li>
+				</ul>
+			</div>
+		</div>
+   </div>
+   <!--小广告-->
+   <div class="sma">
+		<ul>
+			<li><a href="javascript:void(0);"><img src="img/71.png"/></a></li>
+			<li><a href="javascript:void(0);"><img src="img/72.png"/></a></li>
+			<li><a href="javascript:void(0);"><img src="img/73.jpg"/></a></li>
+			<li><a href="javascript:void(0);"><img src="img/74.jpg"/></a></li>
+			<li><a href="javascript:void(0);"><img src="img/75.jpg"/></a></li>
+			<li><a href="javascript:void(0);"><img src="img/76.jpg"/></a></li>
+			<li><a href="javascript:void(0);"><img src="img/77.jpg"/></a></li>
+			<li><a href="javascript:void(0);"><img src="img/78.jpg"/></a></li>
+			<li><a href="javascript:void(0);"><img src="img/79.jpg"/></a></li>
+			<li><a href="javascript:void(0);"><img src="img/80.jpg"/></a></li>
+		</ul>
+   </div>
+   <!--天天低价-->
+   <div class="lowprice">
+		<div class="clear"></div> <!--里面包裹的div都是浮动的，所以必须清楚浮动clear:both才能包裹里面的div-->
+		<p class="title">天天低价</p>
+		<div class="l_wrap">
+			<ul>
+				<li class="fore1">
+					<a href="javascript:void(0);" class="Fa"><img src="img/81.jpg" width="160" height="160"/></a>
+					<div class="p_txt"> 
+						<a class="p_mes" href="javascript:void(0);">Thinkpad 0B47161 无线蓝光鼠标 （磨砂黑）</a>
+						<p class="p_price">￥89.00</p>
+					</div>
+				</li>
+				<li class="fore2 bott"><a href="javascript:void(0);"><img src="img/82.png"/></a>
+					<div class="p_s"> 
+						<a class="p_mes" href="javascript:void(0);">康佳（KONKA）LED43E330C 43</a>
+						<p class="p_price">￥1699.00</p>
+					</div>
+				</li>
+				<li class="fore3 bott"><a href="javascript:void(0);"><img src="img/83.png"/></a>
+					<div class="p_s"> 
+						<a class="p_mes" href="javascript:void(0);">南极人韩版牛皮男士自动扣牛皮腰带</a>
+						<p class="p_price">￥59.00</p>
+					</div>
+				</li>
+				<li class="fore4 none bott"><a href="javascript:void(0);"><img src="img/84.png"/></a>
+					<div class="p_s"> 
+						<a class="p_mes" href="javascript:void(0);">JHS A001C 大1P 移动空调冷暖一体机</a>
+						<p class="p_price">￥1599.00</p>
+					</div>
+				</li>
+				<li class="fore5"><a href="javascript:void(0);"><img src="img/85.jpg"/></a>
+					<div class="p_s"> 
+						<a class="p_mes" href="javascript:void(0);">朗科（Netac）智悦 1TB USB3.0 全金属无螺孔机身 加密移动硬盘</a>
+						<p class="p_price">￥389.00</p>
+					</div>
+				</li>
+				<li class="fore6"><a href="javascript:void(0);"><img src="img/86.png"/></a>
+					<div class="p_s"> 
+						<a class="p_mes" href="javascript:void(0);">锐力(READ)手表 男士手表瑞士品牌</a>
+						<p class="p_price">￥136.00</p>
+					</div>
+				</li>
+				<li class="fore7 none"><a href="javascript:void(0);"><img src="img/87.jpg"/></a>
+					<div class="p_s"> 
+						<a class="p_mes" href="javascript:void(0);">Snowkids Micro USB安卓接口手机数据线</a>
+						<p class="p_price">￥8.00</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!--热门晒单-->
+	   <div class="sun">
+			<p class="title">热门晒单</p>
+			<div class="t_c">
+				<div class="c_img">
+					<img src="img/91.jpg"/>
+					<img src="img/93.jpg"/>
+				</div>
+				<div class="c_img">
+					<img src="img/92.jpg"/>
+					<img src="img/94.jpg"/>
+				</div>
+			</div>
+	   </div>
+   </div>
+   <!--底部服务-->
+   <div class="footer">
+		<div class="f_img">
+			<ul>
+				<li><img src="img/100.png" width="220" height="54" alt="广告"/></li>
+				<li><img src="img/101.png" width="220" height="54" alt="广告"/></li>
+				<li><img src="img/102.png" width="220" height="54" alt="广告"/></li>
+				<li><img src="img/103.png" width="220" height="54" alt="广告"/></li>
+			</ul>
+		</div>
+		<div class="f_txt">
+			<div class="t_1 t_all">
+				<ul>
+					<li class="t_themes">购物指南</li>
+					<li><a href="javascript:void(0);">购物流程</a></li>
+					<li><a href="javascript:void(0);">会员介绍</a></li>
+					<li><a href="javascript:void(0);">生活旅行/团购</a></li>
+					<li><a href="javascript:void(0);">常见问题</a></li>
+					<li><a href="javascript:void(0);">大家电</a></li>
+					<li><a href="javascript:void(0);">联系客服</a></li>
+				</ul>
+			</div>
+			<div class="t_2 t_all">
+				<ul>
+					<li class="t_themes">配送方式</li>
+					<li><a href="javascript:void(0);">上门自提</a></li>
+					<li><a href="javascript:void(0);">211限时达</a></li>
+					<li><a href="javascript:void(0);">配送服务查询</a></li>
+					<li><a href="javascript:void(0);">配送费收取标准</a></li>
+					<li><a href="javascript:void(0);">海外配送</a></li>
+				</ul>
+			</div>
+			<div class="t_3 t_all">
+				<ul>
+					<li class="t_themes">支付方式</li>
+					<li><a href="javascript:void(0);">货到付款</a></li>
+					<li><a href="javascript:void(0);">在线支付</a></li>
+					<li><a href="javascript:void(0);">分期付款</a></li>
+					<li><a href="javascript:void(0);">邮局汇款</a></li>
+					<li><a href="javascript:void(0);">公司转账</a></li>
+				</ul>
+			</div>
+			<div class="t_4 t_all">
+				<ul>
+					<li class="t_themes">售后服务</li>
+					<li><a href="javascript:void(0);">售后政策</a></li>
+					<li><a href="javascript:void(0);">价格保护</a></li>
+					<li><a href="javascript:void(0);">退款说明</a></li>
+					<li><a href="javascript:void(0);">返修/退换货</a></li>
+					<li><a href="javascript:void(0);">取消订单</a></li>
+				</ul>
+			</div>
+			<div class="t_5 t_all">
+				<ul>
+					<li class="t_themes">特色服务</li>
+					<li><a href="javascript:void(0);">夺宝岛</a></li>
+					<li><a href="javascript:void(0);">DIY装机</a></li>
+					<li><a href="javascript:void(0);">延保服务</a></li>
+					<li><a href="javascript:void(0);">京东E卡</a></li>
+					<li><a href="javascript:void(0);">京东通信</a></li>
+					<li><a href="javascript:void(0);">京东JD+</a></li>
+				</ul>
+			</div>
+			<div class="t_6 t_all">
+				<div class="t_6_wrap">
+					<p class="t_themes">京东自营覆盖区县</p>
+					<p class="t_6_c">京东已向全国2630个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</p>
+					<a href="javascript:void(0);">查看详情&nbsp;&gt;</a>
+				</div>
+			</div>
+		</div>
+   </div>
+   <!--关于我们-->
+   <div class="footbot">
+		<div class="about">
+			<a href="javascript:void(0);">关于我们</a>|
+			<a href="javascript:void(0);">联系我们</a>|
+			<a href="javascript:void(0);">商家入驻</a>|
+			<a href="javascript:void(0);">营销中心</a>|
+			<a href="javascript:void(0);">手机京东</a>|
+			<a href="javascript:void(0);">友情链接</a>|
+			<a href="javascript:void(0);">销售联盟</a>|
+			<a href="javascript:void(0);">京东社区</a>|
+			<a href="javascript:void(0);">京东公益</a>|
+			<a href="javascript:void(0);">English Site</a>|
+			<a href="javascript:void(0);">Contact Us</a>
+		</div>
+		<div class="muti">
+			<a href="javascript:void(0);"><img src="img/guo.png"/>京公网安备 11000002000088号</a>&nbsp;|&nbsp;京ICP证070359号&nbsp;|&nbsp;
+			<a href="javascript:void(0);">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a>&nbsp;|&nbsp;新出发京零 字第大120007号&nbsp;|&nbsp;互联网出版许可证编号新出网证(京)字150号
+			<br/>
+			<a href="javascript:void(0);">出版物经营许可证</a>&nbsp;&nbsp;
+			<a href="javascript:void(0);">网络文化经营许可证京网文[2014]2148-348号</a>
+			违法和不良信息举报电话：4006561155  Copyright © 2004-2016  京东JD.com 版权所有
+			<br/>
+			<span>京东旗下网站：</span>
+			<a href="javascript:void(0);">京东钱包</a>
+
+		</div>
+		<div class="f_imgt">
+			<a href="javascript:void(0);"><img src="img/a.png"/></a>
+			<a href="javascript:void(0);"><img src="img/s.png"/></a>
+			<a href="javascript:void(0);"><img src="img/d.jpg"/></a>
+			<a href="javascript:void(0);"><img src="img/f.png"/></a>
+			<a href="javascript:void(0);"><img src="img/g.jpg"/></a>
+			<a href="javascript:void(0);"><img src="img/h.jpg"/></a>
+		</div>
+   </div>
+   <!--回到顶部-->
+   <div class="backTop">
+		<a href="javascript:void(0);"></a>
+   </div>
+
+   <script src="js/jquery-1.10.2.min.js"></script>
+   <script src="js/京东.js"></script>
+   <script src="js/选项卡.js"></script>
+   <script src="js/回到顶部.js"></script>
+ </body>
+</html>

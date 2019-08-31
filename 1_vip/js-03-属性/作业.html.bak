@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+	.box{width:100px;height:100px;margin:50px;background:#f90;}
+	.box2{width:200px;position:absolute;top:200px;left:550px;display:none;}
+	.box2 .back1{width:50px;height:50px;float:left;margin-left:12px;cursor:pointer;}
+	p{float:left;cursor:pointer;}
+	p span:hover{color:red;}
+	#sum{margin:10px auto;display:block;cursor:pointer;border:none;outline:none;}
+	#sum:hover{color:red;}
+	#btn{margin-left:50px;float:left;cursor:pointer;border:none;outline:none;}
+  </style>
+ </head>
+ <body>
+	<div class="box"></div>
+	<input type="button" id="btn" value="click"/>
+	<div class="box2">
+		<div class="back1" style="background:#000;"></div>
+		<div class="back1" style="background:#f90;"></div>
+		<div class="back1" style="background:red;"></div>
+		<p>宽度：<span id="px1">100px&nbsp;</span><span id="px2">300px&nbsp;</span><span id="px3">500px</span></p>
+		<p>高度：<span id="px4">100px&nbsp;</span><span id="px5">300px&nbsp;</span><span id="px6">500px</span></p>
+		<input type="button" id="sum" value="完成"/>
+	</div>
+	<script>
+		window.onload = function(){
+			var box = document.getElementsByClassName("box");
+			var box2 = document.getElementsByClassName("box2");
+			var btn = document.getElementById("btn");
+			var back = document.getElementsByClassName("back1");
+			var wid1 = document.getElementById("px1");
+			var wid2 = document.getElementById("px2");
+			var wid3 = document.getElementById("px3");
+			var hei1 = document.getElementById("px4");
+			var hei2 = document.getElementById("px5");
+			var hei3 = document.getElementById("px6");
+			var sum = document.getElementById("sum");
+
+			btn.onclick = function(){
+				box2[0].style.display = "block";
+			}
+			sum.onclick = function(){
+				box2[0].style.display = "none";
+			}
+
+			back[0].onclick = function(){
+				box[0].style.background = "#000";
+			}
+			back[1].onclick = function(){
+				box[0].style.background = "#f90";
+			}
+			back[2].onclick = function(){
+				box[0].style.background = "red";
+			}
+			wid1.onclick = function(){
+				box[0].style.width = "100px";
+			}
+			wid2.onclick = function(){
+				box[0].style.width = "300px";
+			}
+			wid3.onclick = function(){
+				box[0].style.width = "500px";
+			}
+
+			hei1.onclick = function(){
+				box[0].style.height = "100px";
+			}
+			hei2.onclick = function(){
+				box[0].style.height = "300px";
+			}
+			hei3.onclick = function(){
+				box[0].style.height = "500px";
+			}
+		}
+	</script>
+ </body>
+</html>

@@ -1,0 +1,11 @@
+
+如果数据库内存储时间的格式是字符串类型，则需要在这里将Date类型转换成字符串类型：
+
+String sql = "INSERT INTO BAIDU_YUN VALUES(SEQ_BAIDU.Nextval,null,null,null,?)";
+设置时间格式：
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+转换类型
+String now = sdf.format(new Date());
+Object[] obj = new Object[]{now};
+存入数据库
+int num = jdbcTemplate.executeUpdate(sql, obj);

@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>css3动画效果 --krry</title>
+	<style type="text/css">
+	  *{margin:0;padding:0;}
+	  body{background:url("img/2.jpg");background-size:cover;}
+	  .box{width:150px;height:150px;margin:90px auto;position:relative;
+	       border-radius:50%;}
+	  .box a{width:100%;height:100%;background:#ef3434;color:#fff;font-size:18px;font-family:"微软雅黑";
+	         text-align:center;line-height:150px;display:block;border-radius:50%;
+			 text-decoration:none;z-index:3;position:absolute;}
+	  .box .huan{width:100%;height:100%;background:#f77e2f;border-radius:50%;
+	             position:absolute;top:0;z-index:1;
+				 animation:move 1.5s ease-in-out infinite alternate;}
+/*alternate 动画执行之后倒退继续执行*/
+	  .box .definite{animation:move2 1.5s ease-in-out 2 alternate;
+	                 width:100%;height:100%;background:#c60054;border-radius:50%;
+	                 position:absolute;top:-90px;z-index:1;}
+      .jk{width:450px;height:80px;margin:100px auto;display:none;
+	      background:#ff0000;color:#fff;line-height:80px;font-size:32px;font-family:"微软雅黑";}
+	  .jkk{height:60px;color:#fff;line-height:60px;font-size:32px;font-family:"微软雅黑";
+	       cursor:pointer;position:absolute;top:200px;left:20px;}
+	  @keyframes move{
+	     from{transform:scale(1.2);} /*设定初始的大小*/
+		 to{transform:scale(2.2);opacity:.3;} /*结束的大小，透明度*/
+	  }
+	  @keyframes move2{
+	    from{transform:scale(1);}
+		to{transform:scale(2);opacity:.1;}
+	  }
+	  .animated { /*兼容各种浏览器的写法*/
+		-webkit-animation-duration: 1s;
+	   -moz-animation-duration: 1s;
+	    -ms-animation-duration: 1s;
+	     -o-animation-duration: 1s;
+	        animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+	   -moz-animation-fill-mode: both;
+	    -ms-animation-fill-mode: both;
+	     -o-animation-fill-mode: both;
+	        animation-fill-mode: both;
+     }
+	  @keyframes bounceIn{
+	    0% {
+			opacity: 0;
+			transform: scale(.3);
+		}
+
+		50% {
+			opacity: 1;
+			transform: scale(1.05);
+		}
+
+		70% {
+			transform: scale(.9);
+		}
+
+		100% {
+			transform: scale(1);
+		}
+	  }
+	  .bounceIn { /*在各种浏览器兼容性的写法 ,此为调用上面写的bounceIn动画*/
+		-webkit-animation-name: bounceIn;
+		-moz-animation-name: bounceIn;
+		-ms-animation-name: bounceIn;
+		-o-animation-name: bounceIn;
+		animation-name: bounceIn;
+	  }
+
+	  @keyframes bounceOut{
+	     0%{
+		    opacity:1;
+		 }
+		 50%{
+		   transform:scale(1.05);
+		   transform:rotate(360deg)
+		 }
+		 100%{
+		   opacity:0.2;
+		   transform:scale(.1);
+		 }
+	  }
+	  .bounceOut{
+	     -webkit-animation-name: bounceOut;
+		-moz-animation-name: bounceOut;
+		-ms-animation-name: bounceOut;
+		-o-animation-name: bounceOut;
+		animation-name: bounceOut;
+	  }
+	</style>
+  </head>
+  <body>
+    <div class="box">
+	  <a href="#">使劲点我click me</a>
+	  <div class="huan"></div>
+	</div>
+	<div class="jk">我会动哦~~~哈哈，转转转~~</div>
+	<div class="jkk">想看我就点我吧</div>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	  $(function(){
+	     var $box = $(".box");
+		 var $boxA = $(".box a");
+		 $boxA.click(function(){
+		    var $div = $("<div></div>");
+			$div.addClass("box definite"); //添加之前定义的box definite样式，不用加点
+			//追加到box中
+			$box.append($div);
+
+			setTimeout(function(){//设定时间，移除div，还有removeChild(参数)移除div里面的东西
+			  $div.remove();
+			},3000);
+		 });
+		 var i = true;
+		 var nowTime = 0;
+		 $(".jkk").click(function(){
+			 if(new Date() - nowTime > 1000){
+				 nowTime = new Date();
+				 if(i){
+				  $(".jk").removeClass("animated bounceOut");
+				  $(".jk").addClass("animated bounceIn").show();
+				  i = false;
+				 }else{
+				  $(".jk").removeClass("animated bounceIn");
+				  $(".jk").addClass("animated bounceOut");
+				  setTimeout(function(){
+							$(".jk").hide();
+						},1000); 
+				  i = true;
+				 }
+			 }
+		 });
+	  });
+	</script>
+  </body>
+</html>

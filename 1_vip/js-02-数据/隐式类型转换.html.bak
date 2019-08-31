@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+  </style>
+ </head>
+ <body>
+	<h2>隐式类型转换</h2>
+	<p>===:恒等或全等，直接比较类型和值 相等 就true</p><br/>
+	<p>a = '12'</p>
+	<p>b = 12</p><br/>
+	<p></p><br/>
+	<p></p>
+	<p></p><br/>
+	<p></p>
+	<p></p><br/>
+	<p></p>
+	<p></p>
+ </body>
+	<script>
+		var pp = document.getElementsByTagName("p");
+		/*隐式类型转换*/
+		var a = '12';
+		var b = 12;
+		pp[2].innerHTML = "查看a的类型 typeof a = "+typeof a;
+		pp[3].innerHTML = "查看a==b? ";
+		pp[4].innerHTML = a==b;
+		pp[5].innerHTML = "查看a-b = ";
+		pp[6].innerHTML = a-b;//自发地强制类型转换
+		pp[7].innerHTML = "查看a===b? ";
+		pp[8].innerHTML = a===b; //恒等或全等，直接比较类型和值 相等 就true
+	</script>
+</html>

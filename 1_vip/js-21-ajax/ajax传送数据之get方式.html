@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面编码集(中文编码<gbk,gb2312>,国际编码<utf-8>)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<title> html </title>
+        <style type="text/css">
+			*{padding:0px;margin:0px;}
+		</style>
+	</head>
+<body>
+	
+	<script>
+		//携带数据给服务端
+		window.onload = function(){
+			var  xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+			xhr.open("get","test.php?user=vicky&pwd=123456&"+Math.random(),true);//后面的随机数是解决缓冲问题
+			xhr.send(); //get方式请求的send方法，不用放参数
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					alert(xhr.responseText);
+				}
+			};
+		};
+	</script>
+</body>
+
+</html>

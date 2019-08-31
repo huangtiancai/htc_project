@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>瀑布流-Multi-columns</title>
+	
+		<!--通用样式-->
+		<link rel="stylesheet" href="css/comment.css"/>
+
+	    <style type="text/css">
+	    	.masonry { 
+	    		-moz-column-count:3; /* Firefox */
+		        -webkit-column-count:3; /* Safari 和 Chrome */
+		        column-count:3;
+		        -moz-column-gap: 2em;
+		    	-webkit-column-gap: 2em;
+		    	column-gap: 2em;
+		    	width: 80%;
+		    	margin:2em auto;
+	    	}
+	    	.item { 
+	    		padding: 2em;
+	    		margin-bottom: 2em;
+		    	-moz-page-break-inside: avoid;
+		    	-webkit-column-break-inside: avoid;
+		    	break-inside: avoid;
+		    	background: #f60;
+	    	}
+	    	.item_content{
+	    		text-align: center;
+	    		line-height: 6em;
+	    		color: #fff;
+	    		font-size:18px;
+	    	}
+	    	.content-sma{
+	    		height:100px;
+
+	    	}
+	    	.content-sma:after{
+	    		content:"我最小";
+	    	}
+	    	.content-mid{
+	    		height:150px;
+	    	}
+	    	.content-mid:after{
+	    		content:"我中等";
+	    	}
+	    	.content-lar{
+	    		height:200px;
+	    	}
+	    	.content-lar:after{
+	    		content:"我最大";
+	    	}
+
+	    	@media screen and (max-width: 800px) { 
+	    		.masonry { 
+	    			column-count: 2; // two columns on larger phones 
+	    		} 
+	    	} 
+	    	@media screen and (max-width: 500px) { 
+	    		.masonry { 
+	    			column-count: 1; // two columns on larger phones 
+	    		} 
+	    	} 
+	    </style>
+	</head>
+	<body>
+		<div class="masonry"> 
+			<div class="item"> 
+				<div class="item_content content-lar"> 1
+				</div> 
+			</div> 
+			<div class="item"> 
+				<div class="item_content content-sma"> 2
+				</div> 
+			</div>
+			<div class="item"> 
+				<div class="item_content content-mid"> 3
+				</div> 
+			</div>
+			<div class="item"> 
+				<div class="item_content content-sma"> 4
+				</div> 
+			</div>
+			<div class="item"> 
+				<div class="item_content content-mid"> 5
+				</div> 
+			</div>
+			<div class="item"> 
+				<div class="item_content content-lar"> 6
+				</div> 
+			</div> 
+			<div class="item"> 
+				<div class="item_content content-sma"> 7
+				</div> 
+			</div>
+			<div class="item"> 
+				<div class="item_content content-lar"> 8
+				</div> 
+			</div>
+			<div class="item"> 
+				<div class="item_content content-lar"> 9
+				</div> 
+			</div>
+			<div class="item"> 
+				<div class="item_content content-sma"> 10
+				</div> 
+			</div>
+			<div class="item"> 
+				<div class="item_content content-mid"> 11
+				</div> 
+			</div>
+			<div class="item"> 
+				<div class="item_content content-mid"> 12
+				</div> 
+			</div>
+			<!-- more items --> 
+		</div>
+
+		<script type="text/javascript">
+
+		</script>
+	</body>
+</html>

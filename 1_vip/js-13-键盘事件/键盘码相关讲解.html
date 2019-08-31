@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面编码集(中文编码<gbk,gb2312>,国际编码<utf-8>)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<title> html </title>
+        <style type="text/css">
+			*{padding:0px;margin:0px;}
+			#div1{width:200px;height:300px;border:1px solid red;margin-top:20px;}
+			#div1 p{margin-top:10px;color:red;font-family:"楷体"}
+		</style>
+	</head>
+<body>
+	<input type="text" id="txt"/><input id="btn" type="button" value="提交"/>
+	<div id="div1"></div>
+	<script>
+		/*
+		document.onkeyup = function(ev){
+			var e = ev||window.event;
+			e.keyCode---->键盘码
+			回车键13 shift键16 ctrl键17 空格键32
+			alert(e.keyCode);
+		};
+		*/
+
+		var txt = document.getElementById("txt");
+		var btn = document.getElementById("btn");
+		var div1 = document.getElementById("div1");
+		//鼠标点击事件
+		btn.onclick = fn;
+		//键盘事件
+		txt.onkeyup = function(ev){
+			var e = ev||event;//IE678不兼容
+			if(e.keyCode == 13){
+				fn();
+			}
+		};
+		function fn(){
+			var val = txt.value;
+			//给文本框赋值为空
+			txt.value = "";
+			if(val.trim()){
+				var p = document.createElement("p");
+				p.innerHTML = val;
+				div1.appendChild(p);
+			}
+		};
+	</script>
+</body>
+
+</html>

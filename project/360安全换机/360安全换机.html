@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+   <head>
+       <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	   <meta name="keywords" content="">
+	   <meta name="description" content="">
+	   <title>全屏滚动特效 --krry</title>
+	   <style type="text/css">
+	       *{margin:0;padding:0;}
+		   html,body{height:100%;text-shadow:1px 2px 4px rgba(0,0,0,.5);
+		             font:12px/1 "\5fae\8f6f\96c5\9ed1",Helvetica,STHeiTi,sans-serif;}
+		  /*bg start*/
+		   #bg{width:100%;height:100%;}
+		   #bg div{display:block;}
+		   #bg .img_box{width:100%;height:100%;background-position:50% 0;zoom:1;
+		                overflow:hidden;background-size:cover;
+						background-attachment:fixed;/*背景固定*/}
+		   #bg .img_box p{left:21%;color:#fff;z-index:9;top:5%;font-size:68px;z-index:9;
+		                 -webkit-transform:scale(.6);position:absolute;}
+		   #bg .img_box .pic{background-position:50% 60%;position:absolute;
+		                     background-size:40%;background-repeat:no-repeat;top:0;left:0;
+							 bottom:0;right:0;height:100%;width:100%;position:inherit;}
+		   #bg .img_01 p{font-size:48px;line-height:68px;top:50px;}
+		   #bg .img_02 p{font-size:48px;line-height:68px;top:640px;}
+		   #bg .img_02 p em{font-style:normal;font-size:18px;display:block;margin-top:-15px;}
+		   #bg .img_03 p{font-size:48px;line-height:68px;top:1280px;}
+		   #bg .img_03 p em{font-style:normal;font-size:18px;display:block;margin-top:-15px;}
+		   #bg .img_04 p{font-size:48px;line-height:68px;top:1940px;}
+		  /*bg end*/
+			
+		  /*header start*/
+		   #header{width:100%;height:47px;position:fixed;top:25px;left:0;}
+		   #header .h_logo{margin-left:50px;float:left;}
+		   #header .h_nav{width:400px;height:47px;float:right;
+		                  margin-right:70px;position:relative;}
+		   #header .h_nav ul{height:47px;line-height:47px;z-index:4;
+		                     position:relative;width:470px;}
+	       #header .h_nav ul li{list-style:none;float:left;margin:0 32px;}
+		   #header .h_nav ul li a{text-decoration:none;color:#c2d5eb;font-size:14px;}
+		   #header .h_nav ul li.in a{color:#fff;}
+		   #header .h_nav #wrap{width:58px;height:28px;border-radius:15px;z-index:3;
+		                        top:8px;left:16px;position:absolute;
+								border:1px solid rgba(163,196,236,.6);}
+		  /*header end*/
+
+		  /*weibo start*/
+		   .weibo{width:130px;height:28px;position:fixed;top:120px;left:60px;}
+		   .weibo a{text-decoration:none;width:130px;height:28px;}
+
+		   .weibo a span{font-size:14px;color:#dcecff;padding:17px;position:absolute;
+		                 top:-10px;}
+		   .weibo a span:hover{color:#23dd91;}
+		   /*weibo end*/
+
+		   /*dow start*/
+		   .dow{width:200px;height:384px;right:60px;top:20%;position:fixed;
+		        border-top:2px solid rgba(220,236,255,.57);border-bottom:2px solid rgba(220,236,255,.57);background-color:rgba(163,196,236,.11);}
+		   .dow .dow_pho a{width:130px;height:26px;font-size:20px;color:#dcecff;
+		                   background:url("images/iphone.png") 0 0 no-repeat;
+						   margin-left:36px;line-height:4;text-decoration:none;}
+	       .dow .dow_pho a span{padding-left:30px;}
+		   .dow .dow_pho a span:hover{color:#23dd91;}
+		   .dow .dow_c{width:197px;height:75px;
+		               background:url("images/dl_btn.png") 0 0 no-repeat;}
+		   .dow .dow_c .dow_c_a{width:182px;height:55px;display:block;
+		                        right:8px;position:absolute;}
+		   .dow .dow_ma{width:200px;height:200px;background:url("images/erweima.jpg");
+		                background-size:cover;}
+		   /*dow end*/
+
+		   /*slide start*/
+		   #slide{width:100px;height:270px;position:fixed;
+		          top:30%;left:60px;background:url("images/nav.png") no-repeat;}
+		   #slide ul{padding-top:6px;}
+		   #slide ul li{list-style:none;color:#dcecff;cursor:pointer;line-height:2;
+		                font-size:12px;padding-left:50px;height:21px;margin-bottom:56px;}
+		   #slide ul li.on{background:url("images/nav_cho.png") no-repeat;color:#23dd91;}
+		   /*start end*/
+
+		   /*video start*/
+		   .video{height:82px;bottom:4%;position:fixed;left:60px;color:#DCECFF;font-size:18px;
+		          line-height:60px;padding-left:77px;z-index:10;cursor:pointer;}
+		   .video:hover{color:#23dd91;}
+		   .video img{position:absolute;left:0;transition:0.5s;}
+		   .video img:hover{transform:rotate(360deg);transition:0.5s;}
+		   /*video end*/
+		  
+	   </style>
+   </head>
+   <body>
+      <!--header start-->
+       <div id="header">
+	       <div class="h_logo"><img src="images/logo.png"/></div>
+		   <div class="h_nav">
+		      <ul>
+			     <li class="in" id="first"><a href="#">首页</a></li>
+				 <li><a href="#">常见问题</a></li>
+				 <li><a href="#">论坛</a></li>
+				 <li><a href="#">360首页&gt;&gt;</a></li>
+			  </ul>
+			  <div id="wrap"></div>
+		   </div>
+	   </div>
+	   <!--header end-->
+
+	   <!--bg start-->
+       <div id="bg">
+	      <div class="img_box img_01" style="background-image:url('images/1.jpg')">
+		     <p>首款保护换机安全的软件<br>换手机必备</p>
+			 <div style="background-image:url('images/1.png')" class="pic"></div>
+		  </div>
+		  <div class="img_box img_02" style="background-image:url('images/2.jpg')">
+		     <p>无需联网<br>手机资料直接对传，安全快捷
+			   <em>点对点私密网络，无需上传，保护隐私安全，创新使用Wi-Direct技术，速度比蓝牙快60倍</em>
+			 </p>
+		     <div style="background-image:url('images/2.png')" class="pic"></div>
+		  </div>
+		  <div class="img_box img_03" style="background-image:url('images/3.jpg')">
+		     <p>隐私粉碎器<br>彻底销毁隐私数据，避免人财两失
+               <em>全网唯一推出防恢复的数据粉碎功能，全盘擦除隐私资料，永绝后患</em>
+			 </p>
+		     <div style="background-image:url('images/3.png')" class="pic"></div>
+		  </div>
+		  <div class="img_box img_04" style="background-image:url('images/4.jpg')">
+		     <p>九大类资料一键转移<br>还支持聊天记录、连接过的WiFi热点
+			 </p>
+		     <div style="background-image:url('images/4.png')" class="pic"></div>
+		  </div>
+	   </div>
+	   <!--bg end-->
+
+	   <!--weibo start-->
+	   <div class="weibo">
+	      <a href="#">
+	        <img src="images/weibo.png" width="28" height="24" alt="微博logo"/>
+			<span>官方微博</span>
+		  </a>
+	   </div>
+	   <!--weibo end-->
+
+	   <!--dow start-->
+	   <div class="dow">
+	      <div class="dow_pho">
+		     <a href="#"><span>下载到手机</span>
+			 </a>
+		  </div>
+	      <div class="dow_c">
+		     <a class="dow_c_a" href="#"></a>
+		  </div>
+		  <div class="dow_ma"></div>
+	   <div>
+	   <!--dow end-->
+
+	   <!--slide start-->
+	   <div id="slide">
+	       <ul>
+		      <li class="on">安全换机</li>
+			  <li>无网对传</li>
+			  <li>隐私粉碎</li>
+			  <li>一键转移</li>
+		   </ul>
+	   </div>
+	   <!--slide end-->
+
+	   <!--video start-->
+	   <div class="video">
+	      <img src="images/video.png" width="42.7" height="57.4" alt="播放"/>观看视频
+	   </div>
+	   <!--video end-->
+
+	   <script src="js/jquery-1.11.3.min.js"></script>
+	   <script src="js/jquery.mousewheel.js"></script>
+	   <script type="text/javascript">
+	       $(function(){
+		      var $navLi = $("#header .h_nav ul li");
+			  var $navUl = $("#header .h_nav ul");
+			  var $wrap = $("#header .h_nav #wrap");
+			  var $slideLi = $("#slide ul li");
+			  var close = true;
+			  $navLi.mouseenter(function(){    //鼠标穿过的时候
+			      var Left = $(this).position().left;
+				  var Width = $(this).width();
+				  $(this).addClass("in").siblings().removeClass("in");
+				  $wrap.stop(true).animate({width:Width+30,left:Left+16},300);//加了stop,以鼠标最后放置的位置为准
+			  });
+			  $navUl.mouseleave(function(){   //鼠标离开的时候
+			      $wrap.stop(true).animate({left:16,width:58},300);//加了stop,以鼠标最后放置的位置为准
+				  $("#first").addClass("in").siblings().removeClass("in");
+			  });
+
+			  var winH = $(window).height();
+			  var index = 0;
+			  $slideLi.click(function(){
+				  close = false;
+				  index = $(this).index();
+			      $(this).addClass("on").siblings().removeClass("on");
+				  $("body,html").stop().animate({"scrollTop":winH*index},500,function(){
+					close = true;
+				  });
+			  });
+			  var nowTime = 0;
+			  $(document).mousewheel(function(){
+				  close = false;
+			      var dt = arguments[1]; //获取的是第二个参数dr，方向
+				  if(new Date() - nowTime > 500){
+					  nowTime = new Date();
+					  if(dt<0){  //小于0代表往下滚动
+						 index++;
+						 index %= 4;  //取模0,1,2,3
+					  }else{
+						 index--;
+						 if(index<0)
+							index=3
+					  }
+					  $slideLi.eq(index).addClass("on").siblings().removeClass("on");
+					  $("body,html").stop().animate({"scrollTop":winH*index},500,function(){
+						close = true;
+					  });
+				  }
+			  });
+
+			  $(window).scroll(function(){
+					if(close){ //如果只是单纯用鼠标拉动滚动条
+						var scrolltop = $(document).scrollTop();
+						for(var i = 0;i < $(".img_box").length;i++){
+							if(scrolltop >= $(".img_box").eq(i).offset().top){
+								$slideLi.eq(i).addClass("on").siblings().removeClass("on");
+							}
+						}
+					}
+				});
+
+			  var $dow_pho = $(".dow .dow_pho a span");
+			  var $dow_a = $(".dow .dow_pho a");
+			  var $dow_c = $(".dow .dow_c");
+			  $dow_pho.mouseenter(function(){
+			     $dow_a.css("background","url('images/iphone.png') 0 -26px no-repeat");
+			  });
+			  $dow_pho.mouseleave(function(){
+			     $dow_a.css("background","url('images/iphone.png') 0 0 no-repeat");
+			  });
+			  $dow_c.mouseenter(function(){
+			     $(this).css("background","url('images/dl_btn.png') 0 -75px no-repeat");
+			  });
+			  $dow_c.mouseleave(function(){
+			     $(this).css("background","url('images/dl_btn.png') 0 0 no-repeat");
+			  });
+		   });
+	   </script>
+   </body>
+</html>

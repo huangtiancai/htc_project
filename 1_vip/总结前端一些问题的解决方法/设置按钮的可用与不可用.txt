@@ -1,0 +1,14 @@
+
+disabled:true//不可用
+disabled:false//可用
+
+$("#p_btn_button").attr("disabled","true");
+$("#p_btn_button").attr("disabled","false");
+
+
+$("#message").keyup(function(){
+	if($("#message").val()){ //如果有输入内容,则设置按钮可用									$("#p_btn_button").attr("disabled","false");
+	}else{
+		$("#p_btn_button").attr("disabled","true");
+	}
+});

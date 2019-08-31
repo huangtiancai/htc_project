@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>百度云盘 --krry</title>
+	<style>
+	  *{margin:0;padding:0;}
+	  html{height:100%;overflow:hidden;}
+	  a{text-decoration:none;}
+	  ul li{list-style:none;}
+	  body{font-size:14px;font-family:"微软雅黑";}
+	  .header{height:75px;background:#333;left:200px;width:1166px;position:absolute;}
+	  .leftbox{width:200px;height:100%;background:#eaeaea;position:absolute;float:left;}
+	  .rightbox{width:1143px;background:#f9f9f9;height:100%;float:left;position:absolute;top:76px;left:201px;padding-left:5px;padding-top:5px;}
+	  .header ul{float:left;}
+	  .header ul li{float:left;color:#fff;padding:24px 48px;font-size:20px;border-right:1px solid #666;overflow:hidden;transition:all .3s ease;}
+	  .header ul li .selected{background:#111}
+	  .header ul li:hover{background:#111;transition:all .3s ease;}
+	  .leftbox li{padding:24px;background:#eaeaea;border-bottom:1px solid #fff;font-size:16px;}
+	  .leftbox .logo{width:200px;height:75px;background:#ccc;display:inline-block;line-height:75px;text-align:center;color:#fff;font-size:36px;font-weight:bold;}
+	  .leftbox li:hover{background:#333;color:#fff;}
+
+	  /*表格内容样式*/
+	  .buttonbox{height:45px;background:#eaeaea;line-height:45px;width:1160px;}
+	  .tablebox{margin-top:10px;width:1160px;}
+	  .tablebox table{width:100%;border-collapse:collapse;}
+	  .tablebox table th,td{border-bottom:1px solid #eaeaea;text-align:left;padding-left:10px;padding:10px;}
+	  .tablebox table th{padding:12px 10px;background:#eaeaea;color:#333;font-size:15px;}
+	  .tablebox table tr:hover{background:#333;color:#fff;}
+	  .buttonbox .buttons{padding:8px 24px;background:#999;color:#fff;border-radius:4px;transition:all .3s ease;}
+	  .tablebox table tr a{color:#333;}
+	  .tablebox table tr:hover a{color:#fff}
+	  .buttonbox .buttons:hover{background:#111;transition:all 0.3s ease;padding:8px 46px;}
+
+	  /*右键菜单*/
+	  .contextmenu{width:120px;height:142px;background:#999;position:absolute;z-index:5;top:0;left:0;display:none;}
+	  .contextmenu li{color:#fff;text-align:center;padding:8px 5px;border-bottom:1px solid #fff;}
+	  .contextmenu li a{color:#fff}
+	  .contextmenu li:hover{background:#333;}
+
+	</style>
+  </head>
+  <body>
+    <!--头部-->
+    <div class="header">
+	   <ul>
+	     <li class="selected">首页</li>
+		 <li>网盘</li>
+		 <li>分享</li>
+		 <li>应用</li>
+	   </ul>
+	</div>
+	<!--左侧-->
+	<div class="leftbox">
+	   <a href="#" class="logo">LOGO</a>
+	   <ul>
+	     <li class="selected">全局</li>
+		 <li>图片</li>
+		 <li>视频</li>
+		 <li>文件</li>
+	   </ul>
+	</div>
+	<!--右侧-->
+	<div class="rightbox">
+	   <div class="buttonbox">
+	      <a href="javascript:void(0);" class="buttons add">添加元素</a>
+		  <a href="javascript:void(0);" class="buttons">新建文件</a>
+		  <a href="javascript:void(0);" class="buttons">下载文件</a>
+		  <a href="javascript:void(0);" class="buttons deletes">删除</a>
+	   </div>
+	   <div class="tablebox">
+	      <table>
+		     <thead id="thead">
+			    <tr>
+				   <th style="width:20px;"><input type="checkbox" class="checkall"/></th>
+				   <th style="width:40px;" align="center">序号</th>
+				   <th>文件名称</th>
+				   <th>大小</th>
+				   <th>修改日期</th>
+				   <th>操作</th>
+				</tr>
+			 </thead>
+			 <tbody id="tbody">
+			    <tr>
+				  <td><input type="checkbox" class="chkitems"/></td>
+				  <td>1</td>
+				  <td>筱月的书籍</td>
+				  <td>20KB</td>
+				  <td>2016-5-14 16:37</td>
+				  <td><a href="javascript:void(0);" class="delete">删除</a></td>
+				</tr>
+				<tr>
+				  <td><input type="checkbox" class="chkitems"/></td>
+				  <td>2</td>
+				  <td>筱月的视频</td>
+				  <td>20KB</td>
+				  <td>2016-5-14 16:37</td>
+				  <td><a href="javascript:void(0);" class="delete">删除</a></td>
+				</tr>
+				<tr>
+				  <td><input type="checkbox" class="chkitems"/></td>
+				  <td>3</td>
+				  <td>哎哟哟哟</td>
+				  <td>20KB</td>
+				  <td>2016-5-14 16:37</td>
+				  <td><a href="javascript:void(0);" class="delete">删除</a></td>
+				</tr>
+				<tr>
+				  <td><input type="checkbox" class="chkitems"/></td>
+				  <td>4</td>
+				  <td>帅的不行啊</td>
+				  <td>20KB</td>
+				  <td>2016-5-14 16:37</td>
+				  <td><a href="javascript:void(0);" class="delete">删除</a></td>
+				</tr>
+				<tr>
+				  <td><input type="checkbox" class="chkitems"/></td>
+				  <td>5</td>
+				  <td>帅的一塌糊涂</td>
+				  <td>20KB</td>
+				  <td>2016-5-14 16:37</td>
+				  <td><a href="javascript:void(0);" class="delete">删除</a></td>
+				</tr>
+				<tr>
+				  <td><input type="checkbox" class="chkitems"/></td>
+				  <td>6</td>
+				  <td>全宇宙最帅的</td>
+				  <td>20KB</td>
+				  <td>2016-5-14 16:37</td>
+				  <td><a href="javascript:void(0);" class="delete">删除</a></td>
+				</tr>
+				<tr>
+				  <td><input type="checkbox" class="chkitems"/></td>
+				  <td>7</td>
+				  <td>下定决心打个电话给你</td>
+				  <td>20KB</td>
+				  <td>2016-5-14 16:37</td>
+				  <td><a href="javascript:void(0);" class="delete">删除</a></td>
+				</tr>
+				<tr>
+				  <td><input type="checkbox" class="chkitems"/></td>
+				  <td>8</td>
+				  <td>krry</td>
+				  <td>20KB</td>
+				  <td>2016-5-14 16:37</td>
+				  <td><a href="javascript:void(0);" class="delete">删除</a></td>
+				</tr>
+			 </tbody>
+		  </table>
+	   </div>
+	</div>
+	<!--右键菜单-->
+	<div class="contextmenu">
+	   <ul>
+	     <li><a href="javascript:void(0);" class="download">下载</a></li>
+		 <li><a href="javascript:void(0);" class="download">删除</a></li>
+		 <li><a href="javascript:void(0);" class="download">上传</a></li>
+		 <li><a href="javascript:void(0);" class="download">修改</a></li>
+	   </ul>
+	</div>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+	   $(function(){
+	      if(window.localStorage){
+		     var html = localStorage.getItem("tbhtml");
+			 if(html){
+			    $("#tbody").html(html);
+				sortNum();
+			 }
+		  }
+
+		  /*全选和反选*/
+		  $("#thead").find(".checkall").on("click",function(){
+		     $(".chkitems").prop("checked",$(this).prop("checked"));
+		  });
+
+		  //删除
+		  $("#tbody").on("click",".delete",function(){
+		     $(this).parents("tr").fadeOut("slow",function(){
+			    $(this).remove();
+				sortNum();
+				var html = $("#tbody").html();
+				if(window.localStorage) localStorage.setItem("tbhtml",html);
+			 });
+		  });
+
+		  //批量删除
+		  $(".deletes").click(function(){
+		     //选中的元素进行删除
+			 $("#tbody").find(".chkitems:checked").parents("tr").remove();
+			 sortNum();
+			 var html = $("#tbody").html();
+			 if(window.localStorage) localStorage.setItem("tbhtml",html);
+		  });
+
+		  //添加元素
+		  $(".add").click(function(){
+		      appendData();
+			  sortNum();
+		  });
+
+		  //重置序号
+		  function sortNum(){
+		     $("#tbody").find("tr").each(function(i){//遍历所有的tr(从0开始)
+			    $(this).find("td").eq(1).text(i+1);
+			 });
+		  }
+
+		  //右键菜单
+		  document.oncontextmenu = function(){
+		      return false;//屏蔽默认的右键菜单
+		  }
+
+		  var timer = null;
+		  $("#tbody").mousedown(function(e){
+		      if(e.button != 2) return;
+			  clearTimeout(timer);
+			  timer = setTimeout(function(){
+			     var targetDom = e.target;
+				 if($(targetDom).index()==0 || $(targetDom).index()==5){
+				     return;
+				 }
+
+				 $(".contextmenu").show().css({
+				     left:e.clientX,
+					 top:e.clientY,
+				 }).find(".deleted").off("click").on("click",function(e){
+				    //怎么获取我删除的那个呢？
+					$(targetDom).parents("tr").remove();
+					sortNum();
+					$(this).parents(".contextmenu").hide();
+				 });
+			  },200);
+		  });
+
+		  //列的编辑
+		  $("#tbody").find("td").dblclick(function(){
+		     clearTimeout(timer);
+			 var $td = $(this);
+			 if($td.index() == 0 || $td.index() == 5){
+			    return;
+			 }
+			 var text = $td.text();
+			 var $input = $("<input />");
+			 $input.val(text);
+			 $td.html($input);
+			 $input.select();
+			 $input.blur(function(){
+			     $td.text($(this).val());
+			 }).keydown(function(e){
+			     if(e.keyCode == 13){
+				     $td.text($(this).val());
+				 }
+			 });
+		  });
+
+		  //关闭菜单
+		  $(document).click(function(){
+		     $(".contextmenu").hide();
+		  });
+
+		  //追加元素
+		  function appendData(){
+		     $("#tbody").append("<tr>"+
+				  "<td><input type='checkbox' class='chkitems'/></td>"+
+				  "<td>1</td>"+
+				  "<td>筱月的书籍</td>"+
+				  "<td>20KB</td>"+
+				  "<td>2016-5-14 16:37</td>"+
+				  "<td><a href='javascript:void(0);' class='delete'>删除</a></td>"+
+				"</tr>");
+		  }
+	   });
+	</script>
+  </body>
+</html>

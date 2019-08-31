@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title>QQ时光轴 --krry</title>
+  <link rel="stylesheet" href="css/animate.css"/>
+  <style type="text/css">
+    *{margin:0;padding:0}
+	body{background:url("images/body_bg.jpg");background-size:cover;font-family:"微软雅黑";color:#666;}
+	a{text-decoration:none;}
+	ul li{list-style:none;}
+	.timeline{margin:0 auto;position:relative;padding:63px 0 0 267px;}
+	.timeline .t_line{width:5px;height:513px;background:#ccc;top:130px;left:300px;position:absolute;}
+	.timeline .t_send{width:700px;height:200px;position:relative;}
+	.timeline .s_head{float:left;}
+	.timeline .s_head img{border-radius:50%;}
+	.timeline .s_img{width:13px;height:16px;background:url("images/sanjiao1.png");position:absolute;top:24px;left:73px;}
+	.timeline .t_send .s_content{width:600px;height:170px;background:#fff;float:left;margin-left:20px;border-radius:5px;}
+	.timeline .t_send .s_content .s_title{font-size:14px;padding:12px 0 12px 20px;}
+	.timeline .t_send .s_content .s_text{width:540px;height:58px;border:1px solid #E4E4E4;font-size:14px;margin:0 auto;padding:10px;outline:none;overflow:auto;}
+	.timeline .t_send .s_face{width:569px;left:97px;bottom:37px;position:absolute;}
+	.timeline .t_send .s_face .f_gif{float:left;padding-top:4px;}
+	.timeline .t_send .s_face .f_btn{float:right;width:100px;height:32px;text-align:center;font-size:14px;line-height:32px;color:#fff;border-radius:3px;background:#F90;transition:.5s;}
+	.timeline .t_send .s_face .f_btn:hover{background:red;transition:.5s;}
+	.timeline .t_send .s_face_box{width:365px;height:186px;background:#fff;position:absolute;top:158px;left:109px;box-shadow:1px 3px 10px -1px #000;padding:10px 10px 0 10px;display:none;z-index:1;}
+	.timeline .t_send .s_face_box #q_ul li{float:left;margin:2px;cursor:pointer;}
+	.timeline .t_tall{position:relative;}
+	.timeline .t_tall .t_list{margin:20px 0;}
+	.timeline .t_tall .l_text{width:500px;border-radius:5px;background:#fff;float:left;padding:20px;margin-left:20px;}
+
+	.clear{clear:both;}
+
+	::-webkit-scrollbar{width:5px;height:6px;background:#ccc;}
+	::-webkit-scrollbar-button{background-color:#e5e5e5;}
+	::-webkit-scrollbar-track{background:#999;}
+	::-webkit-scrollbar-track-piece{background:#ccc}
+	::-webkit-scrollbar-thumb{background:#666;}
+	::-webkit-scrollbar-corner{background:#82AFFF;}
+	::-webkit-scrollbar-resizer{background:#FF0BEE;}
+	scrollbar{-moz-appearance:none !important;background:rgb(0,255,0) !important;}
+	scrollbarbutton{-moz-appearance:none !important;background-color:rgb(0,0,255) !important;}
+	scrollbarbutton:hover{-moz-appearance:none !important;background-color:rgb(255,0,0) !important;}
+  </style>
+ </head>
+ <body>
+	<div class="timeline">
+		<div class="t_line"></div>
+		<div class="t_send">
+			<div class="s_head">
+				<img src="images/krry.jpg" alt="我的头像" width="66" height="66"/>
+			</div>
+			<div class="s_img"></div>
+			<div class="s_content">
+				<p class="s_title">有什么新鲜事告诉大家？</p>
+				<div class="s_text" contenteditable="true"></div>
+			</div>
+			<div class="s_face">
+				<a href="#" class="f_gif">
+					<img src="images/face/tootha_thumb.gif" alt="表情包" width="22" height="22"/>
+				</a>
+				<a href="#" class="f_btn">发&nbsp;表</a>
+			</div>
+			<div class="s_face_box">
+				<ul id="q_ul">
+					<li><img src="images/face/zz2_thumb.gif" title="[织]" width="22" height="22"></li>
+					<li><img src="images/face/horse2_thumb.gif" title="[神马]"></li>
+					<li><img src="images/face/fuyun_thumb.gif" title="[浮云]"></li>
+					<li><img src="images/face/geili_thumb.gif" title="[给力]"></li>
+					<li><img src="images/face/wg_thumb.gif" title="[围观]"></li>
+					<li><img src="images/face/vw_thumb.gif" title="[威武]"></li>
+					<li><img src="images/face/panda_thumb.gif" title="[熊猫]"></li>
+					<li><img src="images/face/rabbit_thumb.gif" title="[兔子]"></li>
+					<li><img src="images/face/otm_thumb.gif" title="[奥特曼]"></li>
+					<li><img src="images/face/j_thumb.gif" title="[囧]"></li>
+					<li><img src="images/face/hufen_thumb.gif" title="[互粉]"></li>
+					<li><img src="images/face/liwu_thumb.gif" title="[礼物]"></li>
+					<li><img src="images/face/smilea_thumb.gif" title="[呵呵]"></li>
+					<li><img src="images/face/tootha_thumb.gif" title="[嘻嘻]"></li>
+					<li><img src="images/face/laugh.gif" title="[哈哈]"></li>
+					<li><img src="images/face/tza_thumb.gif" title="[可爱]"></li>
+					<li><img src="images/face/kl_thumb.gif" title="[可怜]"></li>
+					<li><img src="images/face/kbsa_thumb.gif" title="[挖鼻屎]"></li>
+					<li><img src="images/face/cj_thumb.gif" title="[吃惊]"></li>
+					<li><img src="images/face/shamea_thumb.gif" title="[害羞]"></li>
+					<li><img src="images/face/zy_thumb.gif" title="[挤眼]"></li>
+					<li><img src="images/face/bz_thumb.gif" title="[闭嘴]"></li>
+					<li><img src="images/face/bs2_thumb.gif" title="[鄙视]"></li>
+					<li><img src="images/face/lovea_thumb.gif" title="[爱你]"></li>
+					<li><img src="images/face/sada_thumb.gif" title="[泪]"></li>
+					<li><img src="images/face/heia_thumb.gif" title="[偷笑]"></li>
+					<li><img src="images/face/qq_thumb.gif" title="[亲亲]"></li>
+					<li><img src="images/face/sb_thumb.gif" title="[生病]"></li>
+					<li><img src="images/face/mb_thumb.gif" title="[太开心]"></li>
+					<li><img src="images/face/ldln_thumb.gif" title="[懒得理你]"></li>
+					<li><img src="images/face/yhh_thumb.gif" title="[右哼哼]"></li>
+					<li><img src="images/face/zhh_thumb.gif" title="[左哼哼]"></li>
+					<li><img src="images/face/x_thumb.gif" title="[嘘]"></li>
+					<li><img src="images/face/cry.gif" title="[衰]"></li>
+					<li><img src="images/face/wq_thumb.gif" title="[委屈]"></li>
+					<li><img src="images/face/t_thumb.gif" title="[吐]"></li>
+					<li><img src="images/face/k_thumb.gif" title="[打哈气]"></li>
+					<li><img src="images/face/bba_thumb.gif" title="[抱抱]"></li>
+					<li><img src="images/face/angrya_thumb.gif" title="[怒]"></li>
+					<li><img src="images/face/yw_thumb.gif" title="[疑问]"></li>
+					<li><img src="images/face/cza_thumb.gif" title="[馋嘴]"></li>
+					<li><img src="images/face/88_thumb.gif" title="[拜拜]"></li>
+					<li><img src="images/face/sk_thumb.gif" title="[思考]"></li>
+					<li><img src="images/face/sweata_thumb.gif" title="[汗]"></li>
+					<li><img src="images/face/sleepya_thumb.gif" title="[困]"></li>
+					<li><img src="images/face/sleepa_thumb.gif" title="[睡觉]"></li>
+					<li><img src="images/face/money_thumb.gif" title="[钱]"></li>
+					<li><img src="images/face/sw_thumb.gif" title="[失望]"></li>
+					<li><img src="images/face/cool_thumb.gif" title="[酷]"></li>
+					<li><img src="images/face/hsa_thumb.gif" title="[花心]"></li>
+					<li><img src="images/face/hatea_thumb.gif" title="[哼]"></li>
+					<li><img src="images/face/gza_thumb.gif" title="[鼓掌]"></li>
+					<li><img src="images/face/dizzya_thumb.gif" title="[晕]"></li>
+					<li><img src="images/face/bs_thumb.gif" title="[悲伤]"></li>
+					<li><img src="images/face/crazya_thumb.gif" title="[抓狂]"></li>
+					<li><img src="images/face/h_thumb.gif" title="[黑线]"></li>
+					<li><img src="images/face/yx_thumb.gif" title="[阴险]"></li>
+					<li><img src="images/face/nm_thumb.gif" title="[怒骂]"></li>
+					<li><img src="images/face/hearta_thumb.gif" title="[心]"></li>
+					<li><img src="images/face/unheart.gif" title="[伤心]"></li>
+					<li><img src="images/face/pig.gif" title="[猪头]"></li>
+					<li><img src="images/face/ok_thumb.gif" title="[ok]"></li>
+					<li><img src="images/face/ye_thumb.gif" title="[耶]"></li>
+					<li><img src="images/face/good_thumb.gif" title="[good]"></li>
+					<li><img src="images/face/no_thumb.gif" title="[不要]"></li>
+					<li><img src="images/face/z2_thumb.gif" title="[赞]"></li>
+					<li><img src="images/face/come_thumb.gif" title="[来]"></li>
+					<li><img src="images/face/sad_thumb.gif" title="[弱]"></li>
+					<li><img src="images/face/lazu_thumb.gif" title="[蜡烛]"></li>
+					<li><img src="images/face/clock_thumb.gif" title="[钟]"></li>
+					<li><img src="images/face/cake.gif" title="[蛋糕]"></li>
+					<li><img src="images/face/m_thumb.gif" title="[话筒]"></li>
+					<li><img src="images/face/weijin_thumb.gif" title="[围脖]"></li>
+					<li><img src="images/face/lxhzhuanfa_thumb.gif" title="[转发]"></li>
+					<li><img src="images/face/lxhluguo_thumb.gif" title="[路过这儿]"></li>
+					<li><img src="images/face/bofubianlian_thumb.gif" title="[bofu变脸]"></li>
+					<li><img src="images/face/gbzkun_thumb.gif" title="[gbz困]"></li>
+					<li><img src="images/face/boboshengmenqi_thumb.gif" title="[生闷气]"></li>
+					<li><img src="images/face/chn_buyaoya_thumb.gif" title="[不要啊]"></li>
+					<li><img src="images/face/daxiongleibenxiong_thumb.gif" title="[dx泪奔]"></li>
+					<li><img src="images/face/cat_yunqizhong_thumb.gif" title="[运气中]"></li>
+					<li><img src="images/face/youqian_thumb.gif" title="[有钱]"></li>
+					<li><img src="images/face/cf_thumb.gif" title="[冲锋]"></li>
+					<li><img src="images/face/camera_thumb.gif" title="[照相机]"></li>	
+				</ul>
+			</div>
+		</div>
+		<div class="t_tall"></div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".f_gif").click(function(){
+				$(".s_face_box").stop().toggle(500);
+			});
+
+			$("#q_ul li").click(function(){
+				var img = $(this).find("img").clone();
+				//var img = $(this).html();这两种方法都可以获取
+				$(".s_text").append(img);
+			});
+
+			var krry_msg = sessionStorage.getItem("krry_msg");//一开始先从浏览器的session取值
+			var krry_Height = sessionStorage.getItem("krry_Height");//一开始先从浏览器的session取值
+			if(krry_msg){
+				$(".t_line").css("height",krry_Height+"px");//如果不为空，就将上一次的值赋给t_line
+				$(".t_tall").html(krry_msg);//如果不为空，就将上一次的值赋给tall
+			}
+
+			var i = 0; //记录第几条说说 
+			var j = 0; //从超过553起记录第几条说说 
+			var count = 20; //说说的margin是20
+			var Height = 0; //获取当前说说的高度
+			var FirHeight = $(".t_line").height(); //获取最初时光轴的高度
+			//点击发表按钮的时候
+			$(".f_btn").click(function(){
+				var content = $(".s_text").html();
+				if($(".s_face_box").is(":visible")){
+					$(".s_face_box").stop().toggle(500);
+				}
+				if(content == ""){
+					$(".s_text").focus();
+					return; //如果为空，结束此方法
+				}
+				i++;
+				$(".t_tall").prepend(
+					"<div class='t_list l_"+i+" animated rotateInDownLeft'>"+
+					"<div class='s_head'>"+
+						"<img src='images/krry.jpg' height='66' width='66' alt='我的头像'/>"+
+					"</div>"+
+					"<div class='s_img'></div>"+
+					"<div class='l_text'>"+$(".s_text").html()+"</div>"+
+					"<div class='clear'></div><!--这里必须清除浮动，t_list才能完全包裹这些div-->"+
+					"</div>"
+				);
+				$(".s_text").html("");//每次发表清空文本域
+	
+				if(($(".l_1").offset().top) >= 553){
+					j++;
+					Height += $(".l_"+i).height(); //记录超过553高度之后的每一条说说的累加高度
+//当前时光轴的高度=说说的margin值*从超过553起记录第j条说说+最初时光轴的高度+超过553高度之后的每一条说说的累加高度
+					var TLineHeight = count*j+FirHeight+Height;
+					$(".t_line").css("height",TLineHeight+"px"); //增加到时光轴的高度
+				}
+				// 存储到浏览器的session中，浏览器关闭，即消失
+				sessionStorage.setItem("krry_Height",$(".t_line").height());
+				sessionStorage.setItem("krry_msg",$(".t_tall").html());
+				// 存到本地，浏览器关闭时，依然存在
+				localStorage.setItem("krry_Height",$(".t_line").height());
+				localStorage.setItem("krry_msg",$(".t_tall").html());
+			});
+		});
+	</script>
+ </body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+	  <meta name="keywords" content="">
+	  <meta name="description" content="">
+	  <title>3D翻转 --Krry</title>
+	  <style type="text/css">
+	     *{margin:0;padding:0;}
+		 body{background: 
+			radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+			radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+			radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+			radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+			radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
+
+			radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+			radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+			radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+			radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+			radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
+			background-color:#b03;
+			background-size:100px 100px;}
+			h1{width:100%;color:#663273;font-size:37px;font-family:"微软雅黑";
+			   text-shadow:3px 5px 4px orange;text-align: center;}
+			.box .container{float:left;width:300px;height:400px;margin-top:30px;
+			                margin-left:2%;position:relative;transform-style:preserve-3d;
+							perspective:700px;}
+			.box .container .face{position:absolute;z-index:1;}
+			.box .container .back{background:linear-gradient(#FF86F0,#FF8174);padding:20px;
+			                      width:260px;height:360px;opacity:0.6;color:#fff;
+								  box-shadow:inset 2px 8px 40px #A5529E;
+								  line-height:40px;text-indent:2em;z-index:0;
+								  transform:rotateY(180deg);transition:0.5s;}
+			.box .container:hover .item{transform:rotateY(180deg);transition:1s;}
+			.box .container .item{width:300px;height:400px;transition:all 1s ease;}
+		    .box .container:hover .back{z-index:2;transition:all 1s ease;transition:1s;}
+	  </style>
+   </head>
+   <body>
+      <h1>实现3D翻转效果 --krry</h1>
+      <div class="box">
+	     <div class="container">
+		   <div class="item">
+				<div class="face font">
+				  <img src="img/1.jpg" width="300" height="400" alt="猫儿"/>
+				</div>
+				<div class="face back">我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们</div>
+			</div>
+		 </div>
+		 <div class="container">
+		   <div class="item">
+				<div class="face font">
+				  <img src="img/1.jpg" width="300" height="400" alt="猫儿"/>
+				</div>
+				<div class="face back">我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们</div>
+			</div>
+		 </div>
+		 <div class="container">
+		   <div class="item">
+				<div class="face font">
+				  <img src="img/1.jpg" width="300" height="400" alt="猫儿"/>
+				</div>
+				<div class="face back">我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们</div>
+			</div>
+		 </div>
+		 <div class="container">
+		   <div class="item">
+				<div class="face font">
+				  <img src="img/1.jpg" width="300" height="400" alt="猫儿"/>
+				</div>
+				<div class="face back">我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们</div>
+			</div>
+		 </div>
+		 <div class="container">
+		   <div class="item">
+				<div class="face font">
+				  <img src="img/1.jpg" width="300" height="400" alt="猫儿"/>
+				</div>
+				<div class="face back">我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们</div>
+			</div>
+		 </div>
+		 <div class="container">
+		   <div class="item">
+				<div class="face font">
+				  <img src="img/1.jpg" width="300" height="400" alt="猫儿"/>
+				</div>
+				<div class="face back">我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们
+				我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们我爱你们</div>
+			</div>
+		 </div>
+	  </div>
+   </body>
+</html>

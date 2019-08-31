@@ -1,0 +1,138 @@
+jsp
+
+jsp页面的组成
+静态内容		HTML静态文本
+指令			以<%@ 开始的 以%>结束。
+表达式			<%= java表达式 %>
+Scriptlet		<%java代码%>
+声明			<%! 函数或方法 %>只对当前页面有效
+动作			<jsp:动作名>  开始， </jsp:动作名>
+注释			<!-- 客户端可以看的到 -->   <%-- 客户端看不到  -->
+
+jsp元素
+jsp脚本元素   指令元素    动作元素
+
+脚本元素
+注释      表达式      Scriptlet   声明
+
+脚本元素的共同特点:都是用一对<% %>的符合封装所构成
+
+表达式:对数据的表示,  <%= java表达式 %>
+
+jsp脚本: 在jsp页面里面嵌入一段java代码
+jsp Scriptlet在jsp页面中的表示形式<%java代码%>
+
+
+
+jsp注释
+jsp标准注释   <%--   --%>
+jsp容器讲完全忽略这种注释
+利用java语言本身的注释
+注释的内容在网页发布时也被完全不略
+
+html的注释
+<!--   -->
+
+
+jsp指令元素
+page include taglib
+<%@ page  属性1=“”  属性2=“” %>
+page
+language="java"  主要指定jsp容器要用什么语言来编译jsp的元素
+import 导包
+pageEncoding="UTF-8"
+
+session ="true/false"  是否支持session
+info="text" 可以看做是对这个jsp的文本说明
+contentType="text/html;charset=utf-8"
+
+
+include用来在jsp文件被编译是导入一个指定的文件
+<%@ include file=""%>
+
+注意要点
+避免使用标签  <html> <body>
+包含的文件不能为变量
+file中不能拼接参数
+file所指的路径必须是相对于次jsp网页的路径
+
+
+9个隐式对象
+输入/输出对象    作用域通讯对象   servlet对象       错误对象
+requset				pageContext		page			exception
+response			session			config
+out					application
+
+out表示输出流（输出到页面）
+javax.servlet.jsp.jspWriter类的实例
+write();  println()   print();
+
+session是web服务器为单个用户发送的多个请求创建的回话
+javax.servlet.http.httpSession接口的实例
+setAttribute(String name,Object value);
+getAttribute(name);
+
+application:表示jsp页面所属的应用程序(可以理解为当前项目)
+javax.servlet.ServletContext接口的实例
+setAttribute(String name,Object value);
+getAttribute(name);
+
+pageContext使用户可以访问页面作用于中定义的所有所有隐式对象
+它的作用域是在同一页面
+javax.servlet.jsp.PageContext类的实例
+setAttribute(String name,Object value);
+getAttribute(name);
+
+
+page 使用page对象可以访问servlet类的所有变量和方法
+java.lang.Obejct类的一个实例
+
+config
+javax.serlvet.ServletConfig接口
+getInitParameter();获取初始化的参数
+getServletcontext(); 获取环境
+getSerlvetName();获取servlet名字
+
+javaBean封装程序的页面逻辑,是一个可重用的组件
+是一个放置在服务器后台的一个封装了数据以及方法的类
+
+jsp+javaBean组合     是小型项目中最常见的开发模式
+javaBean:变更方便,可重用,可在多个应用中使用,跨平台
+
+javaBean规范
+默认的构造函数（公共的，无参数的）
+属性私有
+公共的getset方法
+
+
+jsp标准动作
+<jsp:useBean> 创建bean实例
+	<jsp:useBean id="fish" class="com.tz.bean.Fish" />
+	com.tz.bean.Fish类的路径
+	fish实例名称
+
+<jsp:getProperty> 得到值
+	<jsp:getProperty property="name" name="fish"/>
+	从javabean中获取某个变量的值，将之转换成一个String类型的值，并且显示在页面
+
+<jsp:setProperty> 设置值
+	<jsp:setProperty property="*" name="fish" />
+	jsp引擎会把所有requset参数与javabean中的setXXX方法名称进行匹配。
+
+<jsp:include>  动态包含
+<jsp:param>    传参
+上面两个是一起使用的
+
+<jsp:forward>  跳转
+
+
+
+
+
+
+
+
+
+
+
+

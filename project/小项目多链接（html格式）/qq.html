@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+	  <meta name="Keywords" content="">
+	  <meta name="Description" content="">
+	  <style type="text/css">
+	      *{margin:0;padding:0;}
+		  body{font-size:12px;font-family:"微软雅黑";background:url("images/420.jpg");
+		       background-size:cover;}
+		  .btn{width:145px;height:40px;background:#ff6633;float:right;margin-top:56px;
+		       border-radius:9px;margin-right:240px;text-align:center;line-height:40px;
+			   transition:1s;}
+		  .btn a{text-decoration:none;color:#fff;font-size:16px;}
+		  .btn:hover{background:#26b112;transition:1s;transform:rotate(360deg);}
+		  .logo{margin-top:10px;margin-left:20px;}
+		  .qq{width:600px;height:165px;background:#fff;margin:40px auto;border-radius:5px;}
+		  .qq .qq_top{font-size:14px;color:#615F5F;padding:10px 0px 10px 20px;}
+		  .qq .qq_text{border:1px solid #ABABAB;width:540px;height:50px;margin:0 auto;
+		               padding:10px;outline:none;overflow:auto;font-size:14px;}
+		  .qq .qq_btn{width:100px;height:33px;float:right;background:#F97C00;
+		              color:#fff;font-size:16px;text-align:center;line-height:30px;
+		              text-decoration:none;margin-right:20px;margin-top:10px;
+					  border-radius:9px;transition:1s;}
+		  .qq .qq_btn:hover{background:#ff0000;transition:1s;transform:rotate(360deg);}
+		  .qq .qq_face{float:left;padding-left:15px;padding-top:15px;}
+		  .qq .qq_box{width:365px;height:270px;background:#fff;position:absolute;
+		              top:280px;left:430px;box-shadow:1px 1px 10px -1px #000000;padding:5px;
+					  display:none;}
+		  .qq .qq_box ul li{list-style:none;cursor:pointer;margin:1px;float:left;}
+/*优化滚动条*/
+     ::-webkit-scroLLbar{width:5px;height:6px;background: #ccc;}
+	 ::-webkit-scroLLbar-button{background-color:#e5e5e5;}
+	 ::-webkit-scroLLbar-track{background: #999;}
+	 ::-webkit-scroLLbar-track-piece{background: #ccc;}
+	 ::-webkit-scroLLbar-thumb{background: #666;}
+	 ::-webkit-scroLLbar-corner{background: #82AFFF;}
+	 ::-webkit-scroLLbar-resizer{background: #FF0BEE;}
+	 scrollbar{-moz-appearance:none !important;background: rgb(0,255,0) !important;}
+	 scrollbarbutton{-moz-appearance:none !important;background-color:rgb(0,0,255) !important;}
+	 scrollbarbutton:hover{-moz-appearance:none !important;background-color:rgb(255,0,0) !important;}
+
+	  </style>
+   </head>
+   <body>
+      <div class="btn"><a href="百度搜索.html">点我进入百度搜索哦</a>
+	  </div>
+      <div class="logo">
+	     <img src="images/42.png" width="150" height="80" alt="mylogo"/>
+	  <div>
+      <div class="qq">
+	     <div class="qq_top">有什么新鲜事想告诉大家</div>
+		 <div class="qq_text" id="qq_teId" name="qq_name" contenteditable="true"></div>
+		 <div>
+		    <a class="qq_btn" href="#">发 表</a>
+		 </div>
+		 <div onclick="appear();">
+		     <a class="qq_face" href="#">
+		        <img src="QQexpression/14.gif" alt="qq表情" width="24px" height="24px" />
+			 </a>
+		 </div>
+		 <div class="qq_box">
+		    <ul class="qq_b">
+			  <li><img src="QQexpression/1.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/2.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/3.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/4.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/5.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/6.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/7.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/8.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/9.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/10.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/11.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/12.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/13.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/14.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/15.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/16.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/17.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/18.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/19.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/20.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/21.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/22.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/23.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/24.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/25.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/26.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/27.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/28.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/29.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/30.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/31.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/32.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/33.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/34.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/35.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/36.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/37.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/38.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/39.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/40.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/41.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/42.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/43.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/44.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/45.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/46.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/47.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/48.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/49.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/50.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/51.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/52.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/53.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/54.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/55.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/56.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/57.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/58.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/59.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/60.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/61.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/62.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/63.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/64.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/65.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/66.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/67.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/68.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/69.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/70.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/71.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/72.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/73.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/74.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/75.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/76.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/77.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/78.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/79.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/80.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/81.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/82.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/83.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/84.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/85.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/86.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/87.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/88.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/89.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/90.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/91.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/92.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/93.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/94.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/95.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/96.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/97.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/98.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/99.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/100.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/101.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/102.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/103.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/104.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/105.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/106.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/107.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/108.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/109.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/110.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/111.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/112.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/113.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/114.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/115.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/116.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/117.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/118.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/119.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/120.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/121.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/122.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/123.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/124.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/125.gif" width="24px" height="24px"/></li>
+			  <li><img src="QQexpression/126.gif" width="24px" height="24px"/></li>
+			</ul>
+		 </div>
+	  </div>
+	  <script src="js/jquery-1.10.2.min.js"></script>
+	  <script type="text/javascript">
+	      function appear(){
+		      $(".qq_box").stop().toggle(1000);
+		  }
+		  //点击qq表情添加到文本框		      
+		  $(".qq_b li").click(function(){
+		      var te = $("#qq_teId");  //获取文本框
+		      var txt = $(this).html();  //获取点击的表情的属性
+		      te.append(txt);   //追加到文本框
+		 });
+
+	  </script>
+   </body>
+</html>

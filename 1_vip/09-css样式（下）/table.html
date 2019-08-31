@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8(国际编码)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--声明当前页面的三要素-->
+		<title>CSS文本 - 表格的控制 - krry</title>
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--js/css-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body{font-size:12px;font-family:"微软雅黑";color:#666;}
+
+			.tab{width:600px;margin-top:100px;border-collapse:collapse;}/*border-collapse:collapse;表格双线去掉*/
+
+			.tab tr td{line-height:40px;border:1px solid #EBEBEB;text-align:center;font-size:14px;}
+			.tab thead tr td{background:#EAEAEA;font-weight:bold;}
+
+			.tab tbody tr:hover{background:#FC0;color:#fff;}
+			.tab tbody tr td:hover{background:#6C0;}
+
+			.mes{position:absolute;top:0;left:620px;border-left:1px solid #000;width:720px;font-size:16px;line-height:24px;}
+		</style>
+
+	</head>
+<body>
+	
+	<table class="tab">
+		<thead>  <!--表的头部-->
+			<tr>
+				<td>编号</td>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>专业</td>
+				<td>部门</td>
+			</tr>
+		</thead>
+
+		<tbody>   <!--表的身体-->
+			<tr>
+				<td>1001</td>
+				<td>小其</td>
+				<td>男</td>
+				<td>计算机科学</td>
+				<td>研发部</td>
+			</tr>
+			<tr>
+				<td>1002</td>
+				<td>筱月</td>
+				<td>男</td>
+				<td>计算机科学</td>
+				<td>研发部</td>
+			</tr>
+			<tr>
+				<td>1003</td>
+				<td>krry</td>
+				<td>男</td>
+				<td>农学</td>
+				<td>除虫</td>
+			</tr>
+			<tr>
+				<td>1004</td>
+				<td>小小</td>
+				<td>女</td>
+				<td>中歌</td>
+				<td>歌舞</td>
+			</tr>
+			<tr>
+				<td>1005</td>
+				<td>贝贝</td>
+				<td>女</td>
+				<td>电子</td>
+				<td>无人机</td>
+			</tr>
+		</tbody>		
+
+
+	</table>
+	<div class="mes">
+		<h2>这是源代码哦~~</h2>
+		<pre>
+&lt;style type="text/css"&gt;
+	*{margin:0;padding:0;}
+	body{font-size:12px;font-family:"微软雅黑";color:#666;}
+
+	.tab{width:600px;margin-top:100px;border-collapse:collapse;}
+	/*border-collapse:collapse;表格双线去掉*/
+
+	.tab tr td{line-height:40px;border:1px solid #EBEBEB;
+	text-align:center;font-size:14px;}
+	.tab thead tr td{background:#EAEAEA;font-weight:bold;}
+
+	.tab tbody tr:hover{background:#FC0;color:#fff;}
+	.tab tbody tr td:hover{background:#6C0;}
+
+	.mes{position:absolute;top:0;left:630px;border-left:1px solid #000;
+	width:730px;font-size:16px;line-height:24px;}
+
+
+&lt;/style&gt;
+
+	&lt;/head&gt;
+&lt;body&gt;
+	
+	&lt;table class="tab"&gt;
+		&lt;thead&gt;  &lt;!--表的头部--&gt;
+			&lt;tr&gt;
+				&lt;td&gt;编号&lt;/td&gt;
+				&lt;td&gt;姓名&lt;/td&gt;
+				&lt;td&gt;性别&lt;/td&gt;
+				&lt;td&gt;专业&lt;/td&gt;
+				&lt;td&gt;部门&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+
+		&lt;tbody&gt;   &lt;!--表的身体--&gt;
+			&lt;tr&gt;
+				&lt;td&gt;1001&lt;/td&gt;
+				&lt;td&gt;小其&lt;/td&gt;
+				&lt;td&gt;男&lt;/td&gt;
+				&lt;td&gt;计算机科学&lt;/td&gt;
+				&lt;td&gt;研发部&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;1002&lt;/td&gt;
+				&lt;td&gt;筱月&lt;/td&gt;
+				&lt;td&gt;男&lt;/td&gt;
+				&lt;td&gt;计算机科学&lt;/td&gt;
+				&lt;td&gt;研发部&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;1003&lt;/td&gt;
+				&lt;td&gt;krry&lt;/td&gt;
+				&lt;td&gt;男&lt;/td&gt;
+				&lt;td&gt;农学&lt;/td&gt;
+				&lt;td&gt;除虫&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;1004&lt;/td&gt;
+				&lt;td&gt;小小&lt;/td&gt;
+				&lt;td&gt;女&lt;/td&gt;
+				&lt;td&gt;中歌&lt;/td&gt;
+				&lt;td&gt;歌舞&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;1005&lt;/td&gt;
+				&lt;td&gt;贝贝&lt;/td&gt;
+				&lt;td&gt;女&lt;/td&gt;
+				&lt;td&gt;电子&lt;/td&gt;
+				&lt;td&gt;无人机&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;		
+
+
+	&lt;/table&gt;
+		</pre>
+	</div>
+
+</body>
+</html>

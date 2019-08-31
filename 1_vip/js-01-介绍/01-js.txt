@@ -1,0 +1,24 @@
+弹出框
+alert("ffge");
+confirm("haha");
+prompt("21");
+
+通过标签名获取
+document.getElementsByTagName("div");
+通过类名获取
+document.getElementsByClassName("content");//有兼容问题
+通过id获取
+document.getElementById("box");
+
+//设置文本内容
+document.getElementById("box");
+
+window.onload = function(){
+	当页面加载完成后执行
+}
+
+js输出
+通过js来控制网页元素修改内容 
+.innerHTML
+document.write("我是krry"); //替换body的内容
+document.getElementById("box").innerHTML = "晚上好！";

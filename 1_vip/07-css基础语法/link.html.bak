@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8国际编码-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--当前页面的三要素-->
+		<title>css样式 - 外部引入到样式 - Arry老师</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--引用外部样式
+		<link type="text/css" rel="stylesheet" href="arry.css"></link>-->
+		
+		<style type="text/css">
+			@import url("arry.css");
+		</style>  
+
+	</head>
+<body>
+
+	<div class="arry"></div>
+
+
+</body>
+</html>

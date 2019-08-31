@@ -1,0 +1,161 @@
+﻿<!doctype html>
+<html onselectstart="return false" ondragstart="return false">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>炫酷照片墙展示 --krry</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			html{height:100%;}
+			body{font-family:"微软雅黑";background:radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+			radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+			radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+			radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+			radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
+			radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+			radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+			radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+			radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+			radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
+			background-color:#b03;
+			background-size:100px 100px;height:100%;overflow:hidden;}
+			.wrap{width:90%;height:90%;left:5%;top:5%;position:absolute;}
+			.wrap ul li{width:125px;height:125px;list-style:none;position:absolute;transition:left .7s,top .7s,transform .6s;/*改变left和top和transform有个过渡效果*/cursor:pointer;box-shadow:0 0 1px #000;}
+			.wrap ul li img{transform:scale(.95);transition:transform 1s;}
+			.btn{display:none;}
+			.btn a{text-decoration:none;line-height:30px;text-align:center;position:absolute;width:80px;height:30px;background:#fff;color:#f60;font-size:14px;border-radius:10px;box-shadow:0 0 6px 0 #000;top:50%;margin-top:-15px;}
+			.btn .right{right:0;}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<ul></ul>
+		</div>
+		<div class="btn">
+			<a href="#" class="left">上一张</a>
+			<a href="#" class="right">下一张</a>
+		</div>
+		<script src="js/jquery-1.12.2.min.js"></script>
+		<script>
+			$(function(){
+				for(var i = 0;i < 24;i++){
+					$(".wrap ul").append("<li><img src='images/"+(i+1)+".jpg'/></li>");
+				}
+
+				liRotate();
+				init();
+				$(window).resize(init);
+				//初始化li位置的方法
+				function init(){
+					var wid = $(".wrap").width();
+					var hei = $(".wrap").height();
+					var liWid = $(".wrap li").width();
+					var le = (wid-liWid*6)/5; //获取li的间距
+					var te = (hei-liWid*4)/3;
+					$(".wrap li").each(function(i){
+						var iX = i%6; //取到0 1 2 3 4 5
+						var iY = parseInt(i/6); //使得第一行iY=0，第二行iY=1,以此类推
+						$(this).css({
+							left:125*iX+le*iX,
+							top:125*iY+te*iY,
+							backgroundPosition:-125*iX+"px "+(-125*iY)+"px" //每个li背景图片的位置
+						});
+					});
+				}
+				//添加li旋转度数的方法
+				function liRotate(){
+					$(".wrap li").each(function(i){ //[-0.5,0.5)-*60--->(-30,30)
+						var ror = (Math.random() - 0.5)*60;
+						$(this).css({
+							transform:"rotate("+ror+"deg)"
+						});
+					});
+				}
+
+				var nowTime = 0;
+				var close = true;
+				var index = 0;
+				$(".wrap li").click(function(){
+					if(new Date - nowTime > 1000){
+						nowTime = new Date();
+						if(close){
+							//点击变成大图片的时候解绑resize事件，再绑定liclick事件
+							$(window).off("resize").resize(liclick);
+							index = $(this).index();
+							$(".wrap li img").css("transform","scale(1)");
+							setTimeout(function(){
+								liclick();
+								$(".wrap li img").fadeOut(500);
+								$(".wrap li").css("backgroundImage","url('images/big/"+(index+1)+".jpg')");
+							},500);
+							$(".btn").show();
+							close = false;
+						}else{
+							//点击变成小图片的时候解绑resize事件，再绑定init事件
+							$(window).off("resize").resize(init);
+							$(".wrap li img").fadeIn(1000,function(){
+								$(".wrap li").css("backgroundImage","");
+								$(this).css("transform","scale(.95)");
+							});
+							$(".btn").hide();
+							init();
+							liRotate();
+							close = true;
+						}
+					}
+				});
+
+				function liclick(){
+					var wid = $(".wrap").width();
+					var hei = $(".wrap").height();
+					var le = (wid-125*6)/2; //获取无间距的left
+					var te = (hei-125*4)/2;
+					$(".wrap li").each(function(i){
+						var iX = i%6;
+						var iY = parseInt(i/6);
+						$(this).css({
+							left:iX*125+le,
+							top:iY*125+te,
+							transform:"rotate(0deg)",
+						});
+					});
+				}
+
+				var len = $(".wrap li").length;
+				var tTime = 0;
+				//点击左右按钮
+				$(".btn a").click(function(){
+					if(new Date() - tTime > 1300){//24*0.05 = 1200，每个li切换的时间是下面定时器的时间
+						tTime = new Date();
+						var i = $(this).index();
+						if(i){ //索引为1代表是右按钮
+							index = (index == len-1) ? 0 : ++index; 
+						}
+						else{  //索引为0代表是左按钮
+							index = (index == 0) ? len-1 : --index;
+						}
+						liChange(index);
+					}
+				});
+
+				var timer = null;
+				//点击按钮切换图片，通过产生随机数的方法切换
+				function liChange(Index){
+					var arr = [];
+					for(var i = 0;i < 24; i++){
+						arr[i] = i;
+					}
+					timer = setInterval(function(){
+						var r = Math.floor(Math.random()*arr.length); //向下取到0到23的整数
+						$(".wrap li").eq(arr[r]).css("backgroundImage","url(images/big/"+(Index+1)+".jpg)");
+						arr.splice(r,1); //找到一个删除一个，所以这样执行，不会有重复的数字，效率高
+						if(arr.length == 0){
+							clearInterval(timer);
+						}
+					},50);
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,5 @@
+//外部类  内部类对象 = 外部类对象.new 内部类构造函数
+	Inner inner = outer.new Inner();
+
+//外部类.静态内部类   对象 = new 外部类.静态内部类构造函数
+	Outer.Innerstatic inner1 = new Outer.Innerstatic();

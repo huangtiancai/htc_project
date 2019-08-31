@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<p></p>
+		<ul></ul>
+
+		<script>
+			var box = document.getElementById("box");
+			//获取下一个兄弟元素
+			//alert(box.nextElementSibling);
+			//获取父级元素
+			//alert(box.parentNode);
+
+			//获取所有的兄弟元素
+			var a = siblings(box);
+			alert(a.length);
+			alert(a);  //包括script标签，兄弟元素的长度为3
+			function siblings(obj){
+				var parent = obj.parentNode.children;
+				var arr = [];
+				for(var i = 0;i < parent.length;i++){
+					if(parent[i] != obj){
+						arr.push(parent[i]);
+					}
+				}
+				return arr;
+			}
+
+		</script>
+	</body>
+</html>

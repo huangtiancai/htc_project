@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="潭州教育-追梦">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+			#box{
+				width:200px;
+				height:300px;
+				border:2px solid blue;
+				position:absolute;
+				top:50%;
+				left:-204px;
+				margin-top:-150px;
+			}
+			#samll{
+				width:50px;
+				height:100px;
+				background:red;
+				position:absolute;
+				top:50%;
+				right:-50px;
+				margin-top:-50px;
+			}
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById("box");
+				var oSamll = document.getElementById("samll");
+				
+				/*
+					oSamll.onmouseover = function(){
+						oBox.style.left=0;
+					}
+					oSamll.onmouseout = function(){
+						oBox.style.left="-204px";
+					}
+				*/
+				//samll相当于导航条
+				//因为samll是oBox的子元素，当鼠标移动到这个父级元素的时候，也就是移动到这个子级元素，则执行
+				oBox.onmouseover = function(){
+					this.style.left = 0;
+				}
+				
+				oBox.onmouseout = function(){
+					this.style.left="-204px";
+				}
+			}
+		</script>
+
+	</head>
+	<body>
+		<div id="box">
+			<div id="samll"></div>
+		</div>
+	</body>
+</html>

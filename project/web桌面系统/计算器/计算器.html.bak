@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+    *{margin:0;padding:0}
+	.clear{clear:both;}
+	h2{margin-top:10px;text-align:center;}
+	.count{width:300px;height:400px;margin:10px auto;margin-top:5px;border:1px solid ##e0e0e0;background:#f2f2f2;}
+	.count .show{width:250px;padding-right:10px;height:40px;border:1px solid #fff;margin:18px auto;text-align:right;line-height:40px;font-size:18px;font-family:"微软雅黑";overflow:auto;background:#fff;color:#9E9E9E;}
+	.count .content{width:260px;height:300px;margin:0 auto;border:1px solid #fff;position:relative;}
+	.count .content input{width:48px;margin-right:13px;margin-top:10px;height:48px;float:left;font-size:20px;font-family:"微软雅黑";border:0;outline:none;transition:.4s;cursor:pointer;background:#eaeaea;}
+	.count .content .yun{background:#738FD8;color:#fff;}
+	.count .content input:hover{background:red;color:#fff;transition:.4s;}
+	.count .content .c_con{width:198px;float:left;}
+	.count .content .c_con .qing{font-size:16px;background:#738FD8;color:#fff;}
+	.count .content .c_con .left{margin-left:15px;}
+	.count .content .c_con .ling{width:109px;}
+	.count .content .inpuposi{float:left;}
+	.count .content .inpuposi .posi{height:106px;position:absolute;}
+	.count .content .inpuposi .jian{height:48px;}
+	.count .content .inpuposi .jia{top:58px;}
+	.count .content .inpuposi .den{top:174px;background:#f60;color:#fff;}
+
+	::-webkit-scrollbar{width:5px;height:6px;background:#ccc;}
+	::-webkit-scrollbar-button{background-color:#e5e5e5;}
+	::-webkit-scrollbar-track{background:#999;}
+	::-webkit-scrollbar-track-piece{background:#ccc}
+	::-webkit-scrollbar-thumb{background:#666;}
+	::-webkit-scrollbar-corner{background:#82AFFF;}
+	::-webkit-scrollbar-resizer{background:#FF0BEE;}
+	scrollbar{-moz-appearance:none !important;background:rgb(0,255,0) !important;}
+	scrollbarbutton{-moz-appearance:none !important;background-color:rgb(0,0,255) !important;}
+	scrollbarbutton:hover{-moz-appearance:none !important;background-color:rgb(255,0,0) !important;}
+  </style>
+ </head>
+ <body>
+	<h2>krry计算器</h1>
+	<div class="count">
+		<div class="show">0</div>
+		<div class="content">
+			<div class="c_con">
+				<input type="button" value="清零" class="cou left qing"/>
+				<input type="button" value="÷" class="cou yun"/>
+				<input type="button" value="×" class="cou yun"/>
+				<input type="button" value="7" class="cou left"/>
+				<input type="button" value="8" class="cou"/>
+				<input type="button" value="9" class="cou"/>
+				<input type="button" value="4" class="cou left"/>
+				<input type="button" value="5" class="cou"/>
+				<input type="button" value="6" class="cou"/>
+				<input type="button" value="1" class="cou left"/>
+				<input type="button" value="2" class="cou"/>
+				<input type="button" value="3" class="cou"/>
+				<input type="button" value="0" class="cou left ling"/>
+				<input type="button" value="." class="cou"/>
+				<div class="clear"></div>
+			</div>
+			<div class="inpuposi">
+				<input type="button" value="-" class="cou posi jian yun"/>
+				<input type="button" value="=" class="cou posi den"/>
+				<input type="button" value="+" class="cou posi jia yun"/>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<div id="audioBox"></div>
+	<script>
+		var show = document.getElementsByClassName("show");
+		var cou = document.getElementsByClassName("cou");
+		function into(){ //初始化
+			for(var i = 0;i < cou.length;i++){
+				cou[i].indexs = i; //给数组添加属性indexs
+			}
+		}
+		into(); //初始化
+		var count = 0;
+		var temp = "";
+		var deng = false;
+		var chu = false;
+		var che = false;
+		var jian = false;
+		var jia = false;
+		var str1 = "";
+		var str2 = "";
+		var result = 0; //总结果
+		// 播放声音
+		function play(num){
+			var playDom = document.getElementById("audioBox");
+			if(num == '+' || num == '÷' || num == '×' || num == '-' || num == '.') num = 'g';
+			if(num == '=' || num == '清零') num = 'j';
+			playDom.innerHTML = "<embed src='wav/"+num+".wav' width='0' height='0'></embed>";
+		}
+		function fun(){
+			for(var i = 0;i < cou.length;i++){
+				cou[i].onclick = function fin(){
+					play(this.value);
+					if(this.indexs == 0){
+						show[0].innerHTML = 0;
+						str1 = '';
+						str2 = '';
+						chu = false;
+						che = false;
+						jian = false;
+						jia = false;
+						count = 0;
+					}else if(this.indexs >= 3 && this.indexs <=13){
+						if(count == 0){
+							str1 += this.value;
+							show[0].innerHTML = str1;
+							deng = false;
+						}
+						if(count > 0){
+							str2 += this.value;
+							show[0].innerHTML = str1 + str2;
+						}
+					}else if(this.indexs <= 2 || this.indexs >= 14){
+						var k = this.value;
+						count++;
+						switch(k){
+							case '÷':
+								if(deng) str1 = temp;//当按了等于后，又继续按四则符号，就把上一次值赋给str1
+								str1 += "/";
+								show[0].innerHTML = str1;
+								if(count > 1){
+									var result1 = 0;
+									result1 = size();
+									str1 = result1 + "/";
+									str2 = '';
+									show[0].innerHTML = result1 + "/";
+								}
+								chu = true;
+								che = false;
+								jian = false;
+								jia = false;
+								break;
+							case '×':
+								if(deng) str1 = temp;
+								str1 += "*";
+								show[0].innerHTML = str1;
+								if(count > 1){
+									var result2 = 0;
+									result2 = size();
+									str1 = result2 + "*";
+									str2 = '';
+									show[0].innerHTML = result2 + "*";
+								}
+								chu = false;
+								che = true;
+								jian = false;
+								jia = false;
+								break;
+							case '-':
+								if(deng) str1 = temp;
+								str1 += "-";
+								show[0].innerHTML = str1;
+								if(count > 1){
+									var result3 = 0;
+									result3 = size();
+									str1 = result3 + "-";
+									str2 = '';
+									show[0].innerHTML = result3 + "-";
+								}
+								chu = false;
+								che = false;
+								jian = true;
+								jia = false;
+								break;
+							case '+':
+								if(deng) str1 = temp;
+								str1 += "+";
+								show[0].innerHTML = str1;
+								if(count > 1){
+									var result4 = 0;
+									result4 = size();
+									str1 = result4 + "+";
+									str2 = '';
+									show[0].innerHTML = result4 + "+";
+								}
+								chu = false;
+								che = false;
+								jian = false;
+								jia = true;
+								break;
+							case '=':
+								if(str2 == ''){
+									if(str1 != '') result = parseFloat(str1);
+								}
+								else{
+									result = size();
+								}
+								temp = result;
+								str1 = '';
+								str2 = '';
+								count = 0;
+								deng = true;
+								chu = false;
+								che = false;
+								jian = false;
+								jia = false;
+								show[0].innerHTML = result;
+								break;
+						}
+					}
+				}
+			}
+		}
+		fun();
+		function size(){  //封装加减乘除的方法
+			var result1;
+			if(chu){
+				result1 = parseFloat(str1) / parseFloat(str2);
+			}else if(che){
+				result1 = parseFloat(str1) * parseFloat(str2);
+			}else if(jian){
+				result1 = parseFloat(str1) - parseFloat(str2);
+			}else if(jia){
+				result1 = parseFloat(str1) + parseFloat(str2);
+			}
+			return result1;
+		}
+	</script>
+ </body>
+</html>

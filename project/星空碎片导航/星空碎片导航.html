@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>星空碎片导航 --krry</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			body{background:#000;font-size:14px;font-family:"微软雅黑";}
+			.box{width:100%;height:100px;}
+			.box .b_ul{margin:25px auto;height:50px;width:60%;}
+			.box ul li{cursor:pointer;float:left;list-style:none;line-height:50px;;color:#fff;width:20%;text-align:center;}
+			.box .b_ul .ss{background:#fff;position:absolute;top:0;left:0;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="b_ul">
+				<li>星星哪里去了</li>
+				<li>星星哪里去了</li>
+				<li>星星哪里去了</li>
+				<li>星星哪里去了</li>
+				<li>星星哪里去了</li>
+			</ul>
+		</div>
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script>
+			$(function(){
+				for(var i = 0;i < 260;i++){
+					$(".b_ul").append("<div class='ss s_"+i+"'></div>");
+				}
+				var width = $(window).width();
+				change();
+				function change(){
+					for(var i = 0;i < 200;i++){
+						var top = parseInt(100*Math.random()); /*0到100之间的数字，不包括100*/
+						var left = parseInt(width*Math.random()); /*0到width之间的数字，不包括width*/
+						var tran = parseInt(360*Math.random());
+						$(".s_"+i).css({
+							width:i/40+"px", //保证宽度和高度都是0到5px之间
+							height:i/40+"px",
+							top:top+"px",
+							left:left+"px",
+							transform:"rotate("+tran+"deg)",
+							transition:".7s"
+						});
+					}
+				}
+
+				$(".box ul li").hover(function(){
+					var liWidth = $(this).width();
+					var left = $(this).offset().left;
+					var top = $(this).offset().top;
+					for(var i = 0;i < 200;i++){
+						$(".s_"+i).css({
+							width:2+"px", //保证宽度和高度都是5px
+							height:2+"px",
+							left:left+i-liWidth/7.8+"px",
+							top:top+50+"px",
+							transition:".7s"
+						});
+					}
+				},change);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,367 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="">
+		<title>小其项目实战集锦 --krry</title>
+		<link rel="stylesheet" href="resource/css/animate.css">
+		<style type="text/css">
+			*{margin:0;padding:0}
+			body{font-family:"微软雅黑";font-size:12px;}
+			a{text-decoration:none;}
+			ul li{list-style:none;}
+	
+			/*little start*/
+			.little .quoteMusic{animation:play 1.5s infinite linear;}
+			.little #play_img{width:25px;height:25px;cursor:pointer;position:absolute;top:100px;left:221px;z-index:2;}
+			.little .expand{width:24px;height:36px;color:#fff;background:rgb(230, 132, 5);position:absolute;display:block;left:220px;font-size:24px;line-height:34px;text-align:center;font-family:-webkit-body;z-index:2;top:64px;transition:background .6s;}
+			.little .expand:hover{background:rgb(236, 67, 0);transition:background .4s;}
+			/*end little*/
+
+			/*slitop start*/
+			.slitop{width:100%;height:64px;background:#111;position:absolute;top:0;}
+			.slitop .s_center{width:800px;margin:0 auto;}
+			.slitop .s_center marquee{animation:color 8s infinite alternate; ;line-height:59px;font-size:28px;font-weight:500;font-family:"华文行楷";}
+			.slitop .s_center marquee span{font-family:"Comic Sans MS"}
+			/*end slitop*/
+
+			/*slider start*/
+			.slider{width:220px;height:100%;position:fixed;top:0;left:0;background:#333;}
+			.slider .logo{background:#111;}
+			.slider .logo a img{display:block;padding-left:16px;}
+			.slider .itemMenu{overflow:auto;height:579px;}
+			.slider h1{color:#fff;font-size:16px;height:36px;border-bottom:1px solid #ccc;line-height:36px;padding:0px 10px;}
+			.slider .items{margin-top:1px;background:#111;padding:3px 10px;}
+			.slider .items .title{transition:.4s;}
+			.slider .items .title span{font-size:20px;padding-right:4px;}
+			.slider .items .title:hover{background:red;transition:.4s;}
+			.slider .items .item_lis{display:none;}
+			.slider .items h3 a{color:#fff;font-size:14px;padding:1px 6px;display:block;line-height:30px;}
+			.slider .items ul li{background:#fff;margin-top:1px;font-size:13px;height:30px;line-height:30px;transition:.5s;}
+			.slider .items ul li a{color:#000;text-indent:16px;display:block;transition:.5s;}
+			.slider .items ul li:hover,.slider .items ul li:hover a{background:#f60;color:#fff;transition:.5s;}
+			/*end slider*/
+
+			/*content start*/
+			.content{width:100%;height:100%;position:fixed;top:64px;left:0;left:220px;background:#fff;}
+			/*end content*/
+
+			@keyframes color{
+				0%{color:red}
+				25%{color:#fff;}
+				50%{color:#f60;}
+				100%{color:#b517bd;}
+			}
+			@keyframes play{
+				100%{transform:rotate(360deg);}
+			}
+
+			::-webkit-scrollbar{width: 5px;height: 10px;}
+			::-webkit-scrollbar-track{background: 0 0;}
+			::-webkit-scrollbar-track-piece{background:#fff;}
+			::-webkit-scrollbar-thumb{background-color: #ccc; border-radius: 5px;}
+			::-webkit-scrollbar-thumb:hover{background-color: #868686;}
+			::-webkit-scrollbar-corner{background:#535353;}
+			::-webkit-scrollbar-resizer{background:#FF0BEE;}
+			scrollbar{-moz-appearance:none !important;background:rgb(0,255,0) !important;}
+			scrollbarbutton{-moz-appearance:none !important;background-color:rgb(0,0,255) !important;}
+			scrollbarbutton:hover{-moz-appearance:none !important;background-color:rgb(255,0,0) !important;}
+			/* 隐藏上下箭头 */
+			 scrollbarbutton{display:none !important;}
+			 /* 纵向滚动条宽度 */
+			scrollbar[orient="vertical"]{min-width:12px !important;}
+		</style>
+	</head>
+	<body>
+		<!--little start-->
+		<div class="little">
+			<div id="play_img" class="quoteMusic"><img src="resource/img/music.svg" width="25" height="25"/></div>
+			<a href="javascript:void(0);" class="expand">&lt;</a>
+		</div>
+		<!--end little-->
+
+		<!--slitop start-->
+		<div class="slitop">
+			<div class="s_center">
+				<marquee behavior="alternate">烟锁池塘柳 - <span>HTC</span> - 前端 + 后台项目锦集</marquee>
+			</div>
+		</div>
+		<!--end slitop-->
+
+		<!--slider start-->
+		<div class="slider">
+			<!--logo start-->
+			<div class="logo">
+				<a href="javascript:void(0);" data-src="1_vip/我的首页/我的首页.html" onclick="showexam(this);">
+					<img src="resource/img/logo.png" width="120" height="64" alt="我的logo"/>
+				</a>
+			</div>
+			<!--end logo-->
+
+			<!--itemMenu start-->
+			<div class="itemMenu">
+				<ul>
+					<!--标签和样式的复习-->
+					<li class="items">
+						<h3><a href="javascript:void(0);" class="title"><span>＋</span>标签和样式的复习</a></h3>
+						<ul class="item_lis">
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/02-多种字体、链接、特殊符号标签/All.html">多种字体、链接、特殊符号</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/03-图片标签/All.html">图片标签</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/04-列表标签/All.html">列表标签</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/05-表单元素标签/All.html">表单元素标签</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/06-frame框架所有标签/sup-sub.html">sup-sub</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/09-css样式（下）/css-text.html">css-text</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/09-css样式（下）/text-transform.html">text-transform</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/09-css样式（下）/table.html">table</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/10-css边框/边框.html">边框</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/11-css位置/清除浮动.html">清除浮动</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/13-css3渐变/渐变.html">渐变</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/动画/光圈动画.html">光圈动画</a></li>
+						</ul>
+					</li>
+					<li class="items">
+						<h3><a href="javascript:void(0);" class="title"><span>＋</span>js/jQuery课程项目</a></h3>
+						<ul class="item_lis">
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-05-计算器/计算器.html">计算器</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-06-导航条/导航条（无参1）.html">导航条</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-07-arguments,currentStyle/多个导航条.html">多个导航条</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-10-字符串和数组/js写addClass和removeClass.html">js写addClass和removeClass</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-11-DOM/无缝滚动.html">无缝滚动</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-14-放大镜/放大镜-v1.0.html">放大镜-v1.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-14-放大镜/放大镜-v2.0 .html">放大镜-v2.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-17-手风琴/手风琴.html">手风琴</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-20-优酷TV的Banner/优酷TV的Banner.html">优酷TV的Banner</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-16-楼梯式导航/楼梯式导航.html">楼梯式导航</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-18-全屏滚动/全屏滚动.html">全屏滚动</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-19-吸顶盒/吸顶盒-v1.0.html">吸顶盒-v1.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="1_vip/js-19-吸顶盒/吸顶盒-v2.0.html">吸顶盒-v2.0</a></li>
+						</ul>
+					</li>
+					<!--小项目1-->
+					<li class="items">
+						<h3><a href="javascript:void(0);" class="title"><span>＋</span>小项目1</a></h3>
+						<ul class="item_lis">
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/拖拽 - js纯手写/拖拽.html">拖拽 - js纯手写</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/拖拽上传/拖拽上传.html">拖拽上传</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/krry_register/login -v1.0.html">登录界面 v1.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/krry_register/login -v2.0.html">登录界面 v2.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/云盘/云盘.html">云盘界面</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/bootstrap项目/轮播响应式特效.html">Bootstrap小练习</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/bootstrap项目/bootstrap.html">响应式文章</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/星空碎片导航/星空碎片导航.html">星空碎片导航</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/小项目多链接（html格式）/文章模板.html">小项目多链接(文章模板)</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/小球碰撞canvas/手游碰撞.html">小球碰撞canvas</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/主页/index.html">360导航主页</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/京东项目实战/选项卡.html">京东多重选项卡</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/qq时光轴/qq时光轴.html">QQ时光轴</a></li>
+						</ul>
+					</li>
+					<!--小项目2-->
+					<li class="items">
+						<h3><a href="javascript:void(0);" class="title"><span>＋</span>小项目2</a></h3>
+						<ul class="item_lis">
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/water_ripple">canvas水波纹动画效果</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/画板涂鸦/画板涂鸦---响应式.html">画板涂鸦---响应式</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/动态文章打印/实现动态打印预览.html">实现动态打印预览</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/web桌面系统/web桌面系统.html">web桌面系统</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/模仿黑客帝国文字矩阵效果/黑客帝国.html">模仿黑客帝国文字矩阵效果</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/穿越时空隧道/穿越时空隧道‘.html">穿越时空隧道</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/视频弹幕/视频弹幕.html">视频弹幕</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/淘宝购物车/taobao.html">淘宝购物车</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/淘宝图片实时预览效果/淘宝图片实时预览效果.html">淘宝图片实时预览效果</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/我家/index.html">我家</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/520表白网站/520表白网站.html">520表白网站</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/360安全换机/360安全换机.html">360安全换机首页</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/炫酷照片墙展示/index.html">炫酷照片墙展示</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_shopping">ajax滚动分页+图片延迟加载</a></li>
+						</ul>
+					</li>
+					<!--小项目3-->
+					<li class="items">
+						<h3><a href="javascript:void(0);" class="title"><span>＋</span>小项目3</a></h3>
+						<ul class="item_lis">
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/chess/index.html">人机大战五子棋</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/3D/3D.html">3D翻牌技术</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/3D城市/3D城市.html">3D城市</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/团委网">团委网</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/团委网/pages/items-page.html">团委网文章列表界面</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/团委网/pages/reading-page.html">团委网文章阅读界面</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/3D小球/3D小球制作.html">3D小球</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/3D相册/3D相册-V1.0.html">3D相册-V1.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/3D相册/3D相册-V2.0.html">3D相册-V2.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/oppo音乐手机/oppo音乐手机.html">oppo音乐手机首页</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/qq音乐/qq音乐.html">qq音乐</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/qq音乐/qq音乐--进度条.html">qq音乐 - 进度条</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/父亲节/index.html">父亲节(音乐滚动歌词播放)</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/母亲节/index.html">母亲节(音乐滚动歌词播放)</a></li>
+						</ul>
+					</li>
+					<!--Banner图集结-->
+					<li class="items">
+						<h3><a href="javascript:void(0);" class="title"><span>＋</span>Banner图集结</a></h3>
+						<ul class="item_lis">
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/Banner/Banner.html">普通js纯手写Banner</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/Banner/Banner淡入淡出.html">Banner图之淡入淡出</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/Banner/太平洋时尚网.html">Banner-太平洋时尚网</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/无缝滚动/无缝滚动.html">Banner-无缝滚动</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/Banner图完整特效/Banner完整特效.html">Banner完整特效</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/手风琴/手风琴1.0.html">手风琴-V1.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/手风琴/手风琴2.0.html">手风琴-V2.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/优酷TV的Banner/优酷TV的Banner.html">Banner-优酷TV</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/3DBanner/3DBanner1.0.html">3DBanner-V1.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/3DBanner/3DBanner2.0.html">3DBanner-V2.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/3DBanner/3DBanner3.0.html">3DBanner-V3.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/3DBanner/3DBanner4.0.html">3DBanner-V4.0</a></li>
+						</ul>
+					</li>
+					<!--瀑布流-->
+					<li class="items">
+						<h3><a href="javascript:void(0);" class="title"><span>＋</span>瀑布流</a></h3>
+						<ul class="item_lis">
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/css瀑布流/flexbox.html">css-flexbox</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/css瀑布流/multi-columns.html">css-multi-columns</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/js瀑布流">js瀑布流</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_wallpaper">采集壁纸</a></li>
+						</ul>
+					</li>
+					<!--大型互联网企业的官网-->
+					<li class="items">
+						<h3><a href="javascript:void(0);" class="title"><span>＋</span>大型互联网企业的官网</a></h3>
+						<ul class="item_lis">
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/京东项目实战/京东.html">京东项目实战</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="project/小米官网项目实战/小米项目实战.html">小米项目实战</a></li>
+						</ul>
+					</li>
+					<!--Krry音乐系统-->
+					<li class="items">
+						<h3><a href="javascript:void(0);" class="title"><span>＋</span>Krry音乐 (前后台项目)</a></h3>
+						<ul class="item_lis">
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_music_pho/music.jsp">music核心生态</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_musicProject/krry音乐系统-行.jsp">音乐盒-歌词联动 (响应式)</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_musicProject">Krry音乐官网(未使用框架)</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com">Krry音乐博客(SSM)</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/Lily_music">Lily音乐(模仿QQ音乐)</a></li>
+						</ul>
+					</li>
+					<!--前后台小项目1-->
+					<li class="items">
+						<h3><a href="javascript:void(0);" class="title"><span>＋</span>前后台小项目1</a></h3>
+						<ul class="item_lis">
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_upload_1.0">SSM 上传总结_1.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_upload_2.0">SSM 上传总结_2.0（进度条）</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_search">百度搜索自动补全系统</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_Online_video/onlineVideo.jsp">摄像+拍照</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_baiduUpload">Krry云盘上传系统</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_Video/video.jsp">Java开发视频上传组件</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_artificial_pho">Java开发移动端智能机器人</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_artificial_internal/chat.jsp">Java开发网页版智能机器人</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_cms">Java实现cms之网页静态化</a></li>
+						</ul>
+					</li>
+					<!--前后台小项目2-->
+					<li class="items">
+						<h3><a href="javascript:void(0);" class="title"><span>＋</span>前后台小项目2</a></h3>
+						<ul class="item_lis">
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_AiQrcode">Java开发精美艺术二维码</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_NetChat">Java开发websocket聊天_1.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_NetChatPho">Java开发websocket聊天_2.0</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_newQrcode">Java开发微信二维码系统</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_ecard/ecard.jsp">Java开发二维码电子名片系统</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_faces">Java开发人脸特征识别系统</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_pages">Java实现分页功能（Oracle）</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_img/img.jsp">Java开发图像裁剪技术</a></li>
+							<li><a href="javascript:void(0);" onclick="showexam(this);" data-src="http://www.ainyi.com/krry_Search_Down">Java开发批量采集图片系统</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!--end itemMenu-->
+		</div>
+		<!--end slider-->
+
+		<div class="content" id="contenter"></div>
+		<script src="resource/js/jquery-1.10.2.min.js"></script>
+		<script>
+			$(function(){
+				
+				lanreisze();
+				$(window).resize(lanreisze);
+				//设置左边栏的高度
+				function lanreisze(){
+					//窗口的高度
+					var widheight = $(window).height();
+					//顶部栏的高度
+					var navheight = $(".slitop").height();
+					$(".itemMenu").height(widheight-navheight);
+				}
+
+
+				var close = true;
+				$(".slider ul li.items .title").click(function(){
+					$(this).parent().next().slideToggle("fast"); //点击的找到父级的下一个
+					$(this).parents("li.items").siblings().find(".item_lis").slideUp("fast");//控制其他ul选项卡收起来
+					$(".slider ul li.items .item_lis").addClass("animated rollIn");
+					var str = "－";
+					if($(this).find("span").text() == str){
+						$(this).find("span").text("＋");
+					}else{
+						$(this).find("span").text("－").parents("li.items").siblings().find("span").text("＋");
+					}
+				});
+
+				$(".expand").click(function(){
+					if(close){
+						$(".slitop").animate({"top":-64});
+						$(".slider").animate({"left":-220});
+						$(".content").animate({"left":0,"top":0});
+						$("#play_img").animate({"left":0,"top":36});
+						$(this).animate({"left":0,"top":0},function(){
+							$(this).text(">");
+						});
+						close = false;
+					}else{
+						$(".slitop").animate({"top":0});
+						$(".slider").animate({"left":0});
+						$(".content").animate({"left":220,"top":64});
+						$("#play_img").animate({"left":220,"top":100});
+						$(this).animate({"left":220,"top":64},function(){
+							$(this).text("<");
+						});
+						close = true;
+					}
+				});
+				var audioDom = document.createElement("audio");
+				audioDom.src = "resource/mp3/童可可 - 小光芒.mp3";
+				audioDom.autoplay = "autoplay";
+				audioDom.loop = "loop"; //重复播放
+
+				var closeMusic = true;
+				//点击暂停
+				$("#play_img").click(function(){
+					if(closeMusic){
+						audioDom.pause();
+						$(this).removeClass("quoteMusic");
+						closeMusic = false;
+					}else{
+						closeMusic = true;
+						audioDom.play();
+						$(this).addClass("quoteMusic");
+					}
+				});
+			});
+
+			function first(){ //首页
+				var html = "<iframe id='frames' src='1_vip/我的首页/我的首页.html'  style='position:absolute;width:100%;height:100%;top:0;left:0'/>";
+				document.getElementById("contenter").innerHTML = html;
+			}
+			first(); //一开始调用一次
+
+			function showexam(obj){
+				var href = $(obj).data("src");
+				var html = "<iframe id='frames' src='"+href+"'  style='position:absolute;width:100%;height:100%;top:0;left:0'/>";
+				document.getElementById("contenter").innerHTML = html;
+			}
+		</script>
+	</body>
+</html>

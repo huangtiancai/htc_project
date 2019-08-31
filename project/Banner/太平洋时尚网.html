@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title>Banner 太平洋时尚网 --krry</title>
+  <style type="text/css">
+    *{margin:0;padding:0}
+	ul li{list-style:none;}
+	.box{width:738px;margin:50px auto;position:relative;height:430px;overflow:hidden;}
+	.box .slid ul li{display:none;position:absolute;top:0;left:0;}
+	.box .tab{border-radius:10px;position:absolute;bottom:12px;margin-left:-55px;left:50%;background:rgba(255,255,255,.5);}
+	.box .tab a{width:12px;height:12px;background:#fff;border-radius:50%;display:block;float:left;margin:5px;}
+	.box .tab a.active{background:red;}
+	.box .smallimg{position:absolute;bottom:-91px;left:54px;background:rgba(255,255,255,0.6);transition:.6s;}
+	.box .smallimg ul li{float:left;display:block;margin: 9px 0 3px;margin-left:9px;border-bottom:3px solid transparent;transition:.4s;}
+	.box .smallimg ul li:last-child{margin-right:9px;}
+	.box .smallimg ul li.select{border-bottom:3px solid red;transition:.4s;}
+
+	.box:hover .smallimg{transform:translateY(-91px);transition:.6s;}
+  </style>
+ </head>
+ <body>
+	<div class="box">
+		<div class="slid">
+			<ul>
+				<li style="display:block;">
+					<a href="#">
+						<img src="images/st1.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st2.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st3.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st4.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st5.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tab">
+			<a href="javascript:void(0);" class="active"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+		</div>
+		<!--略缩图-->
+		<div class="smallimg">
+			<ul>
+				<li class="select">
+					<a href="#">
+						<img src="images/st1.jpg" width="115" height="70" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st2.jpg" width="115" height="70" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st3.jpg" width="115" height="70"  alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st4.jpg" width="115" height="70"  alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st5.jpg" width="115" height="70" alt="Banner"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script src="js/jquery-1.12.1.min.js"></script>
+	<script>
+		$(function(){
+			var Index = 0;
+			var time = null;
+			$(".box").mouseover(function(){
+				clearInterval(time);
+			}).mouseout(function(){
+				autoPlay();
+			});
+			$(".box .smallimg ul li").hover(function(){
+				Index = $(this).index();
+				$(this).addClass("select").siblings().removeClass("select");
+				$(".box .slid ul li").eq(Index).fadeIn().siblings().fadeOut();
+				$(".box .tab a").eq(Index).addClass("active").siblings().removeClass("active");
+			});
+
+			function autoPlay(){
+				time = setInterval(function(){
+					Index++;
+					if(Index > 4) Index = 0;
+					$(".box .slid ul li").eq(Index).fadeIn().siblings().fadeOut();
+					$(".box .tab a").eq(Index).addClass("active").siblings().removeClass("active");
+					$(".box .smallimg ul li").eq(Index).addClass("select").siblings().removeClass("select");
+				},3000);
+			}
+			autoPlay();
+		});
+	</script>
+ </body>
+</html>

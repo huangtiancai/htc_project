@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+
+  </style>
+ </head>
+ <body>
+	
+	<script>
+		//json专门为js诞生数据格式
+		var json = {
+			"name":"krry",
+			"age":19,
+			"sex":"男",
+			"fn":function(){alert(520)},
+			"arr" : ["a","b","c"],	
+		};
+		//alert(json.name); //弹出数据
+		//json.age = 20;  //修改数据
+		//alert(json.age);
+		//alert(json.fn); //这个函数块
+		//alert(json.fn());//先执行函数块，再弹出undefined
+		//json.fn();//执行函数块
+
+		//alert(json.arr); //弹出abc
+		//alert(json.arr[1]); //弹出数组arr下标为1的元素
+		//alert(json[age]);//报错
+		//alert(json["name"]); //点可以变成中括号
+
+		//数组里面放json
+		var arr = [1,"krry",
+			{"name":"名字哦","age":"18"},
+			{"marry":false},
+			{"sex":"男"}
+		];
+		//alert(arr.length);
+		//alert("姓名是："+arr[2]["name"]+"   性别是："+arr[4]["sex"]);
+
+		//for in循环,专门对对象循环
+		for(var i in json){
+			//alert(i); //弹出属性
+			//alert(json[i]);//弹出属性值
+		}
+
+		var json2 = {
+			url : ["img/1.jpg","img/2.jpg","img/3.jpg"],
+			txt : ["图片1","图片2","图片3"]
+		}
+		for(var attr in json2){
+			for(var i = 0;i < json2[attr].length;i++){
+				//alert(json2[attr][i]);  //弹出json里面的数组元素
+			}
+		}
+
+		var arr1 = [
+			{"name":"名字哦","age":"18"},
+			{"marry":false},
+			{"sex":"男"}
+		];
+		for(var i = 0;i < arr1.length;i++){
+			for(var attr in arr1[i]){
+				//alert(arr1[i][attr]);  //弹出数组里面的json
+			}
+		}
+
+		var str = 'window对象：<br><br>';
+		var count = 0;
+		for(var attr in window){
+			str += count + ". "+attr + ":" + window[attr]+"<br>";
+			count++;
+		}
+		str += "<br><br>";
+	
+		var str1 = 'document对象：<br><br>';
+		var count1 = 0;
+		for(var attr1 in document){
+			str1 += count1 + ". "+attr1 + ":" + document[attr1]+"<br>";
+			count1++;
+		}
+		document.body.innerHTML = str + str1;
+
+		//数组也可以用for in
+		var arr4 = ["a","b","c"];
+		for(var arr in arr4){
+			alert(arr4[arr]);
+		}
+	</script>
+ </body>
+</html>

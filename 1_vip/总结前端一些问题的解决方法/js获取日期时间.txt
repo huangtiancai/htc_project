@@ -1,0 +1,19 @@
+
+var nowDate;
+var year;
+var month;
+var day;
+var hour;
+var min;
+var secon;
+function zero(obj){
+	return obj < 10 ? "0"+obj : obj;
+}
+
+nowDate = new Date();
+year = nowDate.getFullYear();//年
+month = nowDate.getMonth()+1;//月
+day = nowDate.getDate();//日
+hour = zero(nowDate.getHours());//时
+min = zero(nowDate.getMinutes());//分
+secon = zero(nowDate.getSeconds());//秒

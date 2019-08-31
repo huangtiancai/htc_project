@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+  </style>
+ </head>
+ <body>
+	<input type="text" id="inp1"/>
+	<input type="text" id="inp2"/>
+	<input type="button" id="btn" value="点击一下"/>
+	<p>NaN 表示Not a number不是一个数字</p>
+	<script>
+		//NaN 表示Not a number不是一个数字
+		//isNaN 是  不是一个数字,就表示不是数字
+		var inp1 = document.getElementById("inp1");
+		var inp2 = document.getElementById("inp2");
+		var btn = document.getElementById("btn");
+		btn.onclick = function(){
+			var num = parseInt(inp1.value) + parseInt(inp2.value);
+			if( isNaN(num) ){
+				alert("你输入有误");
+			}
+		}
+	</script>
+ </body>
+</html>

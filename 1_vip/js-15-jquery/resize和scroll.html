@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			.box1{
+				width:100px;
+				height:100px;
+				background:red;
+				position:absolute;
+			}
+		</style>
+		
+		<script type="text/javascript" src="jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				auto();
+				function auto(){
+					var l = ( $(window).width() - $(".box1").width() )/2;
+					var t = ( $(window).height() - $(".box1").height() )/2;
+					$(".box1").css({"left":l,"top":t});
+				}
+				
+				//窗口改变大小时执行
+				$(window).resize(function(){
+					auto();
+				});
+				//滚动条事件
+				$(window).scroll(function(){
+					alert(1)
+				});
+				
+				
+
+			})
+		</script>
+
+	</head>
+	<body style="height:2000px">
+		<div class="box1"></div>
+	</body>
+</html>

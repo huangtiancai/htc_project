@@ -1,0 +1,54 @@
+
+throw关键字：手动发生异常
+throws关键字：任何抛到函数外部的异常，并且指定其异常类型
+
+例如：
+	使用throw关键字和throws关键字：
+public class ThrowText {
+	private int age;
+	private String name;
+	public int getAge() {
+		return age;
+	}
+//因为下面调用setAge方法中，try-catch了这个函数可能产生的异常，所以在这里必须将异常抛到函数外部，并指定异常类型
+	public void setAge(int age) throws AgeException{ 
+		if(age < 0 || age > 130){
+			throw new AgeException("年龄不合法哦~~~~"); //在这里手动抛出一个自定义异常，参数是详细信息		}
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public static void main(String[] args) {
+		ThrowText tt = new ThrowText();
+		Scanner in = new Scanner(System.in);
+		System.out.println("请输入姓名");
+		String name = in.nextLine();
+		System.out.println("请输入年龄");
+		int age = in.nextInt();
+		
+		tt.setName(name);
+		try {
+			tt.setAge(age);
+		} catch (AgeException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("您的姓名："+tt.getName());
+		System.out.println("您的年龄："+tt.getAge());
+	}
+	
+}
+
+class AgeException extends Exception{
+	public AgeException(){
+		
+	}
+	public AgeException(String message){ //传进异常的详细信息
+		super(message);  // the detail message
+	}
+}

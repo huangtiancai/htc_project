@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>手风琴 --krry</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			#box{width:1120px;height:400px;position:relative;margin:100px auto;overflow:hidden;}
+			#box .items{position:absolute;}
+			#box .items span{border-left:1px solid #fff;top:0;width:20px;height:260px;position:absolute;opacity:.6;padding:140px 10px 0;font-size:20px;color:#fff;font-family:"微软雅黑";background:#000;cursor:pointer;}
+			#box .items:last-child span{opacity:1;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="items">
+				<img src="images/1.jpg" alt=""/>
+				<span>爱新鲜</span>
+			</div>
+			<div class="items">
+				<img src="images/2.jpg" alt=""/>
+				<span>一衣多穿</span>
+			</div>
+			<div class="items">
+				<img src="images/3.jpg" alt=""/>
+				<span>评测擂台</span>
+			</div>
+			<div class="items">
+				<img src="images/4.jpg" alt=""/>
+				<span>达人心经</span>
+			</div>
+			<div class="items">
+				<img src="images/5.jpg" alt=""/>
+				<span>大咖专场</span>
+			</div>
+		</div>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script>
+			var arr = [];
+			$("#box .items").each(function(i){
+				$(this).css("left",41*i+"px");
+				arr[i] = 41 * i;
+			});
+			$("#box .items span").mouseover(function(){
+				var index = $(this).parent().index(); //他的父级元素才有index()
+				$(this).css("opacity",1).parent().siblings().find("span").css("opacity",.6);
+				$("#box .items").each(function(i){
+					if(index < i){
+						$(this).stop().animate({
+							"left":915+arr[i]+"px",
+						},500);
+					}else{ //否则跟初始化的位置一样
+						$(this).stop().animate({
+							"left":arr[i]+"px",
+						},500);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

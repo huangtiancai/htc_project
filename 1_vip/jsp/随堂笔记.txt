@@ -1,0 +1,42 @@
+复习
+request
+HttpServletRrquest    ServletRequset
+
+response
+HttpServletResponse   ServletResponse
+
+
+转发  requset.getRequsetDispatcher(String path).forward(request,response)
+
+ 以及 注意：转发是request动作，重定向是response动作
+
+重定向 response.sendRedirect(String location);
+
+			jsp第六次课内容
+ServletContext  接口
+	获取servlet上下文(前台数据和后台数据)
+	
+	getContext(path);返回服务器上与指定URL相对应的ServletContext对象
+	setAttribute(String name,Object obj)  设置共享属性
+	getAttribute(name); 获取共享属性
+	
+	
+GenericServlet抽象类 提供了servlet以及servletConfig接口的默认方法
+init();
+
+HttpServlet 专门用来处理http协议的请求以及响应的
+doget dopost
+
+ServletConfig   接口
+	在servlet初始化过程中获取配置信息
+	一个servlet只有一个servletconfig对象
+	
+	getInitParameter(String name) 获取web.xml配置中设置的以name命名的初始化参数
+	getInitParameterNames() 获取所有servletconfig参数的集合
+	getServletContext(); 返回servlet的上下文对象
+	
+
+会话
+cookie
+
+session

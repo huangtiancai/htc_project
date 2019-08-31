@@ -1,0 +1,27 @@
+比较器：
+在TreeSet中，必须实现这个Comparator接口，才具有比较性，才可以按照想要的方式排列，
+TreeSet默认是升序排列，TreeSet不允许放置空元素null
+
+public  class IntegerComparator implements Comparator<Integer>{
+	private boolean flag;
+	public IntegerComparator(boolean flag) {
+		this.flag = flag;
+	}
+	@Override
+	public int compare(Integer o1, Integer o2) {
+		if(o1>o2){
+			return flag?1:-1;
+		}else if (o1<o2) {
+			return flag?-1:1;
+		}else {
+			return 0;
+		}
+	}
+	
+}
+
+在要使用这个比较器的类中：
+TreeSet<Integer> ts = new TreeSet<Integer>(new IntegerComparator(true));
+
+若传进true，则按照升序排列
+若传进false，则按照降序排列

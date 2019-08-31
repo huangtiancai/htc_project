@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				var oUl = document.getElementById("ul");
+				var aA = document.getElementsByTagName("a");
+				/*
+					for (var i=0;i<aA.length;i++ )
+					{
+						aA[i].onclick =function(){
+							this.parentNode.style.display = "none";
+						}
+					}
+				*/
+				var i=0;
+				for (;i<aA.length;i++)
+				{
+					aA[i].onclick = function(){
+						oUl.removeChild(this.parentNode); //移除a的父节点li
+					}
+				}
+			}
+		</script>
+
+	</head>
+	<body>
+		<ul id="ul">
+			<li>a <a href="javascript:;">隐藏</a></li>
+			<li>b <a href="javascript:;">隐藏</a></li>
+			<li>c <a href="javascript:;">隐藏</a></li>
+			<li>d <a href="javascript:;">隐藏</a></li>
+			<li>e <a href="javascript:;">隐藏</a></li>
+		</ul>
+	</body>
+</html>

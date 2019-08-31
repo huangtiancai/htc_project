@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width:150px;
+            height:350px;
+            border:1px solid red;
+            display:none;
+            position:absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBox = document.getElementById("box");
+			//阻止按键默认行为
+            document.onkeydown = function () {
+                return false;
+            }
+            //右键菜单事件
+            document.oncontextmenu = function(e){
+                var e = e || event;
+                oBox.style.display = "block";
+                oBox.style.left = e.clientX+'px';
+                oBox.style.top = e.clientY+'px';
+
+
+                //alert(1);
+                return false;//阻止默认右键菜单行为 阻止之后才能执行上面的代码
+            }
+        }
+    </script>
+</head>
+<body style="height:1500px">
+    <div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+	.mes{position:absolute;top:0;left:610px;border-left:1px solid #000;width:730px;font-size:16px;line-height:24px;}
+  </style>
+ </head>
+ <body>
+  <h1>无序标签_嵌套列表： ul li(中嵌套ul li)</h1>
+	
+	<ul>
+		<li>我是列表项一</li>
+		<li>我是列表项二
+			<ul>
+				<li>列表项1</li>
+				<li>列表项2
+					<ul>
+						<li>列表项01</li>
+						<li>列表项02</li>
+						<li>列表项03</li>
+					</ul>
+				</li>
+				<li>列表项3</li>
+			</ul>
+		</li>
+		<li>我是列表项三</li>
+	</ul>
+	<br/><br/>
+	<h1>HTML标签 - 有序列表 - olli标签</h1>
+	<ol>
+		<li>我是列表项一</li>
+		<li>我是列表项二</li>
+		<li>我是列表项三</li>
+	</ol>
+	<h3>2. type="小写字母a"</h3>
+	<ol type="a">
+		<li>有序列表项一</li>
+		<li>有序列表项二</li>
+		<li>有序列表项三</li>
+		<li>有序列表项四</li>		
+	</ol>
+	<br/><br/>
+	<h1>HTML标签 - 定义列表 - dldtdd标签</h1>
+	<dl>
+
+		<dt>我是一个自定义列表项一(简直就是帅的不行啊！！！)</dt>
+		<dd>列表项的定义1</dd>
+		<dd>列表项的定义2</dd>
+
+		<dt>我是一个自定义列表项二</dt>
+		<dd>列表项的定义1</dd>
+		<dd>列表项的定义2</dd>
+
+	</dl>
+	<div class="mes">
+		<h2>这是源代码哦~</h2>
+		<pre>
+		&lt;h1&gt;无序标签_嵌套列表： ul li(中嵌套ul li)&lt;/h1&gt;
+	
+	&lt;ul&gt;
+		&lt;li&gt;我是列表项一&lt;/li&gt;
+		&lt;li&gt;我是列表项二
+			&lt;ul&gt;
+				&lt;li&gt;列表项1&lt;/li&gt;
+				&lt;li&gt;列表项2
+					&lt;ul&gt;
+						&lt;li&gt;列表项01&lt;/li&gt;
+						&lt;li&gt;列表项02&lt;/li&gt;
+						&lt;li&gt;列表项03&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/li&gt;
+				&lt;li&gt;列表项3&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li&gt;我是列表项三&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;br/&gt;&lt;br/&gt;
+	&lt;h1&gt;HTML标签 - 有序列表 - olli标签&lt;/h1&gt;
+	&lt;ol&gt;
+		&lt;li&gt;我是列表项一&lt;/li&gt;
+		&lt;li&gt;我是列表项二&lt;/li&gt;
+		&lt;li&gt;我是列表项三&lt;/li&gt;
+	&lt;/ol&gt;
+	&lt;h3&gt;2. type="小写字母a"&lt;/h3&gt;
+	&lt;ol type="a"&gt;
+		&lt;li&gt;有序列表项一&lt;/li&gt;
+		&lt;li&gt;有序列表项二&lt;/li&gt;
+		&lt;li&gt;有序列表项三&lt;/li&gt;
+		&lt;li&gt;有序列表项四&lt;/li&gt;		
+	&lt;/ol&gt;
+	&lt;br/&gt;&lt;br/&gt;
+	&lt;h1&gt;HTML标签 - 定义列表 - dldtdd标签&lt;/h1&gt;
+	&lt;dl&gt;
+
+		&lt;dt&gt;我是一个自定义列表项一(简直就是帅的不行啊！！！)&lt;/dt&gt;
+		&lt;dd&gt;列表项的定义1&lt;/dd&gt;
+		&lt;dd&gt;列表项的定义2&lt;/dd&gt;
+
+		&lt;dt&gt;我是一个自定义列表项二&lt;/dt&gt;
+		&lt;dd&gt;列表项的定义1&lt;/dd&gt;
+		&lt;dd&gt;列表项的定义2&lt;/dd&gt;
+
+	&lt;/dl&gt;
+		</pre>
+	</div>
+ </body>
+</html>

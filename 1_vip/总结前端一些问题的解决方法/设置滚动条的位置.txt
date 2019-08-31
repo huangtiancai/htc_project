@@ -1,0 +1,8 @@
+
+$("html,body").scrollTop(500); //不用加px
+一般加上一个动画
+$("html,body").stop().animate({
+	"scrollTop":index*h
+},500,function(){
+	close = true; //动画执行完毕，解除监听滚动条事件的锁
+});

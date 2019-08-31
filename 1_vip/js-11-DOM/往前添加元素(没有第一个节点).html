@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				var oTxt = document.getElementById("txt");
+				var oBtn = document.getElementById("btn");
+				var oUl = document.getElementById("ul");
+
+				oBtn.onclick = function(){
+					var aLi = document.createElement("li");
+					var Li = oUl.getElementsByTagName("li");
+					aLi.innerHTML = oTxt.value;
+					
+					//oUl.appendChild(aLi);
+
+					if( Li.length ==0 ){
+						oUl.appendChild(aLi);  //添加子元素
+					}else{
+						oUl.insertBefore( aLi , Li[0] ); // ( 新节点 , 往哪个元素添加 )
+					}
+					
+
+				}
+			}
+		</script>
+
+	</head>
+	<body>
+		<input type="text" id="txt"/>
+		<input type="button" id="btn" value="按钮"/>
+		<ul id="ul">
+			
+		</ul>
+	</body>
+</html>

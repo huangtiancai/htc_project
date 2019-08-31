@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+   <head>
+     <meta charset="utf-8">
+	 <meta name="keywords" content="">
+	 <meta name="description" content="">
+	 <title>我的主页  --krry</title>
+	 <style type="text/css">
+	    *{margin:0;padding:0;}
+		body{background:#fff;background-size:cover;}
+		.bg{width:100%;height:83px;background:#3f3f3f;}
+		.bg img{margin-top:4px;margin-left:10px;}
+		#soso{width:800px;height:100px;margin:34px 260px;position:relative;}
+		#soso .logo{width:95px;height:35px;top:36px;left:50px;position:absolute;
+		            background:url("img/sprit.png") 0 -511px no-repeat;}
+		#soso .s_mes{top:5px;left:170px;position:absolute;}
+		#soso .s_mes ul li{float:left;list-style:none;margin-right:16px;padding:0 4px;border-radius:3px;
+		                   cursor:pointer;}
+		#soso .s_mes .l_1{background:#3EAF0E;color:#fff;text-align:center;line-height:22px;
+		                  margin-top:-2px;}
+		#soso .s_mes .l_10{background:#90D673;color:#fff;text-align:center;line-height:22px;
+		                   margin-top:-2px;}
+		#soso .s_text{position:absolute;width:820px;height:46px;top:34px;}
+		#soso #message{width:506px;height:41px;position:absolute;left:157px;outline:none;
+		            text-indent:10px;font-size:16px;}
+		#soso .s_btn{position:absolute;width:100px;height:43px;right:46px;
+		             font-family:"微软雅黑";font-size:18px;outline:none;border:1px solid rgba(0, 0, 0, 0.34);background:#ffff99;cursor:pointer;transition:1s;}
+		#soso .s_btn:hover{background:#ff3333;color:#fff;transition:1s;
+		                   transform:rotate(360deg);}
+		#soso #s_btnLi{width:100%;height:100%;list-style:none;}
+		#soso #s_btnLi div{width:100%;height:100%;position:absolute;text-align:center;
+		                   line-height:45px;display:none;}
+		#soso .s_text a{width:100%;height:100%;display:block;position:absolute;right:0;}
+		#soso #s_btnLi .btn_1{display:initial;}
+		
+		#repeat{width:800px;height:173px;margin:-92px auto;position:relative;}
+		.zo{width:600px;height:38px;border:1px solid #cecece;margin:100px auto;
+		    position:relative;line-height:38px;font-size:18px;font-family:"微软雅黑";
+			color:#000;}
+	    .zo p{margin-left:76px;cursor:pointer;width:72px;}
+		.zo p:hover{color:#23dd91;}
+		.zo .zo_1{width:198px;height:38px;border:1px solid #cecece;position:absolute;
+		          background:url("img/1.png") 0 11px no-repeat;background-position-x:50px;}
+		.zo .zo_2{width:198px;height:38px;border:1px solid #cecece;
+		          position:absolute;left:200px;
+		          background:url("img/1.png") 0 -27px no-repeat;background-position-x:50px;}
+		.zo .zo_3{width:198px;height:38px;border:1px solid #cecece;position:absolute;right:0;
+		          background:url("img/1.png") 0 -228px no-repeat;background-position-x:50px;}
+		.one{width:600px;margin:-95px auto;border:1px solid #cecece;height:124px;
+		     position:relative;}
+		.one ul li{list-style:none;}
+		.one a{margin-top:10px;;display:block;margin-left:50px;text-decoration:none;
+		       color:#000;z-index:3;}
+	    .one a:hover{color:#23dd91;}
+		.one .one_1{height:124px;width:600px;border:1px solid #cecece;position:absolute;
+		            z-index:1;}
+		.one .one_1 .one_1_01{background:url("img/2.png") 0 -153px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_02{margin-left:140px;margin-top:-28px;
+		                      background:url("img/2.png") 0 -122px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_03{margin-left:280px;margin-top:-28px;
+		                      background:url("img/2.png") 0 -390px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_04{margin-left:420px;margin-top:-28px;
+		                      background:url("img/2.png") 0 -62px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_05{background:url("img/2.png") 0 -358px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_06{margin-left:140px;margin-top:-28px;
+		                      background:url("img/2.png") 0 -274px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_07{margin-left:280px;margin-top:-28px;
+		                      background:url("img/2.png") 0 -92px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_08{margin-left:420px;margin-top:-28px;
+		                      background:url("img/2.png") 0 -183px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_09{background:url("img/2.png") 0 -328px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_10{margin-left:140px;margin-top:-28px;
+		                      background:url("img/2.png") 0 -302px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_11{margin-left:280px;margin-top:-28px;
+		                      background:url("img/2.png") 0 -245px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_12{margin-left:420px;margin-top:-28px;
+		                      background:url("img/2.png") 0 -216px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_13{background:url("img/2.png") 0 -423px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_14{margin-left:140px;margin-top:-28px;
+		                      background:url("img/2.png") 0 -29px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_15{margin-left:280px;margin-top:-28px;
+		                      background:url("img/2.png") 0 1px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_1 .one_1_16{margin-left:420px;margin-top:-28px;
+		                      background:url("img/1.png") 0 -117px no-repeat;
+		                      background-position-x:25px;}
+		.one .one_2{height:124px;width:600px;border:1px solid #cecece;position:absolute;
+		            z-index:1;display:none;}
+		.one .one_2 .one_2_02{margin-top:-28px;margin-left:163px;}
+		.one .one_2 .one_2_03{margin-top:-28px;margin-left:303px;}
+		.one .one_2 .one_2_04{margin-top:-28px;margin-left:463px;}
+		.one .one_2 .one_2_06{margin-top:-28px;margin-left:163px;}
+		.one .one_2 .one_2_07{margin-top:-28px;margin-left:303px;}
+		.one .one_2 .one_2_08{margin-top:-28px;margin-left:463px;}
+		.one .one_2 .one_2_10{margin-top:-28px;margin-left:163px;}
+		.one .one_2 .one_2_11{margin-top:-28px;margin-left:303px;}
+		.one .one_2 .one_2_12{margin-top:-28px;margin-left:463px;}
+		.one .one_2 .one_2_14{margin-top:-28px;margin-left:163px;}
+		.one .one_2 .one_2_15{margin-top:-28px;margin-left:303px;}
+		.one .one_2 .one_2_16{margin-top:-28px;margin-left:463px;}
+		.one .one_3{height:124px;width:600px;border:1px solid #cecece;position:absolute;
+		            z-index:1;display:none;}
+		.one .one_3 .one_3_02{margin-top:-28px;margin-left:163px;}
+		.one .one_3 .one_3_03{margin-top:-28px;margin-left:303px;}
+		.one .one_3 .one_3_04{margin-top:-28px;margin-left:463px;}
+		.one .one_3 .one_3_06{margin-top:-28px;margin-left:163px;}
+		.one .one_3 .one_3_07{margin-top:-28px;margin-left:303px;}
+		.one .one_3 .one_3_08{margin-top:-28px;margin-left:463px;}
+		.one .one_3 .one_3_10{margin-top:-28px;margin-left:163px;}
+		.one .one_3 .one_3_11{margin-top:-28px;margin-left:303px;}
+		.one .one_3 .one_3_12{margin-top:-28px;margin-left:463px;}
+		.one .one_3 .one_3_14{margin-top:-28px;margin-left:163px;}
+		.one .one_3 .one_3_15{margin-top:-28px;margin-left:303px;}
+		.one .one_3 .one_3_16{margin-top:-28px;margin-left:463px;}
+		
+	 </style>
+   </head>
+   <body>
+   <div class="bg">
+      <img src="img/42.png"/>
+   </div>
+   	<div id="soso">
+   		<div class="logo">
+   			
+   		</div>
+		<div class="s_mes">
+			<ul>
+				<li class="l_1"><a href="#"></a>网页</li>
+				<li class="l_2"><a href="#"></a>新闻</li>
+				<li class="l_3"><a href="#"></a>视频</li>
+				<li class="l_4"><a href="#"></a>图片</li>
+				<li class="l_5"><a href="#"></a>音乐</li>
+				<li class="l_6"><a href="#"></a>微博</li>
+				<li class="l_7"><a href="#"></a>地图</li>
+				<li class="l_8"><a href="#"></a>问答</li>
+				<li class="l_9"><a href="#"></a>购物</li>
+			</ul>
+		</div>
+		<div class="s_text">
+			<input type="text" id="message" placeholder="请大侠输入关键字...本宝宝会竭尽全力为您搜索">
+			<div class="s_btn">
+			   <ul id="s_btnLi">
+			   	  <div class="btn_1"><li></li>搜一下</div>
+			   	  <div class="btn_2"><li></li>北京时间</div>
+			   	  <div class="btn_3"><li></li>360视频</div>
+			   	  <div class="btn_4"><li></li>360图片</div>
+			   	  <div class="btn_5"><li></li>360音乐</div>
+			   	  <div class="btn_6"><li></li>微博搜索</div>
+			   	  <div class="btn_7"><li></li>360地图</div>
+			   	  <div class="btn_8"><li></li>搜索答案</div>
+			   	  <div class="btn_9"><li></li>淘宝搜索</div>
+			   </ul>
+			</div>
+		</div>
+	</div>
+	
+   	<div id="repeat">
+      <div class="zo">
+	     <div class="zo_1"><p>我的主页</p></div>
+		 <div class="zo_2"><p>新闻头条</p></div>
+		 <div class="zo_3"><p>网上购物</p></div>
+	  </div>
+      <div class="one">
+	     <div class="one_1">
+		    <ul>
+			  <li class="one_1_01"><a href="http://www.btime.com/?from=gjl" target="_blank">新闻 • 视频</a></li>
+			  <li class="one_1_02"><a href="http://www.360kan.com/dianshi/index.html" target="_blank">电影 • 电视剧</a></li>
+			  <li class="one_1_03"><a href="http://gouwu.360.cn/" target="_blank">购物 • 海淘</a></li>
+			  <li class="one_1_04"><a href="http://cp.360.cn/hall/hall.html?agent=700015" target="_blank">彩票 • 理财</a></li>
+			  <li class="one_1_05"><a href="https://www.nicaifu.com/fund?/from=dh_honghong_jijin" target="_blank">活期 • 基金</a></li>
+			  <li class="one_1_06"><a href="http://xiaoshuo.360.cn/" target="_blank">小说 • 商城</a></li>
+			  <li class="one_1_07"><a href="http://g.360.cn/index.html" target="_blank">游戏 • 小游戏</a></li>
+			  <li class="one_1_08"><a href="http://www.360kan.com/dongman/index.html" target="_blank">动漫 • 直播秀</a></li>
+			  <li class="one_1_09"><a href="http://xiaohua.360.cn/" target="_blank">搞笑 • 恶搞</a></li>
+			  <li class="one_1_10"><a href="http://edu.360.cn/?=honghong" target="_blank">教育 • 度假</a></li>
+			  <li class="one_1_11"><a href="http://hao.360.cn/xingzuo.html" target="_blank">查询 • 星座</a></li>
+			  <li class="one_1_12"><a href="http://go.360.cn/train/" target="_blank">机票 • 火车票</a></li>
+			  <li class="one_1_13"><a href="http://yule.360.cn/" target="_blank">手机 • 娱乐</a></li>
+			  <li class="one_1_14"><a href="http://go.360.cn/" target="_blank">好药 • 旅游</a></li>
+			  <li class="one_1_15"><a href="http://hao.360.cn/shenghuowz.html" target="_blank">生活 • 休闲</a></li>
+			  <li class="one_1_16"><a href="http://hao.360.cn/tiyuyundong.html" target="_blank">体育 • 直播</a></li>
+			</ul>
+		 </div>
+		 <div class="one_2">
+		    <ul>
+			  <li class="one_2_01"><a href="file:///C:/Users/asusaad/Documents/HBuilderProject/主页/index.html"  target="_blank">首页</a></li>
+			  <li class="one_2_02"><a href="http://360kan.letv.com/live/bjws/?site=leshi" target="_blank">直播</a></li>
+			  <li class="one_2_03"><a href="http://www.btime.com/" target="_blank">北京</a></li>
+			  <li class="one_2_04"><a href="http://hao.360.cn/xinwenmeiti.html" target="_blank">新闻</a></li>
+			  <li class="one_2_05"><a href="http://licai.360.cn/" target="_blank">财经</a></li>
+			  <li class="one_2_06"><a href="http://sports.sohu.com/" target="_blank">体育</a></li>
+			  <li class="one_2_07"><a href="http://u.360.cn/" target="_blank">娱乐</a></li>
+			  <li class="one_2_08"><a href="http://hao.360.cn/diannaowangluo.html" target="_blank">科技</a></li>
+			  <li class="one_2_09"><a href="http://hao.360.cn/junshiguofang.html" target="_blank">军事</a></li>
+			  <li class="one_2_10"><a href="http://hao.360.cn/shenghuowz.html" target="_blank">生活</a></li>
+			  <li class="one_2_11"><a href="http://www.so.com/link?url=http%3A%2F%2Fwww.1diaocha.com%2F&q=第一调查网&ts=1461335045&t=eff6b349d4ecba382922f6a5e976587&src=haosou" target="_blank">调查</a></li>
+			  <li class="one_2_12"><a href="http://www.gdou.edu.cn/" target="_blank">海大</a></li>
+			  <li class="one_2_13"><a href="http://gb.cri.cn/" target="_blank">国际</a></li>
+			  <li class="one_2_14"><a href="http://www.zhanjiang.gov.cn/" target="_blank">湛江</a></li>
+			  <li class="one_2_15"><a href="http://www.hinews.cn/" target="_blank">南海</a></li>
+			  <li class="one_2_16"><a href="http://www.mingxing.com/" target="_blank">明星</a></li>
+			</ul>
+		 </div>
+		 <div class="one_3">
+		    <ul>
+			  <li class="one_3_01"><a href="http://www.JD.com" target="_blank">京东</a></li>
+			  <li class="one_3_02"><a href="http://www.vip.com" target="_blank">唯品会</a></li>
+			  <li class="one_3_03"><a href="http://www.suning.com" target="_blank">苏宁易购</a></li>
+			  <li class="one_3_04"><a href="http://www.taobao.com" target="_blank">淘宝</a></li>
+			  <li class="one_3_05"><a href="http://www.tmall.com" target="_blank">天猫</a></li>
+			  <li class="one_3_06"><a href="http://www.miyabaobei.com" target="_blank">蜜芽</a></li>
+			  <li class="one_3_07"><a href="http://www.Amazon.cn" target="_blank">亚马逊</a></li>
+			  <li class="one_3_08"><a href="http://www.DangDang.com" target="_blank">当当</a></li>
+			  <li class="one_3_09"><a href="http://www.ymatou.com" target="_blank">洋码头</a></li>
+			  <li class="one_3_10"><a href="http://mall.360.com" target="_blank">360商城</a></li>
+			  <li class="one_3_11"><a href="http://www.hai360.com" target="_blank">360海淘</a></li>
+			  <li class="one_3_12"><a href="http://www.gdhdzz.com" target="_blank">海大珍珠</a></li>
+			  <li class="one_3_13"><a href="http://cn.strawberrynet.com/main.aspx" target="_blank">草莓网</a></li>
+			  <li class="one_3_14"><a href="http://www.sasa.com" target="_blank">莎莎网</a></li>
+			  <li class="one_3_15"><a href="http://www.MeiTuan.com" target="_blank">美团</a></li>
+			  <li class="one_3_16"><a href="http://www.ebay.cn" target="_blank">ebay</a></li>
+			</ul>
+		 </div>
+	  </div>
+	</div>
+
+	  <script src="js/jquery-1.10.2.min.js"></script>
+	  <script src="js/jquery.mousewheel.js"></script>
+	  <script type="text/javascript">
+	     $(function(){
+	     	
+	     	var $logo = $("#soso .logo");
+	     	
+	     	var $so = $("#soso .s_mes ul li");
+	     	var $so1 = $("#soso .s_mes .l_1");
+	     	var $so2 = $("#soso .s_mes .l_2");
+	     	var $so3 = $("#soso .s_mes .l_3");
+	     	var $so4 = $("#soso .s_mes .l_4");
+	     	var $so5 = $("#soso .s_mes .l_5");
+	     	var $so6 = $("#soso .s_mes .l_6");
+	     	var $so7 = $("#soso .s_mes .l_7");
+	     	var $so8 = $("#soso .s_mes .l_8");
+	     	var $so9 = $("#soso .s_mes .l_9");
+	     	
+	     	var $btn = $("#s_btnLi div");
+	     	var $btn1 = $("#s_btnLi .btn_1");
+	     	var $btn2 = $("#s_btnLi .btn_2");
+	     	var $btn3 = $("#s_btnLi .btn_3");
+	     	var $btn4 = $("#s_btnLi .btn_4");
+	     	var $btn5 = $("#s_btnLi .btn_5");
+	     	var $btn6 = $("#s_btnLi .btn_6");
+	     	var $btn7 = $("#s_btnLi .btn_7");
+	     	var $btn8 = $("#s_btnLi .btn_8");
+	     	var $btn9 = $("#s_btnLi .btn_9");
+
+	     	$so.click(function(){
+	     		$(this).addClass("l_1").siblings().removeClass("l_1");
+	     	});
+	     	$so.mouseenter(function(){
+	         		$(this).addClass("l_10").siblings().removeClass("l_10");
+	     	});
+	     	$so.mouseleave(function(){
+	     		$(this).removeClass("l_10");
+	     	});
+	     	$so1.click(function(){
+	     		$btn.css("display","none");
+	     		$btn1.css("display","initial");
+	     		$logo.css("background","url('img/sprit.png') 0 -511px no-repeat");
+	     	});
+	     	$so2.click(function(){
+	     		$btn.css("display","none");
+	     		$btn2.css("display","initial");
+	     		$logo.css("background","url('img/sprit.png') 0 -838px no-repeat");
+	     	});
+	     	$so3.click(function(){
+	     		$btn.css("display","none");
+	     		$btn3.css("display","initial");
+	     		$logo.css("background","url('img/sprit.png') 0 -995px no-repeat");
+	     	});
+	     	$so4.click(function(){
+	     		$btn.css("display","none");
+	     		$btn4.css("display","initial");
+	     		$logo.css("background","url('img/sprit.png') 0 -915px no-repeat");
+	     	});
+	     	$so5.click(function(){
+	     		$btn.css("display","none");
+	     		$btn5.css("display","initial");
+	     		$logo.css("background","url('img/sprit.png') 0 -875px no-repeat");
+	     	});
+	     	$so6.click(function(){
+	     		$btn.css("display","none");
+	     		$btn6.css("display","initial");
+	     		$logo.css("background","url('img/sprit.png') 0 -463px no-repeat");
+	     	});
+	     	$so7.click(function(){
+	     		$btn.css("display","none");
+	     		$btn7.css("display","initial");
+	     		$logo.css("background","url('img/sprit.png') 0 -955px no-repeat");
+	     	});
+	     	$so8.click(function(){
+	     		$btn.css("display","none");
+	     		$btn8.css("display","initial");
+	     		$logo.css("background","url('img/sprit.png') 0 -116px no-repeat");
+	     	});
+	     	$so9.click(function(){
+	     		$btn.css("display","none");
+	     		$btn9.css("display","initial");
+	     		$logo.css("background","url('img/sprit.png') 0 -73px no-repeat");
+	     	});
+	     	
+			$btn1.click(function(){
+			var keywords = document.getElementById("message").value;//获取ID为message的内容
+	       window.open("https://www.so.com/s?ie=utf-8&shb=1&src=home_hao_search&q="+keywords);
+			});
+			$btn2.click(function(){
+			var keywords = document.getElementById("message").value;//获取ID为message的内容
+	       window.open("http://news.so.com/ns?ie=utf-8&tn=news&src=hao_search&q="+keywords);
+			});
+			$btn3.click(function(){
+			var keywords = document.getElementById("message").value;//获取ID为message的内容
+	       window.open("http://video.so.com/v?code=utf-8&q="+keywords);
+			});
+			$btn4.click(function(){
+			var keywords = document.getElementById("message").value;//获取ID为message的内容
+	       window.open("http://image.so.com/i?ie=utf-8&src=hao_360so&q="+keywords);
+			});
+			$btn5.click(function(){
+			var keywords = document.getElementById("message").value;//获取ID为message的内容
+	       window.open("http://s.music.so.com/s?ie=utf-8&src=hao_360so&q="+keywords);
+			});
+			$btn6.click(function(){
+			var keywords = document.getElementById("message").value;//获取ID为message的内容
+	       window.open("http://s.weibo.com/weibo/?ie=utf-8&refer=360&search="+keywords);
+			});
+			$btn7.click(function(){
+			var keywords = document.getElementById("message").value;//获取ID为message的内容
+	       window.open("http://ditu.so.com/?ie=utf-8&src=hao_360so&t=map&k="+keywords);
+			});
+			$btn8.click(function(){
+			var keywords = document.getElementById("message").value;//获取ID为message的内容
+	       window.open("http://wenda.so.com/search/?ie=utf-8&src=hao_360so&q="+keywords);
+			});
+			$btn9.click(function(){
+			var keywords = document.getElementById("message").value;//获取ID为message的内容
+	       window.open("https://s.taobao.com/search?q="+keywords);
+			});
+			
+	     	
+		    var $zo1 = $(".zo .zo_1 p");
+			var $zo2 = $(".zo .zo_2 p");
+			var $zo3 = $(".zo .zo_3 p");
+			var $one1 = $(".one .one_1");
+			var $one2 = $(".one .one_2");
+			var $one3 = $(".one .one_3");
+			$zo1.click(function(){
+			   $one1.show();
+			   $one2.css("display","none");
+			   $one3.css("display","none");
+			});
+			$zo2.click(function(){
+			   $one2.show();
+			   $one1.css("display","none");
+			   $one3.css("display","none");
+			});
+			$zo3.click(function(){
+			   $one3.show();
+			   $one1.css("display","none");
+			   $one2.css("display","none");
+			});
+		 });
+	  </script>
+   </body>
+</html>

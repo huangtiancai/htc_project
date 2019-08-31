@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面编码集(中文编码<gbk,gb2312>,国际编码<utf-8>)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<title> html </title>
+        <style type="text/css">
+			*{padding:0px;margin:0px;}
+		</style>
+	</head>
+<body>
+	<div id="box"></div>
+	<input type="button" id="btn" value="点我"/>
+	页面其他内容....
+
+	<script>
+		window.onload = function(){
+			var oBox = document.getElementById("box");
+			var oBtn = document.getElementById("btn");
+			setInterval(function(){
+				//设定3秒钟执行一次ajax方法
+				ajax("get","teacher.php",true,function(res){
+					//eval("("++")") eval的语法格式
+						res = eval("("+res+")"); //eval函数里面必须是个小括号，能把String类型转变成json对象
+						//res = JSON.parse(res);
+						var s = "";
+						for(var i=0;i<res.length;i++){
+							s += "<li>您的姓名："+res[i].name+"，年龄是："+res[i].age+"</li>";//json的获取
+						}
+						oBox.innerHTML = s;
+					}
+				);
+			},3000);
+
+			//open(method,url,asyn,fn)
+			//参数method：请求方式	url：请求地址	asyn:是否异步	fn:回调函数
+			function ajax(method,url,asyn,fn){
+				var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP"); //三目运算符，兼容性的写法
+				xhr.open(method,url,asyn);
+				xhr.send();
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState==4 && xhr.status==200){
+						if(fn)fn(xhr.responseText); //参数的响应的信息，执行这个方法就可以
+					}
+				}
+			}
+		};
+	</script>
+</body>
+
+</html>

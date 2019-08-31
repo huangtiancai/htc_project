@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			.box1{
+				width:100px;
+				height:100px;
+				background:black;
+				color:#fff;
+			}
+			.box2{
+				width:500px;
+				height:500px;
+				background:red;
+				display:none;
+			}
+		</style>
+		
+		<script type="text/javascript" src="jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			//alert( $ ); //Jq的标志 检测Jq有没有引入成功！
+			$(function(){
+				/*
+					$(".box1").mouseenter(function(){
+						//$(".box2").show(2000); // 显示
+						$(".box2").fadeIn(2000); // 淡入
+					});
+					$(".box1").mouseleave(function(){
+						//$(".box2").hide(2000); //隐藏
+						$(".box2").fadeOut(2000); // 淡出
+					});
+				*/
+				//.hover()如果只有一个fn 代表鼠标移入事件，
+				//如果有二个，第一个fn是鼠标移入事件,第二个fn是鼠标移开事件
+				$(".box1").hover(function(){
+					//$(".box2").fadeIn(2000); 
+					$(".box2").css("background","green");
+					$(".box2").slideDown(2000); // 显示下拉
+				},function(){
+					//$(".box2").fadeOut(2000); 
+
+					$(".box2").slideUp(2000); 
+				});
+			
+				//closest() 获取最近的指定祖先节点（包括自身）
+				//$(".box1").closest(".box").css("background","yellow");
+				
+				//parents()获取所有祖先节点;
+				$(".box1").parents().css("background","yellow");
+
+				$(".btn").click(function(){
+					var oV = $(".txt").clone().val();
+					//alert( oV );
+					$(".box1").html(oV);
+				});
+			})
+		</script>
+
+	</head>
+	<body class="box">
+	<div>
+		<input class="txt" type="text" />
+		<input class="btn" type="button" value="按钮"/>
+		<div>
+			<div class="box1">div1</div>
+			<div class="box2">div2</div>
+		</div>
+	</div>
+	</body>
+</html>

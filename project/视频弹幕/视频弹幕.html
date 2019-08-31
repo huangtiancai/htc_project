@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>实现弹幕 --krry</title>
+	<link type="text/css" rel="stylesheet" href="css/sg.css"/>
+	<style type="text/css">
+	  *{padding:0;margin:0;}
+	  body{overflow:hidden;background: 
+			radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+			radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+			radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+			radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+			radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
+
+			radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+			radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+			radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+			radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+			radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
+			background-color:#b03;
+			background-size:100px 100px;}
+	  h1{font-size:28px;font-family:"微软雅黑";text-shadow:4px 4px 5px #C20FFD;
+	      color:#fff;text-align:center;margin-top:10px;}
+		
+	  .video{width:768px;height:500px;margin:20px auto;position:relative;}
+	  .video .vi_btn{width:100%;height:40px;background:#fff;position:absolute;top:432px;}
+	  .video .start_dm{width:65px;height:30px;background:#F66;display:block;
+	                   bottom:5px;right:111px;text-decoration:none;position:absolute;
+					   color:#fff;border-radius:4px;transition:.6s;border:0;cursor:pointer;}
+	  .video .start_dm:hover{background:red;color:#fff;transition:.6s;}
+	  .video .dm{width:100%;height:86%;position:absolute;top:0;left:0;
+	             background:rgba(0,0,0,0.2);display:none;overflow:hidden;}
+	  .video .dm .dm_show{font-size:20px;color:#fff;}
+	  .video .dm .dm_show div{position:absolute;top:40px;right:0;}
+	  /*发表区域*/
+	  .video .send{width:100%;display:none;position:absolute;top:474px;}
+	  .video .send .input_text{width:89%;height:40px;padding-left:5px;float:left;border:2px solid #FF6018;}
+	  .video .send .btn{display:block;text-decoration:none;color:#000;border:none;transition:.6s;
+						width:75px;height:44px;background:#ff6820;float:right;cursor:pointer;}
+	  .video .send .btn:hover{color:#fff;background:red;transition:.6s;}
+	</style>
+  </head>
+  <body>
+    <h1>帅的不像实力派</h1>
+    <div class="video">
+	  <video controls="controls" autoplay="autoplay" height="432">
+			<source src="天涯过客.mp4" type="video/mp4"></source>
+	  </video>
+	  <!--弹幕开始-->
+	  <div class="vi_btn">
+		 <input type="button" class="start_dm" value="开启弹幕"/>
+	  </div>
+	  <div class="dm">
+	     <div class="dm_show"></div>
+	  </div>
+	  <!--发送区域-->
+	  <div class="send">
+	    <input type="text" class="input_text" value="简直就是屌炸了，帅爆了"/>
+		<input type="button" class="btn" value="来一波" />
+	  </div>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	  $(function(){
+
+		init_screent();
+		var flag = true;
+		var nowTime = 0;
+	    $(".start_dm").click(function(){
+			if(new Date() - nowTime > 700){
+				if(flag){
+				   $(".dm").show();
+				   $(".start_dm").val("关闭弹幕");
+				   $(".send").removeClass("animated rotateOutDownRight");
+				   $(".send").show().addClass("animated rotateInDownLeft");
+				   flag = false;
+				}else{
+					$(".dm").hide();
+					$(".start_dm").val("开启弹幕");
+					$(".send").removeClass("animated rotateInDownLeft");
+					$(".send").addClass("animated rotateOutDownRight");
+					flag = true;
+				}
+				nowTime = new Date();
+			}
+		});
+	  });
+	  $(".btn").click(function(){
+	    var content = $(".input_text").val();
+		$(".input_text").val("");
+		var _label = $("<div class='animated rotateInUpLeft'>"+content+"</div>");
+		$(".dm_show").append(_label);
+		init_screent();
+	  });
+
+	  var _top = 0;
+	  function init_screent(){
+		 var _this = $(".dm_show").find("div:last");
+		 var _left = $(".dm").width() - _this.width();
+		 var _height = $(".dm").height();
+		 _top = _top + 40;
+		 if(_top >= _height-50){  //弹幕不会超出视频区域
+		    _top=0;
+		 }
+		//设置文字位置
+		_this.css({left:_left,top:_top,color:getRandomColor()});
+		//文字移动
+		_this.animate({left:-_this.width()},5000,function(){
+		   _this.remove();
+		});
+	  }
+	  //获取随机色
+	  function getRandomColor(){
+	     var str = Math.ceil(Math.random()*16777215).toString(16);
+		 while(str.length<6){
+		   str = "0"+str;
+		 }
+		 return "#"+str;
+	  }
+	</script>
+  </body>
+</html>

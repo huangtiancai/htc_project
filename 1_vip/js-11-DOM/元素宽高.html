@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				// 获取内容的高度
+				//alert( document.body.offsetHeight );
+				
+				//IE 678获取可视区的高度  offsetHeight 标准下内容高度  ,无内容高度为0
+				//alert( document.documentElement.offsetHeight );
+				
+				document.onclick = function(){
+					// 可视区高/宽
+					//alert( document.documentElement.clientHeight )
+					
+					//下拉条与顶部的距离 IE678不认识
+					//alert( document.body.scrollTop )
+					
+					//IE678认识
+					//alert( document.documentElement.scrollTop )
+
+					var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					//alert( scrollTop );
+						
+					// 1- scrollHeight内容实际的高度
+					var oBox = document.getElementById("box");
+
+					alert("内容实际的高度"+oBox.scrollHeight )
+				
+					// 2- 
+					alert("距离盒子最右边距离浏览器左边的宽度"+oBox.offsetWidth );//包括边框的像素
+					alert("高"+oBox.clientHeight )
+
+				}
+				
+
+			}
+		</script>
+
+	</head>
+	<body style="height:1500px;">
+		<div id="box" style="margin:10px;padding:20px;width:200px;height:200px;border:1px solid blue;overflow:hidden;">
+			<div id="small" style="width:100px;height:450px;background:red;"></div>
+		</div>
+	</body>
+</html>

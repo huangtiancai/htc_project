@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width:100px;
+            height:150px;
+            background:blue;
+
+        }
+    </style>
+    <script>
+        /*鼠标滚轮事件
+        * IE chrome支持 obj.onmousewheel
+        *   e.wheelDelta 鼠标滚轮往下值为-120 鼠标滚轮往上值为120
+
+        * FF(火狐)支持 obj.addEventListener("DOMMouseScroll",fn,false)
+        *    e.detail 鼠标滚轮往下值为3  鼠标滚轮往上值为-3
+        * */
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+
+            oBox.onmousewheel= fn; //鼠标滚轮事件 ,在盒子上移动滚轮
+
+			document.onmousewheel = function(e){ //在整个页面中滚动
+				fn(e);
+			}
+            //oBox.addEventListener("DOMMouseScroll",fn,false)
+
+            if (oBox.addEventListener){
+               oBox.addEventListener("DOMMouseScroll",fn,false)
+            }
+            //alert(520)
+			
+            var onOff = true;
+            function fn(e){
+                var e = e || window.event;
+                //alert( e.wheelDelta ) IE chrome
+                //alert( e.detail )  FF就是火狐
+				//兼容性写法
+                if ( e.wheelDelta ){
+                    onOff = e.wheelDelta > 0 ? true : false;
+                }else{
+                    onOff = e.detail < 0 ? true : false;
+                }
+
+                //alert( onOFf ) //滚轮往上true  滚轮往下false
+				
+                if (onOff){
+                    oBox.style.width = oBox.offsetWidth -5 +'px';
+                }else{
+                    oBox.style.width = oBox.offsetWidth +5 +'px';
+                }
+                return false;
+            }
+
+        }
+
+    </script>
+</head>
+<body style="height:1500px">
+<div id="box"></div>
+</body>
+</html>

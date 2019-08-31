@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBox = document.getElementById("box");
+
+				document.onmousemove = function(e){
+					//兼容性写法
+					var e = e || window.event; 
+
+					oBox.style.cssText = " width:100px;height:100px;background:red;position:absolute ";
+					//盒子的左边位置 = 距离浏览器的X轴方向的值 - 盒子宽度的一半
+					//就可以让鼠标位置放在盒子中间
+					var L = e.clientX - oBox.offsetWidth/2;
+					var T = e.clientY - oBox.offsetHeight/2;
+					
+					//判断盒子到达浏览器边界位置
+					if ( L < 0)
+					{
+						L=0; //防止盒子超出边界 浏览器可视宽度：document.documentElement.clientWidth
+					}else if( L > document.documentElement.clientWidth - oBox.offsetWidth ){
+						L = document.documentElement.clientWidth - oBox.offsetWidth;
+					}
+					
+					if (T < 0)
+					{
+						T=0;
+					}else if( T > document.documentElement.clientHeight - oBox.offsetHeight ){
+						T = document.documentElement.clientHeight - oBox.offsetHeight;
+					}
+
+					oBox.style.left = L +'px';
+					oBox.style.top = T +'px';
+				}
+			}
+		</script>
+
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+size = size.toFixed(2);//保留两位小数

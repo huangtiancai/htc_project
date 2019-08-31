@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+  </style>
+ </head>
+ <body>
+	<div class="box">krry真是太帅了</div>
+	<div id="content">帅的不像实力派啊</div>
+	<div>坐等修改</div>
+	<script type="text/javascript">
+		/*多行注释方法*/
+		window.onload = function(){ //当页面加载完成后执行
+			alert("我是一个简简单单的弹出框哦");
+			confirm("快快点击确认哦");
+			prompt("请填写您的个人信息");
+			document.getElementById("content").innerHTML = "我被js修改了html的内容哦";
+			var box = document.getElementsByClassName("box");
+			box[0].innerHTML = "使用类名获取修改";
+			//document.write("我是krry");//修改body的内容
+			var div = document.getElementsByTagName("div");
+			div[2].innerHTML = "使用getElementsByTagName设置下标为2的div的内容";
+		}
+	</script>
+ </body>
+</html>

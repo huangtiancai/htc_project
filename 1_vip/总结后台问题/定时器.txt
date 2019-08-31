@@ -1,0 +1,16 @@
+//java写一个定时器，只执行一次
+	Timer tt = new Timer();
+	tt.schedule(new TimerTask(){
+		public void run(){
+			System.out.println("定时器");
+		}
+	}, 3000);
+
+执行多次，加多一个参数
+每3秒执行一次
+Timer tt = new Timer();
+	tt.schedule(new TimerTask(){
+		public void run(){
+			System.out.println("定时器");
+		}
+	}, 0,3000);

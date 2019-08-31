@@ -1,0 +1,102 @@
+<!doctype html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>拖拽上传 --krry</title>
+  <style type="text/css">
+    *{margin:0;padding:0;}
+	body{background:url("img/3.jpg");background-size:cover;font-size:12px;font-family:"楷体";}
+	#Message{width:638px;height:174px;background:#fff;margin:100px auto 0;border-radius:4px;
+	         border:1px solid #000;padding:20px 0 0 20px;position:relative;}
+    #Message .MesCon{width:611px;height:100px;border:1px solid #474747;}
+	#Message .MesCon .Edit{width:500px;height:90px;float:left;padding:10px 0 0 10px;}
+    #Message .MesCon .imgBut{width:100px;height:100px;float:left;
+	                         border-left:1px solid #474747;
+							 background:url("img/1.jpg") -470px -632px no-repeat;
+							 font-size:16px;text-align:center;
+							 line-height:150px;cursor:pointer;}
+	#Message .Mesbut{width:610px;height:30px;margin-top:20px;}
+	#Message .Mesbut font{font-size:16px;line-height:30px;margin-left:20px;cursor:pointer;
+	                      text-shadow:1px 1px 1px #82848e;}
+	#Message .Mesbut span{width:80px;height:30px;display:inline-block;float:right;
+	                      line-height:30px;font-size:16px;background:#389198;text-align:center;color:#fff;cursor:pointer;border-radius:4px;margin-right:8px;
+						  box-shadow:0 0 5px red;}
+	#Message .Mesbut span:hover{background:#1e8453;}
+	#Message .Img{width:624px;height:220px;background:rgba(0,0,0,0.4);position:absolute;top:100%;
+	     left:20px;display:none;}
+	#Message .Img .txt{width:100%;height:100%;font-size:28px;color:#fff;text-align:center;
+	                   line-height:220px;text-shadow:1px 1px 1px #82848e;position:absolute;}
+  </style>
+ </head>
+ <body>
+   <div id="Message">
+     <div class="MesCon">
+	   <div class="Edit" contenteditable="true"></div>
+	   <div class="imgBut">上传图片</div>
+	 </div>
+	 <div class="Mesbut">
+	   <font>本地相册</font>
+	   <font class="UpLoad">拖拽上传</font>
+	   <span>发表</span>
+	 </div>
+	 <div class="Img">
+	   <p class="txt">请将图片拖拽到此区域</p>
+	 </div>
+   </div>
+   <script src="js/jquery-1.10.2.min.js"></script>
+   <script type="text/javascript">
+      $(".imgBut").click(function(){
+	     $(".Img").slideToggle();
+	  });
+	  $(".UpLoad").click(function(){
+	     $(".Img").slideToggle();
+	  });
+	  $(".Eidt").click(function(){
+	     $(".Img").slideDown();
+	  });
+
+	  //找到拖进去的元素
+	  var oDiv = $(".Img").get(0);
+	  var op = $(".Img .txt");
+	  //当进入的时候
+	  oDiv.ondragenter = function(){
+	     op.html("你可以放开我了");
+	  };
+	  //当离开的时候
+	  oDiv.ondragleave = function(){
+	     op.html("请将图片拖拽到此区域");
+	  };
+	  //在内部移动
+	  oDiv.ondragover = function(e){
+	     e.preventDefault();
+	  };
+	  //释放
+	  oDiv.ondrop = function(e){
+	     e.preventDefault();
+		 //获取拖过来的文件
+		 var fs = e.dataTransfer.files;
+		 var len = fs.length;  //获得个数
+		 for(var i = 0;i<len;i++){
+		    var _type = fs[i].type; //获取文件类型
+			if(_type.indexOf("image") != -1){  //判断是否是图片
+			   //文件读取
+			   var fd = new FileReader();
+			   //转换成base64文件编码
+			   fd.readAsDataURL(fs[i]);
+			   //读取完毕
+			   fd.onload = function(){
+			       var oImg = $("<img src='' width='100' height='100' style='margin:2px'/>")
+				   oImg.attr("src",this.result)
+				   $(".Img").append(oImg);
+			   }
+			   op.html("请将图片拖拽到此区域");
+			}else{
+			   alert("我要吃图片啦~");
+			   op.html("请将图片拖拽到此区域");
+			}
+		 }
+	  };
+   </script>
+ </body>
+</html>

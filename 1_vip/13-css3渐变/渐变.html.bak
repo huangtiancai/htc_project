@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title>渐变</title>
+  <style type="text/css">
+    *{margin:0;padding:0}
+	/*  8个方向位
+		to top/right/left/bottom
+		to top right
+		to top left
+		to bottom right
+		to bottom left
+
+		角度
+	*/
+	.box{width:400px;height:200px;margin-top:50px;}
+
+	.linear{background:linear-gradient(to top right,red,#ffff33);}
+
+	.linear2{background:linear-gradient(200deg,#0066ff,#cc66ff);}
+	
+	.linear3{background:linear-gradient(red 0%,yellow 50%,pink 80%);} /*黄色和红色交融到80%停止，剩下20%用粉色填充*/
+
+	.linear4{background:linear-gradient(150deg,red 0%,yellow 50%,blue 100%);}/*旋转式渐变*/
+
+	.radial{background:radial-gradient(orange,pink,#ffff66);} /*默认椭圆形放射性渐变*/
+
+	.radial2{background:radial-gradient(at top,orange,pink,#ffff66);} /*上半椭圆形放射性渐变*/
+
+	.radial3{background:radial-gradient(circle at center center,orange,pink,#ffff66);} /*圆形放射性渐变*/
+
+	.radial4{background:radial-gradient(circle at bottom,orange,pink,#ffff66);} /*下半圆形放射
+	性渐变*/
+
+	.radial5{background:radial-gradient(circle at left,blue 0%,green 25%,red 50%,orange 75%,yellow 100%);}
+
+	.mes{position:absolute;top:0;left:430px;border-left:1px solid #000;width:720px;font-size:16px;line-height:24px;}
+  </style>
+ </head>
+ <body>
+	<div class="box linear"></div>
+
+	<div class="box linear2"></div>
+
+	<div class="box linear3"></div>
+
+	<div class="box linear4"></div>
+
+	<div class="box radial"></div>
+
+	<div class="box radial2"></div>
+
+	<div class="box radial3"></div>
+
+	<div class="box radial4"></div>
+
+	<div class="box radial5"></div>
+
+	<div class="mes">
+		<h2>这是源代码哦~~</h2>
+		<pre>
+	&lt;style type="text/css"&gt;
+	*{margin:0;padding:0}
+	/*  8个方向位
+		to top/right/left/bottom
+		to top right
+		to top left
+		to bottom right
+		to bottom left
+
+		角度
+	*/
+	.box{width:400px;height:200px;margin-top:50px;}
+
+	.linear{background:linear-gradient(to top right,red,#ffff33);}
+
+	.linear2{background:linear-gradient(200deg,#0066ff,#cc66ff);}
+
+	.linear3{background:linear-gradient(red 0%,yellow 50%,pink 80%);} 
+	/*黄色和粉色交融到80%停止，剩下20%用粉色填充*/
+
+	.linear4{background:linear-gradient(150deg,red 0%,yellow 50%,blue 100%);}/*旋转式渐变*/
+
+	.radial{background:radial-gradient(orange,pink,#ffff66);} /*默认椭圆形放射性渐变*/
+
+	.radial2{background:radial-gradient(at top,orange,pink,#ffff66);} /*上半椭圆形放射性渐变*/
+
+	.radial3{background:radial-gradient(circle at center center,orange,pink,#ffff66);} /*圆形放射性渐变*/
+
+	.radial4{background:radial-gradient(circle at bottom,orange,pink,#ffff66);} /*下半圆形放射
+	性渐变*/
+
+	.radial5{background:radial-gradient(circle at left,blue 0%,green 25%,red 50%,orange 75%,yellow 100%);}
+	&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;div class="box linear"&gt;&lt;/div&gt;
+
+	&lt;div class="box linear2"&gt;&lt;/div&gt;
+
+	&lt;div class="box linear3"&gt;&lt;/div&gt;
+
+	&lt;div class="box linear4"&gt;&lt;/div&gt;
+
+	&lt;div class="box radial"&gt;&lt;/div&gt;
+
+	&lt;div class="box radial2"&gt;&lt;/div&gt;
+
+	&lt;div class="box radial3"&gt;&lt;/div&gt;
+
+	&lt;div class="box radial4"&gt;&lt;/div&gt;
+
+	&lt;div class="box radial5"&gt;&lt;/div&gt;
+		</pre>
+	</div>
+ </body>
+</html>

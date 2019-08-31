@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面编码集(中文编码<gbk,gb2312>,国际编码<utf-8>)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<title> html </title>
+        <style type="text/css">
+			*{padding:0px;margin:0px;}
+		</style>
+	</head>
+<body>
+	
+	<script>
+		/*
+			匹配子项() 
+			正则表达式的整体----母体
+			从左边的第一个小括号开始，成为第一个子项
+		*/
+		var str = "2016-03-26";//2016.03.26
+		var reg = /(\d+)(-)/g;
+		//console.log(str.match(reg));
+
+		str =  str.replace(reg,function(s,s0,s1){
+			//alert(s+"===="+s0+"==="+s1);
+			//s:与母体相匹配的
+			//s0:与第一个子项相匹配的
+			//s1:与第二个子项相匹配的
+			
+			//return s.substring(0,s.length-1)+".";
+			//return  s0+".";
+			return s1;
+		});
+		alert(str);//--26
+	</script>
+</body>
+
+</html>

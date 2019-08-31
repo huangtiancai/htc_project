@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面编码集(中文编码<gbk,gb2312>,国际编码<utf-8>)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<title> html </title>
+        <style type="text/css">
+			*{padding:0px;margin:0px;}
+		</style>
+	</head>
+<body>
+	
+	<script>
+		/*找出一串字符串中数字*/
+		/*
+			方法一
+			if(str.charAt(i) == parseInt(str.charAt(i))){
+				console.log(str.charAt(i));
+			}
+			方法二
+			if(str.charCodeAt(i)>=48 && str.charCodeAt(i)<=57){ //在这之间是数字
+				console.log(str.charAt(i));
+			}
+		*/
+		var str = "adasd13123asdada1213.+asd13ad123";//[13123,1213] 
+		function getNum(str){
+			var arr = [];
+			var res = "";
+			for(var i=0;i<str.length;i++){
+				if(str.charAt(i)>="0" && str.charAt(i)<="9"){
+					res += str.charAt(i);
+				}else{
+					if(res){
+						arr.push(res);
+						res = "";
+					}
+				}
+			}
+			if(res){
+				arr.push(res);
+			}
+			return arr;
+		};
+		console.log(getNum(str));
+	</script>
+</body>
+
+</html>

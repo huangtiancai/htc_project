@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+  </style>
+ </head>
+ <body>
+	<a href="http://baidu.com">百度</a><br/>
+	<div id="box" class="wrap" xiaoyue="我是筱月哦" remo = "我即将被删除">
+		<p>获取自定义属性：getAttribute()</p>
+		<p>设置自定义属性：setAttribute()</p>
+		<p>删除自定义属性：removeAttribute()</p>
+		<p>诸如id,href等属性，可以直接用.来获取(class是关键词，只能用getAttribute获取)</p>
+	</div>
+
+	<input type="text" class="int" value="即将变成按钮"/>
+
+	<script>
+		var box = document.getElementById("box");
+		alert("获得box的名字："+box.id);//此方法不能获取class,因为class是关键词只能用getAttribute获取
+
+		//获得属性
+		alert("获得box的自定义属性xiaoyue："
+		+box.getAttribute("xiaoyue"));
+		alert("获得box的class类名："+box.getAttribute("class"));
+
+		//设置属性
+		box.setAttribute("jk","我是新创建的属性");
+		box.setAttribute("xiaoyue","我被修改了哦");
+
+		//删除属性
+		box.removeAttribute("remo");
+
+		//获取并设置a标签的href属性
+		var aian = document.getElementsByTagName("a");
+		alert("a标签的href属性值："+aian[0].href);
+		aian[0].href = "http://http://www.mi.com/index.html";
+		aian[0].innerHTML = "修改成小米官网链接";
+
+		//获取并设置input标签的type属性
+		var input = document.getElementsByClassName("int");
+		alert("获取input的属性type："+input[0].type);
+		input[0].type="button";
+	</script>
+ </body>
+</html>

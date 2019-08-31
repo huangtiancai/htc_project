@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			#box{
+				width:200px;
+				height:350px;
+				border:1px solid blue;
+				display:none;
+			}
+		</style>
+
+		<script type="text/javascript">
+			/*
+				阻止冒泡：阻止当前的事件往上传递			
+			*/
+			window.onload = function(){
+
+				var oBtn = document.getElementById("btn");
+				var oBox = document.getElementById("box");
+
+				oBtn.onclick = function(e){
+					var e = e || window.event;
+					e.cancelBubble = true;//阻止当前对象的当前事件的冒泡，显示之后，马上截至住，父级onclick事件不会自动执行
+					oBox.style.display = "block";
+				}
+           //最大的父级onclick处理事件，子级执行onclick事件后，如果不阻止冒泡，则自动执行父级的onclick事件
+		   //这就是冒泡，子级事件执行后，其父级的相同事件也会执行
+				document.onclick = function(){ 
+					oBox.style.display = "none";
+					/*
+						setTimeout(function(){
+							oBox.style.display = "none";
+						},1000);
+					*/
+				}
+				p.onclick = function(){
+					oBox.style.display = "none";
+				}
+				span.onclick = function(){
+					oBox.style.display = "none";
+				}
+				i.onclick = function(){
+					oBox.style.display = "none";
+				}
+				em.onclick = function(){
+					oBox.style.display = "none";
+				}
+				b.onclick = function(){
+					oBox.style.display = "none";
+				}
+				img.onclick = function(){
+					oBox.style.display = "none";
+				}
+			}
+		</script>
+
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn"/>
+
+		<div id="box"></div>
+
+		<p>p</p>
+		<span>span</span><br>
+		<img src="" alt="" /><br>
+		<i>i</i><br>
+		<em>em</em><br>
+		<b>b</b><br>
+	</body>
+</html>

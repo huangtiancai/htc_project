@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				/*
+					event: 
+						黑匣子-当一个事件发生的时候，存储着和事件相关的一些信息对象
+						当一个事件发生的时候，和当前这个对象发生的这个事件有关的一些详细的信息都会临时保存到一个【指定的地方】event对象，供我们需要的时候调用 
+
+						事件对象必须在一个事件调用的函数里面使用才有内容
+						事件函数：事件调用的函数，一个函数是不是事件函数
+						，不在定义的决定，而是在于这个调用的时候 
+
+							
+
+					兼容性问题：
+					IE / chromewindow.event是一个内置的全局对象
+					FF 事件函数的第一个参数
+
+					ie8- / chrome /ie9+ window.event
+
+					火狐 / chrome / ie9+ 事件函数的第一个参数
+
+					e.clientX/clientY 距离浏览的窗口的距离 x/y
+				*/
+				
+				//alert( event );
+				// e语义化
+				function a(e){
+					var e = e || window.event; //获取这个黑匣子的对象
+					//alert( e )
+					
+					alert( e.clientX )
+
+					/*
+						for ( var attr in e )
+						{
+							document.write( attr +":"+ e[attr]+"<br>");
+						}
+					*/
+				}
+				//a();
+
+				document.onclick = a;
+			}
+		</script>
+
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript">
+			//script最大的域
+			window.onload = function(){
+				/* DOM Document Ojbect Model 文档 对象 模型
+				
+				文档：HTML页面
+				文档对象：页面里面的元素
+				文档对象模型：为了能够让js去操作页面当中的元素
+				js就是通过组织语法逻辑结构来操作DOM
+				js ->  dom ->页面元素
+
+				DOM会把文档看成是一棵树，同时提供很多方法操作这棵树中每一个节点（DOM节点）
+				*/
+
+				//BOM Browser Object Model 浏览器对象模型 可以操作浏览器
+				
+				// BOM 几乎是不兼容的！！！
+
+				var aInput = document.getElementsByTagName("input");
+				var oPen = null;
+				aInput[0].onclick = function(){
+					/*
+						默认是空白页about:blank
+						open(网址，窗口打开方式 )
+					*/
+					//window.open("http://www.baidu.com","_self");
+					oPen = window.open("BOM.html"); //FF
+					//alert( oPen )
+					//alert( oPen==window ) // 域不一样 false
+				}
+				
+				aInput[1].onclick = function(){
+					window.close(); 
+					//FF 脚本不得关闭非脚本打开的窗口。
+					//IE 询问是否关闭
+					//谷歌 直接关闭
+				}
+				aInput[1].onclick = function(){
+					window.close( "" );
+				}
+			}
+		</script>
+
+	</head>
+	<body>
+		<input type="button" value="打开窗口" />
+		<input type="button" value="关闭窗口"/>
+		<input type="button" value="关闭窗口"/>
+		asdasdasdasdasdasdwehnqwjkl ehqwklejhl
+	</body>
+</html>

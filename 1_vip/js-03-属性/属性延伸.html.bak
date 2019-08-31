@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+  </style>
+ </head>
+ <body>
+	<p>box.style.cssText设置样式</p>
+	<p>注意的是，这自动把这些属性放在标签内的属性，优先级很高</p>
+	<p>font-size:18px;margin-top:100px;margin-left:100px;background:#f90;width:100px;height:100px;</p><br/>
+
+	<p>box.style.styleFloat = "right";//兼容IE</p>
+		box.style.cssFloat = "right";//兼容非IE浏览器</p><br/>
+	<div id="box">我是一个DIV</div>
+	<script>
+		var box = document.getElementById("box");
+		/*麻烦的办法
+		box.style.width = "100px";
+		box.style.height = "100px";
+		box.style.marginTop = "100px";
+		box.style.marginLeft = "100px";
+		box.style.border = "2px solid red";
+		box.style.backgroundColor = "#f90";
+		*/
+		/*简单的办法,注意的是，这自动把这些属性放在标签内的属性，优先级很高*/
+		box.style.cssText = "font-size:18px;margin-top:100px;margin-left:100px;background:#f90;width:100px;height:100px;";
+
+		box.style.styleFloat = "right";//兼容IE
+		box.style.cssFloat = "right";//兼容非IE浏览器
+	</script>
+ </body>
+</html>

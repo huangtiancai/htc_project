@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>基础小球物理碰撞 --krry</title>
+	<style type="text/css">
+	  *{margin:0;padding:0;}
+	  .box{width:72%;height:550px;margin:30px auto;font-size:32px;
+	       font-family:"华文行楷";text-align:center;}
+	  #canvas{border-radius:5px;margin-top:10px;width:100%;}
+	  .box input{width:100px;height:40px;background:#0975ce;color:#fff;font-size:18px;
+	             font-family:"华文行楷";float:right;outline:none;border-radius:5px;
+				 border:none;box-shadow:1px 1px 10px #000;cursor:pointer;transition:1s;}
+	  .box input:hover{background:#ff6600;color:#000;transform:rotate(360deg);transition:1s;}
+	</style>
+  <head>
+  <body>
+    <div class="box">基础小球物理碰撞
+      <canvas id="canvas" width="960" height="420" style="background:#008080"></canvas>
+	  <input type="button" value="添加小球" onclick="addBalls();"/>
+
+	</div>
+
+	<script type="text/javascript">
+	  var canvas = null;
+	  var context = null;
+	  window.onload = function(){
+	     canvas = document.getElementById("canvas");
+		 context = canvas.getContext("2d");
+
+		 setTimeout(drawBall,20);
+	  }
+	  //存放小球的数组
+	  var balls = [];
+	  //小球
+	  function Ball(x,y,dx,dy,radius){
+	    this.x = x;
+		this.y = y;
+		this.dx = dx;
+		this.dy = dy;
+		this.radius = radius;
+	  }
+	  //添加小球的方法
+	  function addBalls(){
+	    var radius = 20;
+		var ball = new Ball(50,50,1,1,radius);
+		balls.push(ball);
+	  }
+	  //画小球的方法
+	  function drawBall(){
+	     //清除画布，除去不必要的干扰
+		 context.clearRect(0,0,canvas.width,canvas.height);
+		 //开始画图
+		 context.beginPath();
+		 for(var i=0;i<balls.length;i++){
+		    var ball = balls[i];
+			ball.x += ball.dx;
+			ball.y += ball.dy;
+			ball.dy += 1;
+			ball.dx += 1;
+
+			if(ball.y+ball.radius > canvas.height || ball.y-ball.radius < 0){
+			   ball.dy = -ball.dy*0.9;
+			}
+			if(ball.x+ball.radius > canvas.width || ball.x-ball.radius < 0){
+			   ball.dx = -ball.dx;
+			}
+		 
+		 //重新绘制
+		 context.beginPath();
+		 context.fillStyle = randomColor2();
+		 context.strokeStyle = randomColor2();
+		 context.lineWidth = 1;
+		 context.arc(ball.x,ball.y,ball.radius,0,2*Math.PI);
+		 context.fill();
+		 context.stroke();
+		 }
+		 setTimeout(drawBall,20);//每20毫秒执行drawBall方法
+	  }
+	  //rgb方法取随机颜色
+	  function randomColor(){
+	     var r = Math.floor(Math.random()*256);//最大的数256，取小于256的任意整数
+		 var g = Math.floor(Math.random()*256);
+		 var b = Math.floor(Math.random()*256);
+		 return "rgb("+r+","+g+","+b+")";
+	  }
+	  //十六进制取随机颜色
+	  function randomColor2(){ //最大的数FFFFFF,就是16777215
+	     str = Math.ceil(Math.random()*16777215).toString(16);//取小于就是16777215的数，转换成16进制
+		 while(str.length < 6){
+		   str = "0"+str; //保证六位数 若不够，0填充
+		 }
+		 return "#"+str;
+	  }
+	</script>
+  </body>
+<html>

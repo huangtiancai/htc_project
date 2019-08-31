@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title>Banner图完整特效 --krry</title>
+  <style type="text/css">
+    *{margin:0;padding:0}
+	body{font-size:12px;font-family:"微软雅黑";color:#666;}
+	a{text-decoration:none;}
+	ul li{list-style:none;}
+	.clear{clear:both;}
+
+	.center{width:1226px;margin:50px auto;position:relative;overflow:hidden;}
+	.center .c_left{width:234px;background:rgba(0,0,0,.5);float:left;height:460px;position:absolute;}
+	.center .c_left .l_ul{padding:20px 0;}
+	.center .c_left .l_ul li:hover{background:#ff6700;}
+	.center .c_left .l_ul li a{color:#fff;font-size:14px;line-height:42px;height:42px;display:block;padding-left:30px;position:relative;}
+	.center .c_left .l_ul li a span{position:absolute;font-size:16px;font-family:"幼圆";right:20px;color:rgba(255,255,255,0.5);font-weight:bolder;}
+	.center .c_can{width:8582px;}
+	.center .c_can ul li{float:left;}
+	.center .btn{background:url("images/icon.png");top:50%;margin-top:-35px;width:41px;height:69px;position:absolute;}
+	.center .c_last{left:234px;background-position:-84px 50%;}
+	.center .c_next{right:0;background-position:-125px 50%;}
+	.center .c_bottom{display:block;left:auto;right:30px;width:400px;text-align:right;bottom:20px;position:absolute;}
+	.center .c_bottom .b_cir{display:inline-block;}
+	.center .c_bottom .b_cir .c_bta{display:block;width:6px;height:6px;margin:0 5px;border:2px solid #fff;border-color:rgba(255,255,255,.3);border-radius:10px;text-align:left;background:rgba(0,0,0,.4);transition:all .2s;}
+	.center .c_bottom .b_cir .c_bta.btnSelect{border-color:rgba(0,0,0,.4);background:rgba(255,255,255,.4);}
+  </style>
+ </head>
+ <body>
+	
+	<div class="center">
+		<div class="c_left">
+			<ul class="l_ul">
+				<li><a href="#">手机 平板 电话卡<span>&gt;</span></a></li>
+				<li><a href="#">电视 盒子<span>&gt;</span></a></li>
+				<li><a href="#">路由器 智能硬件<span>&gt;</span></a></li>
+				<li><a href="#">移动电源 插线板<span>&gt;</span></a></li>
+				<li><a href="#">耳机 音响<span>&gt;</span></a></li>
+				<li><a href="#">电池 储存卡<span>&gt;</span></a></li>
+				<li><a href="#">保护套 后盖<span>&gt;</span></a></li>
+				<li><a href="#">贴膜 其他配件<span>&gt;</span></a></li>
+				<li><a href="#">米兔 服装<span>&gt;</span></a></li>
+				<li><a href="#">箱包 其他周边<span>&gt;</span></a></li>
+			</ul>
+		</div>
+		<div class="c_can">
+			<ul>
+				<li>
+					<a href="#">
+						<img src="images/1.jpg" alt="banner" width="1226" height="460"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/2.jpg" alt="banner" width="1226" height="460"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/3.jpg" alt="banner" width="1226" height="460"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/4.jpg" alt="banner" width="1226" height="460"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/5.jpg" alt="banner" width="1226" height="460"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<a href="#" title="上一张" class="btn c_last"></a>
+		<a href="#" title="下一张" class="btn c_next"></a>
+		<div class="c_bottom">
+			<div class="b_cir"><a href="#" class="c_bta btnSelect"></a></div>
+			<div class="b_cir"><a href="#" class="c_bta"></a></div>
+			<div class="b_cir"><a href="#" class="c_bta"></a></div>
+			<div class="b_cir"><a href="#" class="c_bta"></a></div>
+			<div class="b_cir"><a href="#" class="c_bta"></a></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//获取每张图片的宽度
+				var imgWidth = $(".c_can").find("img").width();
+				var imgIndex = 1;//一开始下标是取1，不是0
+			//初始化Banner图,首尾添加两张
+			function initBanner(){
+				var ul = $(".c_can").find("ul");
+				var first = ul.children().first().clone(); //克隆第一张图片
+				var last = ul.children().last().clone(); //克隆最后一张图片
+				ul.prepend(last);
+				ul.append(first);
+				
+				$(".c_can").css({"marginLeft":-imgWidth}); //一开始就是第二张图片
+			}
+			initBanner();
+
+			var len = $(".c_can ul").children().length; //拿到初始化后的图片个数
+
+			//控制banner图的两个耳朵的出现和隐藏
+			$(".c_last").hover(function(){
+				$(this).css({backgroundPosition:"0 0"});
+			},function(){
+				$(this).css({backgroundPosition:"-84px 50%"});
+			});
+			$(".c_next").hover(function(){
+				$(this).css({backgroundPosition:"-208px 0"});
+			},function(){
+				$(this).css({backgroundPosition:"-125px 50%"});
+			});
+
+			$(".c_bta").click(function(){
+				imgIndex = $(this).parents(".b_cir").index() + 1;
+				$(this).addClass("btnSelect").parents(".b_cir").siblings().find(".c_bta").removeClass("btnSelect");//因为c_bta没有兄弟姐妹，只有他的父母有兄弟姐妹，通过他父母的兄弟姐妹找到c_bta，一次移除其他兄弟姐妹的样式
+				$(".c_can").animate({"marginLeft":-imgIndex*imgWidth});
+			});
+
+			//设置自动播放banner图
+			var BannerTime = null;
+			function autoPlay(){
+				BannerTime = setInterval(function(){
+					$(".c_next").trigger("click");
+				},3000);
+			}
+			autoPlay();//一开始设置自动播放轮播图
+
+			$(".c_can").mouseover(function(){
+				clearInterval(BannerTime);
+			}).mouseout(function(){
+				autoPlay();
+			});
+
+			//设置鼠标进入耳朵的时候，清除定时器
+			$(".btn").hover(function(){
+				clearInterval(BannerTime);
+			},function(){ //离开耳朵的时候
+				autoPlay();
+			});
+			var nowTime = 0;
+			//当点击左耳朵
+			$(".c_last").click(function(){
+				if(new Date() - nowTime > 500){
+					nowTime = new Date();
+					var tindex = (imgIndex == 0) ? 0 : --imgIndex;
+					changeBanner(tindex);
+				}
+			});
+			//当点击右耳朵
+			$(".c_next").click(function(){
+				if(new Date() - nowTime > 500){
+					nowTime = new Date();
+					var tindex = (imgIndex == len) ? len : ++imgIndex;
+					changeBanner(tindex);
+				}
+			});
+
+			//点击左右耳朵的方法
+			function changeBanner($index){
+				$(".c_bta").eq($index-1).addClass("btnSelect").parents(".b_cir").siblings().find(".c_bta").removeClass("btnSelect");
+				$(".c_can").stop(true, true).animate({"marginLeft":-imgWidth*$index},function(){
+					if($index == 0){ //判断回到最后一张图片
+						$(".c_can").css({"marginLeft":-imgWidth*(len - 2)});//所有图片回到最终状态
+						$(".c_bta").eq(imgIndex-1).addClass("btnSelect").parents(".b_cir").siblings().find(".c_bta").removeClass("btnSelect");
+						imgIndex = len - 2;
+					}else if($index >= len - 1){ //判断回到第一张图片
+						$(".c_can").css({"marginLeft":-imgWidth});//所有图片回到最初状态
+						$(".c_bta").eq(0).addClass("btnSelect").parents(".b_cir").siblings().find(".c_bta").removeClass("btnSelect");
+						imgIndex = 1;
+					}
+				});
+			}
+		});
+	</script>
+ </body>
+</html>

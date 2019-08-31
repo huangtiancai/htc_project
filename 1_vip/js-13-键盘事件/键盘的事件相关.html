@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面编码集(中文编码<gbk,gb2312>,国际编码<utf-8>)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<title> html </title>
+        <style type="text/css">
+			*{padding:0px;margin:0px;}
+		</style>
+	</head>
+<body>
+	<input type="text" id="txt"/>
+	<script>
+		/*
+			onkeydown----->键盘按下去的事件
+			onkeyup------->键盘抬起了的事件
+
+			radio checkbox  focus();
+		*/
+		var oTxt = document.getElementById("txt");
+		//oTxt.onkeyup = function(){
+			//alert(1);
+			//alert(this.value);
+		//}
+			
+		
+		/*
+			onkeydown 在 onkeypress 触发之前
+			onkeypress 只会响应字母数字符号，其他的例如F1-F12、ctrl/shift/alt等不会响应
+		*/
+		document.onkeypress = function(){
+			console.log(2);
+		};
+		document.onkeydown = function(){
+			console.log(1);
+		};
+		
+			
+		
+	</script>
+</body>
+
+</html>

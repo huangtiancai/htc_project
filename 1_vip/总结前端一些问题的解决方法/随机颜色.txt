@@ -1,0 +1,15 @@
+//rgb方法取随机颜色
+	  function randomColor(){
+	     var r = Math.floor(Math.random()*256);//最大的数256，取小于256的任意整数
+		 var g = Math.floor(Math.random()*256);
+		 var b = Math.floor(Math.random()*256);
+		 return "rgb("+r+","+g+","+b+")";
+	  }
+	  //十六进制取随机颜色
+	  function randomColor2(){ //最大的数FFFFFF,就是16777215
+	     str = Math.ceil(Math.random()*16777215).toString(16);//取小于就是16777215的数，转换成16进制
+		 while(str.length < 6){
+		   str = "0"+str; //保证六位数 若不够，0填充
+		 }
+		 return "#"+str;
+	  }

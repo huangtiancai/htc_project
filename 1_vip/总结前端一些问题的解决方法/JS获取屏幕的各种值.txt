@@ -1,0 +1,98 @@
+js：
+文档：是整个document所有的内容
+
+浏览器当前窗口文档body的宽度： document.body.clientWidth;(仅仅是body的width)
+浏览器当前窗口文档body的高度： document.body.clientHeight;(仅仅是body的height)
+
+浏览器当前窗口文档body的宽度： document.body.offsetWidth;(width+border);
+浏览器当前窗口文档body的高度： document.body.offsetHeight;(height+border);
+
+浏览器整个文档的宽： document.body.scrollWidth;
+浏览器整个文档的高： document.body.scrollHeight;
+
+获取竖直滚动条到顶部的垂直高度 (即网页被卷上去的高度)(其他浏览器)：document.body.scrollTop;
+获取竖直滚动条到顶部的垂直高度 (即网页被卷上去的高度)(ie浏览器): document.documentElement.scrollTop;
+获取水平滚动条到左边的水平宽度 (即网页被卷左去的宽度)(其他浏览器)： document.body.scrollLeft;
+获取水平滚动条到左边的水平宽度 (即网页被卷左去的宽度)(ie浏览器)： document.documentElement.scrollLeft;
+
+滚动条中内容的高度：boxx.scrollHeight;//利用这个可以使滚动条一直在底部
+
+网页正文部分上： window.screenTop;
+网页正文部分左： window.screenLeft;
+
+获取元素的宽度：clientWidth;(width+padding)
+获取元素的高度：clientHeight;(height+padding)
+
+获取元素的宽度：offsetWidth;(width+padding+border)
+获取元素的高度：offsetHeight;(height+padding+border)
+ 
+获取元素最左边距已定位的父级对象的长度（若无父级对象或父级对象没有定位，就是距离文档顶部）:offsetLeft
+获取元素最上边距已定位的父级对象的长度（若无父级对象或父级对象没有定位，就是距离文档左端）:offsetTop
+
+屏幕分辨率的高： window.screen.height
+屏幕分辨率的宽： window.screen.width
+屏幕可用工作区高度： window.screen.availHeight
+屏幕可用工作区宽度： window.screen.availWidth
+
+
+jquery：
+
+文档：是包括滚动条所有的内容
+
+获取浏览器显示区域（可视区域）的高度 ： $(window).height();
+获取浏览器显示区域（可视区域）的宽度 ： $(window).width();
+
+获取页面的文档高度：$(document).height();
+获取页面的文档宽度 ：$(document).width();
+
+浏览器当前窗口文档body的高度： $(document.body).height();
+浏览器当前窗口文档body的宽度： $(document.body).width();
+
+获取竖直滚动条到顶部的垂直高度 (即网页被卷上去的高度) ：$(document).scrollTop();
+获取水平滚动条到左边的水平宽度 (即网页被卷左去的宽度)：$(document).scrollLeft();
+
+获取或设置元素的宽度：$(obj).width();(width) 注意只是元素的宽度，不包括padding
+获取或设置元素的高度：$(obj).height();(height) 注意只是元素的高度，不包括padding
+
+获取或设置元素的宽度：$(obj).innerWidth(); (width + padding)
+获取或设置元素的高度：$(obj).innerHeight(); (height + padding)
+
+获取或设置元素的宽度：$(obj).outerWidth(); (width + padding + border)
+获取或设置元素的高度：$(obj).outerHeight(); (height + padding + border)
+
+获取元素的宽度：$(obj).outerWidth(true); (width + padding + border + margin)
+获取元素的高度：$(obj).outerHeight(true); (height + padding + border + margin)
+
+某个元素的上边界距文档最上边距离：obj.offset().top;
+某个元素的左边界距文档最左边距离：obj.offset().left;
+
+
+screenY
+         鼠标相对于显示器屏幕左上角的偏移
+
+pageY
+         鼠标相对于页面左上角的偏移 (其值会受滚动条的影响，相当于整个文档，整个页面的Y的值)
+         IE9之下并不支持这个属性
+
+clientY
+         鼠标相对于浏览器窗口左上角的偏移（其值不会受滚动条影响，相对于滚动条当前的位置的浏览窗口的Y值）
+         注意clientY和pageY的区别，pageY在页面无滚动条或滚动条下拉0的情况下值等同于clientY
+
+event.offsetX 相对容器的水平坐标
+event.offsetY 相对容器的垂直坐标
+
+
+layerY
+         如果元素的position样式不是默认的static,我们说这个元素具有定位属性。
+         在当前触发鼠标事件的元素和它的祖先元素中找到最近的具有定位属性的元素，计算鼠标与其的偏移值，
+	 以找到元素的border的左上角的外交点作为相对点。如果找不到具有定位属性的元素，那么就相对于当前页面计算偏移，
+	 此时等同于pageY。
+
+offsetY  
+       offsetY和layerY的不同在于，前者的在计算偏移值时，相对于元素的border左上角的内交点，
+       因此当鼠标位于元素的border上时，偏移值是一个负值。 
+       另外offsetY并不在乎触发事件的元素是否有定位属性，它总是相对于触发事件的元素来计算偏移值。
+
+鉴于layerY和offsetY的不同，要兼容的使用二者要注意
+         　　1.触发事件的元素一定要设置定位属性。
+        　　 2.在元素具有上边框border-top的情况下， layerY比offsetY的值多一个border-top的宽度值。

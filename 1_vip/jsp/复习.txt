@@ -1,0 +1,76 @@
+1.环境安装 以及 http协议  jsp原理
+Tomcat
+
+http协议  超文本传输协议  TCP/IP       UDP---适用于大型网络游戏等领域 丢包
+
+请求报文
+GET/index.html http/1.1
+
+Accept:image/jpeg
+Accept-Language:zh-cn
+Host:www.163.com:80
+
+
+响应报文
+HTTP/1.1 200 OK
+
+
+
+2.Servlet
+是一个java程序,就是一个在服务器上运行，用来处理请求以及响应的程序
+一般会把处理的结果以html的形式返回到页面，动态显示
+
+生命周期
+
+继承体系    shift + alt + s + v
+Object
+	GenericServlets
+		httpServlet
+
+Spring			httpServletBean
+
+
+
+
+可扩展
+跨平台
+安全
+就是一个普通java类，需要就实例化，不需要就销毁,而且实例化，销毁都由容器完成
+
+
+
+
+
+3.Requset
+get  post 区别
+get不安全，请求的参数在URl栏可以看得到，并且有长度限制
+post 安全  
+
+HttpServletRequset请求对象
+
+setCharachterEncoding(String key);设置编码，主要解决传递中文问题  但是注意只能解决post提交中文的问题
+getParameter(String name);  获取由name指定的参数的值
+getParameterValues(String name);  获取指定参数的所有值
+getParameterNames()  获取所有的参数名称
+
+getRequestDispatcher(String path).forward(req , resp);  转发
+setAttribute(String name,Object values); 在请求中设置新属性
+getAttribute(String name);
+
+getSession 获取与请求有关的session,如果没有就创建一个新的
+getCookies 获取与请求有关的cookies
+getContextPath(); 获取站点名称
+getMethod();  获取提交方式
+getRemoteAddr(); 获取客服端的地址
+getRemoteHost(); 获得客服端的主机名
+getRemotePort(); 获取端口
+getContentLength(); 获取请求报文的长度
+getContentType(); 报文的类型
+
+4.Response
+HttpServletResponese响应对象
+
+
+
+
+

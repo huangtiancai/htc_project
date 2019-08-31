@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>全屏滚动 --krry</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			html{height:100%;}
+			body{height:100%;} /*body继承html的高度100%，即充满屏幕*/
+			ul li{list-style:none;}
+			.box{height:100%;background-attachment:fixed;/*背景固定*/background-size:100% 100%;}
+			.left{position:fixed;top:50%;margin-top:-73px;left:70px;}
+			.left ul li{width:35px;height:35px;border-radius:50%;border:1px solid #fff;cursor:pointer;margin-top:2px;}
+			.left ul li.active{background:#fff;}
+
+		</style>
+	</head>
+	<body>
+		<div class="box" style="background-image:url(images/1.jpg);"></div>
+		<div class="box" style="background-image:url(images/2.jpg);"></div>
+		<div class="box" style="background-image:url(images/3.jpg);"></div>
+		<div class="box" style="background-image:url(images/4.jpg);"></div>
+		<div class="left">
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+		<script>
+			$(function(){
+				var index = 0;
+				var nowTime = 0;
+				var close = true; //设置监听滚动条事件的锁，只当用鼠标拉动滚动条才执行监听滚动条事件
+				var h = $(window).height();
+				$(".left ul li").click(function(){
+					close = false;  //滚动条刚开始滚动，锁上
+					$(this).addClass("active").siblings().removeClass("active");
+					index = $(this).index();
+					$("html,body").stop().animate({
+						"scrollTop":index*h
+					},500,function(){
+						close = true; //动画执行完毕，解除监听滚动条事件的锁
+					});
+					
+				});
+
+				$(document).mousewheel(function(ev,dr){
+					close = false; //滚动条刚开始滚动，锁上
+					if(new Date() - nowTime > 500){ //时间差至少500毫秒，才可执行
+						nowTime = new Date();
+						if(dr<0){  //往下滚动，dr<0，往上滚动，dr>0
+							index++;
+							index %= 4; //取模为4，表示在0,1,2,3之间的整数循环
+						}else{
+							index--;
+							if(index < 0) index = 3;
+						}
+						$(".left ul li").eq(index).addClass("active").siblings().removeClass("active");
+						$("html,body").stop().animate({
+							"scrollTop":index*h
+						},500,function(){
+							close = true;//动画执行完毕，解锁
+						});
+					}
+				});
+
+				$(window).scroll(function(){
+					if(close){ //如果只是单纯用鼠标拉动滚动条
+						var scrolltop = $(document).scrollTop();
+						for(var i = 0;i < $(".box").length;i++){
+							if(scrolltop >= $(".box").eq(i).offset().top){
+								$(".left ul li").eq(i).addClass("active").siblings().removeClass("active");
+							}
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

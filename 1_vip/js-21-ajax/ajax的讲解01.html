@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面编码集(中文编码<gbk,gb2312>,国际编码<utf-8>)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<title> html </title>
+        <style type="text/css">
+			*{padding:0px;margin:0px;}
+		</style>
+	</head>
+<body>
+	
+	<script>
+		window.onload = function(){
+			//IE6 ActiveXObjct
+			//var xhr = new XMLHttpRequest();	
+			var xhr;//创建ajax对象
+			if(window.XMLHttpRequest){  //兼容性写法 IE7以上的
+				xhr = new XMLHttpRequest();  
+			}else{   //IE6的
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");	
+			}
+			
+			xhr.open("get","1.txt",true);
+			/*
+				true:异步
+					非阻塞--》同时执行，不会阻塞后面的程序执行
+
+				false:同步
+					阻塞---》先执行，会阻塞后面程序的执行
+			*/
+			xhr.send();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4 && xhr.status==200){ //200是成功的意思
+					/*
+						0: 请求未初始化,还没有调用open的时候
+						1: 服务器连接已建立，还没发送，还没有调用send的时候
+						2: 请求已接收
+						3: 请求处理中
+						4: 请求已完成，且响应已就绪
+					*/
+					alert(xhr.responseText);
+				}
+			};
+				
+		};
+
+		/*跨域错误*/
+	</script>
+</body>
+
+</html>

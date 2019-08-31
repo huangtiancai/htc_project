@@ -1,0 +1,256 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<link rel="stylesheet" href="css/animate.css"/>
+		<link rel="stylesheet" type="text/css" href="css/sg.css" />
+		<title>web桌面系统 --krry</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			body{background:url("images/8.jpg");background-size:cover;font-family:"微软雅黑";font-size:12px;overflow:hidden;width:100%;height:100%;}
+			.logo .img{margin-left:24px;margin-top:-88px;position:absolute;}
+			.face{width:938px;height:262px;background:rgba(255,255,255,.6);position:absolute;top:0;left:200px;display:none;}
+			.face ul{margin-top:3px;}
+			.face ul li{width:130px;height:81px;list-style:none;float:left;margin:2px;cursor:pointer;}
+			.face .big{width:264px;height:166px;}
+			.face .sma{position:relative;top:-85px;}
+			.btn{cursor:pointer;font-size:20px;margin-top:10px;color:#f30;margin-left:20px;float:left;position:absolute;}
+
+			.menu{width:150px;display:none;position:absolute;z-index:2;}
+			.menu ul li{background:#fff;line-height:32px;text-indent:1em;border-bottom:1px solid #ddd;transition:.4s;font-size:14px;cursor:pointer;list-style:none;}
+			.menu ul li:last-child{border:none;}
+			.menu ul li:hover{background:#f60;color:#fff;transition:.4;}
+
+			.note{position:relative;z-index:1;}
+			.note .cen{width:100%;height:55px;position:absolute;top:0;z-index:2;}
+			.note .n_list{width:294px;height:310px;position:absolute;}
+			.note .n_list .n_con{width:256px;height:220px;position:absolute;left:16px;top:60px;font-size:14px;line-height:24px;outline:none;}
+			.note .n_list .n_desc{position:absolute;bottom:8px;right:18px;}
+		</style>
+	</head>
+	<body>
+		<div class="face" id="face">
+		    <ul>
+				<li class="big"><img src="images/1.jpg" width="264" height="166" alt="美女"/></li>
+				<li><img src="images/2.jpg" width="130" height="81" alt="风景"/></li>
+				<li><img src="images/3.jpg" width="130" height="81" alt="风景"/></li>
+				<li><img src="images/4.jpg" width="130" height="81" alt="风景"/></li>
+				<li><img src="images/5.jpg" width="130" height="81" alt="风景"/></li>
+				<li><img src="images/6.jpg" width="130" height="81" alt="风景"/></li>
+				<li><img src="images/7.jpg" width="130" height="81" alt="风景"/></li>
+				<li class="big"><img src="images/8.jpg" width="264" height="166" alt="风景"/></li>
+				<li><img src="images/9.jpg" width="130" height="81" alt="风景"/></li>
+				<li><img src="images/10.jpg" width="130" height="81" alt="风景"/></li>
+				<li><img src="images/11.jpg" width="130" height="81" alt="风景"/></li>
+				<li><img src="images/12.jpg" width="130" height="81" alt="风景"/></li>
+				<li class="sma"><img src="images/13.jpg" width="130" height="81" alt="风景"/></li>
+				<li class="sma"><img src="images/14.jpg" width="130" height="81" alt="风景"/></li>
+				<li class="sma"><img src="images/15.jpg" width="130" height="81" alt="风景"/></li>
+			</ul>
+		 </div>
+		 <div class="btn">换肤</div>
+
+		<div class="menu">
+			<ul>
+				<li onclick="m_menu(1);">打开</li>
+				<li onclick="m_menu(2);">刷新</li>
+				<li onclick="m_menu(3);">添加便签</li>
+				<li onclick="m_menu(4);">清空便签</li>
+				<li onclick="m_menu(5);">添加music应用</li>
+				<li onclick="m_menu(6);">添加计算器</li>
+				<li onclick="m_menu(7);">腾讯mini弹窗</li>
+				<li onclick="m_menu(8);">注销</li>
+			</ul>
+		</div>
+
+		<div class="note"></div>
+
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/sg.js"></script>
+		<script src="js/sgutil.js"></script>
+		<script>
+			//获取整个文档的高度和宽度
+			var AllWidth = $(document).width();
+			var AllHeight = $(document).height();
+			$(function(){
+				// 读取缓存信息 便签中的缓存信息
+				var auto_con = localStorage.getItem("auto_con");
+				var auto_back = localStorage.getItem("auto_back");
+				if(auto_con != "undefined" || auto_back != "undefined"){
+					$("body").css("background",auto_back); //设置上一次的背景图片
+					$(".note").html(auto_con);
+					tuoBian();//拖拽
+				}
+
+				$(".face ul li").click(function(){
+				     var _src = $(this).find("img").attr("src");//获得当前点击图片的路径
+				//$(this).css({"transform":"rotate(360deg)","transition":"0.3s"}).siblings().removeAttr("style");
+				     $(this).addClass("animated fadeInRight").siblings().removeClass("animated fadeInRight");
+					 var i = $(this).index()+1;
+					 $("body").css({
+					    "background":"url('images/"+i+".jpg') no-repeat","background-size":"cover"
+					 });
+					 //背景图片保存到缓存中
+					 localStorage.setItem("auto_back",$("body").css("background"));
+					 return false; //为了防止点击div 也关闭div 所以这里要防止冒泡
+				 });
+				 $(".btn").click(function(){
+				     $(".face").stop(true).slideToggle(1000);
+					 return false; //为了防止点击div 也关闭div 所以这里要防止冒泡
+				 });
+				 
+				 $(document).click(function(){ //最大页面点击事件，最大父级
+					 $(".face").slideUp(1000); //关闭选择背景div
+					 $(".menu").addClass("animated fadeOutLeftBig");
+				 });
+
+				//阻止浏览器右键的默认行为
+				document.oncontextmenu = function(){
+					return false;
+				}
+
+				$(document).mousedown(function(e){
+					var key = e.which;//获取鼠标（右键3，鼠标滑动滚轮2，左键1）
+					if(key == 3){
+						var x = e.clientX;
+						var y = e.clientY;
+						
+						//获取div最大的x和y值
+						var maxX = AllWidth - $(".menu").width();
+						var maxY = AllHeight - $(".menu").height();
+						//保证菜单不会溢出
+						if(x > maxX) x = maxX;
+						if(y > maxY) y = maxY;
+
+						$(".menu").css({
+							left:x,
+							top:y
+						});
+						$(".menu").removeClass("animated fadeOutLeftBig");
+						$(".menu").hide();  //先隐藏，再显示
+						$(".menu").stop(true,true).toggle(600);
+
+						$(".face").slideUp(1000); //关闭选择背景div
+					}
+				});
+			});
+			function m_menu(flag){
+				if(flag == 1){
+				
+				}else if(flag == 2){
+					location.reload();
+				}else if(flag == 3){
+					bian();
+				}else if(flag == 4){
+					clearqian();
+				}else if(flag == 5){
+					music();
+				}else if(flag == 6){
+					cac();
+				}else if(flag == 7){
+					mini();
+				}else if(flag == 8){
+				}
+			}
+			//添加便签
+			function bian(){
+				var left = $(".menu").offset().left;
+				var top = $(".menu").offset().top;
+
+				//获取div最大的x和y值
+				var maxX = AllWidth - $(".n_list").width();
+				var maxY = AllHeight - $(".n_list").height();
+				//保证不会溢出
+				if(left > maxX) left = maxX;
+				if(top > maxY) top = maxY;
+
+
+				// 生成1到3的随机数(0-1的小数<Math.random()>)
+				var random = Math.floor(Math.random() * 3) + 1;
+
+				$('.note').append("<div class='n_list animated rollIn' style='left:"+left+"px;top:"+top+"px;'>"+
+				  "<div class='cen'></div>"+
+				  "<img src='images/"+random+".png' alt='便签' width='294' height='310' />"+
+				  "<div class='n_con' onblur='Bianonblur(this);' contenteditable='true'></div>"+
+				  "<p class='n_desc'></p>"+
+				  "</div>");
+				  tuoBian();
+			}
+
+			//清除便签
+			function clearqian(){
+				$(".n_list").removeClass("animated rollIn").addClass("animated bounceOut").fadeOut(1000);
+				// 清除缓存
+				localStorage.removeItem("auto_con");
+			}
+			//存储剩余时间obj是目标便签的元素
+			function auto_timer(obj){
+				var timer = null; //每个便签的定时器不同
+				var count = 4;
+				$(obj).parent().find(".n_desc").html("<span>5 </span>秒后自动保存");
+				timer = setInterval(function(){
+					if(count <= 0){
+						count = 5;
+						$(obj).parent().find(".n_desc").text("");
+						// 保存内容
+						localStorage.setItem("auto_con",$(".note").html());
+						clearInterval(timer);
+					}
+					// 改变数字的值
+					$(obj).parent().find(".n_desc").find("span").text(count+" ");	
+					count--;
+				},1000);
+			}
+
+			//当便签内容不为空且失焦的时候，启动保存信息的定时器
+			function Bianonblur(obj){
+				if(obj.innerHTML != ''){
+					auto_timer(obj);//启动保存信息的定时器
+				}
+			}
+			//便签的拖拽
+			function tuoBian(){
+				$(".n_list img").mousedown(function(){
+					//解决浏览器默认图片拖拽问题
+					return false;
+				});
+				$(".cen").mousedown(function(e){
+					var _this = $(this);
+					var boxleft = _this.parent(".n_list").offset().left;
+					var boxtop = _this.parent(".n_list").offset().top;
+					var e = e || window.event;
+					var x = e.clientX;
+					var y = e.clientY;
+					$(document).mousemove(function(e){
+						var l = e.clientX;
+						var t = e.clientY;
+						var left = l - x + boxleft;
+						var top = t - y + boxtop;
+						_this.parent(".n_list").css({
+							left:left+"px",
+							top:top+"px"
+						});
+					});
+				}).mouseup(function(){
+					$(document).unbind("mousemove");
+					$(document).unbind("mouseup");
+				});
+			}
+
+			//添加计算器
+			function cac(){
+				$.tmDialog.iframe({open:"top",content:"计算器/计算器.html",title:"Krry计算器",width:400,height:530,showBottom:false});
+			}
+			//添加music应用
+			function music(){
+				$.tmDialog.iframe({open:"other",content:"http://localhost:8080/krry_music_pho/music.jsp",title:"Krry音乐平台",width:615,height:600,showBottom:false});
+			}
+			//添加腾讯mini弹窗
+			function mini(){
+				$.tmDialog.iframe({open:"left",content:"http://mini.qq.com/",title:"腾讯mini弹窗",width:748,height:590,showBottom:false});
+			}
+		</script>
+	</body>
+</html>

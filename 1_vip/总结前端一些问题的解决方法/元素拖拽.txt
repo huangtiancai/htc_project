@@ -1,0 +1,83 @@
+offsetLeft获取元素最左边距离父级对象的长度（若无父级对象，就是距离浏览器）
+
+移动的距离 = 鼠标移动时的坐标 - 鼠标点击时的坐标 + 点击时的对象的左/顶边距
+
+
+鼠标点击位置距离元素边界的长度 = 鼠标点击坐标 - 点击时的对象的左/顶边距
+var l = e.clientX - oLoginface.offsetLeft;
+var t = e.clientY - oLoginface.offsetTop;
+
+元素拖拽移动的距离 = 鼠标移动时的坐标 - 鼠标点击位置距离元素边界的长度
+oLoginface.style.left = e.clientX -l + 'px';
+oLoginface.style.top = e.clientY -t + 'px';
+
+
+注意“鼠标移动时的坐标”是在onmousemove中执行
+    “鼠标点击坐标”是在onmousedown中执行
+
+
+最后记得清除鼠标移动和鼠标抬起事件
+document.onmousemove = document.onmouseup = null;
+
+注意几点：
+
+滚动条的高度和宽度
+var stop = document.body.scrollTop || document.documentElement.scrollTop;
+var sleft = document.body.scrollLeft || document.documentElement.scrollLeft;
+
+对象可移动的最大距离 = 浏览器的可视距离 - 对象的宽度 + 滚动条(若有滚动条)
+var maxLeft = window.innerWidth - thisDom.offsetWidth + sleft;
+var maxTop = window.innerHeight - thisDom.offsetHeight +stop;
+
+
+对于图片拖拽，必须阻止浏览器的默认拖拽图片行为
+            return false; //在拖拽的方法体中执行即可
+
+附上拖拽元素的代码
+
+//拖拽
+		//鼠标三部曲
+		//onmousedown onmousemove onmouseup
+		boxDom.onmousedown = function(e){
+		   var thisDom = this;
+		   var ev = e || window.event;
+		   var x = ev.clientX || ev.pageX;
+		   var y = ev.clientY || ev.pageY;
+          //滚动条的高度和宽度
+		   var stop = document.body.scrollTop || document.documentElement.scrollTop;
+		   var sleft = document.body.scrollLeft || document.documentElement.scrollLeft;
+
+		   var left = thisDom.offsetLeft;//offsetLeft获取的是相对于父对象的左边距
+		   var top = thisDom.offsetTop;
+		
+		//对象可移动的最大距离 = 浏览器的可视距离 - 对象的宽度 + 滚动条(若有滚动条)
+		   var maxLeft = window.innerWidth - thisDom.offsetWidth + sleft;
+		   var maxTop = window.innerHeight - thisDom.offsetHeight +stop;
+
+		   document.onmousemove = function(e){
+		       var ev = e || window.event;//兼容性写法
+			   var nx = ev.clientX || ev.pageX;
+			   var ny = ev.clientY || ev.pageY;
+		//移动的距离 = 鼠标移动时的坐标 - 鼠标点击时的坐标 + 点击时的对象的左边距)
+			   var nl = nx -x + left; //左边移动的距离(画图就可以理解)
+			   var nt = ny - y + top;
+			   //控制到达边界时不能越界
+			   if(nl<=0) nl = 0;
+			   if(nt<=0) nt = 0;
+			   if(nl>maxLeft) nl = maxLeft;
+			   if(nt>maxTop) nt = maxTop;
+
+			   if(obj.arrow == "left"){ //设置只能左右移动
+			      thisDom.style.left = nl + "px";
+			   }else if(obj.arrow == "top"){ //设置只能上下移动
+				  thisDom.style.top = nt + "px";
+			   }else{
+			      thisDom.style.left = nl + "px";
+				  thisDom.style.top = nt + "px";
+			   }
+		   }
+		   document.onmouseup = function(){
+		      document.onmousemove = null;
+			  document.onmouseup = null;
+		   }
+		}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		
+		<style type="text/css">
+			body{
+			
+				width:500px;
+				height:600px;
+				position:relative;
+			}
+			ul{
+				
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.0.0.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				//alert ($("input").val()); //获取
+				//alert ($("input").val("hello"))
+
+				$("li").each(function(i,element){ // i下标 从0开始
+					$(element).html(i);
+				});
+				
+				//.offsetParent() 获取最近定位父级
+				//.parent()获取结构父级
+				//$("li").parent().css("border","2px solid blue");
+				//$("li").offsetParent().css("border","5px solid red");
+				
+				// size() jq3.0不支持 都支持length
+				//alert( $("li").size() )
+				//alert( $("li").length )
+
+				for (var i=0;i<$("li").get().length;i++ )
+				{
+					//把jQ对象$("li")转成 js对象
+
+					//$("li").get(i).style.border = "1px solid blue";
+					$("li")[i].style.border = "1px solid red";
+				}
+				
+				alert( $("input").get(0).value )
+			})
+		</script>
+
+	</head>
+	<body>
+		<input type="button" value="按钮"/>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>

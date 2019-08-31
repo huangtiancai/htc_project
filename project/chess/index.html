@@ -1,0 +1,361 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>人机大战五子棋 --krry</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			body{background:url("images/b.jpg");background-size:cover;font-family:"微软雅黑";font-size:12px;color:#666;}
+			.container{width:450px;margin:0 auto;position:relative;}
+			h1{margin:40px auto;display:block;text-align:center;color:#ff720b;font-family:"微软雅黑";font-size:28px;font-weight: 100;}
+			canvas{box-shadow:0 0 10px #000;margin:40px auto;display:block;}
+			#msg{font-size:14px;color:#fff;margin-top:-20px;}
+			#restart{width:80px;height:30px;background:#ff7575;border:0;color:#fff;border-radius:9px;margin:10px auto;display:block;outline:none;cursor:pointer;font-family:"微软雅黑";}
+			.conWin{background:rgba(255, 255, 255, 0.42);border-radius:8px;display:none;font-size:30px;color:#ff2800;position:absolute;top:280px;left:72px;}
+			.animated { /*兼容各种浏览器的写法*/
+				-webkit-animation-duration: 1s;
+			   -moz-animation-duration: 1s;
+				-ms-animation-duration: 1s;
+				 -o-animation-duration: 1s;
+					animation-duration: 1s;
+				-webkit-animation-fill-mode: both;
+			   -moz-animation-fill-mode: both;
+				-ms-animation-fill-mode: both;
+				 -o-animation-fill-mode: both;
+					animation-fill-mode: both;
+			 }
+			  @keyframes bounceIn{
+				0% {
+					opacity: 0;
+					transform: scale(.3);
+				}
+
+				50% {
+					opacity: 1;
+					transform: scale(1.05);
+				}
+
+				70% {
+					transform: scale(.9);
+				}
+
+				100% {
+					transform: scale(1);
+				}
+			  }
+			  .bounceIn { /*在各种浏览器兼容性的写法 ,此为调用上面写的bounceIn动画*/
+				-webkit-animation-name: bounceIn;
+				-moz-animation-name: bounceIn;
+				-ms-animation-name: bounceIn;
+				-o-animation-name: bounceIn;
+				animation-name: bounceIn;
+			  }
+
+			  @keyframes bounceOut{
+				 0%{
+					opacity:1;
+				 }
+				 50%{
+				   transform:scale(1.05);
+				   transform:rotate(360deg)
+				 }
+				 100%{
+				   opacity:0.2;
+				   transform:scale(.1);
+				 }
+			  }
+			  .bounceOut{
+				 -webkit-animation-name: bounceOut;
+				-moz-animation-name: bounceOut;
+				-ms-animation-name: bounceOut;
+				-o-animation-name: bounceOut;
+				animation-name: bounceOut;
+			  }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Krry大战机器人小冰</h1>
+			<!--canvas本身没有绘画能力。只能通过JavaScript来进行绘画-->
+			<canvas width="450" height="450" id="chess"></canvas>
+			<p id="msg">请下棋（您的棋色为白色）</p>
+			<input type="button" id="restart" value="重新开始"/>
+			<div class="conWin">你输啦，哈哈~~~~~~</div>
+		</div>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			//重新开始
+			document.getElementById("restart").onclick = function(){
+				window.location.reload();
+			}
+			//拿到提示信息
+			var msg = document.getElementById("msg");
+
+			//拿到画布
+			var chess = document.getElementById("chess");
+			//拿到画布绘画权限
+			var context = chess.getContext("2d");
+			//画笔颜色
+			context.strokeStyle = "#bfbfbf";
+			//画水印
+			var logo = new Image();
+			logo.src = "images/1.png";
+			//图片加载完成再绘画
+			logo.onload = function(){
+				context.drawImage(logo,0,0,450,450);
+				drawChessboard(); //让棋盘放在水印图片上面
+			}
+
+			//绘画棋盘
+			var drawChessboard = function(){
+				for(var i=0;i<15;i++){
+					//直线的起点(横线)
+					context.moveTo(15+i*30,15);
+					//直线的终点
+					context.lineTo(15+i*30,435);
+					//描线，开始绘画
+					context.stroke();
+					//直线的起点(竖线)
+					context.moveTo(15,15+i*30);
+					//直线的终点
+					context.lineTo(435,15+i*30);
+					//描线，开始绘画
+					context.stroke();
+				}
+			};
+
+			var over = false;
+			var me = true; //我
+
+			//定义二维数组来判断棋盘上落子情况
+			var chessBoard = [];
+			for(var i=0;i<15;i++){
+				chessBoard[i] = [];
+				for(var j=0;j<15;j++){
+					chessBoard[i][j] = 0;
+				}
+			}
+			
+			//赢法的统计数组
+			var myWin = [];
+			var computerWin = [];
+
+			//赢法数组
+			var wins = [];
+			for(var i = 0; i < 15; i++){
+				wins[i] = [];
+				for(var j = 0; j < 15; j++){
+					wins[i][j] = [];
+				}
+			}
+
+			var count = 0; //赢法总数
+			//横线赢法
+			for(var i = 0; i < 15; i++){
+				for(var j = 0; j < 11; j++){
+					for(var k = 0; k < 5; k++){
+						wins[i][j+k][count] = true;
+					}
+					count++;
+				}
+			}
+
+			//竖线赢法
+			for(var i = 0; i < 15; i++){
+				for(var j = 0; j < 11; j++){
+					for(var k = 0; k < 5; k++){
+						wins[j+k][i][count] = true;
+					}
+					count++;
+				}
+			}
+
+			//正斜线赢法
+			for(var i = 0; i < 11; i++){
+				for(var j = 0; j < 11; j++){
+					for(var k = 0; k < 5; k++){
+						wins[i+k][j+k][count] = true;
+					}
+					count++;
+				}
+			}
+
+			//反斜线赢法
+			for(var i = 0; i < 11; i++){ 
+				for(var j = 14; j > 3; j--){
+					for(var k = 0; k < 5; k++){
+						wins[i+k][j-k][count] = true;
+					}
+					count++;
+				}
+			}
+			
+			for(var i = 0; i < count; i++){
+				myWin[i] = 0;
+				computerWin[i] = 0;
+			}
+
+			//计算机下棋
+			var computerAI = function (){
+				msg.innerHTML = "小冰正在思考......";
+				var nowDate = new Date();
+				var secon = nowDate.getMilliseconds();//毫秒
+
+				var myScore = [];
+				var computerScore = [];
+				var max = 0;
+				var u = 0, v = 0;
+				for(var i = 0; i < 15; i++){
+					myScore[i] = [];
+					computerScore[i] = [];
+					for(var j = 0; j < 15; j++){
+						myScore[i][j] = 0;
+						computerScore[i][j] = 0;
+					}
+				}
+				for(var i = 0; i < 15; i++){
+					for(var j = 0; j < 15; j++){
+						if(chessBoard[i][j] == 0){
+							for(var k = 0; k < count; k++){
+								if(wins[i][j][k]){
+									if(myWin[k] == 1){
+										myScore[i][j] += 200;
+									}else if(myWin[k] == 2){
+										myScore[i][j] += 400;
+									}else if(myWin[k] == 3){
+										myScore[i][j] += 2000;
+									}else if(myWin[k] == 4){
+										myScore[i][j] += 10000;
+									}
+									
+									if(computerWin[k] == 1){
+										computerScore[i][j] += 220;
+									}else if(computerWin[k] == 2){
+										computerScore[i][j] += 420;
+									}else if(computerWin[k] == 3){
+										computerScore[i][j] += 2100;
+									}else if(computerWin[k] == 4){
+										computerScore[i][j] += 20000;
+									}                        
+								}
+							}
+							
+							if(myScore[i][j] > max){
+								max  = myScore[i][j];
+								u = i;
+								v = j;
+							}else if(myScore[i][j] == max){
+								if(computerScore[i][j] > computerScore[u][v]){
+									u = i;
+									v = j;    
+								}
+							}
+							
+							if(computerScore[i][j] > max){
+								max  = computerScore[i][j];
+								u = i;
+								v = j;
+							}else if(computerScore[i][j] == max){
+								if(myScore[i][j] > myScore[u][v]){
+									u = i;
+									v = j;
+								}
+							}
+							
+						}
+					}
+				}
+				onStep(u,v,false);
+				var nowDate2 = new Date();
+				var secon2 = nowDate2.getMilliseconds();//毫秒
+				var timer = secon2-secon;
+				msg.innerHTML = "小冰下子("+u+","+v+")，思考"+zero(timer)+"秒";
+
+				chessBoard[u][v] = 2;
+				for(var k = 0; k < count; k++){
+					if(wins[u][v][k]){
+						computerWin[k]++;
+						myWin[k] = 6;//这个位置对方不可能赢了
+						if(computerWin[k] == 5){
+							 $(".conWin").removeClass("animated bounceOut");
+							 $(".conWin").addClass("animated bounceIn").show();
+							over = true;
+						}
+					}
+				}
+				if(!over){ //如果没有赢，
+					me = !me; //转换角色
+				}
+			}
+			
+			//我自己下棋
+			chess.onclick = function(e){
+				if(over){ //如果结束了游戏
+					return;
+				}
+				if(!me){  //如果不是我落子
+					return;
+				}
+				var x = e.offsetX;
+				var y = e.offsetY;
+				var i = Math.floor(x / 30);//在30px范围内可以落子
+				var j = Math.floor(y / 30);
+				if(chessBoard[i][j] == 0){
+					onStep(i,j,me);
+					chessBoard[i][j] = 1;//我        
+								
+					for(var k = 0; k < count; k++){
+						if(wins[i][j][k]){
+							myWin[k]++;
+							computerWin[k] = 6;//这个位置对方不可能赢了
+							if(myWin[k] == 5){
+								$(".conWin").text("恭喜你，你赢啦~~~~")
+								$(".conWin").removeClass("animated bounceOut");
+								$(".conWin").addClass("animated bounceIn").show();
+								over = true;
+							}
+						}
+					}
+					if(!over){  //如果还没结束游戏 
+						me = !me;  //转换角色
+						computerAI();  //计算机下棋
+					}
+				}
+			};
+
+			//画棋子
+			var onStep = function(i,j,me){
+				//开始路径
+				context.beginPath();
+				//圆心
+				context.arc(15+i*30,15+j*30,12,0,Math.PI*2);
+				//结束路径
+				context.closePath();
+				//渐变色
+				var gradient = context.createRadialGradient(15+i*30+2,15+j*30-2,12,15+i*30+2,15+j*30-2,0);
+				if(me){
+					context.strokeStyle = "#d1d1d1";
+					gradient.addColorStop(0,"#d1d1d1");
+					gradient.addColorStop(1,"#f9f9f9");
+				}else{
+					context.strokeStyle = "#000";
+					gradient.addColorStop(0,"#0a0a0a");
+					gradient.addColorStop(1,"#636767");
+				}
+				//填充色
+				context.fillStyle = gradient;
+				//填充
+				context.fill();
+				context.stroke();
+			};
+
+			//毫秒时间转成秒数
+			function zero(obj){
+				return obj < 1000 ? "0."+obj : obj/1000;
+			};
+
+		</script>
+	</body>
+</html>

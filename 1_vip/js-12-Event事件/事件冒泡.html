@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			div{
+				padding:50px;
+			}
+			#box1{
+				width:500px;
+				margin:50px auto;
+				
+				background:red;
+			}
+			#box2{
+				background:green;
+			}
+			#box3{
+				background:blue;
+				position:absolute;
+				width:50px;
+				height:50px;
+				top:400px;
+			}
+		</style>
+
+		<script type="text/javascript">
+			/*
+				事件冒泡：
+				当一个元素接收到事件的时候，会把它接收的所有传递给它的父级，一直顶层window，冒泡机制
+			*/
+			window.onload = function(){
+				var oBox1 = document.getElementById("box1");
+				var oBox2 = document.getElementById("box2");
+				var oBox3 = document.getElementById("box3");
+
+				function  fn1(){
+					alert(this.id);
+					//alert(1)
+				}
+
+				function  fn2(){
+					//alert(this.id);
+					alert(2)
+				}
+				
+				// 【普通】的事件绑定，同一个对象只能绑定个事件处理函数
+				/*	oBox1.onclick = fn1;
+					oBox1.onclick = fn2; //后面覆盖前面事件处理函数
+				*/
+				
+				oBox1.onclick = fn1; //给某个对象添加事件， fn给元素加事件处理函数
+				oBox2.onclick = fn1;
+				oBox3.onclick = fn1; // 告诉oBox3，如果他接收了一个点击事件，那么他就去执行fn;  绑定一个事件处理函数   后面覆盖前面事件处理函数  会把它接收的所有传递给它的父级，父级也会执行这个函数 一直顶层window，
+			} 
+		</script>
+
+	</head>
+	<body>
+		<div id="box1">
+			<div id="box2">
+				<div id="box3"></div>
+			</div>
+		</div>
+	</body>
+</html>

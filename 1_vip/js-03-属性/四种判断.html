@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+  </style>
+ </head>
+ <body>
+	<input type="button" value="-" id="btn1"/>
+	<input type="button" value="+" id="btn2"/>
+	<p>JavaScript 是世界上最流行的脚本语言。
+JavaScript 是属于 web 的语言，它适用于 PC、笔记本电脑、平板电脑和移动电话。
+JavaScript 被设计为向 HTML 页面增加交互性。
+许多 HTML 开发者都不是程序员，但是 JavaScript 却拥有非常简单的语法。几乎每个人都有能力将小的 JavaScript 片段添加到网页中。</p>
+	
+	<script>
+		var btn1 = document.getElementById("btn1");
+		var btn2 = document.getElementById("btn2");
+		var pp = document.getElementsByTagName("p");
+		pp[0].style.fontSize = "12px";
+
+		var num = 12;
+		btn1.onclick = function(){
+			if( num > 12){
+				num -= 2;
+			}
+			pp[0].style.fontSize = num +"px";
+		}
+		btn2.onclick = function(){
+			if( num < 36){
+				num += 2;
+			}
+			pp[0].style.fontSize = num +"px";
+		}
+	</script>
+ </body>
+</html>

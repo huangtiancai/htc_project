@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				function  fn1(){
+					//alert(this.id);
+					alert(this)
+				}
+				//fn1()
+				function  fn2(){
+					//alert(this.id);
+					alert(2)
+				}
+
+				//document.onclick = fn1;
+				//document.onclick = fn2;
+				
+				//给一个对象的同一个事件绑定多个不同的事件处理函数
+				
+				//IE 678 支持 obj.attachEvent(事件名称,事件处理函数);  2 1
+				//document.attachEvent("onclick",fn1);
+				//document.attachEvent("onclick",fn2);
+				
+				//其他浏览器支持 obj.addEventListener(事件名称（不加on），事件处理函数,是否捕获);
+				// 1 2
+				//document.addEventListener("click",fn1,false);
+				//document.addEventListener("click",fn2,false);
+
+				function bind( obj , Name , fn ){
+					if ( obj.addEventListener )
+					{
+						obj.addEventListener(Name,fn,false);
+					}else{
+						obj.attachEvent( 'on'+Name , fn , function(){
+							fn.call(obj);
+						})
+					}
+				}
+
+				bind(document , "click" ,fn1 );
+			}
+		</script>
+
+	</head>
+	<body>
+		
+	</body>
+</html>

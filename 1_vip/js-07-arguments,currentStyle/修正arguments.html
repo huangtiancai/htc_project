@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title>修正arguments</title>
+  <style type="text/css">
+	#box{width:100px;height:100px;background:yellow;}
+  </style>
+ </head>
+ <body>
+	<div id="box"></div>
+	<input type="button" value="修改样式" id="btn"/>
+	<script>
+		var box = document.getElementById("box");
+		var btn = document.getElementById("btn");
+
+		function getStyle( obj , attr){
+			if(obj.currentStyle){ //IE
+				return obj.currentStyle[attr]; //获取样式
+			}else{  //非IE
+				return getComputedStyle( obj , false)[attr];//获取样式
+			}
+		}
+		function fn(obj , attr , value){
+			if(arguments.length == 3){
+				obj.style[attr] = value;
+			}else if(arguments.length == 2){ //arguments的长度就是当传进来的参数的个数
+				return getStyle(obj,attr);
+			}
+		}
+		btn.onclick = function(){
+			fn(box,"background","orange"); //传进三个参数
+		}
+		alert(fn(box,"background")); //传进两个参数,按照fn方法的参数的顺序，接收这两个参数的是obj , attr
+	</script>
+ </body>
+</html>

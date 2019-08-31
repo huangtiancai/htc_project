@@ -1,0 +1,27 @@
+*{margin:0;padding:0;}
+	  html,body{width:100%;height:100%;perspective:700px;background:#000;}
+	  div,b{position:absolute;transform-style:preserve-3d;/*创建3d环境*/}
+	  #city3D{background:#fff;margin:auto;position:absolute;
+	          top:0;left:0;bottom:0;right:0;border:10px solid #ff9900;
+	          animation:play 10s linear infinite;}
+	 #city3D div b{height:100%;background-color:rgba(28, 63, 80, 0.9);transform:rotateX(90deg);
+	             transform-origin:0 0;/*旋转轴*/}
+	 #city3D div b > b{height:100%;background-color:rgba(19, 36, 105, 0.9);transform:rotateY(90deg);
+	             transform-origin:0 0;/*旋转轴*/}
+	 #city3D div b > b > b{height:100%;background-color:rgba(0, 53, 84, 0.9);transform:rotateY(90deg);
+	                     transform-origin:100% 0;/*旋转轴*/right:0;}
+	 #city3D div b > b > b > b{height:100%;background-color:rgba(0, 61, 152, 0.9);transform:rotateY(90deg);
+	                         transform-origin:0 0;/*旋转轴*/left:0;}
+	 #city3D div b > b > b > b > b{height:100%;background-color:rgba(43, 41, 76, 0.9);
+	                             transform:rotateX(270deg);
+	                             transform-origin:0 100%;/*旋转轴*/bottom:0;}
+	  #city3D .a b{background-image:url("../img/1.png");}
+	  #city3D .b b{background-image:url("../img/2.png");}
+	  #city3D .c b{background-image:url("../img/3.png");}
+	  #city3D .d b{background-image:url("../img/4.png");}
+	  #city3D .e b{background-image:url("../img/5.png");}
+
+	  @keyframes play{
+	    from{transform:rotateX(60deg) rotateZ(-180deg);}
+		to{transform:rotateX(60deg) rotateZ(180deg);}
+	  }

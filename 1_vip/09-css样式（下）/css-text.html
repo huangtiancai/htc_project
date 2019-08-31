@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8(国际编码)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--声明当前页面的三要素-->
+		<title>CSS文本的控制 - krry</title>
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--js/css-->
+		<style type="text/css">
+			
+			body{font-size:12px;font-family:"微软雅黑";color:#666;}
+			.box{width:620px;}
+			.desc{
+				/*color:文本颜色*/
+				color:#F30;
+				/*字符间距 （letter-spacing: 20px; letter-spacing: -0.5em;）;
+				letter-spacing:12px;*/
+
+				/*将段落的第一行缩进 text-indent（将段落的第一行缩进）*/
+				text-indent:10px;
+
+			}
+
+			.arry{
+				/* 1em = 12px 
+				  letter-spacing 字体左右的间距 
+				*/
+				letter-spacing:1em; 
+				/*行间距 line-height*/
+				line-height:30px;
+
+			}
+
+			.shanxi{
+				padding-top:100px;
+				/*文本的对齐方式：left,center,right 控制容器中的文本对齐方式*/
+				text-align:center;
+				text-align:right;
+				text-align:left; /*居左对齐 默认值*/
+				font-size:16px;
+
+				/*上划线*/
+				text-decoration:overline;
+				/*穿过文本的一条线*/
+				text-decoration:line-through;
+
+			}
+
+			.shanxi:hover{
+				/*text-decoration装饰文本*/
+				text-decoration:underline;				
+			}
+			
+			.price{font-size:20px;margin-top:50px;}
+
+			.mes{position:absolute;top:0;left:620px;border-left:1px solid #000;width:730px;font-size:16px;line-height:24px;}
+		</style>
+
+	</head>
+<body>
+	<div class="box">
+		<h1>CSS文本的控制</h1>
+		
+		<p class="desc">
+			广东省，以岭南东道、广南东路得名，简称“粤”，省会广州，是中国大陆南端沿海的一个省份，位于南岭以南，南海之滨，与香港、澳门、广西、湖南、江西和福建接壤，与海南隔海相望，划分为珠三角、粤东、粤西和粤北四个区域，下辖21个地级市（其中副省级城市2个），119个县级行政区（60个市辖区、20个县级市、36个县、3个自治县）。
+		</p>
+
+		<p class="arry">
+			广东省，以岭南东道、广南东路得名，简称“粤”，省会广州，是中国大陆南端沿海的一个省份，位于南岭以南，南海之滨，与香港、澳门、广西、湖南、江西和福建接壤，与海南隔海相望，划分为珠三角、粤东、粤西和粤北四个区域，下辖21个地级市（其中副省级城市2个），119个县级行政区（60个市辖区、20个县级市、36个县、3个自治县）。
+		</p>
+
+		<p class="shanxi">
+			广东省，以岭南东道、广南东路得名，简称“粤”，省会广州，是中国大陆南端沿海的一个省份，位于南岭以南，南海之滨，与香港、澳门、广西、湖南、江西和福建接壤，与海南隔海相望，划分为珠三角、粤东、粤西和粤北四个区域，下辖21个地级市（其中副省级城市2个），119个县级行政区（60个市辖区、20个县级市、36个县、3个自治县）。
+		</p>
+
+
+		<p class="price">价格：<del>原价：你买不起</del> ，现价：你还是买不起</p>
+	</div>
+	<div class="mes">
+		<h2>这是源代码哦~~</h2>
+		<pre>
+&lt;style type="text/css"&gt;
+
+body{font-size:12px;font-family:"微软雅黑";color:#666;}
+.box{width:620px;}
+.desc{
+	/*color:文本颜色*/
+	color:#F30;
+	/*字符间距 （letter-spacing: 20px; letter-spacing: -0.5em;）;
+	letter-spacing:12px;*/
+
+	/*将段落的第一行缩进 text-indent（将段落的第一行缩进）*/
+	text-indent:10px;
+
+	}
+
+.arry{
+	/* 1em = 12px 
+	  letter-spacing 字体左右的间距 
+	*/
+	letter-spacing:1em; 
+	/*行间距 line-height*/
+	line-height:30px;
+	}
+
+.shanxi{
+	padding-top:100px;
+	/*文本的对齐方式：left,center,right 控制容器中的文本对齐方式*/
+	text-align:center;
+	text-align:right;
+	text-align:left; /*居左对齐 默认值*/
+	font-size:16px;
+
+	/*上划线*/
+	text-decoration:overline;
+	/*穿过文本的一条线*/
+	text-decoration:line-through;
+
+	}
+
+.shanxi:hover{
+	/*text-decoration装饰文本*/
+	text-decoration:underline;				
+	}
+
+.price{font-size:20px;margin-top:50px;}
+
+.mes{position:absolute;top:0;left:630px;border-left:1px solid #000;
+width:730px;font-size:16px;line-height:24px;}
+&lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="box"&gt;
+&lt;h1&gt;CSS文本的控制&lt;/h1&gt;
+
+&lt;p class="desc"&gt;
+	广东省，以岭南东道、广南东路得名，简称“粤”，省会广州，是中国大陆南端沿海
+	的一个省份，位于南岭以南，南海之滨，与香港、澳门、广西、湖南、江西和福建
+	接壤，与海南隔海相望，划分为珠三角、粤东、粤西和粤北四个区域，下辖21个
+	地级市（其中副省级城市2个），119个县级行政区（60个市辖区、20个县级市、
+	36个县、3个自治县）。
+&lt;/p&gt;
+
+&lt;p class="arry"&gt;
+	广东省，以岭南东道、广南东路得名，简称“粤”，省会广州，是中国大陆南端沿海
+	的一个省份，位于南岭以南，南海之滨，与香港、澳门、广西、湖南、江西和福建
+	接壤，与海南隔海相望，划分为珠三角、粤东、粤西和粤北四个区域，下辖21个
+	地级市（其中副省级城市2个），119个县级行政区（60个市辖区、20个县级市、
+	36个县、3个自治县）。
+&lt;/p&gt;
+
+&lt;p class="shanxi"&gt;
+	广东省，以岭南东道、广南东路得名，简称“粤”，省会广州，是中国大陆南端沿海
+	的一个省份，位于南岭以南，南海之滨，与香港、澳门、广西、湖南、江西和福建
+	接壤，与海南隔海相望，划分为珠三角、粤东、粤西和粤北四个区域，下辖21个
+	地级市（其中副省级城市2个），119个县级行政区（60个市辖区、20个县级市、
+	36个县、3个自治县）。
+&lt;/p&gt;
+
+
+&lt;p class="price"&gt;价格：&lt;del&gt;原价：你买不起&lt;/del&gt; ，现价：你还是买不起&lt;/p&gt;
+&lt;/div&gt;
+		</pre>
+	</div>
+
+</body>
+</html>

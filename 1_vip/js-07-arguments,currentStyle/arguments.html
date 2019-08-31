@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title>argument</title>
+  <style type="text/css">
+    *{margin:0;padding:0}
+  </style>
+ </head>
+ <body>
+	<script>
+		window.onload = function(){
+			function fn(){
+				var sum = 0;
+				alert(arguments.length);
+				alert(arguments[0]); //获取的是第一个参数1
+				for(var i = 0;i < arguments.length;i++){
+					sum += arguments[i];
+				}
+				alert(sum);
+			}
+			fn(1,2,3,8,9,6,5,2,1,4,6,9,7,4);
+		}
+	</script>
+ </body>
+</html>

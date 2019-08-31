@@ -1,0 +1,7 @@
+一般在包裹img标签的盒子设置宽度和高度属性时，如：
+
+.xiao{width:640px;height:270px;}
+li img{width:100%;height:100%;}  在img标签设置宽度和高度都为100%的样式，这样就可以不管图片多大，都能在这个盒子中完全显示出来
+
+
+<li class="xiao"><img src="images/1.jpg"/></li>

@@ -1,0 +1,2 @@
+letter-spacing:2px; /*增加或减少字符间的空白(字符间距)*/
+white-space: nowrap; /*响应式中当容纳不下字体时自动用省略号代替*/

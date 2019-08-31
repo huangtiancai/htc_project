@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+		</style>
+	</head>
+	<body>
+		<script>
+		//数组的长度和内容都是可读可写
+			var arr = [1,2,3,4];
+			//alert(arr.length); //获取长度
+			//arr.length = 2;  //修改数组长度，后面的截掉
+			//arr[0] ="a";  //修改了下标为0的数据
+			//alert(arr[0]);
+
+			//往数组后面添加
+			/*
+			arr.push("krry");
+			alert(arr);
+			arr.push(["a","b","c"]); //追加数组 得到的是[1,2,3,4,krry,["a","b","c"]],只能占一个位置
+			alert(arr[5]);
+			alert(arr.length);  //长度为6
+
+			//往前面添加
+			arr.unshift("筱月");
+			alert(arr);
+			*/
+
+			/*
+			arr.pop(); //删除数组最后一位
+			arr.shift(); //删除数组第一位
+			alert(arr);
+			*/
+
+			arr.splice(0,1);//从第一位开始删除两位
+			alert(arr);
+			arr.unshift("第一","第二");
+			arr.splice(0,2,"插入的元素"); //删除两位之后插入元素
+			alert(arr);
+			
+
+			//concat 两个数组拼接
+			/*
+			var arr2 = ["这","是","拼接"];
+			var af = arr.concat(arr2);
+			alert(af.length);
+			alert(af);
+			*/
+
+			//排序sort
+			var inn = [5,4,7,9,1,2,3,8,10,12];
+			inn.sort(); //默认从小到大排序
+			//alert(inn);
+
+			//随机排序
+			inn.sort(function(){
+				return Math.random()-0.6; //随机数0-1
+			});
+			alert("随机排序："+inn);
+		</script>
+	</body>
+</html>

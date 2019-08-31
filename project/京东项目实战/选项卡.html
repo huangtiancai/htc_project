@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+    *{margin:0;padding:0}
+	/*选项卡的实现方法：*/
+	body{background:url("img/01.jpg");background-size:cover;}
+	.xuan{width:888px;height:302px;border-bottom:2px solid red;border-left:2px solid red;margin:20px auto;position:relative;}
+	.xuan .con{width:888px;height:50px;border-bottom:2px solid red;background:#fff;}
+	.xuan .con h3{float:right;margin-top:15px;margin-right:27px;}
+	.xuan .wrap{width:516px;height:50px;border-top:2px solid red;border-right:2px solid red;}
+	.shu{width:1px;height:27px;background:#ccc;position:absolute;top:8px;left:-2px;}
+	.xuan .wrap ul li{width:100px;height:45px;float:left;position:relative;text-align:center;line-height:45px;list-style:none;cursor:pointer;border-top:3px solid transparent;border-left:2px solid transparent;border-right:2px solid transparent;background:#fff;}/*事先定义好三个透明边框，为了鼠标滑到的时候不会撑出去（li的背景颜色为了覆盖内容的边框，达到达到无界限连接的效果）*/
+
+	.xuan .wrap ul li.selected{border-top:3px solid red;border-left:2px solid red;border-right:2px solid red;height:47px;}/*引用样式，做出每个选项卡应该有的边框样式，另外加高li，为了覆盖红线，达到无界限连接的效果*/
+	.xuan .wrap ul li:first-child{border-left:none;}/*第一个选项不需要边框*/
+	.xuan .wrap ul li:last-child{border-right:none;}/*最后一个选项不必右边框，（已经有了）*/
+
+	.xuan .wrap ul .bor{border-right:2px solid red;}/*最后一个选项需要先定义好右边框*/
+
+	.xuan .content .tabcnt{width:886px;height:250px;position:absolute;left:0;top:52px;display:none;color:#000;background:#fff;border-right:2px solid red;}
+  </style>
+ </head>
+ <body>
+   <div class="xuan">
+	  <div class="con">
+			<h3>服装鞋子</h3>
+		 <div class="wrap">
+			<ul>
+			   <li class="selected">包包</li>
+			   <li>家具<div class="shu" style="display:none;"></div></li>
+			   <li>内衣<div class="shu"></div></li>
+			   <li>女性<div class="shu"></div></li>
+			   <li class="bor">手机<div class="shu"></div></li>
+			</ul>
+		 </div>
+	 </div>
+	 <div class="content">
+			<div class="tabcnt" style="display:block">
+				包包包包包包包包包包包包
+			</div>
+			<div class="tabcnt">
+				家具家具家具家具家具家具
+			</div>
+			<div class="tabcnt">
+				内衣内衣内衣内衣内衣内衣
+			</div>
+			<div class="tabcnt">
+				女性女性女性女性女性女性
+			</div>
+			<div class="tabcnt">
+				手机手机手机手机手机手机
+			</div>
+		</div>
+   </div>
+	<div class="xuan">
+	  <div class="con">
+			<h3>服装鞋子</h3>
+		 <div class="wrap">
+			<ul>
+			   <li class="selected">包包</li>
+			   <li>家具<div class="shu" style="display:none;"></div></li>
+			   <li>内衣<div class="shu"></div></li>
+			   <li>女性<div class="shu"></div></li>
+			   <li class="bor">手机<div class="shu"></div></li>
+			</ul>
+		 </div>
+	 </div>
+	 <div class="content">
+			<div class="tabcnt" style="display:block">
+				包包包包包包包包包包包包
+			</div>
+			<div class="tabcnt">
+				家具家具家具家具家具家具
+			</div>
+			<div class="tabcnt">
+				内衣内衣内衣内衣内衣内衣
+			</div>
+			<div class="tabcnt">
+				女性女性女性女性女性女性
+			</div>
+			<div class="tabcnt">
+				手机手机手机手机手机手机
+			</div>
+		</div>
+   </div>
+
+   <div class="xuan">
+	  <div class="con">
+			<h3>服装鞋子</h3>
+		 <div class="wrap">
+			<ul>
+			   <li class="selected">包包</li>
+			   <li>家具<div class="shu" style="display:none;"></div></li>
+			   <li>内衣<div class="shu"></div></li>
+			   <li>女性<div class="shu"></div></li>
+			   <li class="bor">手机<div class="shu"></div></li>
+			</ul>
+		 </div>
+	 </div>
+	 <div class="content">
+			<div class="tabcnt" style="display:block">
+				包包包包包包包包包包包包
+			</div>
+			<div class="tabcnt">
+				家具家具家具家具家具家具
+			</div>
+			<div class="tabcnt">
+				内衣内衣内衣内衣内衣内衣
+			</div>
+			<div class="tabcnt">
+				女性女性女性女性女性女性
+			</div>
+			<div class="tabcnt">
+				手机手机手机手机手机手机
+			</div>
+		</div>
+   </div>
+   <script src="js/jquery-1.10.2.min.js"></script>
+   <script>
+      $(function(){ 
+		  /*若要控制多个选项卡也不会乱，关键是从当前this找到父级再找到要显示的子级
+			如:$(this).parents(".wrap").find("li").find(".shu").show();//先默认全部显示短竖线
+		  */
+		  var len = $(".wrap").find("li").length;
+	     $(".wrap").find("li").hover(function(){
+		     var index = $(this).index();
+			 
+			 $(this).addClass("selected").siblings().removeClass("selected");
+			 $(this).parents(".xuan").find(".content").find(".tabcnt").eq(index).show().siblings().hide();//此为控制多个选项卡也不会乱，关键是从this找到父级再找到要显示的子级
+
+			 if(index == 0){ //当鼠标滑至第一个li时，
+				$(this).parents(".wrap").find("li").find(".shu").show();//先默认全部显示短竖线
+				$(this).parents(".wrap").find("li").eq(index+1).find(".shu").hide();//将第二个li隐藏短竖线
+			}else if(index == len-1){ //当鼠标滑至最后一个li时，
+				$(this).parents(".wrap").find("li").find(".shu").show();//先默认全部显示短竖线
+				$(this).parents(".wrap").find("li").eq(index).find(".shu").hide();//将最后一个li隐藏短竖线
+			}else{
+				$(this).parents(".wrap").find("li").find(".shu").show();//先默认全部显示短竖线
+				$(this).find(".shu").hide();//隐藏当前li的短竖线
+				$(this).parents(".wrap").find("li").eq(index+1).find(".shu").hide();//隐藏下一个li的短竖线
+			}
+		 });
+	  });
+   </script>
+ </body>
+</html>

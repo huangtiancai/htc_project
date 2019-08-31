@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>Jsonp</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			.head{width:594px;height:50px;margin:100px auto;}
+			.inp{width:500px;height:40px;outline:none;text-indent:1em;float:left;font-size:14px;}
+			.btn{width:90px;height:44px;outline:none;float:left;background:#5F6DD2;border:0;color:#fff;font-size:14px;font-family:"微软雅黑";cursor:pointer;}
+			.uu ul li{background:#fff;width:500px;height:30px;text-indent:1em;line-height:30px;border:1px solid #ccc;border-top:0;list-style:none;}
+			.uu ul li a{text-decoration:none;color:#000;}
+			.uu ul li:hover{background:#f90;}
+		</style>
+	</head>
+	<body>
+		<div class="head">
+			<input class="inp" id="inin" type="text" placeholder="请输入关键字..."/>
+			<input class="btn" id="bb" value="搜索" type="button">
+			<div class="uu" id="uu">
+				<ul>
+				</ul>
+			</div>
+		</div>
+		<script>
+			var inp = document.getElementById("inin");
+			var btn = document.getElementById("bb");
+			var uu = document.getElementById("uu");
+
+			inp.onkeyup = function(){//键盘事件
+				var val = this.value;
+				var os = document.createElement("script");
+				os.src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+val+"&cb=Jery";
+				document.body.appendChild(os);
+				document.body.removeChild(os);
+			}
+
+			function Jery(myJson){ //实现上面生成js里面的调用Jery方法
+				var date = myJson.s; //获取key值
+				var str = "<ul>";
+				for(var i = 0;i < date.length;i++){
+					str += "<li><a href='https://www.baidu.com/s?wd="+date[i]+"' target='_blank'>"+date[i]+"</a></li>";
+				}
+				str += "</ul>";
+				uu.innerHTML = str;
+			}
+		</script>
+	</body>
+</html>

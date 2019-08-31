@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+  </style>
+ </head>
+ <body>
+	<input type="button" id = "input1" value="按钮一"/>
+	<input type="button" id = "input2" value="按钮二"/>
+	<input type="button" id = "input3" value="按钮三"/>
+	<script>
+		var btn1 = document.getElementById("input1");
+	</script>
+ </body>
+</html>

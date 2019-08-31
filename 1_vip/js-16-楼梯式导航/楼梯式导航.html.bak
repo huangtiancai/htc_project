@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			body{font-family:"微软雅黑";}
+			ul li{list-style:none;}
+			.div{width:1000px;height:400px;margin:0 auto;background:#f60;font-size:34px;border-bottom:1px solid #000;}
+			.Stair{background:#c0c}
+			.stairNav{position:fixed;bottom:30px;right:20px;width:100px;}
+			.stairNav .nav li{height:12px;border-left:1px solid #a3a3a3;margin-bottom:-2px;}
+			.stairNav .nav .list{border-left:0;margin-left:-7px;position:relative;display:inline-block;cursor:pointer;}
+			.stairNav .nav .list:hover h3{color:#fff;background:#cc0033;}
+			.stairNav .nav .list:hover span{top:4px;left:0;width:15px;height:15px;background-position:-104px 0;}
+			.stairNav .nav .list h3{font-size:14px;color:#e9676a;border-radius:10px;display:inline-block;padding:2px 8px;margin-left:20px;}
+			.stairNav .nav .list span.active{top:4px;left:0;width:15px;height:15px;background-position:-104px 0;}
+			.stairNav .nav .list h3.sel{color:#fff;background:#cc0033;}
+			.stairNav .nav .list span{width:7px;height:7px;background:url("images/element.png") -44px -9px;position:absolute;top:9px;left:4px;}
+			.stairNav .nav li:last-child{margin-bottom:25px;}
+
+			.stairNav .items div{margin-top:3px;cursor:pointer;}
+			.stairNav .items .menu{width:44px;height:44px;background:url("images/element.png") -60px -132px;}
+			.stairNav .items .menu:hover{background-position:-60px -88px;}
+			.stairNav .items .san{width:44px;height:44px;background:url("images/float.png");}
+			.stairNav .items .mes{background-position: -56px -308px;position:relative;}
+			.stairNav .items .mes .xixi{font-size:18px;width:100px;height:44px;background:#D7D7D7;position:absolute;top:-3px;line-height:44px;text-align:center;left:0px;opacity:0;display:none;}
+			.stairNav .items .mes:hover{background-position:-56px -264px;}
+			.stairNav .items .qroc{background-position: 0 -44px;position:relative;}
+			.stairNav .items .qroc .img{width:130px;height:140px;background:#D7D7D7;position:absolute;top:-52px;left:0px;font-size:12px;text-align:center;line-height:4px;opacity:0;display:none;}
+			.stairNav .items .qroc .img img{margin:5px;}
+			.stairNav .items .qroc:hover{background-position: 44px -44px;}
+			.stairNav .items .backtop{background-position: 0 0;}
+			.stairNav .items .backtop:hover{background-position: -57px 0;}
+		</style>
+	</head>
+	<body>
+		<div class="div">div</div>
+		<div class="div Stair">Banner图</div>
+		<div class="div">div</div>
+		<div class="div Stair">大明星</div>
+		<div class="div">div</div>
+		<div class="div Stair">爱时尚</div>
+		<div class="div Stair">要漂亮</div>
+		<div class="div">div</div>
+		<div class="div Stair">视觉</div>
+		<div class="div">div</div>
+		<div class="div Stair">时尚百科</div>
+		<div class="div">div</div>
+		<div class="div">div</div>
+		<div class="div">div</div>
+		<div class="stairNav">
+			<div class="nav">
+				<ul>
+					<li class="list">
+						<span></span>
+						<h3>Banner图</h3>
+					</li>
+					<li></li>
+					<li class="list">
+						<span></span>
+						<h3>大明星</h3>
+					</li>
+					<li></li>
+					<li class="list">
+						<span></span>
+						<h3>爱时尚</h3>
+					</li>
+					<li></li>
+					<li class="list">
+						<span></span>
+						<h3>要漂亮</h3>
+					</li>
+					<li></li>
+					<li class="list">
+						<span></span>
+						<h3>视觉</h3>
+					</li>
+					<li></li>
+					<li class="list">
+						<span></span>
+						<h3>时尚百科</h3>
+					</li>
+				</ul>
+			</div>
+			<div class="items">
+				<div class="menu"></div>
+				<div class="san mes">
+					<div class="xixi">订阅杂志</div>
+				</div>
+				<div class="san qroc">
+					<div class="img">
+						<img src="images/erweima.jpg" width="120"/>关注小其的微信
+					</div>
+				</div>
+				<div class="san backtop"></div>
+			</div>
+		</div>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script>
+			$(function(){
+				//控制小按钮的样式
+				var close = true;
+				$(".menu").click(function(){
+					if(close){
+						$(".nav").stop().fadeOut(300);
+						close = false;
+					}else{
+						$(".nav").stop().fadeIn(300);
+						close = true;
+					}
+				});
+
+				$(".mes").mouseover(function(){
+					$(".xixi").show().stop().animate({
+						"left":-100,
+						"opacity":1
+					},300);
+				}).mouseout(function(){
+					$(".xixi").stop().animate({
+						"opacity":0
+					},300,function(){
+						$(this).hide();
+						$(this).css("left","0");
+					});
+				});
+
+				$(".qroc").mouseover(function(){
+					$(".img").show().stop().animate({
+						"left":-135,
+						"opacity":1
+					},300);
+				}).mouseout(function(){
+					$(".img").stop().animate({
+						"opacity":0
+					},300,function(){
+						$(this).hide();
+						$(this).css("left","0");
+					});
+				});
+
+				//回到顶部
+				$(".backtop").click(function(){
+					$("html,body").animate({
+						"scrollTop":0
+					},500);
+				});
+
+				var off = true; //监听是否点击了楼梯
+				//楼梯式导航
+				$("li.list").click(function(){
+					//取li中的list的index
+					var index = $(this).index("li.list");
+					//锁上监听滚动条事件
+					off = false;
+					//获取楼梯高度
+					var sTop = $(".Stair").eq(index).offset().top;
+					$("html,body").animate({
+						"scrollTop":sTop
+					},500,function(){
+						off = true;//解锁
+					});
+					//设置导航条的样式
+					$(this).find("span").addClass("active").parent().siblings().find("span").removeClass("active");
+					$(this).find("h3").parent().find("h3").addClass("sel").parent().siblings().find("h3").removeClass("sel");
+					
+				});
+
+				$(window).scroll(function(){
+					if(off){
+						var scrolltop = $(document).scrollTop();
+						for(var i = 0;i < $(".Stair").length;i++){
+							if(scrolltop >= $(".Stair").eq(i).offset().top){
+								//设置导航条的样式
+								$(".list").eq(i).find("span").addClass("active").parent().siblings().find("span").removeClass("active");
+								$(".list").eq(i).find("h3").parent().find("h3").addClass("sel").parent().siblings().find("h3").removeClass("sel");
+							}else if(scrolltop < $(".Stair").eq(0).offset().top){
+								//移除导航条的样式
+								$(".list").find("span").removeClass("active");
+								$(".list").find("h3").removeClass("sel");
+							}
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

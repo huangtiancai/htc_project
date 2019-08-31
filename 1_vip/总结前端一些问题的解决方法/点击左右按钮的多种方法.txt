@@ -1,0 +1,41 @@
+
+<div class="btn">
+	<a href="#" class="left">上一张</a>
+	<a href="#" class="right">下一张</a>
+</div>
+
+//点击左右按钮
+$(".btn a").click(function(){
+	if(new Date() - tTime > 1300){
+		tTime = new Date();
+		var i = $(this).index();
+		if(i){ //索引为1代表是右按钮
+			index = (index == len-1) ? 0 : ++index; 
+		}else{  //索引为0代表是左按钮
+			index = (index == 0) ? len-1 : --index;
+		}
+		liChange(index); //再调用点击按钮的方法
+	}
+});
+
+
+//点击btn按钮
+$btn.click(function(){
+	if(new Date() - btnTime > 1300){
+		btnTime = new Date();
+		var i = $(this).index();
+		if(i){//右按钮
+			index++;
+			index %= $li.length; //取模，在0到$li.length-1的范围取值，如果index是$li.length，则变为0
+		}else{
+			index--;
+			if(index<0)index = $li.length-1;
+		}				
+		liBackground();	
+	}
+});
+
+
+
+
+

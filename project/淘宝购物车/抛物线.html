@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+    *{margin:0;padding:0}
+	.gg{width:200px;height:100px;text-align:center;line-height:100px;font-size:24px;font-family:"微软雅黑";margin:50px auto;cursor:pointer;}
+	.is{width:50px;height:50px;border-radius:5px;background:#000;}
+	.r{top:0;right:0;position:absolute;height:100%;width:20px;background:#000;}
+  </style>
+ </head>
+ <body>
+  <div class="gg">点我你就知道</div>
+  <div class="r">
+     <div class="f" style="color:#fff;position:absolute;top:300px;">目标</div>
+  </div>
+<script type="text/javascript" src="js/jquery.js"></script>
+
+<script type="text/javascript" src="js/fly.js"></script> 
+  <script>
+	$('html,body').on('click', addProduct);
+			function addProduct(event) {
+			var offset = $('.f').offset(), 
+			flyer = $("<div class='is'></div>");
+			flyer.fly({
+			start: {
+				left: event.pageX,
+				top: event.pageY
+			},
+			end: {
+				left: offset.left,
+				top: offset.top,
+				width: 20,
+				height: 20,
+				
+			}
+		  });
+		};
+  </script>
+ </body>
+</html>

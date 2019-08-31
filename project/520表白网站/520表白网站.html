@@ -1,0 +1,98 @@
+<!doctype html>
+<html onselectstart="return false">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title>我爱你 --krry</title>
+  <style type="text/css">
+    *{margin:0;padding:0}
+	html,body{height:100%;}
+	body{background:url("img/bj.jpg")no-repeat;background-size:100% 100%;overflow:hidden;}
+
+	marquee{width:550px;height:50px;margin:50px auto;font-size:40px;font-family:"华文行楷";display:block;animation:color 5s linear infinite alternate;}
+	.box{width:200px;height:240px;margin:0 auto;perspective:700px;}
+	.box .wrap{position:relative;width:200px;height:200px;transform-style:preserve-3d;animation:play 10s linear infinite;margin:0 auto;}
+	.box ul li{list-style:none;position:absolute;top:0;}
+
+	.text{width:700px;height:300px;margin:0 auto;font-size:18px;font-family:"华文行楷";text-indent:30px;line-height:30px;animation:color 8s linear infinite alternate;}
+
+	#garden{position:absolute;top:0;}
+
+	@keyframes play{
+		from{transform:rotateY(0deg);}
+		to{transform:rotateY(360deg);}
+	}
+	@keyframes color{
+		0%{color:red}
+		25%{color:black;}
+		50%{color:#ff262c;}
+		100%{color:#b517bd;}
+	}
+  </style>
+ </head>
+ <body>
+	<audio src="MP3/卓依婷 - 亲爱的你.mp3" hidden="true" autoplay="true" loop="true"></audio>
+	<marquee behavior=alternate>***我爱你</marquee>
+	<div class="box">
+		<div class="wrap">
+			<ul>
+				<li><img src="img/1.png" width="200" height="200" /></li>
+				<li><img src="img/2.png" width="200" height="200" /></li>
+				<li><img src="img/3.png" width="200" height="200" /></li>
+				<li><img src="img/4.png" width="200" height="200" /></li>
+				<li><img src="img/5.png" width="200" height="200" /></li>
+				<li><img src="img/6.gif" width="200" height="200" /></li>
+			</ul>
+		</div>
+	</div>
+	<div class="text">
+		<p id="test"></p>
+	</div>
+	<canvas id="garden"></canvas>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.snow.min.js"></script>
+	<script src="js/heart.js"></script>
+	<script src="js/ga.js"></script>
+	<script>
+		$(function(){
+			var deg = 360 / $(".box ul li").size();
+			$(".box ul li").each(function(i){
+				$(this).css({
+					"transform":"rotateY("+deg*i+"deg) translateZ(216px)",
+				}).attr("ondragstart","return false");
+			});
+
+			$.fn.snow({
+				minSize:10, //雪花最小值
+				maxSize:40, //雪花最小值
+				newOn:500, //刷新时间
+				flakeColor:'#fff'
+			});
+			$.fn.snow({
+				minSize:10,
+				maxSize:40,
+				newOn:500,
+				flakeColor:'#fff'
+			});
+		});
+
+		window.onload = function autoPlay(){
+			var b = ['能够遇见你，对我来说是最大的幸福。有了你，我的生活变的无限宽广，有了你，世界变得如此迷人。你是世界，世界是你。我愿意用自己的心，好好的陪着你，爱着你。陪你到你想去的地方，用心走完我们人生的余下的旅程。在未来的日子里，也许什么都无法确定，但唯一可以确定的是，我爱的人是你，无论现在还是将来，我想我这里都会是你最温暖的港湾，都是为你遮风避雨的城墙。无论狂风，无论暴雨。我都会陪在你的身旁，让你不会感到丝毫的担心和惶恐。我会珍惜和你在一起的每一刻，每一分，每一秒。谁叫你是我最爱的人，为了你，我愿用自己的双手为你撑起一片艳阳！'];
+
+			var str = b.join("");
+			var i=0;
+			var arr = str.split('');//字符串分割成数组
+			var ms_stop = setInterval(function(){
+				if(i>str.length-1){  //打印结束的时候
+					i=0;
+					document.getElementById('test').innerHTML=''; //清空内容
+				}
+				document.getElementById('test').innerHTML = document.getElementById('test').innerHTML+arr[i];
+				i++;
+			},150);
+		}
+
+	</script>
+ </body>
+</html>

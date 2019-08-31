@@ -1,0 +1,65 @@
+EL
+相对于jsp脚本，el表达式会使页面结构清晰，代码可读性高，易于维护
+语法：${EL表达式}
+EL操作符： “.” 
+获取对象属性${对象名.属性名}
+
+EL操作符："[]"
+获取对象属性${对象名[属性名]}
+
+EL表达式的作用:
+1.可以用于获取javaBean的属性
+2.能够读取集合类型对象中的元素
+3.能够读取数组中的元素
+4.可以运用运算符进行数据处理
+5.自动实现类型转换
+
+特色：El表达式不会报null异常
+
+El表达式拿值的顺序根据作用域的范围大小来从小到大来拿值!(这里的作用域指的是jsp的内置对象)
+
+el表达式支持运算符
+()改变执行优先级
+算术运算符，关系运算符，逻辑运算符
+条件运算符：？ ：
+a>b?1:2
+empty 用来检测变量是否为空 ${empty name}
+
+
+El隐式对象  11种
+pageContext  
+pageScope requestScope sessionScope applicationScope 作用域对象(从不同的作用域对象中取值)
+
+以下六个都是拿隐式对象中的map集合的值
+param 获取表单的数据
+paramValue 获取表单的同名的所有数据
+header 获取请求头数据 
+headerValues  获取请求头的相同头的所有数据
+initParam 获取全局配置的数据
+cookie 获取cookie对象的值
+
+总结：
+jsp内置作用域对象:
+	pageContext requset session  application 是用来存放值的
+
+el表达式是从以上内置对象中取值
+el表达式中的隐式作用域对象:
+	pageScope requestScope sessionScope applicationScope:分别中jsp对应的内置对象中取值
+
+
+JSTL
+
+
+自定标签
+
+
+
+
+
+
+
+
+
+
+
+

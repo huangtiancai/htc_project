@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面编码集(中文编码<gbk,gb2312>,国际编码<utf-8>)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<title> html </title>
+        <style type="text/css">
+			*{padding:0px;margin:0px;}
+			body{overflow:hidden;}
+			#box{width:500px;margin:100px auto;}
+			#txt{width:500px;height:30px;font-family:"Microsoft yahei";text-indent:1em;font-size:14px;}
+			
+			
+			#list li{list-style:none;width:500px;line-height:30px;border-bottom:1px solid gray;text-indent:1em;font-size:14px;cursor:pointer;}
+		
+			/*#list li:hover{background:#ccc;}*/
+			#list li a{text-decoration:none;color:#000;display:block;}
+		</style>
+	</head>
+<body>
+	<div id="box">
+		<input type="text" id="txt"/>
+		<ul id="list">
+			
+		</ul>
+	</div>
+
+	<!--
+	<script src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=a&cb=Jery"></script>
+	-->
+	<script>
+		var oTxt = document.getElementById("txt");
+		var oList = document.getElementById("list");
+		oTxt.onkeyup = function(){
+			var val = this.value;
+			var oS = document.createElement("script");
+			oS.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+val+"&cb=Jery";
+			document.body.appendChild(oS);
+			document.body.removeChild(oS);
+		};
+		
+		function Jery(mJson){ //调用上面生成的js里面的Jery方法，获取json里面的值
+			var data = mJson.s; /*key值是s */ 
+			/*Jery({q:"a",p:false,s:["爱奇艺","爱奇艺vip免费试用","阿里巴巴批发网","a50指数","acfun","安居客","阿里巴巴","阿里云","澳门风云3","爱情保卫战"]}); */
+			var str = "";
+			for(var i=0;i<data.length;i++){
+				str += "<li><a href='https://www.baidu.com/s?wd="+data[i]+"' target='_blank'>"+data[i]+"</a></li>"; //点击可以跳转
+			};
+			oList.innerHTML = str;
+		};
+		
+		oList.onmouseover = function(ev){
+			ev = ev||event;
+			var target = ev.target || srcElement;//兼容性写法，后面兼容IE678
+			//console.log(target.tagName+"===="+ev.currentTarget.tagName);
+			target.style.background = "#ccc";
+		};
+		oList.onmouseout = function(ev){
+			ev = ev||event;
+			var target = ev.target || srcElement;//兼容性写法，后面兼容IE678
+			//console.log(target.tagName+"===="+ev.currentTarget.tagName);
+			target.style.background = "";
+		};
+
+
+	</script>
+
+
+</body>
+
+</html>

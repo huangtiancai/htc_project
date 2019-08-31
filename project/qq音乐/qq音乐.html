@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+  <meta charset="utf-8">
+  <title>qq音乐 --krry</title>
+  <style type="text/css">
+    *{margin:0;padding:0;}
+	.header{width:100%;height:143px;}
+    .header .h_top{width:100%;height:30px;background:#2f2f2f;}
+	.header .h_top .h_list{margin:0 auto;width:960px;height:30px;}
+	.header .h_top .h_list ul li{float:right;list-style:none;
+	                             line-height:31px;padding-left:14px;cursor:pointer;}
+    .header p{float:right;margin-top:-1px;padding-left:5px;font-family:"微软雅黑";
+	          font-size:12px;color:#b5b5b5;}
+	.header p:hover{color:#36b92f;}
+	.header img{margin-bottom:-7px;}
+    .header span{float: left; display: inline-block; width: 1px; line-height: 100%; height: auto; overflow: hidden; margin: 0 10px; margin-top: 9px;background:#585858;zoom:1;}
+	.header .h_con{width:100%;height:113px;background:#fff;border-bottom:1px solid #DDD;}
+	.h_con .c_list{width:960px;height:112px;margin:0 auto;}
+	.h_con .c_list .l_ul{float:left;margin-left:41px;margin-top:45px;}
+	.h_con .c_list ul li{list-style:none;float:left;padding-left:31px;}
+	.h_con .c_list ul li a{text-decoration:none;color:#515151;font-size:16px;
+	                       font-weight:bold;font-family:"微软雅黑";}
+	.h_con .c_list .l_put{width:230px;height:40px;float:right;margin-top:39px;
+	                      background:url("img/bg.png") 0 -162px no-repeat;}
+	.l_put input{width:228px;height:39px;}
+	
+	.container{width:960px;height:1033px;;margin:0 auto;}
+	.container .l{width:700px;height:1033px;float:left;}
+	.container .l .l_head{width:700px;height:234px;float:left;
+	                      border-bottom:#C6C6C6 dotted 1px;}
+	.container .l .l_head h1{height:56px;}
+	.container .l .l_head p{font-size:12px;line-height:22px;color:#8B8B8B;}
+	.container .l .l_head .play{width:700px;height:50px;}
+	.container .l .l_head .play a{width:30px;height:30px;display:block;float:left;}
+	.container .l .l_head .play .p_start{background:url("img/play.png") 0 -279px no-repeat;}
+	.container .l .l_head .play .p_stop{background:url("img/play.png") -80px -279px no-repeat;
+	                            }
+	.container .l .l_head .play .p_load{background:url("img/play.png") -120px -310px no-repeat;margin-left:12px;}
+	.container .l .l_head .play .p_start:hover{background:url("img/play.png") 0 -310px no-repeat;}
+	.container .l .l_head .play .p_stop:hover{background:url("img/play.png") -80px -310px no-repeat;}
+	.container .l .l_head .play .left{margin-left:20px;}
+	.container .l .l_head .play #ttime,#btime,#stime{font-size:12px;font-family:"微软雅黑";color:#8B8B8B;line-height:30px;}
+    .container .l .l_lrc{width:700px;height:779px;float:left;margin-top:20px;}
+	.container .l .l_lrc a{float:right;color:#515151;font-size:12px;text-decoration:none;}
+	.container .l .l_lrc p{font-size:12px;font-family:"微软雅黑";color:#8B8B8B;line-height: 24px;}
+	.container .l .l_lrc .lrc_head{margin-top:17px;}
+	.container .r{margin-left:40px;width:220px;height:1009px;float:left;margin-top: 24px;}
+	.container .r .yiting{width:220px;height:220px;}
+	.container .r .music{width:220px;height:226px;border-bottom:1px solid #DDD;}
+	.container .r .music ul li{list-style:none;line-height:32px}
+	.container .r .music ul li span{font-size: 12px;font-family: "微软雅黑";color: #8B8B8B;
+	                                float:right;}
+	.container .r .music a{text-decoration:none;color:#0c8f44;font-size:12px;}
+	.container .r .MV{width:220px;margin-top:20px;}
+	.container .r .MV .M_title{width:220px;height:22px;
+	                           background:url("img/bgMV.png") -80px -193px no-repeat;}
+    .container .r .MV a{text-decoration:none;font-size:12px;}
+	.container .r .MV span{color:#515151;font-size:8px;width:4px;}
+
+	
+  </style>
+  <body>
+    <div class="header">
+	  <div class="h_top">
+	    <div class="h_list">
+		  <ul>
+		  	<li><span>&nbsp;</span><p>Qplay</p></li>
+		    <li><span>&nbsp;</span><p>QQ演出</p></li>
+		    <li><span>&nbsp;</span><p>全民K歌</p></li>
+		    <li><img src="img/sui.png" height="24" width="24"/><span>&nbsp;</span><p>付费音乐包</p></li>
+		    <li><img src="img/vip.png" height="24" width="24"/><span>&nbsp;</span><p>绿钻</p></li>
+		    <li><p>您还未登陆，马上登陆</p></li>	
+		  </ul>
+		</div>
+	  </div>
+	  <div class="h_con">
+	     <div class="c_list">
+	        <img src="img/1.png" style="margin-left:-112px;float:left;"/>
+			<div class="l_ul">
+				<ul>
+				  <li><a href="#">音乐馆</a></li>
+				  <li><a href="#">MV</a></li>
+				  <li><a href="#">我的音乐</a></li>
+				  <li><a href="#">下载客户端</a></li>
+				</ul>
+			</div>
+			<div class="l_put">
+		       <input type="text" placeholder="找到好音乐" style="width:180px;height:20px;margin-top:8px;margin-left:17px;
+			   outline:none; border:none;"/>
+			   <a class="sub" href="#" style="width:28px;height:30px;margin-top:4px;margin-right:5px;float:right;"></a>
+		    </div>
+		 </div>
+	  </div>
+	</div>
+
+	<audio src="mp3/卓依婷 - 亲爱的你.mp3" controls="controls" preload id="music" hidden>
+    </audio>
+
+	<div class="container">
+	  <div class="l">
+	    <div class="l_head">
+			<h1 style="font-family:\5FAE\8F6F\96C5\9ED1;font-weight:normal;margin-top:14px;font-size:28px;">亲爱的你</h1>
+			<div class="play">
+			  <a class="p_start" id="play" class="play" href="#"></a>
+			  <a class="p_stop" id="paused" style="display:none;" href="#"></a>
+			  <a class="p_load" href="#"></a>
+			  <span id="ttime" class="left">00:00</span>
+			  <span id="btime">|</span>
+			  <span id="stime">00:00</span>
+			</div>
+			<p>歌手：<span style="color:#0c8f44">卓依婷</span></p>
+			<p>语言：国语</p>
+			<p>所属专辑：<span style="color:#0c8f44">亲爱的你</span></p>
+			<p>发行时间：2015-01-19</p>
+		</div>
+		<div class="l_lrc">
+		   <a href="#">&nbsp;下载LRC歌词</a>
+		   <span style="width:1px;float:right;background:#515151;">&nbsp;</span>
+		   <a href="#"> 复制歌词&nbsp;</a>
+		   <h3 style="font-size:12px;color:#8B8B8B;">歌词</h3>
+		   <p class="lrc_head">亲爱的你 - 卓依婷</p>
+		    <p>词：卓依婷</p>
+			<p>	曲：方炯镔</p>
+			<p>	我飞行而你总是在这里</p>
+			<p>	默默的送我去旅行</p>
+			<p>	你从不对我说想念我</p>
+			<p>	但我知道你在守候</p>
+			<p>	我在努力你总是给我信心</p>
+			<p>	只要我想到你</p>
+			<p>	就不怕路途艰辛</p>
+			<p>	亲爱的你因为有你</p>
+			<p>	这个世界变得更加美丽</p>
+			<p>	从你眼里我看到自己</p>
+			<p>	谢谢你走进我的生命里</p>
+			<p>	你从不对我说想念我</p>
+			<p>	但我知道你在守候</p>
+			<p>	我在努力你总是给我信心</p>
+			<p>	只要我想到你</p>
+			<p>	就不怕路途艰辛</p>
+			<p>	亲爱的你因为有你</p>
+			<p>	这个世界变得更加美丽</p>
+			<p>	从你眼里我看到自己</p>
+			<p>	谢谢你走进我的生命里</p>
+			<p>	我知道你会一直在这里</p>
+			<p>	每一分每一秒</p>
+			<p>	都变那么重要</p>
+			<p>	因为你我愿意</p>
+			<p>	亲爱的你因为有你</p>
+			<p>	这个世界变得更加美丽</p>
+			<p>	从你眼里我看到我自己</p>
+			<p>	谢谢你走进我的生命里</p> 
+		</div>
+	  </div>
+	  <div class="r">
+	    <div class="yiting">
+		  <img src="img/12.jpg" width="220" height="220"/>
+		</div>
+		<div class="music">
+		  <p style="line-height:60px;font-size:14px;color:#8B8B8B;">该专辑热门单曲：</p>
+		  <ul style="margin-top:-16px;"><li><a href="#">单纯爱</a><span>443153</span></li>
+		  <li><a href="#">亲爱的你</a><span>1893296</span></li>
+		  <li><a href="#">雨过天晴</a><span>82679</span></li>
+		  <li><a href="#">再见蓝天</a><span>45938</span></li>
+		  <li><a href="#">他乡</a><span>240960</span></li></ul>
+		</div>
+		<div class="MV">
+		  <div class="M_title"></div>
+		  <div style="margin-top:15px;">
+		     <a href="#"><img src="img/mv.jpg" alt="亲爱的你" width="220" height="125"/></a>
+		     <a href="#" style="color:#0c8f44;">亲爱的你&nbsp;</a><span>-</span>
+			 <a href="#" style="color:#515151">卓依婷</a>
+		  </div>
+		</div>
+	  </div>
+	  <audio id="audio"/>
+	</div>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+	
+	var Audio = {
+		$:function(id){
+		    return document.getElementById(id);
+		},
+	    audioDom:document.getElementById("audio"),
+		add:function(url){
+		   this.audioDom.src = url;
+		},
+		showtime:function(callback){
+		   var $this = this;
+		   this.audioDom.oncanplaythrough = function(){
+			   //alert(this.duration); //音乐的时间
+			   callback($this.timeFormat(this.duration));
+		      
+		   }
+		},
+		playing:function(callback){
+		    var $this = this;
+			$this.audioDom.ontimeupdate = function(){
+			   callback($this.timeFormat(this.currentTime));
+			}
+		},
+		timeFormat:function(time){
+		    var m = parseInt(time / 60);
+			var s = parseInt(time % 60);
+			if(m < 10) m = "0" + m;
+			if(s < 10) s = "0" + s;
+			return m+":"+s;
+		},
+		play:function(){
+		  this.audioDom.play();//播放音乐
+		},
+		stop:function(){
+		  this.audioDom.pause();
+		},
+		events:function(id,callback){
+		   var $this = this;
+		   //用Id获取
+		   Audio.$(id).onclick = function(){
+		      callback.call(this.audioDom,$this,this);
+		   }
+
+		   /*用class获取
+		   var doms = document.getElementsByClassName(id) || document.querySelectorAll("."+id);
+		   var len = doms.length;
+		   for(var i = 0;i < len;i++){
+		      doms[i].onclick = function(){
+			     callback.call(this.audioDom,$this);
+			  }
+		   }*/
+		}
+	}
+	Audio.showtime(function(t){
+	   Audio.$("ttime").innerHTML = t;
+	});
+	Audio.playing(function(t){
+	   Audio.$("stime").innerHTML = t;
+	});
+	//添加音乐
+	Audio.add("mp3/卓依婷 - 亲爱的你.mp3");
+	//播放音乐
+	Audio.events("play",function(obj,btndom){
+	   obj.play();
+	   btndom.style.display = "none";
+	   Audio.$("paused").style.display = "block";
+	});
+	//暂停音乐
+	Audio.events("paused",function(obj,btndom){
+	   obj.stop();
+	   btndom.style.display = "none";
+	   Audio.$("play").style.display = "block";
+	});
+
+	/*MP3音乐播放器
+	  embed 可以播放音乐：MP3 wav
+	*/
+
+	/*控制播放暂停
+	  function musicd(){
+	   var audio = document.getElementById("music");
+		     if(audio.paused){
+			    audio.play();
+			 }else{
+			    audio.pause();
+			 }
+	  }
+	  */
+	</script>
+  </body>
+</html>

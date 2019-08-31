@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title></title>
+  <style type="text/css">
+	.mes{font-size:16px;line-height:24px;}
+  </style>
+ </head>
+ <body>
+   <h1>HTML标签 - 上标(sup) , 下标(sub) </h1>
+   <h2>化学方程式：sup下标<h2>
+   CO<sub>2</sub> + H<sub>2</sub>O = H<sub>2</sub>CO<sub>3</sub><br /><br />
+   Ca(OH)<sub>2</sub> + CO<sub>2</sub> = CaCO<sub>3</sub> + H<sub>2</sub>O <br /><br />
+
+   <h2>幂函数</h2>
+	5<sup>3</sup> + 2<sup>2</sup> = 129 </br></br>
+
+	<div class="mes">
+	<h2>这是源代码哦~~</h2>
+	<pre>
+&lt;h1&gt;HTML标签 - 上标(sup) , 下标(sub) &lt;/h1&gt;
+&lt;h2&gt;化学方程式：sup下标&lt;h2&gt;
+CO&lt;sub&gt;2&lt;/sub&gt; + H&lt;sub&gt;2&lt;/sub&gt;O = H&lt;sub&gt;2&lt;/sub&gt;CO&lt;sub&gt;3&lt;/sub&gt;&lt;br /&gt;&lt;br /&gt;
+Ca(OH)&lt;sub&gt;2&lt;/sub&gt; + CO&lt;sub&gt;2&lt;/sub&gt; = CaCO&lt;sub&gt;3&lt;/sub&gt; + H&lt;sub&gt;2&lt;/sub&gt;O &lt;br /&gt;&lt;br /&gt;
+
+&lt;h2&gt;幂函数&lt;/h2&gt;
+5&lt;sup&gt;3&lt;/sup&gt; + 2&lt;sup&gt;2&lt;/sup&gt; = 129
+	</pre>
+	</div>
+ </body>
+</html>

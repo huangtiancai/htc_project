@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>3DBanner --Krry</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			ul li{list-style:none;}
+			.Banner{width:800px;height:360px;margin:80px auto;background:pink;font-family:"微软雅黑";position:relative;perspective:800px;}
+			.Banner .ul{width:800px;height:360px;transform-style:preserve-3d;transform:translateZ(-180px);}/*让包括li的div旋转*/
+			.Banner ul li{width:800px;height:360px;border:1px solid red;position:absolute;}
+			.Banner ul li:nth-child(1){transform:translateZ(180px);}
+			/*后边*/
+			.Banner ul li:nth-child(2){transform:translateZ(-180px);}
+			/*上边*/
+			.Banner ul li:nth-child(3){transform-origin:top;/*旋转轴*/transform:translateZ(180px) rotateX(270deg);}
+			/*上边*/
+			.Banner ul li:nth-child(4){transform-origin:bottom;/*旋转轴*/transform:translateZ(180px) rotateX(90deg);}
+			/*左边*/
+			.Banner ul li:nth-child(5){width:360px;transform:translateZ(180px) rotateY(90deg);transform-origin:left;}
+			/*右边*/
+			.Banner ul li:nth-child(6){transform-origin:left;width:360px;transform:translateZ(180px) rotateY(90deg);left:800px;}<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>3DBanner --Krry</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			ul li{list-style:none;}
+			.Banner{width:800px;height:360px;margin:80px auto;background:pink;font-family:"微软雅黑";position:relative;perspective:800px;}
+			.Banner .ul{width:800px;height:360px;border:1px solid #000;transform-style:preserve-3d;transition:1s;transform:translateZ(-180px);}
+			.Banner .ul:hover{transform:translateZ(-180px) rotateX(180deg);}/*让包括li的div旋转*/
+			.Banner ul li{width:800px;height:360px;border:1px solid red;position:absolute;}
+			.Banner ul li:nth-child(1){transform:translateZ(180px);}
+			/*后边*/
+			.Banner ul li:nth-child(2){transform:translateZ(-180px);}
+			/*上边*/
+			.Banner ul li:nth-child(3){transform-origin:top;/*旋转轴*/transform:translateZ(180px) rotateX(270deg);}
+			/*上边*/
+			.Banner ul li:nth-child(4){transform-origin:bottom;/*旋转轴*/transform:translateZ(180px) rotateX(90deg);}
+			/*左边*/
+			.Banner ul li:nth-child(5){width:360px;transform:translateZ(180px) rotateY(90deg);transform-origin:left;}
+			/*右边*/
+			.Banner ul li:nth-child(6){transform-origin:left;width:360px;transform:translateZ(180px) rotateY(90deg);left:800px;}
+		</style>
+	</head>
+	<body>
+		<div class="Banner">
+			<ul>
+				<div class="ul">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</div>
+			</ul>
+		</div>
+	</body>
+</html>

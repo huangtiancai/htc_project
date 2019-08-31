@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width:200px;
+				height:200px;
+				background:red;
+				
+			}
+			#p1,#div1{
+				width:100px;
+				height:100px;
+				background:blue;
+				margin-left:50px;
+			}
+			#box #div1{
+				height:180px;
+				background:purple;
+				position:relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="div1">
+				<p id="p1"></p>
+			</div>
+		</div>
+
+		<script>
+			window.onload = function(){
+				var oBox = document.getElementById('box');
+				var oP = document.getElementById('p1');
+				// offsetParent 元素的定位父级
+				//1 父级都没有定位 就是body
+				//2 有定位就找最近的定位父级 就近原则
+				alert(oP.offsetParent); //因为oP的父级div1定位，那么定位到div1
+				alert(oP.offsetParent.id);  //弹出这个父级的id
+
+
+				// 元素（不管元素本身有没有定位）距离定位元素之间的距离
+				alert( oBox.offsetTop );
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面编码集(中文编码<gbk,gb2312>,国际编码<utf-8>)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<title> html </title>
+        <style type="text/css">
+			*{padding:0px;margin:0px;}
+		</style>
+	</head>
+<body>
+	
+	<script src="ajax.js"></script>
+	<script>
+		ajax({
+			method:"post",
+			url:"test.php",
+			asyn:true,
+			data:"user=断肠草&pwd=123456789",
+			success:function(res){
+				alert(res);
+			}
+		});
+		/*
+			{  参数为json类型
+			method:"post",
+			url:"test.php",
+			asyn:true,
+			data:"user=断肠草&pwd=123456789",
+			success:function(res){
+				alert(res);
+			}
+		*/
+	</script>
+</body>
+
+</html>

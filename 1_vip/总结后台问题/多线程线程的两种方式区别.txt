@@ -1,0 +1,46 @@
+
+继承方式和实现接口方式的联系与区别
+
+public class Thread extends Object implements Runnable
+
+//通过继承Thread类
+MyThread mt = new MyThread();
+
+//通过实现Runnable接口
+MyRunnable runnable = new MyRunnable();
+//使用Thread的带参数的构造器进行传递
+Thread th = new Thread(runnable);
+//调用start方法启动线程
+th.start();
+mt.start();
+for(int i=0;i<10;i++){
+	System.out.println("MainThread:"+i);
+}
+
+//通过继承Thread类实现自定义线程类
+class MyThread extends Thread{
+	@Override
+	public void run(){
+		for(int i=0;i<10;i++){
+			System.out.println("MyThread:"+i);
+		}
+	}
+}
+
+//通过实现Runnable接口自定义子类
+class MyRunnable implements Runnable{
+	@Override
+	public void run(){
+		for(int i=0;i<10;i++){
+			System.out.println("MyRunnable"+i);
+		}
+	}
+}
+
+区别：
+继承Thread:线程代码存放Thread子类run方法中。
+实现Runnable：线程代码存在接口的子类的run方法。实现接口方法的好处
+
+实现Runnable接口的好处：
+1）避免了单继承的局限性
+2）多个线程可以共享同一个接口实现类的对象，非常适合多个相同线程来处理同一份资源。

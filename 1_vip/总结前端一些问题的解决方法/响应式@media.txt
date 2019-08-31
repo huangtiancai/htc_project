@@ -1,0 +1,54 @@
+/* 当浏览器的可视区域小于980px */
+@media screen and （max-width： 980px） {
+#wrap {width： 90%; margin:0 auto;}
+#content {width： 60%;padding： 5%;}
+#sidebar {width： 30%;}
+#footer {padding： 8% 5%;margin-bottom： 10px;}
+}
+/* 当浏览器的可视区域小于650px */
+@media screen and （max-width： 650px） {
+#header {height： auto;}
+#searchform {position： absolute;top： 5px;right： 0;}
+#content {width： auto; float： none; margin： 20px 0;}
+#sidebar {width： 100%; float： none; margin： 0;}
+}
+通过上面我们就可以监测浏览器的可视区域变化的时候我们的页面结构元素也会相对应的变化，当然你可以再多设置几个尺寸的监测层叠样式表，这样子就可以根据不同尺寸设备来进行响应式的布局。为了更好的显示效果，我们往往还要格式化一些CSS属性的初始值：
+/* 禁用iPhone中Safari的字号自动调整 */
+html {
+-webkit-text-size-adjust： none;
+}
+/* 设置HTML5元素为块 */
+article， aside， details， figcaption， figure， footer， header， hgroup， menu， nav， section {
+display： block;
+}
+/* 设置图片视频等自适应调整 */
+img {
+max-width： 100%;
+height： auto;
+width： auto\9; /* ie8 */
+}
+.video embed， .video object， .video iframe {
+width： 100%;
+height： auto;
+}
+最后要注意的是在页面的头部<head></head>之间加上下面这句∶
+<meta name=“viewport” content=“width=device-width; initial-scale=1.0”>
+meta viewport这个属性是在移动设备上设置原始大小显示和是否缩放的声明。
+参数设置∶
+width – viewport的宽度
+height – viewport的高度
+initial-scale – 初始的缩放比例
+minimum-scale – 允许用户缩放到的最小比例
+maximum-scale – 允许用户缩放到的最大比例
+user-scalable – 用户是否可以手动缩放
+比如一个移动终端屏幕显示最大宽度为480px，那么css代码如下：[2] 
+@media only screen and(max-device-width:480px){…/*此处为支持此移动设备的css样式代码，需将其放置于pc终端css代码之后覆盖之*/}
+如果是大型的网站或项目，我们讲为各类型的移动终端独立编写css样式文件，此时的使用方式如下：
+<link rel=”stylesheet” type=”text/css” media=”only screen and (max-device-width:480px)” href=”small_screen480.css”>
+/*small_screen480.css即为对480px大小移动终端书写的css文件*/
+css文件被区分引用，接下来的工作就是我们非常熟识的弹性布局了，另外再注意俩点，一是图片，在移动设备上，要做一些特定适合的小图片来匹配，如果单纯使用压缩的图片会失真，影响用户体验；二是在头部加入如下代码，目的是声明在移动设备上设置原始大小显示和是否缩放[2] 
+<meta name=”viewport” content=”width=device-width; initial-scale=1.0″>
+最后说下IE浏览器，因为他不支持media Queries的，使用时需要引用一个Media Query Javascript解决，如下：[2] 
+<!–[if lt IE 9]>
+<script src=”../../css3-mediaqueries.js”></script>
+<![endif]–>

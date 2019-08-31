@@ -1,0 +1,4 @@
+
+
+var jsonData = eval("("+serverData+")");//eval函数里面必须是个小括号，能把String类型转变成js代码执行
+常用于json数组

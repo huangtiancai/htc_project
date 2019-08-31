@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				/*
+					onkeydown ：当键盘按键按下时触发 
+					onkeyup : 当键盘抬起时触发
+	
+					altKey shiftKey ctrlKey 是按下alt/shift/ctrl 的状态， 按下就返回true 否则返回false
+				*/
+				
+				/*
+				document.onkeydown = function(e){
+					var e = e || window.event;
+					
+					//按下回车键（13）加ctrl键执行
+					if( e.keyCode==13 && e.ctrlKey  ){
+						alert(520);
+					}
+					//alert( e.keyCode )
+					// e.keyCode 数字类型 键值 键盘按键的值对应ASCLL码值
+				}
+				*/
+				
+				document.onclick = function(e){
+					var e = e || window.event;
+					alert( e.altKey )
+				}
+				
+				
+				var oTxt = document.getElementById("txt");
+				var oUl = document.getElementById("ul");
+				oTxt.onkeyup = function(e){
+					var e = e || event;
+					
+					if ( e.keyCode ==13 && e.altKey )//按alt+回车键
+					{
+						var aLi = document.createElement("li");
+						aLi.innerHTML = this.value;
+
+						if ( oUl.children[0] ) //如果有第一个子元素，则让第一个子元素后面插入元素
+						{
+							oUl.insertBefore( aLi , oUl.children[0] );
+						}else{ //如果没有子元素，则直接append元素就行了
+							oUl.appendChild(aLi);
+						}
+					}
+				}
+			}
+		</script>
+
+	</head>
+	<body>
+		<input type="text" id="txt"/>
+		<ul id="ul"></ul>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+   <head>
+       <meta charset="UTF-8">
+	   <meta name="Keywords" content="oppo">
+	   <title>oppo官网音乐展示特效-- krry</title>
+
+	   <style type="text/css">
+	       *{margin:0;padding:0;}
+		   #box{width:100%;height:630px;overflow:hidden;/*溢出隐藏*/}
+		   #box .pic{width:100%;height:630px;}
+		   #box .pic li{width:100%;height:630px;list-style:none;/*去掉小圆点*/position:relative;}
+		   #box .pic li img{position:absolute;left:-600px;}
+		   #box .pic li .nav{width:100%;height:70px;background:#fff;position:absolute;bottom:0px;left:0px;
+		        opacity:0.75;}
+		   #box .pic li .bar{width:1370px;height:3px;background:url("images/bar.png");
+		                     position:absolute;bottom:30px;}
+		   #box .pic li .bar p{width:0px;height:3px;background:#00925f;}
+
+	   </style>
+   
+   </head>
+  <body>
+      <embed hidden="true" loop="6" src="mp3/oppo.mp3">  <!--播放音乐-->
+      <div id="box">
+	      <div class="pic">
+		     <ul>
+			    <li style="background:url(images/bg1.jpg) center">
+				   <img src="images/con1.png"/>
+				   <div class="nav"></div>
+				   <div class="bar"><p></p></div>
+				</li>
+				<li style="background:url(images/bg2.jpg) center">
+				   <img src="images/con2.png"/>
+				   <div class="nav"></div>
+				   <div class="bar"><p></p></div>
+				</li>
+				<li style="background:url(images/bg3.jpg) center">
+				   <img src="images/con3.png"/>
+				   <div class="nav"></div>
+				   <div class="bar"><p></p></div>
+				</li>
+			 </ul>
+		  </div>
+	  </div>
+	  <script type="text/javascript" src="js/jquery.js"></script>
+	  <script type="text/javascript">
+	       var i = 0; //累加器
+		   junmper();
+		   function junmper(){
+		       $("#box .pic ul li").eq(i).find("img").css("left","-1180px");
+			   $("#box .pic ul li").eq(i).find("p").css("width","0"); //进度条
+			   //控制图片的跑动
+			   $("#box .pic ul li").eq(i).find("img").animate({left:"0px"},500,function(){
+				   //控制进度条的跑动
+			       $("#box .pic ul li").eq(i).find("p").animate({width:"1370px"},8000,function(){
+				        $("#box .pic ul li").eq(i).find("img").animate({left:"1180px"},500,function(){
+						    i++; //图片累加
+							if(i>2)
+						    	i=0; //如果五篇大于第三张，就从头开始
+							$("#box .pic ul li").eq(i).fadeIn(1000).siblings().fadeOut(1000);//淡入淡出效果
+						});
+				   });
+			   });
+		   }
+		   setInterval("junmper()",9200);//方法会不停地调用junmper函数
+	  </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>手风琴2.0 --krry</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			ul li{list-style:none;}
+			a{text-decoration:none;}
+			body{font-family:"微软雅黑";background:gray;}
+			.box{box-shadow:2px 2px 1em pink;width:800px;height:360px;margin:80px auto;position:relative;overflow:hidden;}
+			.box ul li{position:relative;width:200px;float:left;transition:.7s ease;}
+			.box ul li a{display:block;}
+			.box ul li .title{line-height:46px;padding-left:22px;width:100%;height:0;background:rgba(0, 0, 0, 0.51);position:absolute;bottom:4px;color:#fff;transition:.7s ease}
+			.box ul:hover li{width:50px;} /*鼠标放置ul时，就把每个li缩小宽度*/
+			.box ul li:hover{width:650px;} /*鼠标放置li，这个li的宽度就变大*/
+			.box ul li:hover .title{height:50px;transition:.7s ease}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li>
+					<a href="#"><img src="images/01.png" width="800" height="360" alt="aiyo"/></a>
+					<span class="title">搜索引擎优化</span>
+				</li>
+				<li>
+					<a href="#"><img src="images/02.png" width="800" height="360" alt="aiyo"/></a>
+					<span class="title">点燃希望，放飞梦想</span>
+				</li>
+				<li>
+					<a href="#"><img src="images/03.png" width="800" height="360" alt="aiyo"/></a>
+					<span class="title">365天，每天坚持</span>
+				</li>
+				<li>
+					<a href="#"><img src="images/04.png" width="800" height="360" alt="aiyo"/></a>
+					<span class="title">志同道合的朋友</span>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

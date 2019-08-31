@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			#btn{position:absolute;left:20px;top:20px;}
+			#box{width:160px;height:160px;background:linear-gradient(pink 0%,red 50%,orange 80%);display:none;}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="点我一下" id="btn"/>
+		<div id="box"></div>
+
+		<script>
+			var btn = document.getElementById("btn");
+			var box = document.getElementById("box");
+			var close = true;
+			btn.onclick = function(){
+				if(close){
+					box.style.display="block";
+					loca();
+					close = false;
+				}else{
+					box.style.display="none";
+					close = true;
+				}
+			}
+			window.onresize = function(){ //窗口变化的监听事件
+				loca();
+			}
+			function loca(){
+				//获取盒子的宽和高
+				var height = box.offsetHeight;
+				var width = box.offsetWidth;
+				//获取浏览器的高度和宽度
+				var visHeight = document.documentElement.clientHeight;
+				var visWidth = document.documentElement.clientWidth;
+				//获得盒子距离左边和右边的距离
+				var mleft = visWidth/2 - width/2;
+				var mtop = visHeight/2 - height/2;
+				//设定盒子的位置
+				box.style.marginLeft = mleft+"px";
+				box.style.marginTop = mtop+"px";
+			}
+		</script>
+	</body>
+</html>

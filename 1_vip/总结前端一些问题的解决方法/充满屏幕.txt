@@ -1,0 +1,7 @@
+html{height:100%;}
+body{height:100%;} /*body继承html的高度100%，即充满屏幕*/
+
+通常这样写
+html,body{height:100%;}
+
+接下来对于直接继承body的元素的样式，只要设置样式height：100%，就可以充满屏幕

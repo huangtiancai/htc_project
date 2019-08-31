@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>Ajax程序</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+		</style>
+	</head>
+	<body>
+		<script>
+			//获取ajax对象
+			var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+			xhr.open("post","数据.txt",true);
+
+			//post方式需要设置请求头
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			xhr.send("user=krry&pwd=123456"); //post方式的发送
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4 && xhr.status == 200){
+					alert(xhr.responseText);
+				}
+			}
+		</script>
+	</body>
+</html>

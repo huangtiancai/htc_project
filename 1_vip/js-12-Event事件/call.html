@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				function fn( a ,b ){
+					alert(this); // this指向call方法第一个参数
+					alert( a+b ); // a=2,b=3
+				}
+				//fn(); // fn() == fn.call();
+				fn.call( 1 , 2 ,3 );
+				// call方法的第一个参数可以改变函数执行过程中的内部this的指向
+				// 也就是说，call方法第一个参数就是本来那个函数的this指向
+				//call方法 剩余的参数就是函数的参数，
+			}
+		</script>
+
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,73 @@
+cookie
+是web服务器保存在客户端的一系列文本信息
+客户在下次访问的时候将cookie中的信息随请求一起发送给服务端--请求头
+
+
+怎么使用cookie?
+导包 import javax.servlet.http.Cookie;
+
+创建cookie
+Cookie cook = new Cookie("name","value");
+name:代表cookie的名称key
+value:代表当前key名称所代表的值
+
+写入cookie
+response.addCookie(cookie);
+
+cookie常用方法
+setMaxAge  设置cookie有效期,以秒为单位
+setValue   在cookie创建以后，对cookie进行赋值
+getName    获取cookie名称
+getValue   获取cookie值
+getMaxAge  获取有效时间
+
+setPath("/jsp-6");
+
+
+Cookie的一些细节
+浏览器允许存放的cookie数量有限，一般是300个,每个站点最多存放20个,大小不能超多4kb
+
+cookie默认情况下是一个会话级别的cookie（存放在浏览器进程中）
+
+setMaxAge(); 设置0是当浏览器关闭就删除这个cookie
+
+session
+一次会话
+用户打开一个浏览器，点击多个超链接，访问服务器中某个web应用的多个资源，然后关闭
+浏览器。整个过程就是一个回话
+
+seesion cookie
+
+什么是seesion
+
+requset。getSession   返回 httpSession对象  
+
+
+方法:
+setAttribute(String key,Object value);
+getAttribute()
+
+getMaxInactiveinterval(); 获取session的有效非活动时间 秒为单位
+getId 获取session的对象编号
+invalidate(); 设置session对象失效
+
+
+通过超链接打开的窗口是否创建了一个新的session？不是
+
+区别
+1.session是在服务器端保存用户信息，cookie是在客户端保存用户信息
+2.session中保存的是对象,cookie保存的是字符串
+3.session随会话结束而关闭，cookie可以长期保存在客户端
+4.cookie通常用于保存不重要的用户信息，重要的信息使用session保存
+
+完成需求
+
+对象的范围
+范围决定了jsp是否可以进行对象访问
+page  在一个页面范围内有效
+requset 一次请求,在一个服务器请求范围内有效,与客服端请求绑定在一起
+session 在一次会话范围内有效
+application 在一个应用服务器范围内有效
+
+
+

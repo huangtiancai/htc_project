@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>炫酷照片墙展示 --krry</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			html{height:100%;}
+			body{font-family:"微软雅黑";background:radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+			radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+			radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+			radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+			radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
+			radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+			radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+			radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+			radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+			radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
+			background-color:#b03;
+			background-size:100px 100px;height:100%;}
+			.wrap{border:1px solid #fff;width:90%;height:90%;left:5%;top:5%;position:absolute;}
+			.wrap ul li{width:125px;height:125px;list-style:none;position:absolute;border:1px solid #fff;transition:left .7s,top .7s;/*改变left和top有个过渡效果*/}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<ul></ul>
+		</div>
+		<script src="js/jquery-1.12.2.min.js"></script>
+		<script>
+			$(function(){
+				for(var i = 0;i < 24;i++){
+					$(".wrap ul").append("<li></li>");
+				}
+
+				init();
+				$(window).resize(init);
+				function init(){
+					var wid = $(".wrap").width();
+					var hei = $(".wrap").height();
+					var liWid = $(".wrap li").width();
+					var le = (wid-liWid*6)/5; //获取li的间距
+					var te = (hei-liWid*4)/3;
+					$(".wrap li").each(function(i){
+						var iX = i%6; //取到0 1 2 3 4 5
+						var iY = parseInt(i/6); //使得第一行iY=0，第二行iY=1,以此类推
+						$(this).css({
+							left:125*iX+le*iX,
+							top:125*iY+te*iY,
+						});
+					});
+				}
+			});
+		</script>
+	</body>
+</html>

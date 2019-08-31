@@ -1,0 +1,62 @@
+function City3D(base){
+	    this.base = base; //横向基数等于纵向基数
+		this.max = 50;
+	  };
+	  //生成一块地皮，并且渲染到父级容器里面
+	  City3D.prototype.buildArea = function(parent){
+	     this.city = document.createElement("div"); //创建一个div
+		 this.city.id = "city3D";
+		 parent.appendChild(this.city);
+       //用户随机控制地皮的大小
+		 var b = this.base * this.max; 
+		 this.city.style.height = this.city.style.width = b + "px";
+	  }
+	  //随机高度20-150
+	  City3D.prototype.genHeight = function(){
+         return (Math.random()*1000<<2)%130+20; //随机高度20--150
+	  }
+	  //随机宽度20-40
+	  City3D.prototype.genSize = function(){
+         return (Math.random()*1000<<2)%20+20; //随机宽度20-40
+	  }
+
+	  //创建一栋楼,并且把楼层渲染到地皮上
+	  City3D.prototype.buildEstate = function(top,left){
+	    var estate = document.createElement("div");
+		estate.className = "a";
+		estate.style.height = this.genHeight()+"px";
+		estate.style.top = top+"px";
+		estate.style.left = left+"px";
+		this.city.appendChild(estate);
+
+		var l = this.genSize();
+		var w = this.genSize();
+
+
+		var b1 = document.createElement("b");
+		b1.style.width = l+"px";
+		estate.appendChild(b1);
+		var b2 = document.createElement("b");
+		b2.style.width = w+"px";
+		b1.appendChild(b2);
+		var b3 = document.createElement("b");
+		b3.style.width = l+"px";
+		b2.appendChild(b3);
+		var b4 = document.createElement("b");
+		b4.style.width = w+"px";
+		b3.appendChild(b4);
+		var b5 = document.createElement("b");
+		b5.style.width = w+"px";
+		b5.style.height = l+"px";
+		b4.appendChild(b5);
+	  }
+	  //生成3D城市的方法
+	  City3D.prototype.build = function(parent){
+	    this.buildArea(parent);
+		for(var i=0;i<this.base;i++){
+		  for(var j=0;j<this.base;j++){
+		     this.buildEstate(i*this.max,j*this.max);
+		  }
+		}
+	  }
+	  new City3D(7).build(document.body);

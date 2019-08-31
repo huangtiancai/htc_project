@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+	  <meta name="Keywords" content="百度">
+	  <meta name="Description" content="">
+	  <title>百度搜索  --Krry</title>
+	  <style type="text/css">
+	     *{margin:0;padding:0;}
+		 body{font-size:12px;font-family:"微软雅黑";background:url("images/1.jpg");
+		      background-size:cover;color:#666;}
+		 .btn{width:145px;height:40px;background:#e06767;float:right;border-radius:9px;
+		      margin-right:240px;text-align:center;line-height:40px;transition:1s;}
+		 .btn a{text-decoration:none;color:#fff;font-size:16px;transition:1s;}
+		 .btn:hover{background:#f3fa03;transition:1s;transform:rotate(360deg);}
+		 .btn a:hover{color:#000000;transition:1s;}
+	     .logo .img{margin-left:24px;margin-top:-88px;position:absolute;}
+		/*百度 start*/
+		 .Bai{width:641px;height:293.375px;margin:100px auto;}
+		 .Bai h1{text-align:center;}
+		 .Bai .Bai_text{width:536px;height:40px;float:left; outline:none;
+		                border:0;text-indent:10px;font-size:16px;}
+		 .Bai .Bai_btn{width:104px;height:40px;border:0;outline:none;font-size:16px;
+		               transition:1s;color:#fff;background:#118cfb;}
+		 .Bai .Bai_btn:hover{color:#000;background:#ff9900;cursor:pointer;transition:1s;
+		                     transform:rotate(360deg);}
+		/*百度 end*/
+	  </style>
+  </head>
+	  <body>
+	    <div class="btn"><a href="文章模板.html">点我进入文章模板哦</a>
+	    </div>
+	     <div class="logo">
+		     <img src="images/42.png" alt="Krry_logo" width="150px" height="80px" class="img"/>
+		 </div>
+	    <!--百度 start-->
+	     <div class="Bai">
+			 <h1>
+			    <img src="images/logo.png" alt="百度logo" width="270" height="129"/>
+			 </h1>
+			  <input type="text" name="search" class="Bai_text" id="message" placeholder="请输入关键字"/>
+			  <input type="submit" value="百度一下" class="Bai_btn" onclick="baidu();">
+		 </div>
+
+		 <script src="js/jquery-1.10.2.min.js"></script>
+		 <script type="text/javascript">
+		      function baidu(){
+				var keywords = document.getElementById("message").value;//获取ID为message的内容
+			    location.href="http://www.baidu.com/s?wd="+keywords;  //跳转到该路径的网页
+			  }
+		 </script>
+	 　　<!--百度 end-->
+	  </body>
+</html>

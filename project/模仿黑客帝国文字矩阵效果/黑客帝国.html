@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+   <head>
+   <meta charset="utf-8">
+   <meta name="Keywords" content="">
+   <meta name="Description" content="">
+   <title> JS+HTML5模仿黑客帝国文字矩阵效果</title>
+   <style type="text/css">
+   *{margin:0;padding:0;}
+   html{overflow:hidden;}
+   </style>
+   
+   </head>
+
+  <body>
+     <audio src="MP3/张国荣-倩女幽魂.mp3" autoplay loop></audio>
+     <canvas id="canvas"></canvas>
+	 <script type="text/javascript">
+	 //获取浏览器的一个分辨率
+	    var s = window.screen;
+		var w = s.width;
+		var h = s.height;
+		//获取对象
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		//动态添加画布的高度宽度
+		canvas.width = w;
+		canvas.height = h;
+		var fontSize = 17;
+		var str = "桂花中秋，馨馨香柔"
+		//列 Math.floor 向下边取整数
+		var cols = Math.floor(w/fontSize);  //60
+		//定义数组 存放y的坐标
+		var drops = [];
+		for(var i = 0;i<cols;i++){
+            drops.push(0);
+		}
+		//绘画
+		function draw(){
+		//rgba(红绿蓝，透明度) rgb:红绿蓝
+		   ctx.fillStyle="rgba(0,0,0,0.05)"
+		   ctx.fillRect(0,0,w,h);
+		   ctx.fillStyle = randomColor();
+		   ctx.font="600 "+fontSize+"px 微软雅黑";
+		   for(var i=0;i<cols;i++){
+		      var index = Math.floor(Math.random()*str.length);
+		      //动态定义字体的位置
+               var x = i*fontSize;
+			   var y = drops[i]*fontSize;
+			   //添加文字 fillText(str,x,y)
+		       ctx.fillText(str[index],x,y);
+			   if(y>canvas.height && Math.random()>0.89){
+                 drops[i]=0;
+			   }
+			   drops[i]++;
+		   }
+		   console.log(y);
+		};
+		draw();
+		//定时器
+		setInterval(draw,20);
+
+		function randomColor(){
+			var r = Math.floor(Math.random()*256);
+			var g = Math.floor(Math.random()*256);
+			var b = Math.floor(Math.random()*256);
+			return "rgb("+r+","+g+","+b+")";
+		}
+
+	 </script>
+  </body>
+</html>

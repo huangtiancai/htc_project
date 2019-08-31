@@ -1,0 +1,73 @@
+八大监听器
+第一组：（最重要）
+	*用于监听Servlet三个域对象的属性变化
+	*ServletRequestListener     requset
+	*HttpSessionListener   		session
+	*ServletContextListener		application
+
+第二组：监听servlet三大作用域对象的属性变换
+	*ServletRequestAttributeListener
+	*HttpSessionAttributeListener
+	*ServletContextAttributeListener
+
+
+第三组：用于通知  被绑定到Session对象   的属性
+	*HttpSessionBindingListener
+
+	
+第四组:
+	*首先了解session的序列化
+	*用于监听Session的钝化与活化的
+	*HttpSessionActivationListener
+	
+实现步骤：
+在tamcat安装目录中 conf/Catalina/localhost/web工程名.xml
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+	<!--maxIdleSwap:指定多长时间后session会被钝化(单位为分钟)-->
+	<Manager className="org.apache.catalina.session.PersistentManager" maxIdleSwap="1">
+	<!--directory指定钝化文件的保存目录--
+		work/Catalina/localhost/myseesion文件夹/xxxx.session
+	-->
+		<Store className="org.apache.catalina.session.FileStore" directory="myseesion"/>
+	</Manager>
+</Context>
+
+session序列化:
+	*Tomcat提供的自动机制
+	*session序列化文件在重新被加载的时候消失、
+	
+	
+session的钝化与活化
+	*手动实现
+	*session的钝化文件不会消失
+	
+	
+原生态Ajax
+Ajax：一种创建交互式网页应用的网页开发技术
+Asynchronous javaScript and xml
+
+无刷新技术：不刷新整个页面，只刷新局部
+
+提供了类似c/s的交互效果，操作比较方便
+
+*javascript对象XMLHttpRequest 是整个Ajax技术的核心，它提供了异步发送请求的能力
+*常用方法：
+	open(method,URL,async);	*建立与服务器的连接,method指定请求的http方式,URL指定的请求地址，async是否异步请求，true，false
+	send(content)发送请求，content请求的参数
+	setRequestHeader(header,value) 设置请求头信息
+	
+	readyState:请求对象的状态，0：代表未初始化，1代表正在加载，2代表已加载，3，代表交互中，4代表完成
+	onreadystatechange：设置回调函数，readyState每次改变都会触发设置回调函数
+	status:服务器的响应状态码。200正常 404页面找不到  500内部错误
+	
+	responseText：服务器响应的数据的字符串形式
+	responseXML：xml形式
+	
+	responseBody:服务器响应信息正文以unsigned byte数组形式
+	responseStream: Ado Stream的形式
+	
+	
+	实现无刷新用户登录
+
+	

@@ -1,0 +1,96 @@
+<!doctype html>
+<html onselectstart="return false"> <!--不可选中-->
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>3D相册 --krry</title>
+  <style type="text/css">
+    *{margin:0;padding:0;}
+	body{background:#000;overflow:hidden;}
+	#wrap{width:120px;height:180px;margin:200px auto;
+	      position:relative;transform-style:preserve-3d;
+	      transform:perspective(800px) rotateX(-10deg);}
+	#wrap img{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:5px;
+	          box-shadow:0 0 10px #fff;}
+  </style>
+ </head>
+ <body>
+   <div id="wrap">
+	 <img src="img/1.jpg"/>
+	 <img src="img/2.jpg"/>
+	 <img src="img/3.jpg"/>
+	 <img src="img/4.jpg"/>
+	 <img src="img/5.jpg"/>
+	 <img src="img/6.jpg"/>
+	 <img src="img/7.jpg"/>
+	 <img src="img/8.jpg"/>
+	 <img src="img/9.jpg"/>
+	 <img src="img/10.jpg"/>
+	 <img src="img/11.jpg"/>
+   </div>
+
+   <script src="js/jquery-1.11.3.min.js"></script>
+   <script>
+      $(function(){
+		 var roX = -10;
+		 var roY = 0;
+		 var Deg = 360/$("#wrap img").size(); //得到img的个数
+	     $("#wrap img").each(function(i){ //遍历每一张图片(i)是索引，下标
+		    $(this).css({
+			 "transform":"rotateY("+Deg*i+"deg) translateZ(350px)",//以逗号分隔(translateZ)撑开
+			}).attr("ondragstart","return false");
+		 });
+
+		 active();
+		 function active(){
+			 $("#wrap img").mouseenter(function(){
+						$(this).animate({  //添加动画
+							width:"180px",
+							height:"270px",
+							top:'-45px',
+							left:'-28px'
+						},500);
+				});
+		 }
+			 
+		 $("#wrap img").mouseleave(function(){
+					$(this).animate({
+						width:"120px",
+						height:"180px",
+						top:'0px',
+						left:'0px'
+					},500);
+		 });
+
+		 var kk = 0;
+		 $(document).mousedown(function(ev){ //鼠标按下的时候
+			 $("#wrap img").unbind("mouseenter");  //按下的时候，取消绑定
+			 var x_ = ev.clientX; //获取鼠标点击时的坐标
+			 var y_ = ev.clientY;
+		    $(this).bind("mousemove",function(ev){//鼠标移动中（bind绑定这个事件）向匹配元素附加一个或更多事件处理器
+			 var x = ev.clientX; //获取鼠标点击时的坐标
+			 var y = ev.clientY;
+			 
+			 var xN = x - x_;
+			 var yN = y - y_;
+
+			 roX += xN*0.2;
+			 roY -= yN*0.2;
+
+			 $("#wrap").css({
+			    "transform":"perspective(800px) rotateX("+roY+"deg) rotateY("+roX+"deg)",
+			 });
+
+			 x_ = ev.clientX; //获取鼠标点击时的坐标
+			 y_ = ev.clientY;
+			});
+		 });
+		 $(document).mouseup(function(ev){ //鼠标抬起来
+			   $(this).unbind("mousemove"); //取消绑定
+			   active();  //鼠标弹起的时候调用图片变大的方法
+			});
+	  });
+   </script>
+ </body>
+</html>

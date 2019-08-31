@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			ul li{list-style:none;}
+			.container{width:970px;height:270px;margin:80px auto;position:relative;overflow:hidden;}
+			.container .box{width:970px;height:270px;position:relative;}
+			.container .box ul li{width:0;height:0;opacity:0;position:absolute;filter:Alpha(opacity=0);}
+			.container .box ul li img{width:100%;height:100%;}
+			.container .box ul li span{width:100%;height:100%;background:rgba(0,0,0,.5);position:absolute;top:0;left:0;filter:Alpha(opacity=0);}
+			.container .box ul .l1{width:640px;height:270px;z-index:10;top:0;left:165px;opacity:1;}
+			.container .box ul .l2{width:530px;height:220px;left:440px;top:25px;z-index:9;opacity:1;}
+			.container .box ul .l3{width:300px;height:150px;z-index:8;top:60px;left:970px;opacity:0;}
+			.container .box ul .l9{width:300px;height:150px;left:-300px;top:60px;z-index:8;opacity:0;}
+			.container .box ul .l10{width:530px;height:220px;z-index:9;top:25px;left:0;opacity:1;}
+
+			.ear a{width:45px;height:45px;position:absolute;top:50%;margin-top:-22px;z-index:12;}
+			.ear a.left{left:0;background:url("images/left.png");}
+			.ear a.right{right:0;background:url("images/right.png");}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box">
+				<ul>
+					<li class="l1"><img src="images/1.jpg"/></li>
+					<li class="l2"><img src="images/2.jpg"/></li>
+					<li class="l3"><img src="images/3.jpg"/></li>
+					<li><img src="images/4.jpg"/></li>
+					<li><img src="images/5.jpg"/></li>
+					<li><img src="images/6.jpg"/></li>
+					<li><img src="images/7.jpg"/></li>
+					<li><img src="images/8.jpg"/></li>
+					<li class="l9"><img src="images/9.jpg"/></li>
+					<li class="l10"><img src="images/10.jpg"/></li>
+				</ul>
+			</div>
+			<div class="ear">
+				<a href="#" class="left"></a>
+				<a href="#" class="right"></a>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+		<script>
+			$(function(){
+				var $li = $(".box ul li");
+				var arrW = [],arrH = [],arrZ = [],arrT = [],arrL = [],arrO = [],arrD = [];
+				var nowTime = 0;
+
+				$li.append("<span></span>");
+				$(".box li span").eq(0).css("display","none");
+
+				$(".right").click(function(){
+					if(new Date() - nowTime > 500){
+						nowTime = new Date();
+						Banner(false);  //false代表右按钮
+					}
+				});
+
+				$(".left").click(function(){
+					if(new Date() - nowTime > 500){
+						nowTime = new Date();
+						Banner(true);  //true代表左按钮
+					}
+				});
+
+				function Banner(flag){
+					$li.each(function(i){
+						arrW[i] = $(this).css("width");
+						arrH[i] = $(this).css("height");
+						arrZ[i] = $(this).css("z-index");
+						arrT[i] = $(this).css("top");
+						arrL[i] = $(this).css("left");
+						arrO[i] = $(this).css("opacity");
+						arrD[i] = $(this).find("span").css("display");
+					});
+					$li.each(function(i){
+						if(flag){  //true代表左按钮
+							var a = i + 1;
+							if(a == $li.length) a = 0;
+						}else{   //false代表右按钮
+							var a = i - 1;
+							if(a < 0) a = $li.length - 1;
+						}
+						//把当前的div属性赋给下一个div，以此类推
+						$(this).find("span").css("display",arrD[a]);
+						$(this).css("zIndex",arrZ[a]).animate({
+							"width":arrW[a],
+							"height":arrH[a],
+							"top":arrT[a],
+							"left":arrL[a],
+							"opacity":arrO[a]
+						},500);
+					});
+				}
+				var timer = null;
+				timerer();
+				function timerer(){
+					timer = setInterval(function(){
+						$(".Banner .ear .right").trigger("click");
+					},3000);
+				}
+
+				$(".Banner").mouseover(function(){
+					clearInterval(timer);
+				}).mouseout(function(){
+					timerer();
+				});
+			});
+		</script>
+	</body>
+</html>

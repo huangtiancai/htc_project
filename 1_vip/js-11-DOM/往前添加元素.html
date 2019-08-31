@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title></title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<ul id="ul">
+			<li></li>
+		</ul>
+		<input type="button" value="按钮" id="btn"/>
+
+		<script>
+			var ul = document.getElementById("ul");
+			var btn = document.getElementById("btn");
+			var li = document.getElementsByTagName("li");
+			btn.onclick = function(){
+				var lii = document.createElement("li");
+				ul.insertBefore(lii,li[0]); // ( 新节点 , 往哪个元素添加 )
+			}
+		</script>
+	</body>
+</html>

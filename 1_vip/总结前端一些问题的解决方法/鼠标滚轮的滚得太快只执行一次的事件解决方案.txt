@@ -1,0 +1,9 @@
+做一个时间差
+var nowTime = 0;
+$(document).mousewheel(function(ev,dr){//往下滚动，dr<0，往上滚动，dr>0
+	if(new Date() - nowTime > 500){
+		nowTime = new Date();
+		..........
+	}
+}
+这样就能设置鼠标滚轮滚的速度再快，也只能在500毫秒时间差内只执行一次事件的方法

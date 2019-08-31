@@ -1,0 +1,72 @@
+ForEach
+
+servlet 过滤器
+	一个组件,用来拦截来自客户端的请求以及响应信息,从而进行查看、提取或者以对客服端
+	和服务器之间交换的数据信息进行某项特点操作
+	
+是什么？
+	过滤器本身并不会产生请求以及响应,它只提供过滤作用
+	能够修改 RequstHeader ，Requset，Response,ResponseHeader
+	
+	负责过滤的组件，可以是servlet，jsp，html文件
+	
+如何开发一个过滤器
+	
+*java web的三大组件 ：servlet ,Listener,filter.	
+	监听器：Listener
+	servlet的监听器:客服端请求，服务器端的操作等等
+	三大类：servlet上下文事件、回话时间、请求时间
+
+复习：
+*servlet三个域:requset、session、servletcontext(application)
+*jsp四个作用域隐式对象：page、requset、session、application
+	
+*八大监听
+	*第一组:用于监听servlet三个域的创建与销毁
+		ServletRequsetListener
+		HttpSessionListener
+		SerlvetContextListener
+
+	*第二组:用于监听servlet三个作用域对象的属性变化的(设置，删除，修改)
+		SerlvetRequestAttributeListener
+		HttpSessionAttributeListener
+		ServletContextAttributeListener
+
+	*第三组:通知与绑定到session对象的属性
+		HttpSessionBindingListener
+	
+	*第四组:用于监听Session的钝化与活化 
+		HttpSessionActivationListener
+		
+		
+	第一组：用于监听servlet三个域的创建与销毁
+		*requset对象:
+			创建：发送请求的时候
+			销毁：请求完成的时候
+			
+		*session对象：
+			创建：发生请求时，并且执行getsession()语句。
+			销毁：执行Session的销毁方法 invalidate();
+
+		*servletContext对象
+			创建：Tomcat启动
+			销毁：Tomcat关闭
+			
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	

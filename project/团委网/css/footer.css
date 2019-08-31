@@ -1,0 +1,29 @@
+/*footer start*/
+.footer{min-width: 1200px;height:392px;margin-top:70px;}
+.footer .f_relative{height:332px;background:rgba(105, 25, 23, 1);}
+.footer .f_relative .f_r_center{width:1180px;margin:0 auto;}
+.footer .f_relative .f_r_center .foot_title{color:#ccc;font-size:18px;font-weight:700;margin:20px 0px 0px 10px;}
+.footer .f_relative .f_r_center .marfu{margin-top:8px;margin-left:0;text-align:center;}
+.footer .f_relative .f_r_center .foot_title span{text-align:center;line-height:40px;display:inline-block;cursor:pointer;width:100px;border-radius:10px 10px 0 0;}
+.footer .f_relative .f_r_center .foot_title span.active{background:rgb(117, 28, 26);}
+.footer .f_relative .f_r_center .f_c_left{width:756px;float:left;}
+.footer .f_relative .f_r_center .f_c_left .foot_friends{width:736px;margin:0 auto;height:250px;border-radius:10px;background:rgb(117, 28, 26);padding:10px;}
+.footer .f_relative .f_r_center .f_c_left .foot_friends li a:hover{color:#F56521;}
+
+/*海洋网站，校内导航*/
+.footer .f_relative .f_r_center .f_c_left .f_f_sea li{float:left;height:30px;width:184px;line-height:30px;text-align:center;}
+.footer .f_relative .f_r_center .f_c_left .f_f_sea li a{color:#ccc;max-width:184px;display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.footer .f_relative .f_r_center .f_c_left .f_f_inner{display:none;}
+.footer .f_relative .f_r_center .f_c_left .f_f_inner li{float:left;height:25px;width:122px;line-height:25px;text-align:center;}
+.footer .f_relative .f_r_center .f_c_left .f_f_inner li a{color:#ccc;max-width:122px;display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+
+/*关于我们*/
+.footer .f_relative .f_r_center .f_c_right{width:400px;float:right;}
+.footer .f_relative .f_r_center .f_c_right .foot_our{width:346px;height:264px;margin:0 auto;margin-top:14px;}
+.footer .f_relative .f_r_center .f_c_right .foot_our .f_o_left{float:left;}
+.footer .f_relative .f_r_center .f_c_right .foot_our .f_o_left p{color:#ccc;height:25px;line-height:25px;}
+.footer .f_relative .f_r_center .f_c_right .foot_our .foot_echar{float:right;}
+.footer .f_relative .f_r_center .f_c_right .foot_our .foot_echar p{color:#ccc;text-align:center;height:20px;line-height:20px;}
+
+.footer .f_last{height:60px;background:rgb(74, 18, 16);text-align:center;line-height:60px;color:#ccc;}
+/*end footer*/

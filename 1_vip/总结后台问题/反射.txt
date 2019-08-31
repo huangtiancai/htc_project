@@ -1,0 +1,6 @@
+//通过反射获取类几种方式？
+/*1. s.getClass();
+*2  Student.class;
+*3  Class.forName("com.tz.generic.Student");
+*4. Student.class.getClassLoader().loadClass();		
+* */

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8国际编码-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--当前页面的三要素-->
+		<title>css样式 - id 选择器 - krry</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#arry{color:red;}
+			#keke{color:green;}
+
+		</style>
+
+	</head>
+<body>
+
+	
+	<p id="arry">我是Arry老师的学生，就是那个最帅的，最有激情的学生krry ！</p>
+
+	<p id="keke">我同时又是大学生，也是最帅的、最激情的 ！</p>
+
+
+</body>
+</html>

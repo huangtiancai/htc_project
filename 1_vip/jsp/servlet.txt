@@ -1,0 +1,87 @@
+servlet  --- 服务端的小程序
+是一个java程序，是在服务器上运行以处理客服端请求并作出响应的程序
+它一般会把处理的结果以HTML的形式返回，在客服端形成动态网页
+
+
+为什么使用servlet
+是运行在web服务器中，可扩展服务器的功能
+servlet可以和其他资源互动
+夸平台
+安全  因为访问servlet的唯一途径就是通过服务器
+
+生命周期 -- servlet容器----我们用的是tomcat
+
+
+实例化       servlet容器创建 servlet的实例
+初始化       容器调用init方法的时候
+请求处理     调用service方法的时候
+服务中止     destroy方法的时候
+
+需要继承一个父类
+servlet继承体系
+
+javax.servlet包
+       servlet
+	   GenericServlet
+javax.servlet.http
+       httpServlet
+	   自定义的servlet
+
+HttpServletRequest的常用方法
+	setCharacterEncoding(String org); 设置请求报文的字符集编码，主要是用来解决页面间传递中文的问题
+	
+	getParameter(String name);
+	获取有name指定参数的值  
+	
+	getParameterValues(String name);
+	获取有name指定参数的所有值
+	
+	getParameterNames();
+	获取所有参数的名称
+	
+以下方法选择性使用，记住就行
+	getSession 
+	获得与请求有关的session（会话）,如果没有就创建一个新的
+	
+	getSeesion(boolean create);
+	获得与请求有关的session（会话）,如果没有由参数create决定是否重新创建
+	
+	getCookie();
+	获得与请求有关的cookie
+	
+	getRequestDispatcher(String path);
+	获取与请求有关的RequestDespatcher有关的信息
+	
+	setAttribute(String name,Object value);
+	在请求中设置新的属性
+	
+	getAttribute(String name);
+	根据name获取属性的值
+	
+	getAttributeNames 获取所有属性的值
+	
+	removeAttribute(String name);  删除属性
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

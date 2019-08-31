@@ -1,0 +1,7 @@
+线程的优先级控制MAX_PRIORITY（10）;    
+MIN _PRIORITY （1）;  
+NORM_PRIORITY （5）;
+
+涉及的方法：
+getPriority() ：返回线程优先值 
+tPriority(int newPriority) ：改变线程的优先级线程创建时继承父线程的优先级

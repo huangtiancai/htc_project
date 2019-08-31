@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8(国际编码)-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--声明当前页面的三要素-->
+		<title>CSS样式 - 背景 - background - krry</title>
+		<meta name="keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--js/css-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+
+			body{
+				/*背景图像 repeat重复（平铺）
+				background:url("images/1.gif");*/
+				
+				/*background-color: 规定要使用的背景颜色*/
+				background-color:#F60;
+
+				/*background-image:把图像设置为背景*/
+				background-image:url("images/6.jpg");
+
+				background-size:cover;
+				
+
+				/*background-repeat:重复背景图像*/
+				background-repeat:repeat; /*默认值*/
+				background-repeat:repeat-x; /*横向平铺*/
+				background-repeat:repeat-y; /*纵向平铺*/
+				background-repeat:no-repeat; /*不重复（平铺）*/
+
+
+
+				/*background-position: 规定背景图像的位置*/
+				background-position:top center; /*垂直居顶部对齐，水平居中对齐*/
+				background-position:top left; /*垂直居顶部对齐，水平居左对齐（默认值）*/
+				background-position:top right; /*垂直居顶部对齐，水平居右对齐*/
+				
+				background-position:center left; /*垂直居中对齐，水平居左对齐*/
+				background-position:center center; /*垂直居中对齐，水平居中对齐*/
+				background-position:center right; /*垂直居中对齐，水平居右对齐*/
+
+				background-position:bottom left; /*垂直居底部对齐，水平居左对齐*/
+				background-position:bottom center; /*垂直居底部对齐，水平居中对齐*/
+				background-position:bottom right; /*垂直居底部对齐，水平居右对齐*/
+				
+
+				/*background-position:水平 垂直;*/
+				background-position:10% 50%;
+
+	
+				/*background-position:水平 垂直;*/
+				background-position:0px 0px;				
+				
+			}	
+
+		</style>
+
+	</head>
+<body>
+
+</body>
+</html>

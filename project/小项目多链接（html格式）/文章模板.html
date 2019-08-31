@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+	  <meta name="keywords" content="文章模板">
+	  <meta name="description" content="">
+	  <title>文章模板  --krry</title>
+	  <style type="text/css">
+	      *{margin:0;padding:0;}
+		  body{height:100%;font-family:"微软雅黑";background:url("images/1.jpg");
+		       background-size:cover;}
+		  .header{width:100%;height:54px;top:0;background:#3c3c3c;position:fixed;}
+		  .header img{margin-top:1px;margin-left:20px;position:fixed;}
+		  .top .top_btn{width:144px;height:50px;cursor:pointer;margin-right:50px;top:70px;
+		                line-height:50px;margin-top:10px;background:#1c7afb;color:#fff;
+						outline:none;border:0;text-align:center;border-radius:10px;right:0;
+						transition:1s;font-size:16px;text-decoration:none;position:fixed;}
+	      .top .top_btn:hover{background:#ff6600;color:#000;transition:1s;
+		                      transform:rotate(360deg);}
+		  .top .top_list{width:154px;height:80px;background:#E5C7A5;top:70px;
+		                 margin-top:8px;margin-left:24px;border-radius:10px;position:fixed;}
+		  .top .top_list ul li{list-style:none;font-size:16px;position:}
+		  .top .top_list ul #list_1{padding-left:20px;padding-top:10px;}
+		  .top .top_list ul #list_2{padding-left:20px;}
+		  .top .top_title{width:600px;height:50px;outline:none;border:0;display:block;
+		                  text-indent:10px;font-size:18px;text-align:center;line-height:50px;
+						  font-family:"微软雅黑";position:fixed;top:60px;left:380px;}
+		   #slide{float:left;width:100px;height:270px;position:fixed;
+		          top:30%;left:50px;background:url("images/nav.png") no-repeat;}
+		   #slide ul{padding-top:6px;}
+		   #slide ul li{list-style:none;color:#dcecff;cursor:pointer;
+		                font-size:12px;padding-left:50px;height:21px;margin-bottom:56px;}
+		   #slide ul li.on{background:url("images/nav_cho.png") no-repeat;}
+		  .mes{width:900px;height:420px;background:#fff;
+		       opacity:0.5;position:fixed;top:120px;left:230px;}
+		  .mes #mes_txt{width:900px;height:410px;border:0;outline:none;padding:5px;
+		                text-indent:10px;overflow:auto;}
+		  .footer{width:100%;height:50px;background:#3C3C3C;color:#ff7431;position:fixed;
+		          bottom:0px;}
+		  .footer h1{float:right;font-size:30px;font-family:"华文行楷"}
+	  </style>
+   </head>
+   <body>
+      <audio autoplay>
+		<source src="mp3/oppo.mp3" type="audio/mpeg">
+      </audio>
+      <div class="header">
+	     <img src="images/42.png" width="101" height="54" alt="我的logo"/>
+	  </div>
+	  <div class="top">
+		   <a href="论文.html" class="top_btn" >点我进入我的论文哦</a>
+		 <div class="top_list">
+		    <ul>
+			   <li id="list_1">日期：1725/5/12</li>
+			   <li>—————————</li>
+			   <li id="list_2">点阅量：1564</li>
+			</ul>
+		 </div>
+		 <div>
+		     <input type="text" class="top_title" placeholder="请输入文章标题">
+		 </div>
+	  </div>
+	  <div class="mes">
+	     <div id="mes_txt" contenteditable="true"></div>
+	  </div>
+	  <div id="slide">
+	      <ul>
+		      <li class="on">宏伟之桥</li>
+			  <li class="ot">小清新</li>
+			  <li class="os">小简约</li>
+			  <li class="of">动漫图片</li>
+		  </ul>
+	  </div>
+	  <div class="footer">
+	      <h1>谢谢观赏~~</h1>
+	  </div>
+   <script src="js/jquery-1.10.2.min.js"></script>
+   <script src="js/jquery.mousewheel.js"></script>
+   <script type="text/javascript">
+      $(function(){
+	     var $slideLi = $("#slide ul li");
+		 var $slideLiN = $("#slide ul .on");
+		 var $slideLiT = $("#slide ul .ot");
+		 var $slideLiS = $("#slide ul .os");
+		 var $slideLiF = $("#slide ul .of");
+		 var index = 0;
+		 $slideLi.click(function(){
+		    index = $(this).index();
+			$(this).addClass("on").siblings().removeClass();
+		 });
+		 $slideLiN.click(function(){
+			$("body").css("background","url(images/1.jpg)"); //这是一种改变样式的方法
+			$("body").css("background-size","cover");
+		 });
+		 $slideLiT.click(function(){
+		    document.body.style.background="url('images/2.jpg')";//这是一种改变样式的方法
+			$("body").css("background-size","cover");
+		 });
+		 $slideLiS.click(function(){
+		    document.body.style.background="url('images/3.jpg')";
+			$("body").css("background-size","cover");
+		 });
+		 $slideLiF.click(function(){
+		    document.body.style.background="url('images/4.jpg')";
+			$("body").css("background-size","cover");
+		 });
+		 
+	  });
+   </script>
+   </body>
+</html>

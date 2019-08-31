@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<p></p>
+			<span></span>
+			<ul></ul>
+		</div>
+		<ul id="ul">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<script>
+			//D O M   document object model 文档对象模型
+			// HTML会被解析成DOM树
+			// js是通过语法逻辑结构来操作DOM
+			var box = document.getElementById("box");
+			//.childNodes IE678只包含元素 ，其他包含元素和文本
+			//var child = box.childNodes;
+			//alert(child.length);
+			//alert(child[0].nodeType); 1 元素；2 属性；3 文本；8 注释；9 文档
+
+			//children 获取子元素节点(不包括空格)
+			//var child = box.children;
+			//alert(child.length);
+			//alert(child[0]);
+
+			//获取第一个子元素
+			//.firstChild  标准下会包含文本类型的节点
+			// ie 678  只包含元素节点
+			// 兼容 谷歌 火狐 ，不支持IE 678
+			//var child = box.firstElementChild;
+			//alert(child);
+			
+			//支持IE 678
+			//var child = box.fristChild;
+			//alert(child);
+
+			function firstchild(obj){ //兼容性写法
+				return obj.firstElementChild != undefined?obj.firstElementChild : obj.firstChild;
+			}
+			alert( firstchild(box) );
+
+			alert(box.children[2]); //取出子元素
+
+
+
+
+			var oUl = document.getElementById("ul");
+
+			var aFirst = oUl.firstElementChild || oUl.firstChild;
+			/* 第一个子元素
+			
+			aFirst.style.background="green";
+			*/
+			var aLast = oUl.lastElementChild || oUl.lastChild;
+			/*
+				最后一个子元素
+			
+			
+			aLast.style.background = 'yellow';
+			*/
+			
+			var aNext = aFirst.nextElementSibling || aFirst.nextSibling; //获取上一个元素
+			aNext.style.background="purple";
+			
+			var aPrev = aLast.previousElementSibling || aLast.previousSibling; //获取下一个元素
+			aPrev.style.background = "red";		
+
+
+
+		</script>
+	</body>
+</html>

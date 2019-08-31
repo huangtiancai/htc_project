@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="Description" content="网页描述">
+		<title>放大镜</title>
+		<style type="text/css">
+			*{margin:0;padding:0}
+			body{font-family:"微软雅黑";}
+			#box{width:1300px;height:440px;margin:50px auto;border:1px solid #000;position:relative;}
+			#b_img{margin:20px 20px;position:relative;width:400px;height:400px;float:left;}
+			#simgy{background:yellow;opacity:.5;width:200px;height:200px;position:absolute;top:0;cursor:pointer;display:none;}
+			#gra_img{display:none;width:400px;height:400px;position:absolute;top:20px;left:460px;overflow:hidden;}
+			#bigimg{position:absolute;}
+			#pas{line-height:25px;height:400px;margin:20px 20px;float:right;width:820px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="b_img">
+				<img src="images/1.jpg" width="400" height="400" alt="美女"/>
+				<div id="simgy"></div>
+			</div>
+			<div id="gra_img">
+				<img src="images/1.jpg" id="bigimg" width="800" height="800" alt="美女"/>
+			</div>
+			<div id="pas">
+				<h2>美女</h2>她们与生俱来的贵族气质，比较受年轻男性喜爱。这种类型让你一看就头晕眼花，这样的女生生活中不大可能出现，只有这样的图片中才会存在，或者梦中，天堂上。她甚至没有一点缺陷，千娇百媚完美无缺。多一分则肥少一分则瘦，笑如牡丹临风哭则海棠带露。她们与生俱来的贵族气质，比较受年轻男性喜爱。这种类型让你一看就头晕眼花，这样的女生生活中不大可能出现，只有这样的图片中才会存在，或者梦中，天堂上。她甚至没有一点缺陷，千娇百媚完美无缺。多一分则肥少一分则瘦，笑如牡丹临风哭则海棠带露。她们与生俱来的贵族气质，比较受年轻男性喜爱。这种类型让你一看就头晕眼花，这样的女生生活中不大可能出现，只有这样的图片中才会存在，或者梦中，天堂上。她甚至没有一点缺陷，千娇百媚完美无缺。多一分则肥少一分则瘦，笑如牡丹临风哭则海棠带露。她们与生俱来的贵族气质，比较受年轻男性喜爱。这种类型让你一看就头晕眼花，这样的女生生活中不大可能出现，只有这样的图片中才会存在，或者梦中，天堂上。她甚至没有一点缺陷，千娇百媚完美无缺。多一分则肥少一分则瘦，笑如牡丹临风哭则海棠带露。
+			</div>
+		</div>
+		<script>
+			var Simg = document.getElementById("b_img");
+			var simgy = document.getElementById("simgy");
+			var graimg = document.getElementById("gra_img");
+			var bigimg = document.getElementById("bigimg");
+			var box = document.getElementById("box");
+
+			Simg.onmousemove = function(e){
+				var e = e || window.event;
+				//在含有滚动条的情况下，必须使用paga来获取屏幕的值，距离文档的长度，才不会出现差错
+				var x = e.pageX - this.offsetLeft - box.offsetLeft - simgy.offsetWidth/2;
+				var y = e.pageY - this.offsetTop - box.offsetTop - simgy.offsetHeight/2;
+
+				//设置移动的最大位置
+				var maxX = this.offsetWidth - simgy.offsetWidth;
+				var maxY = this.offsetHeight - simgy.offsetHeight;
+				if(x < 0) x = 0;
+				if(x > maxX) x = maxX;
+				if(y < 0) y = 0;
+				if(y > maxY) y = maxY;
+
+				simgy.style.display = "block";
+				simgy.style.left = x + "px";
+				simgy.style.top = y + "px";
+
+				//移动的百分比 = 移动时小黄层的坐标/最大移动的坐标
+				var spitX = x/maxX;
+				var spitY = y/maxY;
+				//大图片的位置不能走出外层div，所以用外层div的宽高减去大图片宽高
+				var bx = (bigimg.parentElement.offsetWidth - bigimg.offsetWidth)*spitX;
+				var by = (bigimg.parentElement.offsetHeight - bigimg.offsetHeight)*spitY;
+				graimg.style.display = "block";
+				bigimg.style.left = bx + "px";
+				bigimg.style.top = by + "px";
+
+			}
+			//onmouseover和onmouseout有冒泡机制 ，平常我们用onmouseenter和onmouseleave
+			//闪动的问题解决方案 （换成onmouseenter 和onmouseleave就没事）
+			Simg.onmouseleave = function(){
+				simgy.style.display = "none";
+				graimg.style.display = "none";
+			}
+		</script>
+	</body>
+</html>

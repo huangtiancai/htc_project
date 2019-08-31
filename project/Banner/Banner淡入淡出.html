@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Keywords" content="关键词,关键词">
+  <meta name="Description" content="">
+  <title>Banner淡入淡出 --krry</title>
+  <style type="text/css">
+    *{margin:0;padding:0}
+	ul li{list-style:none;}
+	.box{width:738px;margin:50px auto;position:relative;height:430px;overflow:hidden;}
+	.box #slid ul li{display:none;position:absolute;top:0;left:0;opacity:0;}
+	.ear .ee{background:url("images/arrow.png");width:70px;height:70px;position:absolute;top:50%;margin-top:-35px;cursor:pointer;}
+	.ear #prev{background-position:0 0;}
+	.ear #next{background-position:0 70px;right:0;}
+	.ear #prev:hover{background-position:-70px 0;}
+	.ear #next:hover{background-position:-70px -70px;}
+	.box #tab{border-radius:10px;position:absolute;bottom:12px;margin-left:-55px;left:50%;background:rgba(255,255,255,.5);}
+	.box #tab a{width:12px;height:12px;background:#fff;border-radius:50%;display:block;float:left;margin:5px;}
+	.box #tab a.sel{background:red;}
+  </style>
+ </head>
+ <body>
+	<div class="box">
+		<div id="slid">
+			<ul>
+				<li style="display:block;opacity:1">
+					<a href="#">
+						<img src="images/st1.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st2.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st3.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st4.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/st5.jpg" width="738" height="430" alt="Banner"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="ear">
+			<div class="ee" id="prev"></div>
+			<div class="ee" id="next"></div>
+		</div>
+		<div id="tab">
+			<a href="javascript:void(0);" class="sel"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+			<a href="javascript:void(0);"></a>
+		</div>
+	</div>
+	<script src="js/jquery-1.12.1.min.js"></script>
+	<script>
+		$(function(){
+			var index = 0;
+			var len = $("#slid ul li").length;
+			$("#tab a").hover(function(){
+				index = $(this).index();
+				$(this).addClass("sel").siblings().removeClass("sel");
+				$("#slid ul li").eq(index).show().stop().animate({"opacity":1},700).siblings().stop().animate({"opacity":0},700);
+			});
+
+			function change(flag){
+				if(flag){
+					index = (index == len-1) ? 0 : ++index;
+				}else{
+					index = (index == 0) ? len-1 : --index;
+				}
+				$("#tab a").eq(index).addClass("sel").siblings().removeClass("sel");
+				$("#slid ul li").eq(index).show().animate({"opacity":1},700).siblings().animate({"opacity":0},700);
+			}
+
+			var nowTime = 0;
+			
+			//点击左耳朵
+			$("#prev").click(function(){
+				if(new Date() - nowTime > 700){
+					change(false);
+					nowTime = new Date();
+				}
+			});
+			//点击右耳朵
+			$("#next").click(function(){
+				if(new Date() - nowTime > 700){
+					change(true);
+					nowTime = new Date();
+				}
+			});
+
+			$(".box").hover(function(){
+				clearInterval(time);
+			},function(){
+				start();
+			});
+
+			var time = null;
+			start();
+			function start(){
+				time = setInterval(function(){
+					change(true);
+				},2500);
+			}
+		});
+		
+	</script>
+  </body>
+</html>

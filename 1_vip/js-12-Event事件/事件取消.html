@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="潭州教育-追梦">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				function  fn1(){
+					//alert(this.id);
+					alert(1)
+				}
+				//fn1()
+				function  fn2(){
+					//alert(this.id);
+					alert(2)
+				}
+
+				//document.onclick = fn2;
+				//document.onclick = null; // 普通的绑定事件用普通方法取消
+
+				// ie obj.detachEvent(事件名称，事件函数)
+				//document.attachEvent( "onclick" ,fn2 ); IE i8- 绑定事件
+				//document.detachEvent( "onclick" ,fn2 ); IE i8- 解绑事件
+				
+				//标准 obj.removeEventListener(事件名称,事件函数,是否捕获)
+				//document.addEventListener("click" , fn2 ,false); //取消
+				//document.addEventListener("click" , fn1 ,true);
+				//document.addEventListener("click" , fn2 ,true);
+
+				//document.removeEventListener("click" , fn2 ,false);
+
+				//事件为什么要绑定呢？是因为我们让同一个对象去做更多事情
+				
+				document.addEventListener("click" , fn1 ,false);
+				document.addEventListener("click" , fn2 ,true);
+			}
+		</script>
+
+	</head>
+	<body>
+		
+	</body>
+</html>

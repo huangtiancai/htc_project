@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>轮播特效</title>
+  <style>
+  	 body{padding-top:50px;}
+     .carousel-caption{font-size:18px;margin-bottom:18px;}	
+     #sum .col-md-4{text-align:center;}
+  </style>
+ </head>
+ <body>
+ 	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+	     <div class="navbar-header" id="header">
+		 <!--当屏幕尺寸变的很小时，会出现这个图标，把菜单隐藏在里面-->
+		    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+			 data-target="#krry-navbar">
+			 <span class="sr-only">Toggle navigation</span>
+			 <span class="icon-bar"></span>
+			 <span class="icon-bar"></span>
+			 <span class="icon-bar"></span>
+			 </button>
+			 <a class="navbar-brand logo" href="#"></a>
+		 </div>
+		 <div class="collapse navbar-collapse" id="krry-navbar">
+		    <ul class="nav navbar-nav pull-right">
+			   <li class="active"  data-toggle="modal" data-target="#log"><a href="#">桂花</a></li>
+			   <li><a href="#">心随所感</a></li>
+			   <li><a href="#">织梦行云</a></li>
+			   <li class="dropdown"> <!--下拉菜单-->
+				   <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉菜单
+				   <span class="caret"></span></a>
+				   <ul class="dropdown-menu" role="menu">
+					 <li><a href="#kr">feels</a></li>
+					 <li><a href="#krry">flower</a></li>
+					 <li><a href="#xiao">introduce</a></li>
+					 <li><a href="#Im">Im</a></li>
+					 <li class="divider"></li>
+					 <li><a href="#know">know</a></li>
+				   </ul>
+				</li>
+			   <li><a href="#">link</a></li>
+			</ul>
+		 </div>
+	  </div>
+   </nav>
+
+   <div class="modal fade" id="log">
+     <div class="modal-dialog">
+	   <div class="modal-content">
+	    <div class="modal-header">
+		   <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		   <h4 class="modal-title">Modal title</h4>
+		</div>
+		<div class="modal-body">
+		   我就是一个对话框
+		</div>
+		<div class="modal-footer">
+		   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		   <button type="button" class="btn btn-primary">Save changes</button>
+		</div>
+	   </div>
+	 </div>
+   </div>
+ 	
+ 	<!--此声明下面的盒子是轮播图-->
+	 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<!-- 这一段代表下面小圆点的导航  #carousel-example-generic与下面的a标签的href必须一样-->
+		<ol class="carousel-indicators">
+	 		<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+	    </ol>
+	   <!-- 这一段代表轮播组件的内容 -->
+	    <div class="carousel-inner" role="listbox">
+		     <div class="item active">
+		         <img src="img/12.jpg" alt="美女" />
+		     <div class="carousel-caption">你想拥有我吗</div>
+		     </div>
+		     <div class="item">
+		        <img src="img/13.jpg" alt="猫咪" />
+		        <div class="carousel-caption">别担心，我只是渲染气氛</div>
+		     </div>
+		     <div class="item">
+		        <img src="img/14.jpg" alt="蒲公英" />
+		        <div class="carousel-caption">那就来吧</div>
+		     </div>
+	    </div>
+	 <!-- 这一段代表向左和向右切换的按钮 -->
+	    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+	        <span class="glyphicon glyphicon-chevron-left"></span>
+	        <span class="sr-only">上一页</span></a>
+	    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+	        <span class="glyphicon glyphicon-chevron-right"></span>
+	        <span class="sr-only">下一页</span></a>
+  </div>
+
+  <!--标签-->
+   <ul class="nav nav-tabs" role="tablist" id="tab-list">
+     <li class="active"><a href="#kr" role="tab" data-toggle="tab">feels</a></li>
+	 <li><a href="#krry" role="tab" data-toggle="tab">flower</a></li>
+	 <li><a href="#xiao" role="tab" data-toggle="tab">introduce</a></li>
+	 <li><a href="#Im" role="tab" data-toggle="tab">Im</a></li>
+	 <li><a href="#know" role="tab" data-toggle="tab">know</a></li>
+   </ul>
+<!--内容-->
+   <div class="tab-content">
+      <div class="tab-pane active" id="kr"><p>生活就是不断学习<br/>
+												场景是两个人在一起散着步……<br/>
+												有爱必有痛</p></div>
+	  <div class="tab-pane" id="krry"><p>临窗探看，白月光。夜中秋风，月自赏。<br/><br/>
+
+											桂花中秋，馨馨香柔，手中花儿一个忧<br/>
+											回想儿时，沁香心事，家人团聚欢笑稚<br/>
+											不知何年，花儿睡眠，心里惆怅觅旧颜<br/>
+											遥望月光，落花流香，夜上一缕相思漾</p></div>
+	  <div class="tab-pane" id="xiao"><p>Hello! Nice	to meet	you	! Let me introduce myself .<br/>
+										My name	is ......,I	study in the Chong ben kindergarten
+										.<br/>Our kindergarten is very beautiful,The scenery here is very good.<br/>
+										We can sing, dance,	draw, write, and play games.<br/>
+										Beside,we love our teachers.<br/>
+										You	are	welcomed to	visit our kindergarten</p></div>
+	  <div class="tab-pane" id="Im"><p>My name is Krry!</p></div>
+	  <div class="tab-pane" id="know"><p>接下来请看看我的其他项目</p></div>
+   </div>
+   <hr class="divider"> <!--分割线-->
+  <div class="container" id="sum">
+  	  <div class="row">
+  	  	   <div class="col-md-4">
+  	  	   	    <h2>残梦思</h2>
+  	  	   	    <p>残梦思   （生离）<br/><br/>
+
+				琴弦滑过指间<br/>
+				冷清漫天<br/>
+				临窗探看，柳絮翩翩<br/>
+				点点思绪落心间<br/>
+				多年以前<br/>
+				伴随箜篌，君远天边<br/>
+				长歌千里，愿君听见<br/>
+				依稀泪眼<br/>
+				整夜无眠<br/>
+				诉离别<br/>
+				月光满天，如对君思念<br/><br/>
+
+				弹指间<br/>
+				光阴百年<br/>
+				空相思<br/>
+				白发三千<br/>
+				离愁似水东流遍<br/>
+				旧梦如昨<br/>
+				清晰可见<br/>
+				忧思绵延<br/>
+				指尖划过旧箜篌<br/>
+				轻弹一曲盼君颜<br/>
+				不断琴弦<br/>
+				如我思念<br/>
+				千年不变<br/><br/>
+
+				红尘如烟<br/>
+				恒远思念<br/>
+				往事旧梦<br/>
+				追忆百年<br/><br/>
+             郭  2015,9,4 凌晨</p>
+  	  	   	</div>
+  	  	   <div class="col-md-4">
+  	  	   	    <h2>织梦行云</h2>
+  	  	      	<p>织梦行云  <br/><br/>
+
+					翠柳边<br/>
+					拨动琴弦<br/>
+					似水中仙<br/>
+					一曲无眠<br/>
+					朝暮盼得相见<br/>
+					姣好笑颜<br/>
+					今世的萦牵<br/><br/>
+
+					琴弦滑过指间<br/>
+					心愿留恋<br/>
+					今世缘浅<br/>
+					执手却离别<br/>
+					箜篌断弦<br/>
+					难复重连<br/>
+					追忆旧梦<br/>
+					湿泪眼<br/><br/>
+
+					月光洒满了天<br/>
+					多少思念<br/>
+					忧愁流遍<br/>
+					叹沧海桑田<br/>
+					花落人间<br/>
+					何为了结<br/>
+					命运摇曳<br/>
+					追忆   汝颜<br/><br/>
+
+                郭  2015,9，5</p>
+  	  	   </div>
+  	  	   <div class="col-md-4">
+  	  	   	    <h2>第十六年的月</h2>
+  	  	   	    <p>第十六年的月    （死别)<br/><br/>
+
+						几十里亭外，白雾袅袅<br/>
+						晨曦光，独坐在窗前<br/>
+						风抚脸<br/>
+						聆听青草的摇动<br/>
+						清风小雨，诗化了忧情<br/>
+						花影柳枝，轮回了梦境<br/>
+						月光下的城，涌动着笑颜   <br/>
+						你曾漫步于水边<br/>
+						长发在风中翩跹<br/>
+						擦肩而过的瞬间<br/>
+						谁知今世的牵连<br/><br/>
+
+						几封泛黄褶皱的信<br/>
+						唤起深沉的思绪<br/>
+						却换来几声的叹息<br/>
+						隔世经年<br/>
+						现实与虚幻，难以辨析·······<br/><br/>
+
+						窗口烛火，点亮了孤寂<br/>
+						夜空圆月，凄美了别离<br/>
+						几次陷入那段青涩的回忆<br/>
+						柳树下相视的那一刻<br/>
+						世间喧闹都已散去<br/>
+						凤凰花的信物<br/>
+						梦想双成比翼鸟<br/>
+						与汝相依彩云飞<br/><br/>
+
+						谁能盼得此生心愿？<br/><br/>
+
+						月光拉长了你的身影<br/>
+						你在我怀中，与世长辞······<br/><br/>
+
+						夜半寂寥雨声萧，红尘回忆思绪飘<br/>
+						月下人儿道分离，戏剧人生难逍遥<br/><br/>
+
+						烛火在风中摇曳，十六年未熄  <br/>
+						只剩我在痴迷地停留在你离去的那一天<br/>
+						亭外<br/>
+						墓边，摇曳着满满的冷清<br/>
+						透过窗，月光寄托着我的思念   <br/><br/>
+
+                              郭  2015,8,24</p>
+  	  	   	</div>
+  	  	</div>
+      <hr class="divider"> <!--分割线-->
+      <footer> <!--页脚-->
+      <p class="pull-right"><a href="#top">回到顶部</a></p>
+	  <p>not end...</p>
+      </footer>
+  	</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+ $(function(){
+ $(".carousel").carousel();
+ });
+ $(document).ready(function(){
+    $("#krry-navbar .dropdown-menu a").click(function(){
+	    var href = $(this).attr("href"); //获取下拉菜单的href的属性值
+		$("#tab-list a[href='"+href+"']").tab("show");  //在标签页中打开这个属性值的标签
+	});
+ });
+</script>
+ </body>
+</html>
