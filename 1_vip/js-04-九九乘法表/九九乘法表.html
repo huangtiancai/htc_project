@@ -1,14 +1,16 @@
 <!doctype html>
 <html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="Keywords" content="关键词,关键词">
-  <meta name="Description" content="">
-  <title></title>
-  <style type="text/css">
-  </style>
- </head>
- <body>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="Keywords" content="关键词,关键词">
+	<meta name="Description" content="">
+	<title></title>
+	<style type="text/css">
+	</style>
+</head>
+
+<body>
 	<div class="jiujiu"></div>
 	<script>
 		var jiu = document.getElementsByClassName("jiujiu");
@@ -16,14 +18,13 @@
 		var j = 1;
 		var html = "<h1>九九乘法表</h1>";
 		var close = true; //控制在一行中只有一个<p>
-		function jiujiu(){
-			for(;i<=9;i++){
-				for(;i>=j;j++){
-					if(close){
-						html += "<p>"+j+" * "+i+" = "+i*j+"&nbsp;&nbsp;";
-					}
-					else{
-						html += j+" * "+i+" = "+i*j+"&nbsp;&nbsp;";
+		function jiujiu() {
+			for (; i <= 9; i++) {
+				for (; i >= j; j++) {
+					if (close) {
+						html += "<p>" + j + " * " + i + " = " + i * j + "&nbsp;&nbsp;";
+					} else {
+						html += j + " * " + i + " = " + i * j + "&nbsp;&nbsp;";
 					}
 					close = false;
 				}
@@ -35,5 +36,6 @@
 		jiujiu();
 		jiu[0].innerHTML = html;
 	</script>
- </body>
+</body>
+
 </html>
